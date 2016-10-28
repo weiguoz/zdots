@@ -1,0 +1,37 @@
+#!/usr/bin/expect
+
+log_user 0
+source ~/Dropbox/meili-inc-login/bastion.in
+######## cat help.sh workaround style: define help.sh ########
+### read -p "p s w d: " -s pswd
+### ~/w7udots/bastion.exp $pswd
+##############################################################
+set target [lindex $argv 0]
+## reading passwd +++
+stty -echo
+send_user -- "passphrase: "
+expect_user -re "(.*)\n"
+stty echo
+set psw $expect_out(1,string)
+## reading passwd ---
+set timeout 3
+
+spawn ssh -q -o GSSAPIAuthentication=no -p$port $usr@$bst
+expect "assword" {
+    send "$psw\r"
+}
+
+expect ">" {
+    send "$target\r"
+    # timeout { send_user "\nssh failed on $target" }
+}
+
+expect {
+    "*password" { send "$psw\n" }
+}
+
+# expect "$*" {
+#     send "sudo su\n"
+# }
+log_user 1
+interact

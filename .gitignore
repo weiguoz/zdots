@@ -1,0 +1,11 @@
+*
+!.vimrc
+!.zshrc
+!w7udots/*.sh
+!w7udots/*.exp
+!w7udots/ycm_extra_conf.py
+!w7udots/
+!w7udots/wg.zsh-theme
+!.tmux.conf
+!.tmux-powerlinerc
+!.gitignore
