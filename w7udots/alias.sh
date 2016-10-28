@@ -19,7 +19,7 @@ alias fn='find . ! -wholename'
 alias scp='scp -P10022'
 alias sin='~/w7udots/sin.sh'
 alias rsin='~/w7udots/rsin.sh'
-alias rlog='~/w7udots/bastion-log.exp'
+alias rlog='~/w7udots/bastion_log.exp'
 alias py3='python3'
 # alias cd
 alias ..='cd ..'
