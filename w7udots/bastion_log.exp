@@ -30,7 +30,7 @@ expect -re "(.*password*)" {
 }
 
 expect "$*" {
-    send "sudo -u log -s\r"
+    send "\nsudo -u log -s\r"
 }
 
 log_user 1
