@@ -61,6 +61,7 @@ set softtabstop=4
 set smarttab
 set expandtab
 set number
+set mouse=a       " set mousemodel=extend
 " set rnu              " relativenumber 相对行号
 set linebreak	       " 不在单词中间折行
 set viminfo+=!
@@ -119,7 +120,6 @@ if has("win32") " Fix findstr for Win32
     if has("gui")
         set guioptions-=T " 隐藏gVim工具栏，set go=" 隐藏工具栏和菜单栏
         set guioptions-=L " 隐藏gVim左边滚动条
-        set mouse=a       " set mousemodel=extend
         set lines=35
         set columns=150
         winpos 0 0

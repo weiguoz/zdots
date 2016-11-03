@@ -38,7 +38,7 @@ if [ -f /Users/weiguo/w7udots/z.sh ]; then
     zls() {
         z "$1" && l
     }
-    alias s='zls'
+    alias zs='zls'
 fi
 
 # du -d 1 | sort -nr | head -3

@@ -90,3 +90,6 @@ source $HOME/${MY_DOTS_IN}/zsh-autosuggestions/zsh-autosuggestions.zsh
 . ${HOME}/${MY_DOTS_IN}/bashrc_profile.sh
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 bindkey \^U backward-kill-line
+export PATH="/Users/weiguo/sofa:$PATH"
+fpath=(/Users/weiguo/sofa/resources/completion $fpath)
+autoload -U compinit && compinit -u
