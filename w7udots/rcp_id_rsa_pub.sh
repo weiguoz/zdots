@@ -10,3 +10,7 @@ t_port=22
 t_user='admin'
 
 cat ~/.ssh/id_rsa.pub | (ssh -p $t_port $t_user@$t_ip "cat >> ~/.ssh/authorized_keys")
+if [ $? -eq 0 -a `grep $t_ip ~/w7udots/iplist.cfg | wc -l` -eq 0 ]; then
+    echo $t_ip >> ~/w7udots/iplist.cfg
+    echo "w"
+fi

@@ -6,7 +6,7 @@ line_num=0
 choice=1
 
 new_ip_config() {
-    local ipconf=~/Dropbox/meili-inc-login/iplist-$1.cfg
+    local ipconf=~/w7udots/iplist.cfg
     if [ -e ${ipconf} ]; then
         while [ -e ${ipconf_now} ]; do
             ipconf_now=/tmp/ip_cfg_`date +%s`
@@ -15,10 +15,6 @@ new_ip_config() {
     else
         echo "${ipconf} DOES NOT EXIST." && exit
     fi
-}
-
-clean_mess() {
-    clear && echo -e "#SAMPLE: \033[43;34;0mscp -P 22 \$TARGET USERNAME@10.100.67.201:/home/YOUR/DIR\033[0m"
 }
 
 delete_ip_config() {
@@ -36,10 +32,7 @@ read_ip_connfig() {
         fi
         let "line_num+=1"
         IP[$line_num]=`echo ${line} | awk '{print $1}'`
-        PORT[$line_num]=`echo ${line} | awk '{print $2}'`
-        USER[$line_num]=`echo ${line} | awk '{print $3}'`
-        COMMENT=`echo ${line} | awk -F# '{print $2}'`
-        echo -e "\033[44;40m[\033[48;5;5m${line_num}\033[0m]\t${IP[$line_num]}\t\t# ${COMMENT}"
+        echo -e "\033[44;40m[\033[48;5;5m${line_num}\033[0m]\t${IP[$line_num]}"
     done < $1
     echo -en "select[\033[48;5;5mNO\033[0m]: "
 }
@@ -64,15 +57,10 @@ make_choice() {
 
 
 ####################### main #######################
-file_no=1
-if [ $# -eq 1 ]; then
-    file_no=$1
-fi
-new_ip_config ${file_no}
-clean_mess
+new_ip_config
 read_ip_connfig ${ipconf_now}
 delete_ip_config ${ipconf_now}
 make_choice
 # ssh -q ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}
 # ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]} # -o TCPKeepAlive=no -o ServerAliveInterval=15
-ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}
+ssh admin@${IP[${choice}]} -p 22
