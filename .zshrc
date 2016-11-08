@@ -93,3 +93,6 @@ bindkey \^U backward-kill-line
 export PATH="/Users/weiguo/sofa:$PATH"
 fpath=(/Users/weiguo/sofa/resources/completion $fpath)
 autoload -U compinit && compinit -u
+export PATH="/Users/weiguo/temp/sofa_sub_directory/sofa:$PATH"
+fpath=(/Users/weiguo/temp/sofa_sub_directory/sofa/resources/completion $fpath)
+autoload -U compinit && compinit -u
