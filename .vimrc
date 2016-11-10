@@ -61,7 +61,7 @@ set softtabstop=4
 set smarttab
 set expandtab
 set number
-set mouse=a       " set mousemodel=extend
+set mouse-=a           " set if mousemodel=extend
 " set rnu              " relativenumber 相对行号
 set linebreak	       " 不在单词中间折行
 set viminfo+=!
