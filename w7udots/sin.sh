@@ -57,6 +57,7 @@ make_choice() {
 
 
 ####################### main #######################
+clear
 new_ip_config
 read_ip_connfig ${ipconf_now}
 delete_ip_config ${ipconf_now}
