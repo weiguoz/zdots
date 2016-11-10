@@ -1,6 +1,8 @@
 #!/usr/bin/expect
 
 log_user 0
+set env(LANG) "zh_CN.GBK"
+set env(LC_ALL) "zh_CN.GBK"
 source ~/Dropbox/inc-login/alipay/bastion.in
 set timeout 60
 ## reading passwd +++
