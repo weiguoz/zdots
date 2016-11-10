@@ -19,7 +19,7 @@ alias fn='find . ! -wholename'
 alias sin='~/w7udots/sin.sh'
 alias id_rsa_cp='sh ~/w7udots/rcp_id_rsa_pub.sh'
 alias rsin='~/w7udots/rsin.sh'
-alias rlog='export LANG="zh_CN.GBK" && export LC_ALL="zh_CN.GBK" && ~/w7udots/bastion_log.exp && export LANG="en_US.UTF-8" && export LC_ALL="en_US.UTF-8"'
+alias rlog='export LANG="zh_CN.GBK" && export LC_ALL="zh_CN.GBK" && ~/w7udots/bastion_log.exp; export LANG="en_US.UTF-8" && export LC_ALL="en_US.UTF-8"'
 alias py3='python3'
 alias ssn='ssh -l admin'
 # alias cd
