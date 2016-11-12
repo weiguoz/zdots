@@ -32,6 +32,7 @@ read_ip_connfig() {
         fi
         let "line_num+=1"
         IP[$line_num]=`echo ${line} | awk '{print $1}'`
+        USER[$line_num]=`echo ${line} | awk '{print $2}'`
         echo -e "\033[44;40m[\033[48;5;5m${line_num}\033[0m]\t${IP[$line_num]}"
     done < $1
     echo -en "select[\033[48;5;5mNO\033[0m]: "
@@ -64,4 +65,4 @@ delete_ip_config ${ipconf_now}
 make_choice
 # ssh -q ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}
 # ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]} # -o TCPKeepAlive=no -o ServerAliveInterval=15
-ssh admin@${IP[${choice}]} -p 22
+ssh ${USER[${choice}]}@${IP[${choice}]} -p 22
