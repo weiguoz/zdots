@@ -1,12 +1,10 @@
 #!/usr/bin/expect
 
 log_user 0
-set env(LANG) "zh_CN.GBK"
-set env(LC_ALL) "zh_CN.GBK"
 source ~/Dropbox/inc-login/alipay/bastion.in
-set timeout 60
 ## reading passwd +++
 stty -echo
+set timeout 60
 send_user -- "passphrase: "
 expect_user -re "(.*)\n"
 set psw $expect_out(1,string)
@@ -17,7 +15,7 @@ append pswtoken $psw $token
 stty echo
 # reading passwd ---
 
-set timeout 10
+set timeout 6
 spawn ssh -q -o GSSAPIAuthentication=no -p$port $usr@$bst
 expect -re "(.*password*)" {
     send "$pswtoken\n"
