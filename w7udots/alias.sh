@@ -23,6 +23,7 @@ alias rlog='export LANG="zh_CN.GBK" && export LC_ALL="zh_CN.GBK" && ~/w7udots/ba
 alias py3='python3'
 alias ssn='ssh -l admin'
 alias ssg='ssh -l log'
+alias gitlog='git log --graph --stat --relative-date'
 # alias cd
 alias ..='cd ..'
 alias ...='cd ../..'
