@@ -13,7 +13,7 @@ while getopts "h:u:p:" opt; do
 done
 
 if [ ${#t_host} -lt 7 ]; then
-    echo "Specify <host>"
+    echo "Specify <host>. (-h -u -p)"
     exit -1
 fi
 
