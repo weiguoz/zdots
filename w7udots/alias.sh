@@ -22,7 +22,6 @@ alias rsin='~/w7udots/rsin.sh'
 alias rlog='export LC_ALL="zh_CN.GBK" && ~/w7udots/bastion_log.exp; export LC_ALL="en_US.UTF-8"'
 alias ssn='ssh -l admin'
 alias ssg='ssh -l log'
-alias gitlog='git log --graph --stat --relative-date'
 alias svnlog='svn log -l10 -v|more'
 # alias cd
 alias ..='cd ..'
