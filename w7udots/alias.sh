@@ -30,7 +30,6 @@ alias .2='.. && l'
 alias .3='... && l'
 alias .4='cd ../../.. && l'
 alias .5='cd ../../../.. && l'
-alias .6='cd ../../../../.. && l'
 cs() {
     builtin cd "$1" && l
 }

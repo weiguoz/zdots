@@ -4,11 +4,10 @@ log_user 0
 source ~/Dropbox/inc-login/alipay/bastion.in
 ## reading passwd +++
 stty -echo
-set timeout 60
 send_user -- "passphrase: "
 expect_user -re "(.*)\n"
 set psw $expect_out(1,string)
-send_user -- "\n+token: "
+send_user -- "\n+t o k e n: "
 expect_user -re "(.*)\n"
 set token $expect_out(1,string)
 append pswtoken $psw $token
