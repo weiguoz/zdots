@@ -5,6 +5,7 @@ source ~/Dropbox/inc-login/alipay/bastion.in
 ## reading passwd +++
 stty -echo
 send_user -- "passphrase: "
+set timeout 60
 expect_user -re "(.*)\n"
 set psw $expect_out(1,string)
 send_user -- "\n+t o k e n: "
@@ -14,7 +15,6 @@ append pswtoken $psw $token
 stty echo
 # reading passwd ---
 
-set timeout 6
 spawn ssh -q -o GSSAPIAuthentication=no -p$port $usr@$bst
 expect -re "(.*password*)" {
     send "$pswtoken\n"

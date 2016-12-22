@@ -1,13 +1,15 @@
 #!/bin/sh
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
-while getopts "h:u:p:" opt; do
+while getopts "h:u:p:c:" opt; do
     case $opt in
         h) t_host="$OPTARG"
             ;;
         u) t_user="$OPTARG"
             ;;
         p) t_port="$OPTARG"
+            ;;
+        c) t_comment="$OPTARG"
             ;;
     esac
 done
@@ -27,7 +29,7 @@ fi
 if [ `grep $t_host ~/w7udots/iplist.cfg | wc -l` -eq 0 ]; then
     cat ~/.ssh/id_rsa.pub | (ssh -p $t_port $t_user@$t_host "cat >> ~/.ssh/authorized_keys")
     if [ $? -eq 0 -a `grep $t_host ~/w7udots/iplist.cfg | wc -l` -eq 0 ]; then
-        echo "$t_host\t$t_user\t$t_port" >> ~/w7udots/iplist.cfg
+        echo "$t_host\t$t_user\t$t_port\t#$t_comment" >> ~/w7udots/iplist.cfg
         echo "w"
     fi
 else

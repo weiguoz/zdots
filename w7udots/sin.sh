@@ -31,9 +31,15 @@ read_ip_connfig() {
             echo
         fi
         let "line_num+=1"
-        IP[$line_num]=`echo ${line} | awk '{print $1}'`
-        USER[$line_num]=`echo ${line} | awk '{print $2}'`
-        echo -e "\033[44;40m[\033[48;5;5m${line_num}\033[0m]\t${IP[$line_num]}"
+        ADDRESS=`echo ${line} | awk -F'[#]' '{print $1}'`
+        COMMENT=`echo ${line} | awk -F'[#]' '{print $2}'`
+        IP[$line_num]=`echo ${ADDRESS} | awk '{print $1}'`
+        USER[$line_num]=`echo ${ADDRESS} | awk '{print $2}'`
+        PORT[$line_num]=`echo ${ADDRESS} | awk '{print $3}'`
+        if [ ${#COMMENT} -ne 0 ];then
+            echo -e "\033[44;40m[\033[48;5;5m${line_num}\033[0m]\t${IP[$line_num]}\t# ${COMMENT}"
+        else echo -e "\033[44;40m[\033[48;5;5m${line_num}\033[0m]\t${IP[$line_num]}"
+        fi
     done < $1
     echo -en "select[\033[48;5;5mNO\033[0m]: "
 }
@@ -65,4 +71,4 @@ delete_ip_config ${ipconf_now}
 make_choice
 # ssh -q ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}
 # ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]} # -o TCPKeepAlive=no -o ServerAliveInterval=15
-ssh ${USER[${choice}]}@${IP[${choice}]} -p 22
+ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}

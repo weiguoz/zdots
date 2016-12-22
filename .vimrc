@@ -8,6 +8,7 @@ call vundle#rc('$VIM/bundle/') " 规定插件的安装路径
 " 需要安装的插件列表放在这里
 " Bundle 'gmarik/vundle'
 Bundle 'VundleVim/Vundle.vim'
+Bundle "lepture/vim-velocity"
 Bundle 't9md/vim-choosewin'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/mru.vim'
@@ -49,6 +50,7 @@ set showcmd
 set showmatch
 set showmode
 au filetype c,cpp set cc=81
+au BufNewFile,BufRead *.vm,*.html,*.htm,*.shtml,*.stm set ft=velocity
 set cursorline " set cursorcolumn
 set backspace=indent,eol,start
 " set formatoptions-=croq " don't continue comments when pushing o/O

@@ -22,14 +22,16 @@ alias rsin='~/w7udots/rsin.sh'
 alias rlog='export LC_ALL="zh_CN.GBK" && ~/w7udots/bastion_log.exp; export LC_ALL="en_US.UTF-8"'
 alias ssn='ssh -l admin'
 alias ssg='ssh -l log'
-alias svnlog='svn log -l10 -v|more'
+alias svnlog='svn log -l30 -v|more'
 # alias cd
 alias ..='cd ..'
 alias ...='cd ../..'
-alias .2='.. && l'
-alias .3='... && l'
-alias .4='cd ../../.. && l'
-alias .5='cd ../../../.. && l'
+alias .2='... && l'
+alias .3='cd ../../.. && l'
+alias .4='cd ../../../.. && l'
+alias .5='cd ../../../../.. && l'
+alias .6='cd ../../../../../.. && l'
+alias .7='cd ../../../../../../.. && l'
 cs() {
     builtin cd "$1" && l
 }
