@@ -26,6 +26,7 @@ if [ ${#t_port} -lt 1 ]; then
     t_port=22
 fi
 
+# ssh-add -K /Users/weiguo/.ssh/id_rsa
 if [ `grep $t_host ~/w7udots/iplist.cfg | wc -l` -eq 0 ]; then
     cat ~/.ssh/id_rsa.pub | (ssh -p $t_port $t_user@$t_host "cat >> ~/.ssh/authorized_keys")
     if [ $? -eq 0 -a `grep $t_host ~/w7udots/iplist.cfg | wc -l` -eq 0 ]; then
