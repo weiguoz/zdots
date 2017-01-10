@@ -37,7 +37,7 @@ read_ip_connfig() {
         USER[$line_num]=`echo ${ADDRESS} | awk '{print $2}'`
         PORT[$line_num]=`echo ${ADDRESS} | awk '{print $3}'`
         if [ ${#COMMENT} -ne 0 ];then
-            echo -e "\033[44;40m[\033[48;5;5m${line_num}\033[0m]\t${IP[$line_num]}\t# ${COMMENT}"
+            echo -e "\033[44;40m[\033[48;5;5m${line_num}\033[0m]\t${IP[$line_num]}\t#${COMMENT}"
         else echo -e "\033[44;40m[\033[48;5;5m${line_num}\033[0m]\t${IP[$line_num]}"
         fi
     done < $1
