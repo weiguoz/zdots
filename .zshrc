@@ -89,10 +89,3 @@ source $HOME/${MY_DOTS_IN}/zsh-autosuggestions/zsh-autosuggestions.zsh
 # weiguozhu
 . ${HOME}/${MY_DOTS_IN}/bashrc_profile.sh
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-bindkey \^U backward-kill-line
-export PATH="/Users/weiguo/sofa:$PATH"
-fpath=(/Users/weiguo/sofa/resources/completion $fpath)
-autoload -U compinit && compinit -u
-export PATH="/Users/weiguo/temp/sofa_sub_directory/sofa:$PATH"
-fpath=(/Users/weiguo/temp/sofa_sub_directory/sofa/resources/completion $fpath)
-autoload -U compinit && compinit -u

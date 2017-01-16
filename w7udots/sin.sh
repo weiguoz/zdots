@@ -37,11 +37,11 @@ read_ip_connfig() {
         USER[$line_num]=`echo ${ADDRESS} | awk '{print $2}'`
         PORT[$line_num]=`echo ${ADDRESS} | awk '{print $3}'`
         if [ ${#COMMENT} -ne 0 ];then
-            echo -e "\033[44;40m[\033[48;5;5m${line_num}\033[0m]\t${IP[$line_num]}\t#${COMMENT}"
-        else echo -e "\033[44;40m[\033[48;5;5m${line_num}\033[0m]\t${IP[$line_num]}"
+            printf "[\x1b[38;5;197m%s\033[0m]\t\x1b[38;5;34m%-40s\033[0m# \x1b[38;5;7m%-10s\033[0m\n" "${line_num}" "${IP[$line_num]}" "${COMMENT}"
+        else printf "[\x1b[38;5;197m%s\033[0m]\t\x1b[38;5;34m%-40s\033[0m\n" "${line_num}" "${IP[$line_num]}"
         fi
     done < $1
-    echo -en "select[\033[48;5;5mNO\033[0m]: "
+    echo -en "select[\x1b[38;5;197mNO\033[0m]: "
 }
 
 make_choice() {
