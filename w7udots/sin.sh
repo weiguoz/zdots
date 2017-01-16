@@ -37,11 +37,11 @@ read_ip_connfig() {
         USER[$line_num]=`echo ${ADDRESS} | awk '{print $2}'`
         PORT[$line_num]=`echo ${ADDRESS} | awk '{print $3}'`
         if [ ${#COMMENT} -ne 0 ];then
-            printf "[\x1b[38;5;197m%s\033[0m]\t\x1b[38;5;34m%-40s\033[0m# \x1b[38;5;7m%-10s\033[0m\n" "${line_num}" "${IP[$line_num]}" "${COMMENT}"
-        else printf "[\x1b[38;5;197m%s\033[0m]\t\x1b[38;5;34m%-40s\033[0m\n" "${line_num}" "${IP[$line_num]}"
+            printf "[\x1b[38;5;46m%s\033[0m]\t\x1b[38;5;128m%-40s\033[0m\x1b[38;5;250m# %-10s\033[0m\n" "${line_num}" "${IP[$line_num]}" "${COMMENT}"
+        else printf "[\x1b[38;5;46m%s\033[0m]\t\x1b[38;5;128m%-40s\033[0m\n" "${line_num}" "${IP[$line_num]}"
         fi
     done < $1
-    echo -en "select[\x1b[38;5;197mNO\033[0m]: "
+    printf "pick[\x1b[38;5;46mNO\033[0m]: "
 }
 
 make_choice() {
@@ -50,14 +50,14 @@ make_choice() {
         read choice
         if [[ $choice =~ ^[1-9][0-9]*$ ]]; then
             if [ $choice -gt $line_num ]; then
-                echo "YOUR CHOICE IS TOO LARGE, TRY AGAIN."
-                echo -en "\033[44;40mselect[\033[31;1;5mNO\033[0m]: "
+                printf "[\x1b[38;5;214m%s\033[0m]\n" "YOUR CHOICE IS TOO LARGE, TRY AGAIN"
+                printf "pick[\x1b[38;5;46mNO\033[0m]: "
             else
                 break
             fi
         else
-            echo "YOUR CHOICE IS INVALID, TRY AGAIN."
-            echo -en "\033[44;40mselect[\033[31;1;5mNO\033[0m]: "
+            printf "[\x1b[38;5;214m%s\033[0m]\n" "YOUR CHOICE IS INVALID, TRY AGAIN"
+            printf "pick[\x1b[38;5;46mNO\033[0m]: "
         fi
     done
 }
