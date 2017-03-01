@@ -37,6 +37,7 @@ read_ip_connfig() {
         IP[$line_num]=`echo ${ADDRESS} | awk '{print $1}'`
         USER[$line_num]=`echo ${ADDRESS} | awk '{print $2}'`
         PORT[$line_num]=`echo ${ADDRESS} | awk '{print $3}'`
+        PSW[$line_num]=`echo ${ADDRESS} | awk '{print $4}'`
         if [ ${#COMMENT} -ne 0 ];then
             printf "[\x1b[38;5;46m%s\033[0m]\t\x1b[38;5;128m%-40s\033[0m\x1b[38;5;250m# %-10s\033[0m\n" "${line_num}" "${IP[$line_num]}" "${COMMENT}"
         else printf "[\x1b[38;5;46m%s\033[0m]\t\x1b[38;5;128m%-40s\033[0m\n" "${line_num}" "${IP[$line_num]}"
@@ -64,17 +65,26 @@ make_choice() {
 }
 
 autologin() {
-    /usr/bin/expect -c"
-        set timeout 8
-        log_user 0
-        spawn ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}
-        expect {
-            \"*password*\" { send $psw\r }
-        }
-        log_user 1
-        interact"
+    if [ ${PSW[${choice}]} == 'sit' ]; then
+        psw=$psw_sit
+    elif [ ${PSW[${choice}]} == 'dev' ]; then
+        psw=$psw_dev
+    fi
+    if [ ${#psw} -gt 0 ]; then
+        /usr/bin/expect -c"
+            set timeout 8
+            log_user 0
+            spawn ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}
+            expect {
+                \"*password*\" { send $psw\r }
+            }
+            log_user 1
+            interact
+        "
+    else
+        ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}
+    fi
 }
-
 
 ####################### main #######################
 clear

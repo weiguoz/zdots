@@ -1,7 +1,7 @@
 #!/bin/sh
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
-while getopts "h:u:p:c:" opt; do
+while getopts "h:u:p:c:t:" opt; do
     case $opt in
         h) t_host="$OPTARG"
             ;;
@@ -10,6 +10,8 @@ while getopts "h:u:p:c:" opt; do
         p) t_port="$OPTARG"
             ;;
         c) t_comment="$OPTARG"
+            ;;
+        t) t_type="$OPTARG"
             ;;
     esac
 done
@@ -25,13 +27,16 @@ fi
 if [ ${#t_port} -lt 1 ]; then
     t_port=22
 fi
+if [ ${#t_type} -lt 1 ]; then
+    t_type=none
+fi
 
 # ssh-add -K /Users/weiguo/.ssh/id_rsa
 if [ `grep $t_host ~/w7udots/iplist.cfg | wc -l` -eq 0 ]; then
     # cat ~/.ssh/id_rsa.pub | (ssh -p $t_port $t_user@$t_host "cat >> ~/.ssh/authorized_keys")
     cat ~/.ssh/id_rsa.pub | (ssh -p $t_port $t_user@$t_host "cat >> ~/.ssh/known_hosts")
     if [ $? -eq 0 -a `grep $t_host ~/w7udots/iplist.cfg | wc -l` -eq 0 ]; then
-        echo "$t_host\t$t_user\t$t_port\t#$t_comment" >> ~/w7udots/iplist.cfg
+        echo "$t_host\t$t_user\t$t_port\t$t_type\t#$t_comment" >> ~/w7udots/iplist.cfg
         echo "w"
     fi
 else
