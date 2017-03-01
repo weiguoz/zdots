@@ -18,7 +18,6 @@ export ANT_HOME=/usr/local/share/ant
 export M2_HOME=/usr/local/share/maven
 export CLOUDENGINE_HOME=/usr/local/share/cloudengine
 #export GOPATH=${HOME}/go
-# export http_proxy=localhost:1080
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 #MYSQL_HOME=/usr/local/mysql
@@ -36,3 +35,13 @@ export CPLUS_INCLUDE_PATH=/usr/local/Cellar/openssl/1.0.2j/include
 export C_INCLUDE_PATH=/usr/local/Cellar/openssl/1.0.2j/include
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
+
+function setproxy() {
+    # export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:3128" 也可以设置http代理
+    export ALL_PROXY=socks5://127.0.0.1:1086
+}
+
+function unsetproxy() {
+    # unset {HTTP,HTTPS,FTP}_PROXY
+    unset ALL_PROXY
+}

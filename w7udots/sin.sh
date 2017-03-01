@@ -1,6 +1,7 @@
 #!/bin/bash
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
+source ~/playground/conf/sin.in
 ipconf_now="/tmp/ip_cfg_`date +%s`"
 line_num=0
 choice=1
@@ -62,6 +63,18 @@ make_choice() {
     done
 }
 
+autologin() {
+    /usr/bin/expect -c"
+        set timeout 8
+        log_user 0
+        spawn ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}
+        expect {
+            \"*password*\" { send $psw\r }
+        }
+        log_user 1
+        interact"
+}
+
 
 ####################### main #######################
 clear
@@ -69,6 +82,7 @@ new_ip_config
 read_ip_connfig ${ipconf_now}
 delete_ip_config ${ipconf_now}
 make_choice
+autologin
 # ssh -q ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}
 # ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]} # -o TCPKeepAlive=no -o ServerAliveInterval=15
-ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}
+# ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}
