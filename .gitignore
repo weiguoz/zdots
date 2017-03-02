@@ -10,6 +10,7 @@
 !w7udots/
 !w7udots/gitconfig.include
 
+!w7udots/oh-my-zsh/
 !w7udots/oh-my-zsh/themes/
 !w7udots/oh-my-zsh/themes/wg.zsh-theme
 !w7udots/oh-my-zsh/themes/wg_gbk.zsh-theme
