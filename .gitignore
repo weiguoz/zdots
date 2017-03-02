@@ -8,6 +8,7 @@
 !w7udots/gitconfig.include
 !w7udots/wg.zsh-theme
 !w7udots/wg_gbk.zsh-theme
+!w7udots/ssh-helper
 !.tmux.conf
 !.tmux-powerlinerc
 !.gitignore
