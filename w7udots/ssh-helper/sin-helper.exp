@@ -1,0 +1,16 @@
+#!/usr/bin/expect
+
+log_user 0
+set user [lindex $argv 0]
+set host [lindex $argv 1]
+set port [lindex $argv 2]
+set pswd [lindex $argv 3]
+
+set timeout 8
+spawn ssh -q -o GSSAPIAuthentication=no $user@$host -p$port
+expect -re "(.*password*)" {
+    send "$pswd\n"
+}
+
+log_user 1
+interact

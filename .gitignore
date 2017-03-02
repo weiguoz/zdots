@@ -1,4 +1,7 @@
 *
+!.tmux.conf
+!.tmux-powerlinerc
+!.gitignore
 !.vimrc
 !.zshrc
 !w7udots/*.sh
@@ -6,9 +9,11 @@
 !w7udots/ycm_extra_conf.py
 !w7udots/
 !w7udots/gitconfig.include
+
+!w7udots/themes/
 !w7udots/themes/wg.zsh-theme
 !w7udots/themes/wg_gbk.zsh-theme
+
 !w7udots/ssh-helper/
-!.tmux.conf
-!.tmux-powerlinerc
-!.gitignore
+!w7udots/ssh-helper/*.sh
+!w7udots/ssh-helper/*.exp
