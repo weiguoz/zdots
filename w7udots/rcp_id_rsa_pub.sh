@@ -36,7 +36,7 @@ if [ `grep $t_host ~/w7udots/iplist.cfg | wc -l` -eq 0 ]; then
     cat ~/.ssh/id_rsa.pub | (ssh -p $t_port $t_user@$t_host "cat >> ~/.ssh/authorized_keys")
     # cat ~/.ssh/id_rsa.pub | (ssh -p $t_port $t_user@$t_host "cat >> ~/.ssh/known_hosts")
     if [ $? -eq 0 -a `grep $t_host ~/w7udots/iplist.cfg | wc -l` -eq 0 ]; then
-        echo "$t_host\t$t_user\t$t_port\t$t_type\t#$t_comment" >> ~/w7udots/iplist.cfg
+        echo "$t_host\t$t_user\t$t_port\t$t_type\t#$t_comment" >> ~/w7udots/ssh-helper/iplist.cfg
         echo "w"
     fi
 else
