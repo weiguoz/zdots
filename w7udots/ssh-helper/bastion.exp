@@ -15,7 +15,7 @@ append pswtoken $psw $token
 stty echo
 # reading passwd ---
 
-spawn /usr/local/bin/luit -encoding gbk ssh -q -o GSSAPIAuthentication=no -p$port $usr@$bst
+spawn ssh -q -o GSSAPIAuthentication=no -p$port $usr@$bst
 expect -re "(.*password*)" {
     send "$pswtoken\n"
 }
