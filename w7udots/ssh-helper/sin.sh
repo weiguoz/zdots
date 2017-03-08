@@ -71,7 +71,7 @@ autologin() {
     if [ ${#psw} -gt 0 ]; then
         ~/w7udots/ssh-helper/sin-helper.exp ${USER[${choice}]} ${IP[${choice}]} ${PORT[${choice}]} $psw
     else
-        ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}
+        /usr/local/bin/luit -encoding gbk ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}
     fi
 }
 

@@ -7,7 +7,7 @@ set port [lindex $argv 2]
 set pswd [lindex $argv 3]
 
 set timeout 8
-spawn ssh -q -o GSSAPIAuthentication=no $user@$host -p$port
+spawn /usr/local/bin/luit -encoding gbk ssh -q -o GSSAPIAuthentication=no $user@$host -p$port
 expect -re "(.*password*)" {
     send "$pswd\n"
 }
