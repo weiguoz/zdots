@@ -51,7 +51,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git svn)
 
 # User configuration
 
@@ -88,4 +88,5 @@ source $HOME/${MY_DOTS_IN}/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # weiguozhu
 . ${HOME}/${MY_DOTS_IN}/bashrc_profile.sh
+# PS1="$PS1 \W$(parse_svn_branch)$"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'

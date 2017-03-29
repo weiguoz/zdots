@@ -10,6 +10,7 @@ call vundle#rc('$VIM/bundle/') " 规定插件的安装路径
 Bundle 'VundleVim/Vundle.vim'
 Bundle "lepture/vim-velocity"
 Bundle 't9md/vim-choosewin'
+Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/mru.vim'
 Bundle 'vim-scripts/grep.vim'
@@ -55,22 +56,18 @@ set cursorline " set cursorcolumn
 set backspace=indent,eol,start
 " set formatoptions-=croq " don't continue comments when pushing o/O
 """"""""""""缩进""""""""""""
-set autoindent
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
 set smarttab
-set expandtab
-set number
+set smartindent
+set ts=4 sw=4 ai et
+set nu
 set mouse-=a           " set if mousemodel=extend
 " set rnu              " relativenumber 相对行号
 set linebreak	       " 不在单词中间折行
 set viminfo+=!
 set foldmethod=marker  " marker 这个容易操控; /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
 " set ffs=unix,dos,mac
-set encoding=utf-8
-" set encoding=utf-8 termencoding=utf-8 fileencodings=utf-8,gbk,gb2312,gb18030 " 编码控制
+" set encoding=utf-8
+set encoding=utf-8 termencoding=gbk fileencodings=utf-8,gbk,gb2312,gb18030 " 编码控制
 " set guifont=Monaco:h9 "Monaco:h10 Courier_New:h11:cANSI 指定字体
 " Files/Backups
 " set nobackup
@@ -231,11 +228,19 @@ let g:gundo_right=1
 let MRU_Max_Entries=400
 
 let g:godef_split=2
+
+" 对齐线段配置 vim-indent-guides
+let g:indent_guides_guide_size=1
+let g:indent_guides_start_level=2
+let g:indent_guides_enable_on_vim_startup = 0
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=6
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 " }}}
 
 " {{{ mappings
 imap jj <Esc>
-let g:mapleader=","
+let g:mapleader=" "
 map <leader>f  :MRU<CR>
 map <leader>t  :tabNext<CR>
 map <leader>c  :call CompileRun()<CR>
@@ -249,6 +254,8 @@ nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-l> <C-W>l
+nnoremap <silent> g; g;zz
+nnoremap <silent> g, g,zz
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
