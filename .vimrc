@@ -14,10 +14,11 @@ Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/mru.vim'
 Bundle 'vim-scripts/grep.vim'
+Bundle 'mxw/vim-jsx'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/FencView.vim'
 Bundle 'scrooloose/nerdtree'
-" Bundle 'scrooloose/syntastic'
+Bundle 'vim-syntastic/syntastic'
 " http://unlogic.co.uk/2013/02/08/vim-as-a-python-ide/
 Bundle 'klen/python-mode'
 " python completer
@@ -30,7 +31,9 @@ Bundle 'honza/vim-snippets'
 " Bundle 'fatih/vim-go'
 Bundle 'tomasr/molokai'
 Bundle 'kien/ctrlp.vim'
+Bundle 'artur-shaik/vim-javacomplete2'
 Bundle 'Valloric/YouCompleteMe'
+" Bundle 'ervandew/supertab'
 " Bundle 'docker/docker'
 " Bundle 'tpope/vim-fugitive' git plugin
 " install godef in GFW http_proxy=127.0.0.1:8087 go get -u github.com/nsf/gocode
@@ -44,13 +47,14 @@ let g:ycm_confirm_extra_conf=1
 au BufWrite /private/etc/pw.* set nowritebackup nobackup " Don't write backup file if vim is being called by "chpass"
 filetype plugin indent on      " 重新打开文件类型检查
 filetype plugin on      " 重新打开文件类型检查
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
 syntax enable
 set t_Co=256
 set ruler
 set showcmd
 set showmatch
 set showmode
-au filetype c,cpp set cc=81
+au filetype c,cpp,javascript set cc=81
 au BufNewFile,BufRead *.vm,*.html,*.htm,*.shtml,*.stm set ft=velocity
 set cursorline " set cursorcolumn
 set backspace=indent,eol,start
@@ -228,6 +232,10 @@ let g:gundo_right=1
 let MRU_Max_Entries=400
 
 let g:godef_split=2
+
+" JSX syntax highlighting and indenting will be enabled only for files with
+" the .jsx extension. If you would like JSX in .js files, add
+let g:jsx_ext_required = 0
 
 " 对齐线段配置 vim-indent-guides
 let g:indent_guides_guide_size=1

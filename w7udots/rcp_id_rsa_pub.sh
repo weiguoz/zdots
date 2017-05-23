@@ -36,7 +36,7 @@ fi
 if [ `grep $t_host $iplistf | wc -l` -eq 0 ]; then
     cat ~/.ssh/id_rsa.pub | (ssh -p $t_port $t_user@$t_host "cat >> ~/.ssh/authorized_keys")
     # cat ~/.ssh/id_rsa.pub | (ssh -p $t_port $t_user@$t_host "cat >> ~/.ssh/known_hosts")
-    if [ $? -eq 0 -a `grep $t_host $iplistf | wc -l` -eq 0 ]; then
+    if [ $? -eq 0 -a `grep '$t_host' $iplistf | wc -l` -eq 0 ]; then
         echo "$t_host\t$t_user\t$t_port\t$t_type\t#$t_comment" >> $iplistf
         echo "w"
     fi
