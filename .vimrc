@@ -71,7 +71,7 @@ set viminfo+=!
 set foldmethod=marker  " marker 这个容易操控; /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
 " set ffs=unix,dos,mac
 " set encoding=utf-8
-set encoding=utf-8 termencoding=gbk fileencodings=utf-8,gbk,gb2312,gb18030 " 编码控制
+set encoding=utf-8 termencoding=utf-8,gbk fileencodings=utf-8,gbk,gb2312,gb18030 " 编码控制
 " set guifont=Monaco:h9 "Monaco:h10 Courier_New:h11:cANSI 指定字体
 " Files/Backups
 " set nobackup
