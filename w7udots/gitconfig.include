@@ -11,3 +11,4 @@
     ci = commit -v
     co = checkout
     bv = branch -vv
+    pushf = push --force-with-lease

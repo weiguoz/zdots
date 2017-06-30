@@ -1,0 +1,9 @@
+#!/usr/bin/expect
+
+log_user 0
+source ~/playground/conf/bastion.in
+spawn ssh -q -o GSSAPIAuthentication=no -p$port $usr@$bst
+expect "$*" { send "ssh $logbst\r" }
+expect "$*" { send "\nsudo -u log -s\r" }
+log_user 1
+interact
