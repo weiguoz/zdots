@@ -6,9 +6,3 @@ solrversion2date() {
     fi
 }
 
-has() {
-    if [ $# -ne 0 ]; then
-       xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
-    fi
-}
-
