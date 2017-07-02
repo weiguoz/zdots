@@ -15,6 +15,7 @@ alias hist='history'
 alias grep='grep -i --color'
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
 alias hasnot='xargs grep -HLi'
+alias sah='hasnot'
 alias f='open -a Finder .'
 alias ff='find . -type f -iname'
 alias fd='find . -type d -iname'
@@ -38,11 +39,11 @@ cs() {
 }
 # alias cs='cdls'
 
-if [ -f /Users/weiguo/w7udots/z.sh ]; then
-    zls() {
+if [ -f ~/w7udots/z.sh ]; then
+    z_then_ls() {
         z "$1" && l
     }
-    alias zs='zls'
+    alias s='z_then_ls'
 fi
 
 # du -d 1 | sort -nr | head -3
