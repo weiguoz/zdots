@@ -14,6 +14,7 @@ alias kuai='man' # in memo of jinwentan
 alias hist='history'
 alias grep='grep -i --color'
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
+alias hasnot='xargs grep -HLi'
 alias f='open -a Finder .'
 alias ff='find . -type f -iname'
 alias fd='find . -type d -iname'
