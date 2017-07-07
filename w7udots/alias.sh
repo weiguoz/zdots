@@ -28,6 +28,7 @@ alias svnlog='svn log -l30 -v|more'
 # alias cd
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
 alias .2='... && l'
 alias .3='cd ../../.. && l'
 alias .4='cd ../../../.. && l'

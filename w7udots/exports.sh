@@ -29,7 +29,6 @@ iPATH=$iPATH:$CLOUDENGINE_HOME/bin
 #iPATH=$iPATH:/Applications/Postgres.app/Contents/Versions/9.5/bin
 # iPATH=$iPATH:/usr/local/spring/bin
 
-export PATH=$PATH:$iPATH
 #export DYLD_LIBRARY_PATH=$MYSQL_HOME/lib:$DYLD_LIBRARY_PATH
 export CPLUS_INCLUDE_PATH=/usr/local/Cellar/openssl/1.0.2j/include
 export C_INCLUDE_PATH=/usr/local/Cellar/openssl/1.0.2j/include
@@ -45,3 +44,4 @@ function unsetproxy() {
     # unset {HTTP,HTTPS,FTP}_PROXY
     unset ALL_PROXY
 }
+export PATH=$PATH:$iPATH
