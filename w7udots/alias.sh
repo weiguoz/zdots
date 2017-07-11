@@ -47,4 +47,6 @@ if [ -f ~/w7udots/z.sh ]; then
     alias s='z_then_ls'
 fi
 
+# package name: osascript -e 'id of app "Finder"'
+
 # du -d 1 | sort -nr | head -3

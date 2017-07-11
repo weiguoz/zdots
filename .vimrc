@@ -129,6 +129,9 @@ if has("win32") " Fix findstr for Win32
     endif
 endif
 
+let g:jsx_ext_required = 0
+let g:syntastic_javascript_checkers = ['eslint']
+
 " 打开大文件优化 http://vim.wikia.com/wiki/Faster_loading_of_large_files
 "   if !exists("my_auto_commands_loaded")
 "       let my_auto_commands_loaded=1

@@ -16,3 +16,5 @@
 !w7udots/ssh-helper/
 !w7udots/ssh-helper/*.sh
 !w7udots/ssh-helper/*.exp
+!w7udots/rime/
+!w7udots/rime/*.yaml
