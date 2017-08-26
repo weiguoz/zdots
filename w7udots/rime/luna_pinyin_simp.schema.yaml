@@ -50,6 +50,7 @@ speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
   delimiter: " '"
   algebra:
+    - erase/^xx$/  
     - derive/^([zcs])h/$1/
     - derive/^([zcs])([^h])/$1h$2/
     - derive/([ei])n$/$1ng/
@@ -59,10 +60,9 @@ speller:
     - derive/ong$/on/
     - derive/ao$/oa/
     - derive/([iu])a(o|ng?)$/a$1$2/
-    # - erase/^xx$/
+    - derive/^([nl])ve$/$1ue/
     # - abbrev/^([a-z]).+$/$1/
     # - abbrev/^([zcs]h).+$/$1/
-    # - derive/^([nl])ve$/$1ue/
     # - derive/^([jqxy])u/$1v/
     # - derive/un$/uen/
     # - derive/ui$/uei/

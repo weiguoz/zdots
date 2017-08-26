@@ -4,5 +4,6 @@ brew update && brew upgrade && brew cleanup
 sh /Users/weiguo/w7udots/oh-my-zsh/tools/upgrade.sh
 # cd /Users/weiguo/playground/XX-Net && git pull --rebase --stat origin master
 
-# npm -g outdated
-npm update -g
+npm update
+npm -g outdated
+# npm -g install webpack

@@ -17,17 +17,17 @@ show_notifications_when: appropriate
 show_notifications_via_notification_center: false
 
 style:
-  color_scheme: dark_temple
+  color_scheme: ink
   horizontal: false
   inline_preedit: true
-  corner_radius: 6
+  corner_radius: 8
   border_height: 0
   border_width: 0
   line_spacing: 1
   spacing: 5  # space between preedit and candidates in non-inline mode
   #candidate_format: '%c. %@ '
-  font_face: 'Lucida Grande'  # supporting soft cursor '›'
-  font_point: 18
+  font_face: '苹方-简 细体' # 'Lucida Grande' supporting soft cursor '›'
+  font_point: 17
   #label_font_face: 'STHeitiTC-Medium'
   #label_font_point: 18
 
@@ -177,7 +177,7 @@ app_options:
   com.jetbrains.intellij:
     ascii_mode: true
   com.google.Chrome:
-    ascii_mode: true
+    ascii_mode: false
   com.apple.Safari:
     ascii_mode: true
   com.apple.Spotlight:
