@@ -177,7 +177,7 @@ app_options:
   com.jetbrains.intellij:
     ascii_mode: true
   com.google.Chrome:
-    ascii_mode: false
+    ascii_mode: true
   com.apple.Safari:
     ascii_mode: true
   com.apple.Spotlight:
