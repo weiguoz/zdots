@@ -150,3 +150,12 @@ ascii_composer:
     Control_R: noop
     Caps_Lock: clear
     Eisu_toggle: clear
+
+patch:
+  key_binder/bindings:
+    - when: paging
+      accept: bracketleft
+      send: Page_Up
+    - when: has_menu
+      accept: bracketright
+      send: Page_Down

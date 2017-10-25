@@ -145,7 +145,6 @@ preset_color_schemes:
   clean_white:
     name: 简约白／Clean White
     author: Chongyu Zhu <lembacon@gmail.com>, based on 搜狗「简约白」
-    horizontal: true
     candidate_format: '%c %@ '
     corner_radius: 6
     border_height: 6
