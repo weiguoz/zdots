@@ -1,10 +1,10 @@
 # sourced by ~/.bashrc normally
 # just4fun
 alias woman='man'
+alias calc='bc'
 # here we go
 alias v='vim'
 alias vi='vim'
-alias vm='vim'
 alias md5sum='md5 -r'
 alias md5='md5 -r'
 alias t='tmux'
@@ -15,7 +15,6 @@ alias la='ls -a'
 alias hist='history'
 alias grep='grep -i --color'
 alias g='grep'
-alias pg='ps -ef | grep -v grep | grep'
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
 alias sah='xargs grep -HLi'
 alias f='open -a Finder .'
@@ -44,7 +43,6 @@ alias .9='cd ../../../../../../../../.. && l'
 cs() {
     builtin cd "$1" && l
 }
-# alias cs='cdls'
 
 if [ -f ~/w7udots/z.sh ]; then
     z_then_ls() {
