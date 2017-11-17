@@ -1,6 +1,4 @@
 *
-!.tmux.conf
-!.tmux-powerlinerc
 !.gitignore
 !.vimrc
 !.zshrc
@@ -18,3 +16,6 @@
 !w7udots/ssh-helper/*.exp
 !w7udots/rime/
 !w7udots/rime/*.yaml
+!w7udots/tmux
+!w7udots/tmux/tmux.conf
+!w7udots/tmux/tmux.conf.local
