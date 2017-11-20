@@ -3,16 +3,15 @@
 " {{{ bundle
 set secure nocompatible
 filetype off                   " 必须先关闭文件类型检查
-set rtp+=$VIM/bundle/Vundle.vim/   " 规定Vundle的路径
-call vundle#rc('$VIM/bundle/') " 规定插件的安装路径
+set rtp+=/Users/weiguo/.vim/vundle/Vundle.vim " 规定Vundle的路径
+call vundle#rc('/Users/weiguo/.vim/vundle') " 规定插件的安装路径
 " 需要安装的插件列表放在这里
 " Bundle 'gmarik/vundle'
-Bundle 'VundleVim/Vundle.vim'
+Bundle 'Vundle.vim'
 Bundle "lepture/vim-velocity"
 Bundle 't9md/vim-choosewin'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'majutsushi/tagbar'
-Bundle 'vim-scripts/mru.vim'
 Bundle 'vim-scripts/grep.vim'
 Bundle 'mxw/vim-jsx'
 Bundle 'vim-scripts/a.vim'
@@ -30,7 +29,10 @@ Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 " Bundle 'fatih/vim-go'
 Bundle 'tomasr/molokai'
-Bundle 'kien/ctrlp.vim'
+"""""""" LeaderF by Yggdroot@newsmth replace
+" - 'kien/ctrlp.vim'
+" - 'vim-scripts/mru.vim'
+Plugin 'Yggdroot/LeaderF'
 Bundle 'artur-shaik/vim-javacomplete2'
 Bundle 'Valloric/YouCompleteMe'
 " Bundle 'ervandew/supertab'
@@ -252,7 +254,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 " {{{ mappings
 imap jj <Esc>
 let g:mapleader=" "
-map <leader>f :MRU<CR>
+" map <leader>f :MRU<CR>
 map <leader>t :tabNext<CR>
 map <leader>c :call CompileRun()<CR>
 map <silent> <leader>w <C-W><C-W>
