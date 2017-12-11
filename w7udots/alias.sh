@@ -48,7 +48,7 @@ if [ -f ~/w7udots/z.sh ]; then
     z_then_ls() {
         z "$1" && l
     }
-    alias go='z_then_ls'
+    alias z='z_then_ls'
 fi
 
 # package name: osascript -e 'id of app "Finder"'
