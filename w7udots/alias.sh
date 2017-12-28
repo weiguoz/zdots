@@ -1,5 +1,7 @@
 # sourced by ~/.bashrc normally
 # just4fun
+alias train='sl'
+alias wgg='sl' # funny for my little son
 alias woman='man'
 alias calc='bc'
 # here we go
@@ -22,15 +24,17 @@ alias fd='find . -type d -iname'
 alias fn='find . ! -wholename'
 alias sin='~/w7udots/ssh-helper/sin.sh'
 alias rsa_spawn='sh ~/w7udots/rcp_id_rsa_pub.sh'
+alias rsa_enable_key='ssh-add -K /Users/weiguo/.ssh/id_rsa'
 alias rsin0='export LC_ALL="zh_CN.GBK" && ~/w7udots/ssh-helper/bastion.exp; export LC_ALL="en_US.UTF-8"'
 alias rsin='export LC_ALL="zh_CN.GBK" && ~/w7udots/ssh-helper/bastion_with_cookie.exp; export LC_ALL="en_US.UTF-8"'
 alias svnlog='svn log -l300 -v|more'
-alias mvni='mvn clean install -Dmaven.test.skip'
-alias mvnd='mvn clean deploy -Dmaven.test.skip'
+alias mvni='mvn clean install -Dmaven.test.skip' # deploy
 alias mvnp='mvn clean package -Dmaven.test.skip'
 alias g='sh ~/w7udots/search_on_terminal.sh'
 alias gg='googler'
-# alias cd
+# alias cd.
+#  Q: why not recursion, such as .9='.. && .8' ?
+#  A: have a look at 'cd -'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias .2='... && l'

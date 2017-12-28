@@ -9,7 +9,7 @@ sh /Users/weiguo/w7udots/oh-my-zsh/tools/upgrade.sh
 
 # echo "\n[3] tnpm update"
 # tnpm update
-echo "\n[3] tnpm -g outdated"
-tnpm -g outdated
+# echo "\n[3] tnpm -g outdated"
+# tnpm -g outdated
 # npm -g install webpack
 # npm update -g npm
