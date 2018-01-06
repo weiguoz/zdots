@@ -19,3 +19,5 @@
 !w7udots/tmux
 !w7udots/tmux/tmux.conf
 !w7udots/tmux/tmux.conf.local
+
+!w7udots/oh-my-zsh/custom/*

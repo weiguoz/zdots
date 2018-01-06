@@ -12,5 +12,5 @@
     ci = commit -v
     co = checkout
     bv = branch -vv
-    where = remote show origin
+    info = remote show origin
     pushf = push --force-with-lease
