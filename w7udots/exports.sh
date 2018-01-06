@@ -6,11 +6,11 @@
 # export GREP_OPTIONS='--color=auto --exclude-dir=.svn'
 # export FIGNORE='.svn:.git'
 # export LESSCHARSET='UTF-8'
-# # export LC_ALL="C"
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+# export LC_ALL="C"
 # export LC_COLLATE="C"
 # export LC_CTYPE="C"
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk/Contents/Home
 export ANT_HOME=/usr/local/share/ant
