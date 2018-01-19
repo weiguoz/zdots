@@ -1,7 +1,7 @@
 #!/bin/bash
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
-source ~/playground/conf/sin.in
+source ~/workspace/conf/sin.in
 ipconf_now="/tmp/ip_cfg_`date +%s`"
 line_num=0
 choice=1

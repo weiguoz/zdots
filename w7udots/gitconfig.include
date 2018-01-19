@@ -2,6 +2,7 @@
 # [include]
 #    path = /path/to/me
 [alias]
+    lg = reflog
     lg0 = log --graph --abbrev-commit --decorate --stat --date=relative
     lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
     lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
@@ -12,5 +13,5 @@
     ci = commit -v
     co = checkout
     bv = branch -vv
-    info = remote show origin
+    info = config --list
     pushf = push --force-with-lease
