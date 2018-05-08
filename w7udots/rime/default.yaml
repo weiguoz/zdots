@@ -4,18 +4,18 @@
 config_version: "0.36"
 
 schema_list:
-  - schema: luna_pinyin
-  - schema: cangjie5
-  - schema: luna_pinyin_fluency
   - schema: luna_pinyin_simp
-  - schema: luna_pinyin_tw
+    #  w7u  - schema: luna_pinyin
+    #  w7u  - schema: cangjie5
+    #  w7u  - schema: luna_pinyin_fluency
+    #  w7u  - schema: luna_pinyin_tw
 
 switcher:
-  caption: 〔方案選單〕
+  caption: "〔切换输入方案〕" # w7u〔方案選單〕
   hotkeys:
     - Control+grave
     - Control+Shift+grave
-    - F4
+    - Control+s
   save_options:
     - full_shape
     - ascii_punct

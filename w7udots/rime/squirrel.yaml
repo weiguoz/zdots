@@ -173,8 +173,6 @@ app_options:
     no_inline: true
   com.jetbrains.intellij:
     ascii_mode: true
-  com.google.Chrome:
-    ascii_mode: true
   com.apple.Safari:
     ascii_mode: true
   com.apple.Spotlight:
@@ -182,7 +180,8 @@ app_options:
   com.apple.Terminal:
     ascii_mode: true
     no_inline: true
-
+  # com.google.Chrome:
+  #  ascii_mode: true
   #com.apple.dt.Xcode:
   #  ascii_mode: true
   #com.barebones.textwrangler:

@@ -18,9 +18,6 @@ Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/FencView.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'vim-syntastic/syntastic'
-" http://unlogic.co.uk/2013/02/08/vim-as-a-python-ide/
-Bundle 'klen/python-mode'
-" python completer
 Bundle 'davidhalter/jedi-vim'
 Bundle 'vim-scripts/Mark--Karkat'
 Bundle 'sjl/gundo.vim'
@@ -183,7 +180,7 @@ function AddTitle()
         call append(2, " *")
         call append(3, " * @History:")
         call append(4, " * ---------------------------------")
-        call append(5, " * ".strftime("%Y-%m-%d")."    myxjtu@gmail.com    1.0    created")
+        call append(5, " * @author: w7u created [".strftime("%Y-%m-%d")."]")
         call append(6, " *")
         call append(7, " * -------------------------------------------------------------}}}*/")
     else
@@ -192,7 +189,7 @@ function AddTitle()
         call append(2, "#")
         call append(3, "# @History:")
         call append(4, "# ---------------------------------")
-        call append(5, "# ".strftime("%Y-%m-%d %H:%M")."    myxjtu@gmail.com    1.0    created")
+        call append(5, "# @author: w7u created [".strftime("%Y-%m-%d")."]")
         call append(6, "#")
         call append(7, "# -------------------------------------------------------------------------}}}")
     endif

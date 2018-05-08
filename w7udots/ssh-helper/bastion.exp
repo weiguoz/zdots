@@ -1,7 +1,7 @@
 #!/usr/bin/expect
 
 log_user 0
-source ~/workspace/conf/bastion.in
+source ~/xspace/conf/bastion.in
 ## reading passwd +++
 stty -echo
 send_user -- "passphrase: "
@@ -31,10 +31,10 @@ expect -re "(.*password*)" {
     send "$psw\n"
 }
 
-send_user -- "-3"
-expect "$*" {
-    send "\nsudo -u log -s\r"
-}
+# send_user -- "-3"
+# expect "$*" {
+#     send "\nsudo -u log -s\r"
+# }
 
 send_user -- "-OK!"
 log_user 1
