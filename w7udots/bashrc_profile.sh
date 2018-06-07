@@ -6,14 +6,14 @@ import() {
     fi
 }
 
-MY_DOTS_IN='w7udots'
+DOTS='/Users/weiguo/w7udots'
 
 #eval $(thefuck --alias)
-import ~/${MY_DOTS_IN}/z.sh # https://github.com/rupa/z
-import ~/${MY_DOTS_IN}/exports.sh
-import ~/${MY_DOTS_IN}/settings.sh
-import ~/${MY_DOTS_IN}/alias.sh
-import ~/${MY_DOTS_IN}/functions.sh
+import ${DOTS}/z/z.sh # https://github.com/rupa/z
+import ${DOTS}/exports.sh
+import ${DOTS}/settings.sh
+import ${DOTS}/alias.sh
+import ${DOTS}/functions.sh
 # import /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 # export PS1='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%~ %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 uptime

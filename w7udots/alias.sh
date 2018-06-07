@@ -1,3 +1,4 @@
+DOTS="/Users/weiguo/w7udots"
 # sourced by ~/.bashrc normally
 # just4fun
 alias wgg='sl' # funny for my little son
@@ -13,7 +14,7 @@ alias l='ls -l'
 alias ll='ls -al'
 alias la='ls -a'
 alias hist='history'
-alias grep='grep -i --color'
+alias grep='grep -ni --color=always'
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
 alias sah='xargs grep -HLi'
 alias f='open -a Finder .'
@@ -21,15 +22,15 @@ alias ff='find . -type f -iname'
 alias fd='find . -type d -iname'
 alias fn='find . ! -wholename'
 # login +++
-alias cos='export LC_ALL="zh_CN.GBK" && ~/w7udots/ssh-helper/bastion.exp; export LC_ALL="en_US.UTF-8"'
-alias sin='export LC_ALL="zh_CN.GBK" && ~/w7udots/ssh-helper/bastion_with_cookie.exp; export LC_ALL="en_US.UTF-8"'
-alias tan='~/w7udots/ssh-helper/sin.sh'
-alias rsa_spawn='sh ~/w7udots/rcp_id_rsa_pub.sh'
+alias cos="export LC_ALL='zh_CN.GBK' && ${DOTS}/ssh-helper/bastion.exp; export LC_ALL='en_US.UTF-8'"
+alias sin="export LC_ALL='zh_CN.GBK' && ${DOTS}/ssh-helper/bastion_with_cookie.exp; export LC_ALL='en_US.UTF-8'"
+alias tan="${DOTS}/ssh-helper/sin.sh"
+alias rsa_spawn="sh ${DOTS}/rcp_id_rsa_pub.sh"
 alias rsa_enable_key='ssh-add -K /Users/weiguo/.ssh/id_rsa'
 # login ---
 alias svnlog='svn log -l300 -v|more'
 alias mvnp='mvn clean package -Dmaven.test.skip'
-alias g='sh ~/w7udots/search_on_terminal.sh'
+alias g="sh ${DOTS}/search_on_terminal.sh"
 alias gg='googler'
 # alias cd.
 #  Q: why not recursion, such as .9='.. && .8' ?
@@ -48,7 +49,7 @@ cs() {
     builtin cd "$1" && l
 }
 
-if [ -f ~/w7udots/z.sh ]; then
+if [ -f ${DOTS}/z/z.sh ]; then
     z_then_ls() {
         z "$1" && l
     }
