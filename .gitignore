@@ -6,6 +6,7 @@
 !w7udots/
 !w7udots/*.sh
 !w7udots/*.exp
+!w7udots/bin/
 !w7udots/ycm_extra_conf.py
 !w7udots/gitconfig.include
 !w7udots/wg.zsh-theme

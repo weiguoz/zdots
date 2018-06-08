@@ -24,6 +24,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 iPATH=$JAVA_HOME:$M2_HOME/bin
 iPATH=$iPATH:$ANT_HOME/bin
 iPATH=$iPATH:$CLOUDENGINE_HOME/bin
+iPATH=$iPATH:~/w7udots/bin
 #iPATH=$iPATH:$MYSQL_HOME/bin
 #iPATH=$iPATH:/usr/local/go/bin:$GOPATH/bin
 #iPATH=$iPATH:/Applications/Postgres.app/Contents/Versions/9.5/bin
