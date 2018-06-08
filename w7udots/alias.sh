@@ -5,7 +5,7 @@ alias wgg='sl' # funny for my little son
 alias woman='man'
 alias calc='bc'
 # here we go
-alias v='vim'
+alias diff='icdiff'
 alias vi='vim'
 alias t='tmux'
 alias md5sum='md5 -r'
