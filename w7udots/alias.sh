@@ -26,7 +26,6 @@ alias cos="export LC_ALL='zh_CN.GBK' && ${DOTS}/ssh-helper/bastion.exp; export L
 alias sin="export LC_ALL='zh_CN.GBK' && ${DOTS}/ssh-helper/bastion_with_cookie.exp; export LC_ALL='en_US.UTF-8'"
 alias tan="${DOTS}/ssh-helper/sin.sh"
 alias rsa_spawn="sh ${DOTS}/rcp_id_rsa_pub.sh"
-alias rsa_enable_key='ssh-add -K /Users/weiguo/.ssh/id_rsa'
 # login ---
 alias svnlog='svn log -l300 -v|more'
 alias mvnp='mvn clean package -Dmaven.test.skip'
