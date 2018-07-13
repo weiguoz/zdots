@@ -7,7 +7,7 @@ set rtp+=/Users/weiguo/.vim/vundle/Vundle.vim " 规定Vundle的路径
 call vundle#rc('/Users/weiguo/.vim/vundle') " 规定插件的安装路径
 " 需要安装的插件列表放在这里
 " Bundle 'gmarik/vundle'
-Bundle 'Vundle.vim'
+Bundle 'VundleVim/Vundle.vim'
 Bundle "lepture/vim-velocity"
 Bundle 't9md/vim-choosewin'
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -70,7 +70,8 @@ set viminfo+=!
 set foldmethod=marker  " marker 这个容易操控; /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
 " set ffs=unix,dos,mac
 " set encoding=utf-8
-set encoding=utf-8 termencoding=utf-8,gbk fileencodings=utf-8,gbk,gb2312,gb18030 " 编码控制
+set encoding=utf-8 fileencodings=utf-8,gbk,gb2312,gb18030 " 编码控制
+"set termencoding=utf-8,gbk
 " set guifont=Monaco:h9 "Monaco:h10 Courier_New:h11:cANSI 指定字体
 " Files/Backups
 " set nobackup
@@ -273,7 +274,7 @@ let g:UltiSnipsEditSplit="vertical"
 " }}}
 
 "{{{ python
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 let g:pymode_lint = 1
@@ -284,6 +285,11 @@ let g:pymode_syntax_all = 1
 let g:pymode_syntax_indent_errors = g:pymode_syntax_all
 let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_folding = 0
+" https://github.com/vim/vim/issues/3117 解决启动时因为python3的报警
+if has('python3')
+  silent! python3 1
+endif
+" let g:ycm_server_python_interpreter
 "}}}
 
 "{{{ 将代码行最后的无效空格highlight

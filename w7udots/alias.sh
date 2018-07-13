@@ -14,7 +14,7 @@ alias l='ls -l'
 alias ll='ls -al'
 alias la='ls -a'
 alias hist='history'
-alias grep='grep -ni --color=always'
+alias grep='grep -n --color=always' # -i -m(max=8)
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
 alias sah='xargs grep -HLi'
 alias f='open -a Finder .'
