@@ -22,8 +22,9 @@ alias ff='find . -type f -iname'
 alias fd='find . -type d -iname'
 alias fn='find . ! -wholename'
 # login +++
-alias cos="export LC_ALL='zh_CN.GBK' && ${DOTS}/ssh-helper/bastion.exp; export LC_ALL='en_US.UTF-8'"
-alias sin="export LC_ALL='zh_CN.GBK' && ${DOTS}/ssh-helper/bastion_with_cookie.exp; export LC_ALL='en_US.UTF-8'"
+alias cos="/Users/weiguo/w7udots/ssh-helper/bastion.exp"
+alias sin="LC_ALL='zh_CN.GBK' luit /Users/weiguo/w7udots/ssh-helper/bastion_with_cookie.exp"  # running in tmux with luit
+# alias sin="export LC_ALL='zh_CN.GBK' && ${DOTS}/ssh-helper/bastion_with_cookie.exp; export LC_ALL='en_US.UTF-8'"
 alias tan="${DOTS}/ssh-helper/sin.sh"
 alias rsa_spawn="sh ${DOTS}/rcp_id_rsa_pub.sh"
 # login ---

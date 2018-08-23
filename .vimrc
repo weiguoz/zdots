@@ -13,7 +13,7 @@ Bundle 't9md/vim-choosewin'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/grep.vim'
-Bundle 'mxw/vim-jsx'
+" Bundle 'mxw/vim-jsx'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/FencView.vim'
 Bundle 'scrooloose/nerdtree'
@@ -70,8 +70,7 @@ set viminfo+=!
 set foldmethod=marker  " marker 这个容易操控; /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
 " set ffs=unix,dos,mac
 " set encoding=utf-8
-set encoding=utf-8 fileencodings=utf-8,gbk,gb2312,gb18030 " 编码控制
-"set termencoding=utf-8,gbk
+set encoding=utf-8 fileencodings=utf-8,gbk,gb2312,gb18030 termencoding=utf-8 " 编码控制
 " set guifont=Monaco:h9 "Monaco:h10 Courier_New:h11:cANSI 指定字体
 " Files/Backups
 " set nobackup
