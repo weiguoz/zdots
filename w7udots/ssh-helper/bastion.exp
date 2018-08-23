@@ -26,10 +26,10 @@ expect "$*" {
     send "ssh $logbst\r"
 }
 
-# send_user -- "-2"
-# expect -re "(.*password*)" {
-#     send "$psw\n"
-# }
+send_user -- "-2"
+expect -re "(.*password*)" {
+    send "$psw\n"
+}
 
 # send_user -- "-3"
 # expect "$*" {
