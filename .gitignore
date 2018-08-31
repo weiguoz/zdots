@@ -1,6 +1,7 @@
 *
 !.gitignore
 !.vimrc
+!.ideavimrc
 !.zshrc
 
 !w7udots/
