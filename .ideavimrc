@@ -10,9 +10,13 @@ nmap <space>fs :action FileStructurePopup<CR>
 nmap ga :action GotoAction<CR>
 nmap gc :action GotoClass<CR>
 nmap gi :action GotoImplementation<CR>
+nmap gu :action FindUsages<CR>
 
-nmap / :action Find<CR>
-nmap <a-j> 15gj
-nmap <a-k> 15gk
+let g:mapleader=" "
 imap jj <ESC>
+nmap / :action Find<CR>
 nmap Y y$
+nnoremap ¬ 11l
+nnoremap ˚ 11k
+nnoremap ∆ 15j
+nnoremap ˙ 15h
