@@ -20,6 +20,6 @@
 !w7udots/rime/
 !w7udots/rime/*.yaml
 
-!w7udots/tmux
+!w7udots/tmux/
 !w7udots/tmux/tmux.conf
 !w7udots/tmux/tmux.conf.local
