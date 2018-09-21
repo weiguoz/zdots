@@ -1,4 +1,5 @@
 #!/usr/bin/expect
+# created by w7u
 
 log_user 0
 source ~/xspace/conf/bastion.in

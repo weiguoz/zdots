@@ -22,6 +22,7 @@ alias f='open -a Finder .'
 alias ff='find . -type f -iname'
 alias fd='find . -type d -iname'
 alias fn='find . ! -wholename'
+alias tellme='terminal-notifier -title "终端" -message "洪磊：命令执行完成"' # brew install terminal-notifier
 # login +++
 alias cos="/Users/weiguo/w7udots/ssh-helper/bastion.exp"
 alias sin='LC_ALL="zh_CN.GBK" luit /Users/weiguo/w7udots/ssh-helper/bastion_with_cookie.exp'  # running in tmux with luit
