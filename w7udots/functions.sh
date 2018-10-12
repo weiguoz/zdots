@@ -6,3 +6,15 @@ solrversion2date() {
     fi
 }
 
+cs() {
+    builtin cd "$1" && l
+}
+
+tellme() {
+    # brew install terminal-notifier
+    if [ $# -eq 0 ]; then
+        terminal-notifier -title 't3rm!na1' -message '洪磊：执行完毕'
+    else
+        terminal-notifier -title 't3rm!na1' -message 'w7u：'$1
+    fi
+}

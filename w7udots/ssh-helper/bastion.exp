@@ -32,11 +32,6 @@ expect -re "(.*password*)" {
     send "$psw\n"
 }
 
-# send_user -- "-3"
-# expect "$*" {
-#     send "\nsudo -u log -s\r"
-# }
-
 send_user -- "-OK!"
 log_user 1
 interact
