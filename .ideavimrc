@@ -16,11 +16,3 @@ let g:mapleader=" "
 imap jj <ESC>
 nmap / :action Find<CR>
 nmap Y y$
-nnoremap ¬ 15l
-nnoremap ˚ 20k
-nnoremap ∆ 20j
-nnoremap ˙ 15h
-
-" [AceJump](https://github.com/acejump/AceJump)
-" Press `g` to activate AceJump (AceTargetAction|AceLineAction)
-map <C-f> :action AceTargetAction<CR>
