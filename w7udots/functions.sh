@@ -22,11 +22,12 @@ tellme() {
 # funny for my little son
 wgg() {
     i=0
-    LOOP=$2
+    LOOP=$1
     while [ $i -lt ${LOOP} ]; do
         sl -a
         sl -l
         sl -F
         sl -c
+        i=$[$i+1]
     done
 }
