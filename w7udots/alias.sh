@@ -1,7 +1,6 @@
 DOTS="/Users/weiguo/w7udots"
 # sourced by ~/.bashrc normally
 # just4fun
-alias wgg='sl' # funny for my little son
 alias woman='man'
 alias calc='bc'
 # here we go

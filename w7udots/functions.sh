@@ -18,3 +18,15 @@ tellme() {
         terminal-notifier -title 't3rm!na1' -message 'w7u：'$1
     fi
 }
+
+# funny for my little son
+wgg() {
+    i=0
+    LOOP=$2
+    while [ $i -lt ${LOOP} ]; do
+        sl -a
+        sl -l
+        sl -F
+        sl -c
+    done
+}
