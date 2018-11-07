@@ -5,6 +5,12 @@ log_user 0
 source ~/xspace/conf/bastion.in
 spawn ssh -q -o GSSAPIAuthentication=no -p$port $usr@$bst
 expect "$*" { send "ssh $logbst\r" }
-expect "$*" { send "\nsudo -u log -s\r" }
+expect "$*" { send "sudo -u log -s\r" }
+
+if {[llength $argv] > 0} {
+    set targetHost [lindex $argv 0]
+    expect "$*" { send "ssh $targetHost\r" }
+}
+
 log_user 1
 interact

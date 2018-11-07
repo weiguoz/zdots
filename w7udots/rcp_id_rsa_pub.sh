@@ -18,7 +18,11 @@ while getopts "h:u:p:c:t:" opt; do
 done
 
 if [ ${#t_host} -lt 7 ]; then
-    echo "Specify <host>. (-h -u -p -c -t)"
+    echo "Specify\t-h host"
+    echo "\t-u <user or admin>"
+    echo "\t-p <port or 22>"
+    echo "\t-c <comments or \"\">"
+    echo "\t-t <type or none>"
     exit -1
 fi
 

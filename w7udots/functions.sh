@@ -21,13 +21,15 @@ tellme() {
 
 # funny for my little son
 wgg() {
-    i=0
-    LOOP=$1
-    while [ $i -lt ${LOOP} ]; do
+    LOOP=1
+    if [ $# -gt 0 ]; then
+        LOOP=$1
+    fi
+    while [ ${LOOP} -gt 0 ]; do
         sl -a
         sl -l
         sl -F
         sl -c
-        i=$[$i+1]
+        LOOP=$[${LOOP}-1]
     done
 }
