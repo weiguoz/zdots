@@ -14,7 +14,7 @@ alias ll='ls -al'
 alias la='ls -a'
 alias lsh='ls -ld .?*' # ls hidden files
 alias hist='history'
-alias grep='grep -n --color=always' # -i -m(max=8)
+alias grep='grep --color=always' # -i -n -m(max=8)
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
 alias sah='xargs grep -HLi'
 alias f='open -a Finder .'
@@ -26,7 +26,7 @@ alias cos="/Users/weiguo/w7udots/ssh-helper/bastion.exp"
 alias sin='LC_ALL="zh_CN.GBK" luit /Users/weiguo/w7udots/ssh-helper/bastion_with_cookie.exp'  # running in tmux with luit
 alias sin2="export LC_ALL='zh_CN.GBK' && ${DOTS}/ssh-helper/bastion_with_cookie.exp; export LC_ALL='en_US.UTF-8'"
 alias tan='LC_ALL="zh_CN.GBK" luit ${DOTS}/ssh-helper/sin.sh'
-alias rsa_spawn="sh ${DOTS}/rcp_id_rsa_pub.sh"
+alias ctan="sh ${DOTS}/rcp_id_rsa_pub.sh"
 # login ---
 alias svnlog='svn log -l300 -v|more'
 alias mvnp='mvn clean package -Dmaven.test.skip'

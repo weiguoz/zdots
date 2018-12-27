@@ -8,7 +8,7 @@ echo "\n[2] sh ${DOTS}/oh-my-zsh/tools/upgrade.sh"
 sh ${DOTS}/oh-my-zsh/tools/upgrade.sh
 # cd /Users/weiguo/playground/XX-Net && git pull --rebase --stat origin master
 echo "\n[3] git pull zsh-autosuggestions"
-cd ${DOTS}/zsh-autosuggestions && git pull -p
+cd ${DOTS}/zsh-autosuggestions && git pull
 
 # echo "\n[3] tnpm update"
 # tnpm update

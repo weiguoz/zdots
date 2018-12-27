@@ -24,7 +24,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'rizzatti/dash.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
-" Bundle 'fatih/vim-go'
+Bundle 'fatih/vim-go'
 Bundle 'tomasr/molokai'
 """""""" LeaderF by Yggdroot@newsmth replace
 " - 'kien/ctrlp.vim'

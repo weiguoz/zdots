@@ -17,7 +17,6 @@ export ANT_HOME=/usr/local/share/ant
 #export IVY_HOME=/usr/share/ivy
 export M2_HOME=/usr/local/share/maven
 export CLOUDENGINE_HOME=/usr/local/share/cloudengine
-#export GOPATH=${HOME}/go
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
 #MYSQL_HOME=/usr/local/mysql
@@ -26,8 +25,10 @@ iPATH=$iPATH:$ANT_HOME/bin
 iPATH=$iPATH:$CLOUDENGINE_HOME/bin
 iPATH=$iPATH:~/w7udots/bin
 #iPATH=$iPATH:$MYSQL_HOME/bin
-#iPATH=$iPATH:/usr/local/go/bin:$GOPATH/bin
-#iPATH=$iPATH:/Applications/Postgres.app/Contents/Versions/9.5/bin
+# go
+export GOPATH=~/go
+iPATH=$iPATH:$GOPATH/bin
+# iPATH=$iPATH:/Applications/Postgres.app/Contents/Versions/9.5/bin
 # iPATH=$iPATH:/usr/local/spring/bin
 
 #export DYLD_LIBRARY_PATH=$MYSQL_HOME/lib:$DYLD_LIBRARY_PATH
@@ -45,4 +46,6 @@ function unsetproxy() {
     # unset {HTTP,HTTPS,FTP}_PROXY
     unset ALL_PROXY
 }
+
 export PATH=$PATH:$iPATH
+PROMPT_COMMAND='echo -ne "\033]0; `basename $PWD`\007"'
