@@ -47,5 +47,5 @@ function unsetproxy() {
     unset ALL_PROXY
 }
 
-export PATH=$PATH:$iPATH
+export -U PATH=$PATH:$iPATH # avoiding duplicates export caused by tmux
 PROMPT_COMMAND='echo -ne "\033]0; `basename $PWD`\007"'

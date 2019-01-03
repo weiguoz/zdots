@@ -28,9 +28,8 @@ Bundle 'fatih/vim-go'
 Bundle 'tomasr/molokai'
 """""""" LeaderF by Yggdroot@newsmth replace
 " - 'kien/ctrlp.vim'
-" - 'vim-scripts/mru.vim'
-Plugin 'Yggdroot/LeaderF'
-Bundle 'artur-shaik/vim-javacomplete2'
+Bundle 'vim-scripts/mru.vim'
+" Bundle 'Yggdroot/LeaderF'
 Bundle 'Valloric/YouCompleteMe'
 " Bundle 'ervandew/supertab'
 " Bundle 'docker/docker'
@@ -233,7 +232,7 @@ let g:gundo_right=1
 " }}}
 let MRU_Max_Entries=400
 
-let g:godef_split=2
+" let g:godef_split=2
 
 " JSX syntax highlighting and indenting will be enabled only for files with
 " the .jsx extension. If you would like JSX in .js files, add
@@ -251,15 +250,16 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 " {{{ mappings
 imap jj <Esc>
 let g:mapleader=" "
-" map <leader>f :MRU<CR>
+map <leader>f :MRU<CR>
 map <leader>t :tabNext<CR>
 map <leader>c :call CompileRun()<CR>
 map <silent> <leader>w <C-W><C-W>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <F8> :GundoToggle<CR>
-map <F9> :NERDTreeToggle<CR>
+nnoremap <F7> :tabprevious<CR>
+nnoremap <F8> :NERDTreeToggle<CR>
+nnoremap <F9> :tabnext<CR>
 nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
