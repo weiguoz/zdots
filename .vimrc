@@ -52,7 +52,7 @@ set ruler
 set showcmd
 set showmatch
 set showmode
-au filetype c,cpp,javascript set cc=81
+au filetype c,cpp,javascript,go set cc=81
 au BufNewFile,BufRead *.vm,*.html,*.htm,*.shtml,*.stm set ft=velocity
 set cursorline " set cursorcolumn
 set backspace=indent,eol,start
@@ -257,9 +257,6 @@ map <silent> <leader>w <C-W><C-W>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <F7> :tabprevious<CR>
-nnoremap <F8> :NERDTreeToggle<CR>
-nnoremap <F9> :tabnext<CR>
 nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
