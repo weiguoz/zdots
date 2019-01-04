@@ -245,6 +245,9 @@ let g:indent_guides_enable_on_vim_startup = 0
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=6
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
+" https://github.com/fatih/vim-go/issues/887
+" 解决 vim-go processing function jump_to_declaration list index out of range
+let g:go_def_mode = 'godef'
 " }}}
 
 " {{{ mappings
