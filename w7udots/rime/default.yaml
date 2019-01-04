@@ -1,32 +1,33 @@
 # Rime default settings
 # encoding: utf-8
 
-config_version: "0.36"
+config_version: "0.38.minimal"
 
 schema_list:
   - schema: luna_pinyin_simp
-    #  w7u  - schema: luna_pinyin
-    #  w7u  - schema: cangjie5
-    #  w7u  - schema: luna_pinyin_fluency
-    #  w7u  - schema: luna_pinyin_tw
+    # w7u - schema: luna_pinyin
+    # w7u - schema: luna_pinyin_fluency
 
 switcher:
-  caption: "〔切换输入方案〕" # w7u〔方案選單〕
+  caption: 〔方案選單〕
   hotkeys:
     - Control+grave
     - Control+Shift+grave
-    - Control+s
+      # w7u - F4
   save_options:
     - full_shape
     - ascii_punct
     - simplification
     - extended_charset
+      # w7u - zh_hant
+      # w7u - zh_hans
+      # w7u - zh_hant_tw
   fold_options: true
   abbreviate_options: true
   option_list_separator: '／'
 
 menu:
-  page_size: 6
+  page_size: 7
 
 punctuator:
   full_shape:
@@ -113,10 +114,11 @@ key_binder:
     - { when: composing, accept: Control+bracketleft, send: Escape }
     - { when: composing, accept: Alt+v, send: Page_Up }
     - { when: composing, accept: Control+v, send: Page_Down }
-    # paging keys
-    - { when: composing, accept: ISO_Left_Tab, send: Page_Up }
-    - { when: composing, accept: Shift+Tab, send: Page_Up }
-    - { when: composing, accept: Tab, send: Page_Down }
+    # move by word
+    - { when: composing, accept: ISO_Left_Tab, send: Shift+Left }
+    - { when: composing, accept: Shift+Tab, send: Shift+Left }
+    - { when: composing, accept: Tab, send: Shift+Right }
+    # flip page
     - { when: has_menu, accept: minus, send: Page_Up }
     - { when: has_menu, accept: equal, send: Page_Down }
     - { when: paging, accept: comma, send: Page_Up }
@@ -150,12 +152,3 @@ ascii_composer:
     Control_R: noop
     Caps_Lock: clear
     Eisu_toggle: clear
-
-patch:
-  key_binder/bindings:
-    - when: paging
-      accept: bracketleft
-      send: Page_Up
-    - when: has_menu
-      accept: bracketright
-      send: Page_Down
