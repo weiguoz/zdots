@@ -70,7 +70,7 @@ set foldmethod=marker  " marker 这个容易操控; /indent 根据缩进自动�
 " set ffs=unix,dos,mac
 " set encoding=utf-8
 set encoding=utf-8 fileencodings=utf-8,gbk,gb2312,gb18030 termencoding=utf-8 " 编码控制
-" set guifont=Monaco:h9 "Monaco:h10 Courier_New:h11:cANSI 指定字体
+" set guifont=Monaco:h9 Monaco:h10 Courier_New:h11:cANSI 指定字体
 " Files/Backups
 " set nobackup
 if has("mac")
@@ -127,8 +127,9 @@ if has("win32") " Fix findstr for Win32
     endif
 endif
 
-let g:jsx_ext_required = 0
-let g:syntastic_javascript_checkers = ['eslint']
+" jsx/javascript
+" let g:jsx_ext_required = 0
+" let g:syntastic_javascript_checkers = ['eslint']
 
 " 打开大文件优化 http://vim.wikia.com/wiki/Faster_loading_of_large_files
 "   if !exists("my_auto_commands_loaded")
@@ -264,6 +265,7 @@ nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-l> <C-W>l
+nmap ; 8j
 nnoremap Y y$
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
