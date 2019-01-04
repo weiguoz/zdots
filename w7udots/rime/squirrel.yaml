@@ -15,7 +15,7 @@ show_notifications_when: appropriate
 #show_notifications_via_notification_center: false
 
 style:
-  color_scheme: purity_of_essence
+  color_scheme: ink
   horizontal: false
   inline_preedit: true
   corner_radius: 10
