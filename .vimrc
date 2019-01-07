@@ -19,9 +19,8 @@ Bundle 'vim-scripts/FencView.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'vim-syntastic/syntastic'
 Bundle 'davidhalter/jedi-vim'
-Bundle 'vim-scripts/Mark--Karkat'
+Bundle 'lfv89/vim-interestingwords'
 Bundle 'sjl/gundo.vim'
-Bundle 'rizzatti/dash.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'fatih/vim-go'
@@ -111,6 +110,9 @@ set statusline=buf[%n,\ %{&encoding}]:%F " Buf:\ %2*%-3.3n%0*\ buffer number%n  
 set statusline+=\ \ [%03v\:0x%-4B\ %03l\/%L\=%p%%]
 set statusline+=\ \ %h%1*%m%r%w%0*  " flag
 set statusline+=\ %{strftime(\"%H:%M\")}
+" set statusline+=\ %#warningmsg#
+" set statusline+=\ %{SyntasticStatuslineFlag()}
+" set statusline+=\ %*
 au InsertEnter * hi statusline guibg=Purple ctermfg=4 guifg=Black ctermbg=13
 au InsertLeave * hi statusline guibg=Purple ctermfg=2 guifg=Black ctermbg=18
 hi statusline guibg=Purple ctermfg=2 guifg=Black ctermbg=18
@@ -129,8 +131,7 @@ endif
 
 " jsx/javascript
 " let g:jsx_ext_required = 0
-" let g:syntastic_javascript_checkers = ['eslint']
-
+"
 " 打开大文件优化 http://vim.wikia.com/wiki/Faster_loading_of_large_files
 "   if !exists("my_auto_commands_loaded")
 "       let my_auto_commands_loaded=1
@@ -225,6 +226,7 @@ endfunction
 command! -nargs=0 L :call SourceSession()
 
 let g:syntastic_always_populate_loc_list=1 " enable jump next err-point with lne(xt)/lprev
+" let g:syntastic_javascript_checkers = ['eslint']
 
 " {{{
 let g:gundo_width=50
@@ -264,6 +266,10 @@ map <silent> <leader>w <C-W><C-W>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
+nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
+nnoremap <silent> n :call WordNavigation('forward')<cr>
+nnoremap <silent> N :call WordNavigation('backward')<cr>
 nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
