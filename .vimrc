@@ -249,6 +249,9 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 " https://github.com/fatih/vim-go/issues/887
 " 解决 vim-go processing function jump_to_declaration list index out of range
 let g:go_def_mode = 'godef'
+" https://github.com/golang/lint
+set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
+autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
 " }}}
 
 " {{{ mappings
