@@ -1,0 +1,19 @@
+[user]
+    name = 卫川
+    email = weiguo.zhuwg@antfin.com
+[include]
+    path = ~/w7udots/gitconfig.include
+[core]
+    excludesfile = /Users/weiguo/.gitignore_global
+    quotepath = false
+[difftool "sourcetree"]
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+[credential]
+    helper = store
+[mergetool "sourcetree"]
+    cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+[commit]
+    template = /Users/weiguo/.stCommitMsg
+[filter "spacify"]
+    clean = expand --tabs=4 --initial
