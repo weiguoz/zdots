@@ -6,6 +6,7 @@
 [core]
     excludesfile = /Users/weiguo/.gitignore_global
     quotepath = false
+	editor = vim
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [credential]
