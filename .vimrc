@@ -248,13 +248,7 @@ let g:indent_guides_enable_on_vim_startup = 0
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=6
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
-" https://github.com/fatih/vim-go/issues/887
-" 解决 vim-go processing function jump_to_declaration list index out of range
-let g:go_def_mode = 'godef'
-" https://github.com/golang/lint
-set rtp+=$GOPATH/src/golang.org/x/lint/misc/vim
-autocmd BufWritePost,FileWritePost *.go execute 'Lint' | cwindow
-" }}}
+"}}}
 
 " {{{ mappings
 imap jj <Esc>
@@ -297,10 +291,23 @@ let g:pymode_syntax_space_errors = g:pymode_syntax_all
 let g:pymode_folding = 0
 " https://github.com/vim/vim/issues/3117 解决启动时因为python3的报警
 if has('python3')
-  silent! python3 1
+    silent! python3 1
 endif
 " let g:ycm_server_python_interpreter
 "}}}
+
+"{{{ golang
+" https://github.com/fatih/vim-go/issues/887
+" 解决 vim-go processing function jump_to_declaration list index out of range
+let g:go_def_mode = 'godef'
+"" https://github.com/golang/lint
+" set rtp+=/User/weiguo/go/src/golang.org/x/lint/misc/vim
+let g:go_fmt_autosave=1
+let g:syntastic_go_checkers=['golint', 'govet', 'errcheck'] " 每种语言都应该设置语法检查器
+" autocmd BufWritePost,FileWritePost *.go silent execute 'GoMetaLinter' | cwindow
+" GoMetaLinter invoke all possible linters (golint, vet, errcheck, deadcode, etc.) and put
+" the result in the quickfix or location list.
+" }}}
 
 "{{{ 将代码行最后的无效空格highlight
 let loaded_trailing_whitespace_plugin=1
