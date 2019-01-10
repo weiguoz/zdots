@@ -12,6 +12,6 @@
     st = status
     ci = commit -v
     co = checkout
-    bv = branch -vv
+    bv = branch -va
     info = config --list
     pushf = push --force-with-lease
