@@ -27,6 +27,7 @@ Bundle 'fatih/vim-go'
 Bundle 'tomasr/molokai'
 """""""" LeaderF by Yggdroot@newsmth replace
 " - 'kien/ctrlp.vim'
+Bundle 'Yggdroot/LeaderF', { 'do': './install.sh' }
 Bundle 'vim-scripts/mru.vim'
 " Bundle 'Yggdroot/LeaderF'
 Bundle 'Valloric/YouCompleteMe'
@@ -225,13 +226,17 @@ function SourceSession()
 endfunction
 command! -nargs=0 L :call SourceSession()
 
-let g:syntastic_always_populate_loc_list=1 " enable jump next err-point with lne(xt)/lprev
 " let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_check_on_wq=1
-let g:syntastic_auto_jump=1
-let g:syntastic_auto_loc_list=1
+let g:syntastic_always_populate_loc_list=0 " 1  enable jump next err-point with lne(xt)/lprev
 let g:syntastic_error_symbol = "▶▶"
 let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_check_on_wq=1
+let g:syntastic_auto_jump=1
+let g:syntastic_loc_list_height=5
+let g:syntastic_auto_loc_list = 0
+nnoremap sn :lnext<cr>
+nnoremap sp :lprevious<cr>
+" 命令 :Errors 弹出loc_list
 
 " {{{
 let g:gundo_width=50
