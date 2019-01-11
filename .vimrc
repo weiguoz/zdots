@@ -20,7 +20,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'vim-syntastic/syntastic'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'lfv89/vim-interestingwords'
-Bundle 'sjl/gundo.vim'
+" 'sjl/gundo.vim'
 Bundle 'simnalamburt/vim-mundo'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
@@ -265,6 +265,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 imap jj <Esc>
 let g:mapleader=" "
 map <leader>f :Leaderf
+map <leader>u :MundoToggle<CR>
 let g:Lf_ShortcutF = '<C-P>'
 map <leader>t :tabNext<CR>
 map <leader>c :call CompileRun()<CR>
