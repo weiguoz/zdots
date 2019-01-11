@@ -8,7 +8,7 @@ call vundle#rc('/Users/weiguo/.vim/vundle') " 规定插件的安装路径
 " 需要安装的插件列表放在这里
 " Bundle 'gmarik/vundle'
 Bundle 'VundleVim/Vundle.vim'
-Bundle "lepture/vim-velocity"
+" lepture/vim-velocity
 Bundle 't9md/vim-choosewin'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'majutsushi/tagbar'
@@ -21,15 +21,16 @@ Bundle 'vim-syntastic/syntastic'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'lfv89/vim-interestingwords'
 Bundle 'sjl/gundo.vim'
+Bundle 'simnalamburt/vim-mundo'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'fatih/vim-go'
 Bundle 'tomasr/molokai'
-"""""""" LeaderF by Yggdroot@newsmth replace
-" - 'kien/ctrlp.vim'
-Bundle 'Yggdroot/LeaderF', { 'do': './install.sh' }
-Bundle 'vim-scripts/mru.vim'
-" Bundle 'Yggdroot/LeaderF'
+"""""""" following 2 plugins replaced by LeaderF by Yggdroot@newsmth
+" 'kien/ctrlp.vim'
+" 'vim-scripts/mru.vim'
+" install then do: install.sh
+Bundle 'Yggdroot/LeaderF'
 Bundle 'Valloric/YouCompleteMe'
 " Bundle 'ervandew/supertab'
 " Bundle 'docker/docker'
@@ -243,7 +244,7 @@ let g:gundo_width=50
 let g:gundo_preview_height=40
 let g:gundo_right=1
 " }}}
-let MRU_Max_Entries=400
+" let MRU_Max_Entries=400
 
 " let g:godef_split=2
 
@@ -263,7 +264,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 " {{{ mappings
 imap jj <Esc>
 let g:mapleader=" "
-map <leader>f :MRU<CR>
+map <leader>f :Leaderf
+let g:Lf_ShortcutF = '<C-P>'
 map <leader>t :tabNext<CR>
 map <leader>c :call CompileRun()<CR>
 map <silent> <leader>w <C-W><C-W>
