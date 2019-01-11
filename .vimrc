@@ -227,6 +227,11 @@ command! -nargs=0 L :call SourceSession()
 
 let g:syntastic_always_populate_loc_list=1 " enable jump next err-point with lne(xt)/lprev
 " let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_check_on_wq=1
+let g:syntastic_auto_jump=1
+let g:syntastic_auto_loc_list=1
+let g:syntastic_error_symbol = "▶▶"
+let g:syntastic_warning_symbol = "⚠"
 
 " {{{
 let g:gundo_width=50
