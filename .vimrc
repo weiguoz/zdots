@@ -19,7 +19,6 @@ Bundle 'vim-scripts/FencView.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'vim-syntastic/syntastic'
 Bundle 'davidhalter/jedi-vim'
-Bundle 'lfv89/vim-interestingwords'
 " 'sjl/gundo.vim'
 Bundle 'simnalamburt/vim-mundo'
 Bundle 'SirVer/ultisnips'
@@ -32,9 +31,13 @@ Bundle 'tomasr/molokai'
 " install then do: install.sh
 Bundle 'Yggdroot/LeaderF'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'vim-gitgutter'
 " Bundle 'ervandew/supertab'
 " Bundle 'docker/docker'
 " Bundle 'tpope/vim-fugitive' git plugin
+" vim-ingo-library is basic library for vim-mark
+Bundle 'inkarkat/vim-ingo-library'
+Bundle 'inkarkat/vim-mark'
 " install godef in GFW http_proxy=127.0.0.1:8087 go get -u github.com/nsf/gocode
 " http://blog.perlfect.me/2013/07/13/go-coding-with-vim/
 let g:go_disable_autoinstall = 1
@@ -273,10 +276,6 @@ map <silent> <leader>w <C-W><C-W>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
-nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
-nnoremap <silent> n :call WordNavigation('forward')<cr>
-nnoremap <silent> N :call WordNavigation('backward')<cr>
 nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
