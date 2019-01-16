@@ -265,7 +265,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 "}}}
 
 " {{{ mappings
-imap jj <Esc>
+imap jj <Esc> :w<CR>
 let g:mapleader=" "
 map <leader>f :Leaderf
 map <leader>u :MundoToggle<CR>
