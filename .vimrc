@@ -39,14 +39,12 @@ Bundle 'airblade/vim-gitgutter'
 " vim-ingo-library is basic library for vim-mark
 Bundle 'inkarkat/vim-ingo-library'
 Bundle 'inkarkat/vim-mark'
-" install godef in GFW http_proxy=127.0.0.1:8087 go get -u github.com/nsf/gocode
-" http://blog.perlfect.me/2013/07/13/go-coding-with-vim/
-let g:go_disable_autoinstall = 1
-let g:ycm_global_ycm_extra_conf='~/w7udots/ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf=1
 " }}}
 
 " general settings {{{
+let g:mapleader=" "
+let g:ycm_global_ycm_extra_conf='~/w7udots/ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf=1
 au BufWrite /private/etc/pw.* set nowritebackup nobackup " Don't write backup file if vim is being called by "chpass"
 filetype plugin indent on      " 重新打开文件类型检查
 filetype plugin on      " 重新打开文件类型检查
@@ -231,6 +229,7 @@ function SourceSession()
 endfunction
 command! -nargs=0 L :call SourceSession()
 
+" lint {{{
 " syntastic 配置, 20190122改用ale
 " " let g:syntastic_javascript_checkers = ['eslint']
 " let g:syntastic_always_populate_loc_list=0 " 1  enable jump next err-point with lne(xt)/lprev
@@ -242,7 +241,8 @@ command! -nargs=0 L :call SourceSession()
 " let g:syntastic_auto_loc_list = 0
 " nnoremap sn :lnext<cr>
 " nnoremap sp :lprevious<cr>
-" ale 配置 {{{
+"
+" ale 配置
 let g:ale_sign_column_always = 0
 " 打开文件时不进行检查
 let g:ale_lint_on_enter = 0
@@ -259,22 +259,21 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 nmap sp <Plug>(ale_previous_wrap)
 nmap sn <Plug>(ale_next_wrap)
 "<Leader>s触发/关闭语法检查
-nmap <Leader>s :ALEToggle<CR>
-"<Leader>d查看错误或警告的详细信息
-nmap <Leader>d :ALEDetail<CR>
-"使用clang对c和c++进行语法检查，对python使用pylint进行语法检查
-let g:ale_linters = {
-\   'c++': ['clang'],
-\   'c': ['clang'],
-\   'python': ['flake8', 'pylint'],
-\}
+nmap <Leader>l :ALEToggle<CR>
 " Fix Python files with autopep8 and yapf.
 let b:ale_fixers = ['autopep8', 'yapf']
 " 命令 :Errors 弹出loc_list
+" By default, all available tools for all supported languages will be run.
+" If you want to only select a subset of the tools,
+" you can define b:ale_linters for a single buffer, or g:ale_linters globally.
+let b:ale_linters = {
+            \'javascript': ['eslint'],
+            \'cpp': ['clang'],
+            \'c': ['clang'],
+            \'go': ['golint', 'govet', 'gometalinter'],
+            \'python': ['flake8', 'pylint'],
+            \}
 " }}}
-
-" ignore files in NERDTree
-let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$']
 
 " {{{
 let g:gundo_width=50
@@ -283,7 +282,8 @@ let g:gundo_right=1
 " }}}
 " let MRU_Max_Entries=400
 
-" let g:godef_split=2
+" ignore files in NERDTree
+let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$']
 
 " JSX syntax highlighting and indenting will be enabled only for files with
 " the .jsx extension. If you would like JSX in .js files, add
@@ -300,7 +300,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 
 " {{{ mappings
 imap jj <Esc> :w<CR>
-let g:mapleader=" "
 map <leader>f :Leaderf
 map <leader>u :MundoToggle<CR>
 let g:Lf_ShortcutF = '<C-P>'
@@ -318,7 +317,6 @@ nmap ; 6j
 nmap ' 16j
 nmap " 16k
 nnoremap Y y$
-nnoremap <space> za
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
@@ -327,16 +325,6 @@ let g:UltiSnipsEditSplit="vertical"
 
 "{{{ python
 let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
-let g:pymode_doc = 1
-let g:pymode_doc_key = 'K'
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
-let g:pymode_lint_write = 1
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-let g:pymode_folding = 0
 " https://github.com/vim/vim/issues/3117 解决启动时因为python3的报警
 if has('python3')
     silent! python3 1
@@ -351,7 +339,6 @@ let g:go_def_mode = 'godef'
 "" https://github.com/golang/lint
 " set rtp+=/User/weiguo/go/src/golang.org/x/lint/misc/vim
 let g:go_fmt_autosave=1
-let g:syntastic_go_checkers=['golint', 'govet', 'errcheck'] " 每种语言都应该设置语法检查器
 " autocmd BufWritePost,FileWritePost *.go silent execute 'GoMetaLinter' | cwindow
 " GoMetaLinter invoke all possible linters (golint, vet, errcheck, deadcode, etc.) and put
 " the result in the quickfix or location list.
