@@ -29,6 +29,7 @@ alias ctan="sh ${DOTS}/rcp_id_rsa_pub.sh"
 # login ---
 alias svnlog='svn log -l300 -v|more'
 alias mvnp='mvn clean package -Dmaven.test.skip'
+alias ptags='find . -name "*.py" -print | xargs python /usr/local/Frameworks/Python.framework/Versions/3.7/share/doc/python3.7/examples/Tools/scripts/ptags.py'
 alias g="sh ${DOTS}/search_on_terminal.sh"
 alias gg='googler'
 # alias cd.

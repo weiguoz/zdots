@@ -244,8 +244,8 @@ command! -nargs=0 L :call SourceSession()
 "
 " ale 配置
 let g:ale_sign_column_always = 0
-" 打开文件时不进行检查
-let g:ale_lint_on_enter = 0
+" 打开文件时进行检查
+let g:ale_lint_on_enter = 1
 let g:ale_set_highlights = 0
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
@@ -300,8 +300,8 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 
 " {{{ mappings
 imap jj <Esc> :w<CR>
-map <leader>f :Leaderf
 map <leader>u :MundoToggle<CR>
+map <leader>f :Leaderf
 let g:Lf_ShortcutF = '<C-P>'
 map <leader>t :tabNext<CR>
 map <leader>c :call CompileRun()<CR>
