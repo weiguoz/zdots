@@ -310,7 +310,17 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 " {{{ mappings
 imap jj <Esc> :w<CR>
 map <leader>u :MundoToggle<CR>
+
+" leaderf mapping
 map <leader>f :Leaderf
+let g:Lf_ShortcutF = '<C-P>'
+" https://vi.stackexchange.com/questions/17896/how-to-move-to-parent-directory-with-leaderf
+" This way you can press <tab> to go to LeaderfFile normal mode and then press
+" u to reopen LeadefFile with parent folder.
+let g:Lf_NormalMap = {
+    \ "File":   [["u", ':LeaderfFile ..<CR>']]
+    \}
+
 map <leader>t :tabNext<CR>
 map <leader>c :call CompileRun()<CR>
 map <silent> <leader>w <C-W><C-W>
