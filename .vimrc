@@ -311,7 +311,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 imap jj <Esc> :w<CR>
 map <leader>u :MundoToggle<CR>
 map <leader>f :Leaderf
-let g:Lf_ShortcutF = '<C-P>'
 map <leader>t :tabNext<CR>
 map <leader>c :call CompileRun()<CR>
 map <silent> <leader>w <C-W><C-W>
