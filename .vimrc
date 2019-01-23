@@ -275,12 +275,21 @@ let b:ale_linters = {
             \}
 " }}}
 
-" {{{
+" undo {{{
 let g:gundo_width=50
 let g:gundo_preview_height=40
 let g:gundo_right=1
 " }}}
 " let MRU_Max_Entries=400
+
+" jedi {{{
+let g:jedi#rename_command = "<leader>r"
+
+" let g:jedi#goto_definitions_command = "<leader>d"
+let g:jedi#usages_command = "<leader>u"
+" let g:jedi#completions_command = "<C-Space>"
+" let g:jedi#documentation_command = "K"
+" }}}
 
 " ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$']

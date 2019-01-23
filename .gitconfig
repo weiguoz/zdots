@@ -7,6 +7,7 @@
     excludesfile = /Users/weiguo/.gitignore_global
     quotepath = false
 	editor = vim
+	whitespace = trailing-space,space-before-tab,-cr-at-eol,indent-with-non-tab,-tab-in-indent,tabwidth=8
 [difftool "sourcetree"]
     cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [credential]
