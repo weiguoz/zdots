@@ -46,7 +46,6 @@ engine:
     - simplifier
     - uniquifier
 
-# 模糊音 https://gist.github.com/lotem/2320943
 speller:
   alphabet: zyxwvutsrqponmlkjihgfedcba
   delimiter: " '"
@@ -54,7 +53,6 @@ speller:
     - erase/^xx$/
     - abbrev/^([a-z]).+$/$1/
     - derive/^([zcs])h/$1/
-    - derive/^([zcs])([^h])/$1h$2/
     - derive/([ei])n$/$1ng/
     - derive/([ei])ng$/$1n/
     - derive/^([nl])ve$/$1ue/
