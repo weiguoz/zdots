@@ -53,6 +53,7 @@ speller:
     - erase/^xx$/
     - abbrev/^([a-z]).+$/$1/
     - derive/^([zcs])h/$1/
+    - derive/^([zcs])([^h])/$1h$2/
     - derive/([ei])n$/$1ng/
     - derive/([ei])ng$/$1n/
     - derive/^([nl])ve$/$1ue/
