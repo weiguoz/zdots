@@ -221,6 +221,10 @@ let NERDTreeWinPos='left'            " tree 目录在右边right
 let NERDTreeHighlightCursorline=0    " 高亮当前行
 let NERDTreeShowHidden=1             " 显示隐藏文件
 let NERDChristmasTree=1              " 色彩显示
+" ignore files in NERDTree
+let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$']
+nmap t :NERDTreeToggle<CR>
+
 set autochdir
 
 " 历史记录保存、载入
@@ -291,9 +295,6 @@ let g:jedi#usages_command = "<leader>u"
 " let g:jedi#documentation_command = "K"
 " }}}
 
-" ignore files in NERDTree
-let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$']
-
 " JSX syntax highlighting and indenting will be enabled only for files with
 " the .jsx extension. If you would like JSX in .js files, add
 let g:jsx_ext_required = 0
@@ -309,6 +310,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 
 " {{{ mappings
 imap jj <Esc> :w<CR>
+nmap zz :q<CR>
 map <leader>u :MundoToggle<CR>
 
 " leaderf mapping
@@ -321,7 +323,9 @@ let g:Lf_NormalMap = {
     \ "File":   [["u", ':LeaderfFile ..<CR>']]
     \}
 
-map <leader>t :tabNext<CR>
+nmap nt :tabnext<CR>
+nmap pt :tabprevious<CR>
+nmap rt :tabrewind<CR>
 map <leader>c :call CompileRun()<CR>
 map <silent> <leader>w <C-W><C-W>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
@@ -331,7 +335,7 @@ nmap <C-h> <C-W>h
 nmap <C-j> <C-W>j
 nmap <C-k> <C-W>k
 nmap <C-l> <C-W>l
-nmap ; 6j
+nmap ; 16l
 nmap ' 16j
 nmap " 16k
 nnoremap Y y$
