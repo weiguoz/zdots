@@ -247,9 +247,11 @@ command! -nargs=0 L :call SourceSession()
 " nnoremap sp :lprevious<cr>
 "
 " ale 配置
-let g:ale_sign_column_always = 0
-" 打开文件时进行检查
-let g:ale_lint_on_enter = 1
+" Write this in your vimrc file
+let g:ale_lint_on_text_changed = 'never'
+" You can disable this option too
+" if you don't want linters to run on opening a file
+let g:ale_lint_on_enter = 0
 let g:ale_set_highlights = 0
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'

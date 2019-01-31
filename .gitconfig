@@ -1,6 +1,8 @@
 [user]
-    name = 卫川
-    email = weiguo.zhuwg@antfin.com
+    name = w7u
+    email = wg@qq.com
+    #name = 卫川
+    #email = weiguo.zhuwg@antfin.com
 [include]
     path = ~/w7udots/gitconfig.include
 [core]
@@ -9,12 +11,13 @@
 	editor = vim
 	whitespace = trailing-space,space-before-tab,-cr-at-eol,indent-with-non-tab,-tab-in-indent,tabwidth=8
 [difftool "sourcetree"]
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
 [credential]
     helper = store
 [mergetool "sourcetree"]
-    cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [commit]
     template = /Users/weiguo/.stCommitMsg
 [filter "spacify"]
