@@ -17,7 +17,8 @@ Bundle 'vim-scripts/grep.vim'
 Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/FencView.vim'
 Bundle 'scrooloose/nerdtree'
-" Bundle 'vim-syntastic/syntastic' replaced by ale
+" replaced by ale
+" Bundle 'vim-syntastic/syntastic'
 Bundle 'w0rp/ale'
 Bundle 'davidhalter/jedi-vim'
 " 'sjl/gundo.vim'
@@ -47,16 +48,14 @@ let g:ycm_global_ycm_extra_conf='~/w7udots/ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=1
 au BufWrite /private/etc/pw.* set nowritebackup nobackup " Don't write backup file if vim is being called by "chpass"
 filetype plugin indent on      " 重新打开文件类型检查
-filetype plugin on      " 重新打开文件类型检查
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
 syntax enable
 set t_Co=256
 set ruler
 set showcmd
 set showmatch
 set showmode
-au filetype c,cpp,javascript,go set cc=81
-au BufNewFile,BufRead *.vm,*.html,*.htm,*.shtml,*.stm set ft=velocity
+au filetype c,cpp,go set cc=81
+" au BufNewFile,BufRead *.vm,*.html,*.htm,*.shtml,*.stm set ft=velocity
 set cursorline " set cursorcolumn
 set backspace=indent,eol,start
 " set formatoptions-=croq " don't continue comments when pushing o/O
@@ -68,20 +67,11 @@ set nu
 set mouse-=a           " set if mousemodel=extend
 " set rnu              " relativenumber 相对行号
 set linebreak	       " 不在单词中间折行
-set viminfo+=!
 set foldmethod=marker  " marker 这个容易操控; /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
 " set ffs=unix,dos,mac
 " set encoding=utf-8
 set encoding=utf-8 fileencodings=utf-8,gbk,gb2312,gb18030 termencoding=utf-8 " 编码控制
 " set guifont=Monaco:h9 Monaco:h10 Courier_New:h11:cANSI 指定字体
-" Files/Backups
-" set nobackup
-if has("mac")
-    setlocal nowritebackup " set for mac.crontab
-else
-    set writebackup " keep backup while we are editing
-endif
-set wrap		" don't wrap/nowrap change text line while terminate screen is full
 
 " undo3
 if v:version>=703
@@ -104,6 +94,7 @@ set nolazyredraw " Don't redraw while executing macros
 set wildmode=list:longest
 set wildmenu
 set wildignore=*.o,*.obj,*~
+" statusline {{{
 set cmdheight=1
 set report=0
 set laststatus=2
@@ -120,6 +111,7 @@ set statusline+=\ %{strftime(\"%H:%M\")}
 au InsertEnter * hi statusline guibg=Purple ctermfg=4 guifg=Black ctermbg=13
 au InsertLeave * hi statusline guibg=Purple ctermfg=2 guifg=Black ctermbg=18
 hi statusline guibg=Purple ctermfg=2 guifg=Black ctermbg=18
+" }}}
 
 if has("win32") " Fix findstr for Win32
     set grepprg=findstr\ /R\ /S\ /N
@@ -163,9 +155,7 @@ func CompileRun()
     endif
     if !v:shell_error
         exec "!./%<"
-        silent exec "!rm -f %<"
-        silent exec "!rm -rf %<.dSYM"
-        " diffthis echoerr
+        silent exec "!rm -rf %< %<.dSYM"
     endif
 endfunc
 " }}}
@@ -217,7 +207,7 @@ endf
 " }}}
 
 " {{{ 插件配置
-let NERDTreeWinPos='left'            " tree 目录在右边right
+let NERDTreeWinPos='right'           " tree 目录在右边right
 let NERDTreeHighlightCursorline=0    " 高亮当前行
 let NERDTreeShowHidden=1             " 显示隐藏文件
 let NERDChristmasTree=1              " 色彩显示
@@ -248,7 +238,7 @@ command! -nargs=0 L :call SourceSession()
 "
 " ale 配置
 " Write this in your vimrc file
-let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_text_changed = 'normal'
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = 0
@@ -313,7 +303,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 " {{{ mappings
 imap jj <Esc> :w<CR>
 nmap zz :q<CR>
-map <leader>u :MundoToggle<CR>
+map <leader>h :MundoToggle<CR>
 
 " leaderf mapping
 map <leader>f :Leaderf
@@ -354,9 +344,10 @@ endif
 "}}}
 
 "{{{ golang
-" https://github.com/fatih/vim-go/issues/887
+" 这里还没弄明白，尝试要么注释要么反注释 godef 就正常了 https://github.com/fatih/vim-go/issues/887
 " 解决 vim-go processing function jump_to_declaration list index out of range
-let g:go_def_mode = 'godef'
+" let g:go_def_mode = 'godef'
+
 "" https://github.com/golang/lint
 " set rtp+=/User/weiguo/go/src/golang.org/x/lint/misc/vim
 let g:go_fmt_autosave=1
