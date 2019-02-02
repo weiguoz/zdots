@@ -1,8 +1,8 @@
 [user]
-    name = w7u
-    email = wg@qq.com
-    #name = 卫川
-    #email = weiguo.zhuwg@antfin.com
+	name = weiguo
+	name = wg.z@qq.com
+    # email = weiguo.zhuwg@antfin.com
+	# email = weiguo.zhuwg@antfin.com
 [include]
     path = ~/w7udots/gitconfig.include
 [core]
