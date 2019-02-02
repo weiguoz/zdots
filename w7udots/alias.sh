@@ -6,6 +6,7 @@ alias calc='bc'
 # here we go
 alias diff='icdiff'
 alias t='tmux'
+alias v='vim'
 alias md5sum='md5 -r'
 alias ls='ls -pFGh'
 alias l='ls -l'

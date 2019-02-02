@@ -28,7 +28,7 @@ Bundle 'honza/vim-snippets'
 Bundle 'fatih/vim-go'
 """ colorschema
 Bundle 'tomasr/molokai'
-Bundle 'morhetz/gruvbox'
+Bundle 'NLKNguyen/papercolor-theme'
 """""""" following 2 plugins replaced by LeaderF by Yggdroot@newsmth
 " 'kien/ctrlp.vim'
 " 'vim-scripts/mru.vim'
@@ -39,11 +39,10 @@ Bundle 'airblade/vim-gitgutter'
 " Bundle 'ervandew/supertab'
 " Bundle 'docker/docker'
 " Bundle 'tpope/vim-fugitive' git plugin
-" vim-ingo-library is basic library for vim-mark
-Bundle 'inkarkat/vim-ingo-library'
-Bundle 'inkarkat/vim-mark'
 " statusbar
 Bundle 'vim-airline/vim-airline'
+" multi highlight
+Bundle 'lfv89/vim-interestingwords'
 " }}}
 
 " general settings {{{
@@ -144,7 +143,7 @@ endif
 " }}}
 
 colorscheme molokai " molokai herald 256-jungle
-autocmd BufNewFile,BufRead *.go colorscheme gruvbox
+autocmd BufNewFile,BufRead *.go colorscheme PaperColor
 
 " {{{ compile and execute
 func CompileRun()
@@ -295,7 +294,7 @@ let g:jedi#usages_command = "<leader>u"
 
 " JSX syntax highlighting and indenting will be enabled only for files with
 " the .jsx extension. If you would like JSX in .js files, add
-let g:jsx_ext_required = 0
+" let g:jsx_ext_required = 0
 
 " 对齐线段配置 vim-indent-guides
 let g:indent_guides_guide_size=1
@@ -306,8 +305,14 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=6
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 
 " colorschema
-" set background=light " dark light
-" let g:airline_theme='gruvbox'
+" let g:airline_theme='molokai'
+
+" interestingwords
+nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
+nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
+nnoremap <silent> n :call WordNavigation('forward')<cr>
+nnoremap <silent> N :call WordNavigation('backward')<cr>
+let g:interestingWordsCycleColors=1
 "}}}
 
 " {{{ mappings
