@@ -262,11 +262,12 @@ let b:ale_fixers = ['autopep8', 'yapf']
 " By default, all available tools for all supported languages will be run.
 " If you want to only select a subset of the tools,
 " you can define b:ale_linters for a single buffer, or g:ale_linters globally.
+            " 'go': ['golint', 'govet', 'gometalinter'],
 let b:ale_linters = {
             \'javascript': ['eslint'],
             \'cpp': ['clang'],
             \'c': ['clang'],
-            \'go': ['golint', 'govet', 'gometalinter'],
+            \'go': ['govet'],
             \'python': ['flake8', 'pylint'],
             \}
 " }}}
