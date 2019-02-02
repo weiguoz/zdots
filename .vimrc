@@ -26,7 +26,9 @@ Bundle 'simnalamburt/vim-mundo'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'fatih/vim-go'
+""" colorschema
 Bundle 'tomasr/molokai'
+Bundle 'morhetz/gruvbox'
 """""""" following 2 plugins replaced by LeaderF by Yggdroot@newsmth
 " 'kien/ctrlp.vim'
 " 'vim-scripts/mru.vim'
@@ -40,6 +42,8 @@ Bundle 'airblade/vim-gitgutter'
 " vim-ingo-library is basic library for vim-mark
 Bundle 'inkarkat/vim-ingo-library'
 Bundle 'inkarkat/vim-mark'
+" statusbar
+Bundle 'vim-airline/vim-airline'
 " }}}
 
 " general settings {{{
@@ -94,23 +98,23 @@ set nolazyredraw " Don't redraw while executing macros
 set wildmode=list:longest
 set wildmenu
 set wildignore=*.o,*.obj,*~
-" statusline {{{
-set cmdheight=1
-set report=0
-set laststatus=2
-set statusline=buf[%n,\ %{&encoding}]:%F " Buf:\ %2*%-3.3n%0*\ buffer number%n  file name%F/f
-" set statusline+=%{strlen(&ft)?&ft:'none'}, " filetype
-" set statusline+=%{&fileformat}]\   " file format
-" set statusline+=%=          " right align
-set statusline+=\ \ [%03v\:0x%-4B\ %03l\/%L\=%p%%]
-set statusline+=\ \ %h%1*%m%r%w%0*  " flag
-set statusline+=\ %{strftime(\"%H:%M\")}
-" set statusline+=\ %#warningmsg#
-" set statusline+=\ %{SyntasticStatuslineFlag()}
-" set statusline+=\ %*
-au InsertEnter * hi statusline guibg=Purple ctermfg=4 guifg=Black ctermbg=13
-au InsertLeave * hi statusline guibg=Purple ctermfg=2 guifg=Black ctermbg=18
-hi statusline guibg=Purple ctermfg=2 guifg=Black ctermbg=18
+" statusline {{{ replaced by : vim-airline/vim-airline
+" set cmdheight=1
+" set report=0
+" set laststatus=2
+" set statusline=buf[%n,\ %{&encoding}]:%F " Buf:\ %2*%-3.3n%0*\ buffer number%n  file name%F/f
+" " set statusline+=%{strlen(&ft)?&ft:'none'}, " filetype
+" " set statusline+=%{&fileformat}]\   " file format
+" " set statusline+=%=          " right align
+" set statusline+=\ \ [%03v\:0x%-4B\ %03l\/%L\=%p%%]
+" set statusline+=\ \ %h%1*%m%r%w%0*  " flag
+" set statusline+=\ %{strftime(\"%H:%M\")}
+" " set statusline+=\ %#warningmsg#
+" " set statusline+=\ %{SyntasticStatuslineFlag()}
+" " set statusline+=\ %*
+" au InsertEnter * hi statusline guibg=Purple ctermfg=4 guifg=Black ctermbg=13
+" au InsertLeave * hi statusline guibg=Purple ctermfg=2 guifg=Black ctermbg=18
+" hi statusline guibg=Purple ctermfg=2 guifg=Black ctermbg=18
 " }}}
 
 if has("win32") " Fix findstr for Win32
@@ -140,6 +144,7 @@ endif
 " }}}
 
 colorscheme molokai " molokai herald 256-jungle
+autocmd BufNewFile,BufRead *.go colorscheme gruvbox
 
 " {{{ compile and execute
 func CompileRun()
@@ -299,6 +304,10 @@ let g:indent_guides_enable_on_vim_startup = 0
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=6
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
+
+" colorschema
+" set background=light " dark light
+" let g:airline_theme='gruvbox'
 "}}}
 
 " {{{ mappings
