@@ -27,7 +27,7 @@ Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
 Bundle 'fatih/vim-go'
 """ colorschema
-Bundle 'tomasr/molokai'
+" Bundle 'tomasr/molokai'
 Bundle 'NLKNguyen/papercolor-theme'
 """""""" following 2 plugins replaced by LeaderF by Yggdroot@newsmth
 " 'kien/ctrlp.vim'
@@ -142,8 +142,8 @@ endif
 "   endif
 " }}}
 
-colorscheme molokai " molokai herald 256-jungle
-autocmd BufNewFile,BufRead *.go colorscheme PaperColor
+colorscheme PaperColor " molokai herald 256-jungle
+" autocmd BufNewFile,BufRead *.go colorscheme PaperColor
 
 " {{{ compile and execute
 func CompileRun()
@@ -217,7 +217,6 @@ let NERDTreeShowHidden=1             " 显示隐藏文件
 let NERDChristmasTree=1              " 色彩显示
 " ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$']
-nmap t :NERDTreeToggle<CR>
 
 set autochdir
 
@@ -306,6 +305,7 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 
 " colorschema
 " let g:airline_theme='molokai'
+set background=dark
 
 " interestingwords
 nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
