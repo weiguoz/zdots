@@ -348,7 +348,7 @@ let g:tagbar_type_go = {
 imap jj <Esc> :w<CR>
 nmap zz :q<CR>
 map <leader>h :MundoToggle<CR>
-map <leader>tb :TagbarToggle<CR>
+map <leader>tg :TagbarToggle<CR>
 
 " leaderf mapping
 map <leader>f :Leaderf
