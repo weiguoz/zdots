@@ -265,7 +265,7 @@ let b:ale_fixers = ['autopep8', 'yapf']
 " By default, all available tools for all supported languages will be run.
 " If you want to only select a subset of the tools,
 " you can define b:ale_linters for a single buffer, or g:ale_linters globally.
-            " 'go': ['golint', 'govet', 'gometalinter'],
+" 'go': ['golint', 'govet', 'gometalinter'],
 let b:ale_linters = {
             \'javascript': ['eslint'],
             \'cpp': ['clang'],
@@ -313,12 +313,42 @@ nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
 nnoremap <silent> n :call WordNavigation('forward')<cr>
 nnoremap <silent> N :call WordNavigation('backward')<cr>
 let g:interestingWordsCycleColors=1
+
+" tagbar
+let g:tagbar_type_go = {
+	\ 'ctagstype' : 'go',
+	\ 'kinds'     : [
+		\ 'p:package',
+		\ 'i:imports:1',
+		\ 'c:constants',
+		\ 'v:variables',
+		\ 't:types',
+		\ 'n:interfaces',
+		\ 'w:fields',
+		\ 'e:embedded',
+		\ 'm:methods',
+		\ 'r:constructor',
+		\ 'f:functions'
+	\ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
 "}}}
 
 " {{{ mappings
 imap jj <Esc> :w<CR>
 nmap zz :q<CR>
 map <leader>h :MundoToggle<CR>
+map <leader>tb :TagbarToggle<CR>
 
 " leaderf mapping
 map <leader>f :Leaderf
@@ -326,9 +356,7 @@ let g:Lf_ShortcutF = '<C-P>'
 " https://vi.stackexchange.com/questions/17896/how-to-move-to-parent-directory-with-leaderf
 " This way you can press <tab> to go to LeaderfFile normal mode and then press
 " u to reopen LeadefFile with parent folder.
-let g:Lf_NormalMap = {
-    \ "File":   [["u", ':LeaderfFile ..<CR>']]
-    \}
+let g:Lf_NormalMap = { "File":   [["u", ':LeaderfFile ..<CR>']] }
 
 nmap nt :tabnext<CR>
 nmap pt :tabprevious<CR>
@@ -369,6 +397,15 @@ let g:go_fmt_autosave=1
 " autocmd BufWritePost,FileWritePost *.go silent execute 'GoMetaLinter' | cwindow
 " GoMetaLinter invoke all possible linters (golint, vet, errcheck, deadcode, etc.) and put
 " the result in the quickfix or location list.
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+au FileType go nmap <Leader>gd <Plug>(go-def-vertical)
+" (go-def-tab) (go-def-split)
 " }}}
 
 "{{{ 将代码行最后的无效空格highlight
