@@ -38,7 +38,8 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'airblade/vim-gitgutter'
 " Bundle 'ervandew/supertab'
 " Bundle 'docker/docker'
-" Bundle 'tpope/vim-fugitive' git plugin
+" git plugin
+Bundle 'tpope/vim-fugitive'
 " statusbar
 Bundle 'vim-airline/vim-airline'
 " multi highlight
