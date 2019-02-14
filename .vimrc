@@ -268,7 +268,6 @@ let b:ale_fixers = ['autopep8', 'yapf']
 " you can define b:ale_linters for a single buffer, or g:ale_linters globally.
 " 'go': ['golint', 'govet', 'gometalinter'],
 let b:ale_linters = {
-            \'javascript': ['eslint'],
             \'cpp': ['clang'],
             \'c': ['clang'],
             \'go': ['govet'],
@@ -405,7 +404,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-au FileType go nmap <Leader>gd <Plug>(go-def-vertical)
+au FileType go nmap gv <Plug>(go-def-vertical)
 " (go-def-tab) (go-def-split)
 " }}}
 
