@@ -15,4 +15,5 @@
     bv = branch -va
     info = config --list
     pushf = push --force-with-lease
+    # https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git/21890252#21890252
     squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
