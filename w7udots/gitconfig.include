@@ -15,3 +15,4 @@
     bv = branch -va
     info = config --list
     pushf = push --force-with-lease
+    squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
