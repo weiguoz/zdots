@@ -404,7 +404,7 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-au FileType go nmap gv <Plug>(go-def-vertical)
+au FileType go nmap gs <Plug>(go-def-vertical)
 " (go-def-tab) (go-def-split)
 " }}}
 
