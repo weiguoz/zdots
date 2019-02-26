@@ -8,6 +8,7 @@ call vundle#rc('/Users/weiguo/.vim/vundle') " 规定插件的安装路径
 " 需要安装的插件列表放在这里
 " Bundle 'gmarik/vundle'
 Bundle 'VundleVim/Vundle.vim'
+Bundle 'skywind3000/asyncrun.vim'
 " lepture/vim-velocity
 Bundle 't9md/vim-choosewin'
 " Bundle 'nathanaelkane/vim-indent-guides'
@@ -34,7 +35,6 @@ Bundle 'NLKNguyen/papercolor-theme'
 " 'vim-scripts/mru.vim'
 " install then do: install.sh
 Bundle 'Yggdroot/LeaderF'
-Bundle 'Valloric/YouCompleteMe'
 Bundle 'airblade/vim-gitgutter'
 " Bundle 'ervandew/supertab'
 " Bundle 'docker/docker'
@@ -44,6 +44,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'vim-airline/vim-airline'
 " multi highlight
 Bundle 'lfv89/vim-interestingwords'
+Bundle 'Valloric/YouCompleteMe'
 " }}}
 
 " general settings {{{
@@ -256,8 +257,8 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 "普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
-nmap sp <Plug>(ale_previous_wrap)
-nmap sn <Plug>(ale_next_wrap)
+nmap lp <Plug>(ale_previous_wrap)
+nmap ln <Plug>(ale_next_wrap)
 "<Leader>s触发/关闭语法检查
 nmap <Leader>l :ALEToggle<CR>
 " Fix Python files with autopep8 and yapf.
@@ -389,11 +390,12 @@ endif
 "{{{ golang
 " 这里还没弄明白，尝试要么注释要么反注释 godef 就正常了 https://github.com/fatih/vim-go/issues/887
 " 解决 vim-go processing function jump_to_declaration list index out of range
-" let g:go_def_mode = 'godef'
+" let g:go_def_mode = 'godef', 可以试试 `:GoUpdateBinaries`
 
 "" https://github.com/golang/lint
 " set rtp+=/User/weiguo/go/src/golang.org/x/lint/misc/vim
 let g:go_fmt_autosave=1
+let g:go_fmt_command = "goimports"
 " autocmd BufWritePost,FileWritePost *.go silent execute 'GoMetaLinter' | cwindow
 " GoMetaLinter invoke all possible linters (golint, vet, errcheck, deadcode, etc.) and put
 " the result in the quickfix or location list.

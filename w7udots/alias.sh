@@ -50,5 +50,13 @@ if [ -f ${DOTS}/z/z.sh ]; then
     alias z='z_then_ls'
 fi
 
+tx() {
+    if [ $# -ge 2 ]; then
+        tmux send-keys -t$1 "$2" enter
+    else
+        echo "tx {pane} {command}"
+    fi
+}
+
 # package name: osascript -e 'id of app "Finder"'
 # du -d 1 | sort -nr | head -3
