@@ -6,7 +6,7 @@ solrversion2date() {
     fi
 }
 
-cs() {
+cds() {
     builtin cd "$1" && l
 }
 
@@ -33,3 +33,12 @@ wgg() {
         LOOP=$[${LOOP}-1]
     done
 }
+
+tmx() {
+    if [ $# -ge 2 ]; then
+        tmux send-keys -t$1 "$2" enter
+    else
+        echo "tx {pane} {command}"
+    fi
+}
+

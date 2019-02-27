@@ -55,11 +55,6 @@ setopt share_history
 # w7u https://github.com/zsh-users/zsh-syntax-highlighting
 plugins=(git svn history history-substring-search zsh-syntax-highlighting)
 
-# User configuration
-
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
-
 source $ZSH/oh-my-zsh.sh
 source $HOME/${MY_DOTS_IN}/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -89,9 +84,9 @@ source $HOME/${MY_DOTS_IN}/zsh-autosuggestions/zsh-autosuggestions.zsh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # weiguozhu
+. ${HOME}/${MY_DOTS_IN}/shrc_profile.sh
 limit coredumpsize 0
 setopt AUTO_LIST
 setopt AUTO_MENU
-. ${HOME}/${MY_DOTS_IN}/bashrc_profile.sh
 # PS1="$PS1 \W$(parse_svn_branch)$"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
