@@ -34,7 +34,7 @@ wgg() {
     done
 }
 
-tmx() {
+tx() {
     if [ $# -ge 2 ]; then
         tmux send-keys -t$1 "$2" enter
     else
