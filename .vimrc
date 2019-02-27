@@ -9,6 +9,7 @@ call vundle#rc('/Users/weiguo/.vim/vundle') " 规定插件的安装路径
 " Bundle 'gmarik/vundle'
 Bundle 'VundleVim/Vundle.vim'
 Bundle 'skywind3000/asyncrun.vim'
+"such as: AsyncRun tmux send-keys -t2 "go test" enter
 " lepture/vim-velocity
 Bundle 't9md/vim-choosewin'
 " Bundle 'nathanaelkane/vim-indent-guides'
@@ -350,9 +351,10 @@ imap jj <Esc> :w<CR>
 nmap zz :q<CR>
 map <leader>h :MundoToggle<CR>
 map <leader>tg :TagbarToggle<CR>
+map <leader>a :AsyncRun<space>
 
 " leaderf mapping
-map <leader>f :Leaderf
+map <leader>f :Leaderf<SPACE>
 let g:Lf_ShortcutF = '<C-P>'
 " https://vi.stackexchange.com/questions/17896/how-to-move-to-parent-directory-with-leaderf
 " This way you can press <tab> to go to LeaderfFile normal mode and then press
