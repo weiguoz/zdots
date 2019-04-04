@@ -35,10 +35,29 @@ wgg() {
 }
 
 tx() {
-    if [ $# -ge 2 ]; then
-        tmux send-keys -t$1 "$2" enter
+    tx_usage() { echo "tx -p {pane} -c {command}" >&2; }
+
+    local OPTIND
+    while getopts ":p:c:" opt; do
+        case "${opt}" in
+            p ) # pane
+                p="$OPTARG"
+                ;;
+            c )
+                c="$OPTARG"
+                ;;
+            \? )
+                echo "Invalid option: -$OPTARG" >&2
+                ;;
+            : )
+                tx_usage
+        esac
+    done
+    shift $((OPTIND-1))
+
+    if [ -z "$p" -o -z "$c" ]; then
+        tx_usage
     else
-        echo "tx {pane} {command}"
+        tmux send-keys -t$p "$c" enter
     fi
 }
-

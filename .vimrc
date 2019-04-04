@@ -46,6 +46,8 @@ Bundle 'vim-airline/vim-airline'
 " multi highlight
 Bundle 'lfv89/vim-interestingwords'
 Bundle 'Valloric/YouCompleteMe'
+" https://github.com/junegunn/fzf#as-vim-plugin
+" set rtp+=/usr/local/opt/fzf
 " }}}
 
 " general settings {{{
@@ -69,9 +71,8 @@ set backspace=indent,eol,start
 set smarttab
 set smartindent
 set ts=4 sw=4 ai et
-set nu
+set nu " rnu relativenumber 相对行号
 set mouse-=a           " set if mousemodel=extend
-" set rnu              " relativenumber 相对行号
 set linebreak	       " 不在单词中间折行
 set foldmethod=marker  " marker 这个容易操控; /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
 " set ffs=unix,dos,mac
@@ -105,9 +106,9 @@ set wildignore=*.o,*.obj,*~
 " set report=0
 " set laststatus=2
 " set statusline=buf[%n,\ %{&encoding}]:%F " Buf:\ %2*%-3.3n%0*\ buffer number%n  file name%F/f
-" " set statusline+=%{strlen(&ft)?&ft:'none'}, " filetype
-" " set statusline+=%{&fileformat}]\   " file format
-" " set statusline+=%=          " right align
+" set statusline+=%{strlen(&ft)?&ft:'none'}, " filetype
+" set statusline+=%{&fileformat}]\   " file format
+" set statusline+=%=          " right align
 " set statusline+=\ \ [%03v\:0x%-4B\ %03l\/%L\=%p%%]
 " set statusline+=\ \ %h%1*%m%r%w%0*  " flag
 " set statusline+=\ %{strftime(\"%H:%M\")}
@@ -258,8 +259,8 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 "普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
-nmap lp <Plug>(ale_previous_wrap)
-nmap ln <Plug>(ale_next_wrap)
+nmap e <Plug>(ale_previous_wrap)
+nmap E <Plug>(ale_next_wrap)
 "<Leader>s触发/关闭语法检查
 nmap <Leader>l :ALEToggle<CR>
 " Fix Python files with autopep8 and yapf.
@@ -312,45 +313,44 @@ set background=dark
 " interestingwords
 nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
 nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
-nnoremap <silent> n :call WordNavigation('forward')<cr>
-nnoremap <silent> N :call WordNavigation('backward')<cr>
+nnoremap <silent> , :call WordNavigation('forward')<cr>
+nnoremap <silent> . :call WordNavigation('backward')<cr>
 let g:interestingWordsCycleColors=1
 
 " tagbar
 let g:tagbar_type_go = {
-	\ 'ctagstype' : 'go',
-	\ 'kinds'     : [
-		\ 'p:package',
-		\ 'i:imports:1',
-		\ 'c:constants',
-		\ 'v:variables',
-		\ 't:types',
-		\ 'n:interfaces',
-		\ 'w:fields',
-		\ 'e:embedded',
-		\ 'm:methods',
-		\ 'r:constructor',
-		\ 'f:functions'
-	\ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
+            \ 'ctagstype' : 'go',
+            \ 'kinds'     : [
+            \ 'p:package',
+            \ 'i:imports:1',
+            \ 'c:constants',
+            \ 'v:variables',
+            \ 't:types',
+            \ 'n:interfaces',
+            \ 'w:fields',
+            \ 'e:embedded',
+            \ 'm:methods',
+            \ 'r:constructor',
+            \ 'f:functions'
+            \ ],
+            \ 'sro' : '.',
+            \ 'kind2scope' : {
+            \ 't' : 'ctype',
+            \ 'n' : 'ntype'
+            \ },
+            \ 'scope2kind' : {
+            \ 'ctype' : 't',
+            \ 'ntype' : 'n'
+            \ },
+            \ 'ctagsbin'  : 'gotags',
+            \ 'ctagsargs' : '-sort -silent'
+            \ }
 "}}}
 
 " {{{ mappings
 imap jj <Esc> :w<CR>
 nmap zz :q<CR>
 map <leader>h :MundoToggle<CR>
-map <leader>tg :TagbarToggle<CR>
 map <leader>a :AsyncRun<space>
 
 " leaderf mapping
@@ -361,6 +361,7 @@ let g:Lf_ShortcutF = '<C-P>'
 " u to reopen LeadefFile with parent folder.
 let g:Lf_NormalMap = { "File":   [["u", ':LeaderfFile ..<CR>']] }
 
+nmap <C-c> :ChooseWin<CR>
 nmap nt :tabnext<CR>
 nmap pt :tabprevious<CR>
 nmap rt :tabrewind<CR>
@@ -369,10 +370,10 @@ map <silent> <leader>w <C-W><C-W>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nmap <C-h> 16h
-nmap <C-j> 16j
-nmap <C-k> 16k
-nmap <C-l> 16l
+nmap <C-h> 7h
+nmap <C-j> 7j
+nmap <C-k> 7k
+nmap <C-l> 7l
 nnoremap ; $
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
@@ -381,11 +382,11 @@ let g:UltiSnipsEditSplit="vertical"
 " }}}
 
 "{{{ python
-let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
-" https://github.com/vim/vim/issues/3117 解决启动时因为python3的报警
-if has('python3')
-    silent! python3 1
-endif
+" let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
+" " https://github.com/vim/vim/issues/3117 解决启动时因为python3的报警
+" if has('python3')
+"     silent! python3 1
+" endif
 " let g:ycm_server_python_interpreter
 "}}}
 
@@ -409,19 +410,22 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 au FileType go nmap gs <Plug>(go-def-vertical)
+au FileType go nmap <Leader>r :GoReferrers<CR>
 " (go-def-tab) (go-def-split)
 " }}}
 
 "{{{ 将代码行最后的无效空格highlight
-let loaded_trailing_whitespace_plugin=1
-" Highlight EOL whitespace, http://vim.wikia.com/wiki/Highlight_unwanted_spaces
-highlight ExtraWhitespace ctermbg=darkred guibg=#382424
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-
-" The above flashes annoyingly while typing, be calmer in insert mode
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+" vim-airline comments +++
+" let loaded_trailing_whitespace_plugin=1
+" " Highlight EOL whitespace, http://vim.wikia.com/wiki/Highlight_unwanted_spaces
+" highlight ExtraWhitespace ctermbg=darkred guibg=#382424
+" autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+" autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+"
+" " The above flashes annoyingly while typing, be calmer in insert mode
+" autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+" autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+" vim-airline comments ---
 
 function! s:FixWhitespace(line1,line2)
     let l:save_cursor=getpos(".")

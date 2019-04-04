@@ -37,15 +37,13 @@ export C_INCLUDE_PATH=/usr/local/Cellar/openssl/1.0.2j/include
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
 
-function setproxy() {
-    # export {HTTP,HTTPS,FTP}_PROXY="http://127.0.0.1:3128" 也可以设置http代理
-    export ALL_PROXY=socks5://127.0.0.1:1086
-}
-
-function unsetproxy() {
-    # unset {HTTP,HTTPS,FTP}_PROXY
-    unset ALL_PROXY
-}
-
 export -U PATH=$PATH:$iPATH # avoiding duplicates export caused by tmux
 PROMPT_COMMAND='echo -ne "\033]0; `basename $PWD`\007"'
+## fzf +++
+# Use ~~ as the trigger sequence instead of the default **
+export FZF_COMPLETION_TRIGGER='~~'
+# Options to fzf command
+export FZF_COMPLETION_OPTS='+c -x'
+# fzf examples: https://github.com/junegunn/fzf/wiki/examples
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+## fzf ---

@@ -44,6 +44,8 @@ export UPDATE_ZSH_DAYS=37
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="yyyy-mm-dd"
 setopt share_history
+setopt hist_ignore_dups
+setopt HIST_IGNORE_ALL_DUPS
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
