@@ -292,3 +292,11 @@ tmux_conf_copy_to_os_clipboard=false
 
 # move status line to top
 #set -g status-position top
+
+# learn from: http://louiszhai.github.io/2017/09/30/tmux/
+# 从tmux v1.6版起，支持设置第二个指令前缀
+unbind '"'
+unbind %
+bind - splitw -h -c '#{pane_current_path}'
+bind _ splitw -v -c '#{pane_current_path}'
+set -g display-panes-time 8000

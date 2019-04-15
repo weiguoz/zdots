@@ -391,12 +391,14 @@ let g:UltiSnipsEditSplit="vertical"
 "}}}
 
 "{{{ golang
-" 这里还没弄明白，尝试要么注释要么反注释 godef 就正常了 https://github.com/fatih/vim-go/issues/887
-" 解决 vim-go processing function jump_to_declaration list index out of range
-" let g:go_def_mode = 'godef', 可以试试 `:GoUpdateBinaries`
+" https://github.com/fatih/vim-go/issues/887#issuecomment-224107754 提到
+" godef更快， @fatih: 'prefer stability over performance'
+let g:go_def_mode = 'godef'
 
 "" https://github.com/golang/lint
 " set rtp+=/User/weiguo/go/src/golang.org/x/lint/misc/vim
+" invoke gofmt without plugin using `au BufWritePost *.go silent !gofmt -w %`
+" then `set autoread` to reload buffer
 let g:go_fmt_autosave=1
 let g:go_fmt_command = "goimports"
 " autocmd BufWritePost,FileWritePost *.go silent execute 'GoMetaLinter' | cwindow
