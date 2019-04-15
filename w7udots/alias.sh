@@ -13,9 +13,9 @@ alias ll='ls -al'
 alias la='ls -a'
 alias lsh='ls -ld .?*' # ls hidden files
 alias hist='history'
-alias grep='grep --color=always' # -i -n -m(max=8)
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
 alias sah='xargs grep -HLi'
+alias grep='grep --color=always -n' # -i -n -m(max=8)
 alias f='open -a Finder .'
 alias ff='find . -type f -iname'
 alias fd='find . -type d -iname'
