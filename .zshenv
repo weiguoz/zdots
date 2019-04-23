@@ -9,5 +9,4 @@ import() {
 DOTS='/Users/weiguo/w7udots'
 
 # 为了能够在vim中使用alias，所以把alias放置在env中
-import ${DOTS}/alias.sh
 import ${DOTS}/functions.sh

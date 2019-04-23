@@ -30,6 +30,8 @@ export GOPATH=~/go
 iPATH=$iPATH:$GOPATH/bin
 # iPATH=$iPATH:/Applications/Postgres.app/Contents/Versions/9.5/bin
 # iPATH=$iPATH:/usr/local/spring/bin
+# ruby
+iPATH=/usr/local/opt/ruby/bin:$iPATH
 
 #export DYLD_LIBRARY_PATH=$MYSQL_HOME/lib:$DYLD_LIBRARY_PATH
 export CPLUS_INCLUDE_PATH=/usr/local/Cellar/openssl/1.0.2j/include
