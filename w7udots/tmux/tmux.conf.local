@@ -178,7 +178,7 @@ tmux_conf_theme_right_separator_sub='|'
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=' ❐ #S | %a | %R , CA #(TZ=America/Mazatlan date +%%H:%%M) '
+tmux_conf_theme_status_left=' ❐ #S | %a | %R , CA #(TZ=America/Los_Angeles date +%%H:%%M) '
 tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} | #{loadavg} | #{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
 
 # status left style
@@ -248,11 +248,11 @@ tmux_conf_battery_vbar_palette='gradient'
 #tmux_conf_battery_vbar_palette='#d70000,#ff5f00,#5fff00'  # red, orange, green
 
 # symbols used to indicate whether battery is charging or discharging
-tmux_conf_battery_status_charging='↑'       # U+2191
-tmux_conf_battery_status_discharging='↓'    # U+2193
+#tmux_conf_battery_status_charging='↑'       # U+2191
+#tmux_conf_battery_status_discharging='↓'    # U+2193
 #tmux_conf_battery_status_charging='⚡ '    # U+26A1
-#tmux_conf_battery_status_charging='🔌 '    # U+1F50C
-#tmux_conf_battery_status_discharging='🔋 ' # U+1F50B
+tmux_conf_battery_status_charging='🔌 '    # U+1F50C
+tmux_conf_battery_status_discharging='🔋 ' # U+1F50B
 
 # clock style
 tmux_conf_theme_clock_colour='#00afff'  # light blue
@@ -266,7 +266,7 @@ tmux_conf_theme_clock_style='24'
 #   - false (default)
 # on macOS, this requires installing reattach-to-user-namespace, see README.md
 # on Linux, this requires xsel or xclip
-tmux_conf_copy_to_os_clipboard=false
+tmux_conf_copy_to_os_clipboard=true
 
 
 # -- user customizations -------------------------------------------------------
@@ -280,23 +280,23 @@ tmux_conf_copy_to_os_clipboard=false
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
-#set -g status-keys vi
-#set -g mode-keys vi
+set -g status-keys vi
+set -g mode-keys vi
 
+# learn from: http://louiszhai.github.io/2017/09/30/tmux/
+# 从tmux v1.6版起，支持设置第二个指令前缀
 # replace C-b by C-a instead of using both prefixes
 # set -gu prefix2
 # unbind C-a
 # unbind C-b
-# set -g prefix C-a
-# bind C-a send-prefix
+# set -g prefix C-\;
+# bind C-l send-prefix
 
 # move status line to top
-#set -g status-position top
+# set -g status-position top
 
-# learn from: http://louiszhai.github.io/2017/09/30/tmux/
-# 从tmux v1.6版起，支持设置第二个指令前缀
 unbind '"'
 unbind %
-bind - splitw -h -c '#{pane_current_path}'
-bind _ splitw -v -c '#{pane_current_path}'
+bind - splitw -v -c '#{pane_current_path}'
+bind = splitw -h -c '#{pane_current_path}'
 set -g display-panes-time 8000

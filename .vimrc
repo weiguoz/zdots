@@ -362,9 +362,8 @@ let g:Lf_ShortcutF = '<C-P>'
 let g:Lf_NormalMap = { "File":   [["u", ':LeaderfFile ..<CR>']] }
 
 nmap <C-c> :ChooseWin<CR>
-nmap nt :tabnext<CR>
-nmap pt :tabprevious<CR>
-nmap rt :tabrewind<CR>
+nmap tn :tabnext<CR>
+nmap tp :tabprevious<CR>
 map <leader>c :call CompileRun()<CR>
 map <silent> <leader>w <C-W><C-W>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
