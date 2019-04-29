@@ -12,6 +12,7 @@ Bundle 'skywind3000/asyncrun.vim'
 "such as: AsyncRun tmux send-keys -t2 "go test" enter
 " lepture/vim-velocity
 Bundle 't9md/vim-choosewin'
+Bundle 'kshenoy/vim-signature'
 " Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/grep.vim'
@@ -365,14 +366,13 @@ nmap <C-c> :ChooseWin<CR>
 nmap tn :tabnext<CR>
 nmap tp :tabprevious<CR>
 map <leader>c :call CompileRun()<CR>
-map <silent> <leader>w <C-W><C-W>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nmap <C-h> 7h
 nmap <C-j> 7j
 nmap <C-k> 7k
-nmap <C-l> 7l
+nmap <C-h> 10h
+map <silent> <leader>w 7w
 nnoremap ; $
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
