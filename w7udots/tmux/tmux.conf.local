@@ -248,13 +248,14 @@ tmux_conf_battery_vbar_palette='gradient'
 #tmux_conf_battery_vbar_palette='#d70000,#ff5f00,#5fff00'  # red, orange, green
 
 # symbols used to indicate whether battery is charging or discharging
-#tmux_conf_battery_status_charging='↑'       # U+2191
-#tmux_conf_battery_status_discharging='↓'    # U+2193
+# tmux_conf_battery_status_charging='↑'       # U+2191
+# tmux_conf_battery_status_discharging='↓'    # U+2193
 #tmux_conf_battery_status_charging='⚡ '    # U+26A1
 tmux_conf_battery_status_charging='🔌 '    # U+1F50C
 tmux_conf_battery_status_discharging='🔋 ' # U+1F50B
 
-# clock style
+# clock style (when you hit <prefix> + t)
+# you may want to use %I:%M %p in place of %R in tmux_conf_theme_status_right
 tmux_conf_theme_clock_colour='#00afff'  # light blue
 tmux_conf_theme_clock_style='24'
 
@@ -280,23 +281,15 @@ tmux_conf_copy_to_os_clipboard=true
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
-set -g status-keys vi
-set -g mode-keys vi
+#set -g status-keys vi
+#set -g mode-keys vi
 
-# learn from: http://louiszhai.github.io/2017/09/30/tmux/
-# 从tmux v1.6版起，支持设置第二个指令前缀
 # replace C-b by C-a instead of using both prefixes
 # set -gu prefix2
 # unbind C-a
 # unbind C-b
-# set -g prefix C-\;
-# bind C-l send-prefix
+# set -g prefix C-a
+# bind C-a send-prefix
 
 # move status line to top
-# set -g status-position top
-
-unbind '"'
-unbind %
-bind - splitw -v -c '#{pane_current_path}'
-bind = splitw -h -c '#{pane_current_path}'
-set -g display-panes-time 8000
+#set -g status-position top
