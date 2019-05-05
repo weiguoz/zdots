@@ -372,7 +372,7 @@ nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nmap <C-j> 7j
 nmap <C-k> 7k
 nmap <C-h> 10h
-map <silent> <leader>w 7w
+map <silent> <leader>w <C-w><C-w>
 nnoremap ; $
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
