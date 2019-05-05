@@ -42,7 +42,6 @@ alias .3='cd ../../.. && l'
 alias .4='cd ../../../.. && l'
 alias .5='cd ../../../../.. && l'
 alias vi='vim +'
-alias gs="cd ~/go/src/github.com/sql-machine-learning && ll"
 
 if [ -f ${DOTS}/z/z.sh ]; then
     z_then_ls() {

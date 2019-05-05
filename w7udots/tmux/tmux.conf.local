@@ -293,3 +293,4 @@ tmux_conf_copy_to_os_clipboard=true
 
 # move status line to top
 #set -g status-position top
+set -g display-panes-time 5000
