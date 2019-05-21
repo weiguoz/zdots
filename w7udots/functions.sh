@@ -34,8 +34,8 @@ wgg() {
     done
 }
 
-tx() {
-    tx_usage() { echo "tx -p {pane} -c {command}" >&2; }
+pc() {
+    pc_usage() { echo "pc -p {pane} -c {command}" >&2; }
 
     local OPTIND
     while getopts ":p:c:" opt; do
@@ -50,13 +50,13 @@ tx() {
                 echo "Invalid option: -$OPTARG" >&2
                 ;;
             : )
-                tx_usage
+                pc_usage
         esac
     done
     shift $((OPTIND-1))
 
     if [ -z "$p" -o -z "$c" ]; then
-        tx_usage
+        pc_usage
     else
         tmux send-keys -t$p "$c" enter
     fi

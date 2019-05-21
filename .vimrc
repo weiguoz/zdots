@@ -36,7 +36,7 @@ Bundle 'NLKNguyen/papercolor-theme'
 " 'kien/ctrlp.vim'
 " 'vim-scripts/mru.vim'
 " install then do: install.sh
-Bundle 'Yggdroot/LeaderF'
+Bundle 'Yggdroot/LeaderF', {'do': './install.sh'}
 Bundle 'airblade/vim-gitgutter'
 " Bundle 'ervandew/supertab'
 " Bundle 'docker/docker'
@@ -46,7 +46,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'vim-airline/vim-airline'
 " multi highlight
 Bundle 'lfv89/vim-interestingwords'
-Bundle 'Valloric/YouCompleteMe'
+Bundle 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
 " https://github.com/junegunn/fzf#as-vim-plugin
 " set rtp+=/usr/local/opt/fzf
 " }}}
@@ -216,7 +216,7 @@ endf
 " }}}
 
 " {{{ 插件配置
-let NERDTreeWinPos='right'           " tree 目录在右边right
+let NERDTreeWinPos='left'           " tree 目录在右边right
 let NERDTreeHighlightCursorline=0    " 高亮当前行
 let NERDTreeShowHidden=1             " 显示隐藏文件
 let NERDChristmasTree=1              " 色彩显示
@@ -287,10 +287,9 @@ let g:gundo_right=1
 " let MRU_Max_Entries=400
 
 " jedi {{{
-let g:jedi#rename_command = "<leader>r"
-
+" let g:jedi#rename_command = "<leader>r"
 " let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#usages_command = "<leader>u"
+" let g:jedi#usages_command = "<leader>u"
 " let g:jedi#completions_command = "<C-Space>"
 " let g:jedi#documentation_command = "K"
 " }}}
@@ -350,12 +349,16 @@ let g:tagbar_type_go = {
 
 " {{{ mappings
 imap jj <Esc> :w<CR>
-nmap zz :q<CR>
+nmap qq :q<CR>
 map <leader>h :MundoToggle<CR>
 map <leader>a :AsyncRun<space>
 
 " leaderf mapping
 map <leader>f :Leaderf<SPACE>
+" <leader>fm 搜索最近使用过的文件
+nnoremap <leader>fm :Leaderf mru<CR>
+" <leader>fc 搜索历史命令
+nnoremap <leader>fc :Leaderf cmdHistory<CR>
 let g:Lf_ShortcutF = '<C-P>'
 " https://vi.stackexchange.com/questions/17896/how-to-move-to-parent-directory-with-leaderf
 " This way you can press <tab> to go to LeaderfFile normal mode and then press
@@ -372,7 +375,6 @@ nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nmap <C-j> 7j
 nmap <C-k> 7k
 nmap <C-h> 10h
-map <silent> <leader>w <C-w><C-w>
 nnoremap ; $
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
