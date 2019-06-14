@@ -12,11 +12,11 @@ cds() {
 
 tellme() {
     # brew install terminal-notifier
-    if [ $# -eq 0 ]; then
-        terminal-notifier -title 't3rm!na1' -message '洪磊：执行完毕'
-    else
-        terminal-notifier -title 't3rm!na1' -message 'w7u：'$1
+    msg="done"
+    if [ $# -ne 0 ]; then
+        msg=$1
     fi
+    terminal-notifier -title 't3rm!na1' -message 'w7u：'$msg
 }
 
 # funny for my little son

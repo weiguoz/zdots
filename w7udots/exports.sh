@@ -14,17 +14,17 @@ export LC_ALL=en_US.UTF-8
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk/Contents/Home
 export ANT_HOME=/usr/local/share/ant
-#export IVY_HOME=/usr/share/ivy
+# export IVY_HOME=/usr/share/ivy
 export M2_HOME=/usr/local/share/maven
 export CLOUDENGINE_HOME=/usr/local/share/cloudengine
 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 
-#MYSQL_HOME=/usr/local/mysql
+# MYSQL_HOME=/usr/local/mysql
 iPATH=$JAVA_HOME:$M2_HOME/bin
 iPATH=$iPATH:$ANT_HOME/bin
 iPATH=$iPATH:$CLOUDENGINE_HOME/bin
 iPATH=$iPATH:~/w7udots/bin
-#iPATH=$iPATH:$MYSQL_HOME/bin
+# iPATH=$iPATH:$MYSQL_HOME/bin
 # go
 export GOPATH=~/go
 iPATH=$iPATH:$GOPATH/bin
@@ -33,9 +33,10 @@ iPATH=$iPATH:$GOPATH/bin
 # ruby
 iPATH=/usr/local/opt/ruby/bin:$iPATH
 
-#export DYLD_LIBRARY_PATH=$MYSQL_HOME/lib:$DYLD_LIBRARY_PATH
-export CPLUS_INCLUDE_PATH=/usr/local/Cellar/openssl/1.0.2j/include
-export C_INCLUDE_PATH=/usr/local/Cellar/openssl/1.0.2j/include
+# export DYLD_LIBRARY_PATH=$MYSQL_HOME/lib:$DYLD_LIBRARY_PATH
+# add include dir to c(pp)_includes
+# export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/Cellar/openssl/1.0.2s/include
+# export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/Cellar/openssl/1.0.2s/include
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
 
