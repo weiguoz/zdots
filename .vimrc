@@ -23,7 +23,7 @@ Bundle 'scrooloose/nerdtree'
 " replaced by ale
 " Bundle 'vim-syntastic/syntastic'
 Bundle 'w0rp/ale'
-Bundle 'davidhalter/jedi-vim'
+Bundle 'python-mode/python-mode', {'for': 'python', 'branch': 'develop'}
 " 'sjl/gundo.vim'
 Bundle 'simnalamburt/vim-mundo'
 Bundle 'SirVer/ultisnips'
@@ -275,7 +275,6 @@ let b:ale_linters = {
             \'cpp': ['clang'],
             \'c': ['clang'],
             \'go': ['govet'],
-            \'python': ['flake8', 'pylint'],
             \}
 " }}}
 
@@ -383,6 +382,7 @@ let g:UltiSnipsEditSplit="vertical"
 " }}}
 
 "{{{ python
+let g:pymode_python = 'python3'
 " let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
 " " https://github.com/vim/vim/issues/3117 解决启动时因为python3的报警
 " if has('python3')

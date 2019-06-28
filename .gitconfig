@@ -1,6 +1,6 @@
 [user]
     name = w7u
-    email = wg.z@qq.com
+	email = wg.z@qq.com
 [include]
     path = ~/w7udots/gitconfig.include
 [core]
