@@ -64,7 +64,7 @@ set ruler
 set showcmd
 set showmatch
 set showmode
-au filetype c,cpp,go set cc=81
+au filetype c,cpp,go,python set cc=81
 " au BufNewFile,BufRead *.vm,*.html,*.htm,*.shtml,*.stm set ft=velocity
 set cursorline " set cursorcolumn
 set backspace=indent,eol,start
