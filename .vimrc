@@ -38,11 +38,11 @@ Bundle 'NLKNguyen/papercolor-theme'
 " 'vim-scripts/mru.vim'
 " install then do: install.sh
 Bundle 'Yggdroot/LeaderF', {'do': './install.sh'}
-Bundle 'airblade/vim-gitgutter'
 " Bundle 'ervandew/supertab'
 " Bundle 'docker/docker'
 " git plugin
-Bundle 'tpope/vim-fugitive'
+Bundle 'airblade/vim-gitgutter'
+" Bundle 'tpope/vim-fugitive'
 " statusbar
 Bundle 'vim-airline/vim-airline'
 " multi highlight
