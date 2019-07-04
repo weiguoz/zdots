@@ -22,11 +22,12 @@ alias ff='find . -type f -iname'
 alias fd='find . -type d -iname'
 alias fn='find . ! -wholename'
 # login +++
-alias cos="/Users/weiguo/w7udots/ssh-helper/bastion.exp"
-alias sin='LC_ALL="zh_CN.GBK" luit /Users/weiguo/w7udots/ssh-helper/bastion_with_cookie.exp'  # running in tmux with luit
-alias sin2="export LC_ALL='zh_CN.GBK' && ${DOTS}/ssh-helper/bastion_with_cookie.exp; export LC_ALL='en_US.UTF-8'"
-alias tan='LC_ALL="zh_CN.GBK" luit ${DOTS}/ssh-helper/sin.sh'
-alias ctan="sh ${DOTS}/rcp_id_rsa_pub.sh"
+SSH_HELPER=${DOTS}/ssh-helper
+alias cos="${SSH_HELPER}/bastion.exp"
+alias sin="LC_ALL=\"zh_CN.GBK\" luit ${SSH_HELPER}/bastion_with_cookie.exp"  # running in tmux with luit
+alias sin2="export LC_ALL='zh_CN.GBK' && ${SSH_HELPER}/bastion_with_cookie.exp; export LC_ALL='en_US.UTF-8'"
+alias tan="${SSH_HELPER}/sin.sh"
+alias ctan="sh ${SSH_HELPER}/rcp_id_rsa_pub.sh"
 # login ---
 alias svnlog='svn log -l300 -v|more'
 alias mvnp='mvn clean package -Dmaven.test.skip'
