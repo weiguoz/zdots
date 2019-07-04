@@ -42,7 +42,7 @@ Bundle 'Yggdroot/LeaderF', {'do': './install.sh'}
 " Bundle 'docker/docker'
 " git plugin
 Bundle 'airblade/vim-gitgutter'
-" Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-fugitive'
 " statusbar
 Bundle 'vim-airline/vim-airline'
 " multi highlight
