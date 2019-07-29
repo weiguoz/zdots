@@ -1,6 +1,6 @@
 " myxjtu@gmail.com created@2005 with help from Guanjun Zhang
 
-" {{{ bundle
+" bundle {{{
 set secure nocompatible
 filetype off                   " 必须先关闭文件类型检查
 set rtp+=/Users/weiguo/.vim/vundle/Vundle.vim " 规定Vundle的路径
@@ -17,7 +17,6 @@ Bundle 'kshenoy/vim-signature'
 Bundle 'majutsushi/tagbar'
 Bundle 'vim-scripts/grep.vim'
 " Bundle 'mxw/vim-jsx'
-Bundle 'vim-scripts/a.vim'
 Bundle 'vim-scripts/FencView.vim'
 Bundle 'scrooloose/nerdtree'
 " replaced by ale
@@ -350,6 +349,7 @@ let g:tagbar_type_go = {
 " {{{ mappings
 imap jj <Esc> :w<CR>
 nmap qq :q<CR>
+nmap <leader>w :w<CR>
 map <leader>h :MundoToggle<CR>
 map <leader>a :AsyncRun<space>
 
