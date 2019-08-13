@@ -46,6 +46,8 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'vim-airline/vim-airline'
 " multi highlight
 Bundle 'lfv89/vim-interestingwords'
+" word jump by <leader><leader>w / b(ack)
+Bundle 'easymotion/vim-easymotion'
 Bundle 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
 " https://github.com/junegunn/fzf#as-vim-plugin
 " set rtp+=/usr/local/opt/fzf
@@ -300,7 +302,7 @@ let g:gundo_right=1
 " 对齐线段配置 vim-indent-guides
 let g:indent_guides_guide_size=1
 let g:indent_guides_start_level=2
-let g:indent_guides_enable_on_vim_startup = 0
+let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=6
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
@@ -347,18 +349,14 @@ let g:tagbar_type_go = {
 "}}}
 
 " {{{ mappings
-imap jj <Esc> :w<CR>
-nmap qq :q<CR>
+imap ww <Esc> :w<CR>
 nmap <leader>w :w<CR>
+nmap qq :q<CR>
 map <leader>h :MundoToggle<CR>
 map <leader>a :AsyncRun<space>
 
 " leaderf mapping
 map <leader>f :Leaderf<SPACE>
-" <leader>fm 搜索最近使用过的文件
-nnoremap <leader>fm :Leaderf mru<CR>
-" <leader>fc 搜索历史命令
-nnoremap <leader>fc :Leaderf cmdHistory<CR>
 let g:Lf_ShortcutF = '<C-P>'
 " https://vi.stackexchange.com/questions/17896/how-to-move-to-parent-directory-with-leaderf
 " This way you can press <tab> to go to LeaderfFile normal mode and then press
