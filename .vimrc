@@ -233,6 +233,13 @@ function SourceSession()
 endfunction
 command! -nargs=0 L :call SourceSession()
 
+" easymotion
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+nmap s <Plug>(easymotion-overwin-f2)
+nmap <C-h> <Plug>(easymotion-bd-jk)
+nmap <C-h> <Plug>(easymotion-overwin-line)
+
 " lint {{{
 " syntastic 配置, 20190122改用ale
 " " let g:syntastic_javascript_checkers = ['eslint']
@@ -351,7 +358,7 @@ let g:tagbar_type_go = {
 " {{{ mappings
 imap ww <Esc> :w<CR>
 nmap <leader>w :w<CR>
-nmap qq :q<CR>
+nmap <leader>q :q<CR>
 map <leader>h :MundoToggle<CR>
 map <leader>a :AsyncRun<space>
 
@@ -370,10 +377,13 @@ map <leader>c :call CompileRun()<CR>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-nmap <C-j> 7j
-nmap <C-k> 7k
-nmap <C-h> 10h
+nmap <C-j> 10j
+nmap <C-k> 10k
 nnoremap ; $
+nnoremap <Down> gj
+nnoremap <Up> gk
+vnoremap <Down> gj
+vnoremap <Up> gk
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
