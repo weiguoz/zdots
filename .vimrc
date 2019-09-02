@@ -319,10 +319,6 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 set background=dark
 
 " interestingwords
-nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
-nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
-nnoremap <silent> , :call WordNavigation('forward')<cr>
-nnoremap <silent> . :call WordNavigation('backward')<cr>
 let g:interestingWordsCycleColors=1
 
 " tagbar
