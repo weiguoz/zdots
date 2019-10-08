@@ -110,3 +110,5 @@ unset __conda_setup
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# specify the ruby version https://github.com/rbenv/rbenv/issues/939#issuecomment-253940228
+eval "$(rbenv init -)"
