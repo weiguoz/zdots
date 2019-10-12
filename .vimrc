@@ -55,6 +55,11 @@ Bundle 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --
 " }}}
 
 " general settings {{{
+" vimrc修改后自动加载
+autocmd! bufwritepost .vimrc source %
+" 自动补全
+" 让vim的补全菜单行为与一般ide一致
+set completeopt=longest,menu
 let g:mapleader=" "
 let g:ycm_global_ycm_extra_conf='~/w7udots/ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=1
@@ -240,6 +245,8 @@ let g:EasyMotion_smartcase = 1
 nmap s <Plug>(easymotion-overwin-f2)
 nmap <leader>s <Plug>(easymotion-bd-jk)
 nmap <leader>s <Plug>(easymotion-overwin-line)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 
 " lint {{{
 " syntastic 配置, 20190122改用ale
@@ -425,6 +432,7 @@ let g:go_highlight_build_constraints = 1
 
 au FileType go nmap gs <Plug>(go-def-vertical)
 au FileType go nmap <Leader>r :GoReferrers<CR>
+au FileType go nmap ds :GoDefStack<CR>
 " (go-def-tab) (go-def-split)
 " }}}
 
