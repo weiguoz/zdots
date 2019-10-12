@@ -238,8 +238,8 @@ command! -nargs=0 L :call SourceSession()
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
 nmap s <Plug>(easymotion-overwin-f2)
-nmap <C-h> <Plug>(easymotion-bd-jk)
-nmap <C-h> <Plug>(easymotion-overwin-line)
+nmap <leader>s <Plug>(easymotion-bd-jk)
+nmap <leader>s <Plug>(easymotion-overwin-line)
 
 " lint {{{
 " syntastic 配置, 20190122改用ale
