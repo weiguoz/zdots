@@ -356,8 +356,10 @@ let g:tagbar_type_go = {
 imap ww <Esc> :w<CR>
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
-map <leader>h :MundoToggle<CR>
-map <leader>a :AsyncRun<space>
+nmap <leader>h :MundoToggle<CR>
+nmap <leader>a :AsyncRun<space>
+nmap <Leader>n :NERDTreeToggle<CR>
+nmap <Leader>t :TagbarToggle<CR>
 
 " leaderf mapping
 map <leader>f :Leaderf<SPACE>
@@ -366,14 +368,16 @@ let g:Lf_ShortcutF = '<C-P>'
 " This way you can press <tab> to go to LeaderfFile normal mode and then press
 " u to reopen LeadefFile with parent folder.
 let g:Lf_NormalMap = { "File":   [["u", ':LeaderfFile ..<CR>']] }
-
-nmap <C-c> :ChooseWin<CR>
+" replace choosewin by vim-easymotion
+" nmap wc :ChooseWin<CR>
 nmap tn :tabnext<CR>
 nmap tp :tabprevious<CR>
 map <leader>c :call CompileRun()<CR>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" move
+nmap gm :call cursor(0, len(getline('.'))/2)<CR>
 nmap <C-j> 10j
 nmap <C-k> 10k
 nnoremap ; $
@@ -398,9 +402,10 @@ let g:pymode_rope = 0
 "}}}
 
 "{{{ golang
-" https://github.com/fatih/vim-go/issues/887#issuecomment-224107754 提到
-" godef更快， @fatih: 'prefer stability over performance'
-let g:go_def_mode = 'godef'
+" vim-go 默认使用 guru 做跳转，太慢了. 根据
+" https://github.com/fatih/vim-go/issues/887#issuecomment-224107754 
+" 中途我换过 godef,  在2019 年 10 月开始换成 gopls
+let g:go_def_mode = 'gopls'
 
 "" https://github.com/golang/lint
 " set rtp+=/User/weiguo/go/src/golang.org/x/lint/misc/vim
