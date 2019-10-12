@@ -38,9 +38,10 @@ Bundle 'NLKNguyen/papercolor-theme'
 " install then do: install.sh
 Bundle 'Yggdroot/LeaderF', {'do': './install.sh'}
 " Bundle 'ervandew/supertab'
-" Bundle 'docker/docker'
 " git plugin
-Bundle 'airblade/vim-gitgutter'
+" replace gitgutter by vim-signify
+Bundle 'mhinz/vim-signify' 
+" Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
 " statusbar
 Bundle 'vim-airline/vim-airline'
