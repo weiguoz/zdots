@@ -27,7 +27,7 @@ Bundle 'davidhalter/jedi-vim'
 " 'sjl/gundo.vim'
 Bundle 'simnalamburt/vim-mundo'
 Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
+"  有 SirVer/ultisnips 为啥还需要 honza/vim-snippets 呢
 Bundle 'fatih/vim-go'
 """ colorschema
 " Bundle 'tomasr/molokai'
@@ -40,7 +40,7 @@ Bundle 'Yggdroot/LeaderF', {'do': './install.sh'}
 " Bundle 'ervandew/supertab'
 " git plugin
 " replace gitgutter by vim-signify
-Bundle 'mhinz/vim-signify' 
+Bundle 'mhinz/vim-signify'
 " Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
 " statusbar
@@ -83,7 +83,7 @@ set ts=4 sw=4 ai et
 set nu " rnu relativenumber 相对行号
 set mouse-=a           " set if mousemodel=extend
 set linebreak	       " 不在单词中间折行
-set foldmethod=marker  " marker 这个容易操控; /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
+set foldmethod=marker  " marker 这个容易操控. /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
 " set ffs=unix,dos,mac
 " set encoding=utf-8
 set encoding=utf-8 fileencodings=utf-8,gbk,gb2312,gb18030 termencoding=utf-8 " 编码控制
@@ -243,10 +243,12 @@ command! -nargs=0 L :call SourceSession()
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
 nmap s <Plug>(easymotion-overwin-f2)
-nmap <leader>s <Plug>(easymotion-bd-jk)
-nmap <leader>s <Plug>(easymotion-overwin-line)
+nmap ; <Plug>(easymotion-lineanywhere)
+nmap , <Plug>(easymotion-bd-jk)
+nmap , <Plug>(easymotion-overwin-line)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+nmap f <Plug>(easymotion-sl)
 
 " lint {{{
 " syntastic 配置, 20190122改用ale
@@ -385,9 +387,9 @@ nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 " move
 nmap gm :call cursor(0, len(getline('.'))/2)<CR>
+nmap ge $
 nmap <C-j> 10j
 nmap <C-k> 10k
-nnoremap ; $
 nnoremap <Down> gj
 nnoremap <Up> gk
 vnoremap <Down> gj
@@ -410,7 +412,7 @@ let g:pymode_rope = 0
 
 "{{{ golang
 " vim-go 默认使用 guru 做跳转，太慢了. 根据
-" https://github.com/fatih/vim-go/issues/887#issuecomment-224107754 
+" https://github.com/fatih/vim-go/issues/887#issuecomment-224107754
 " 中途我换过 godef,  在2019 年 10 月开始换成 gopls
 let g:go_def_mode = 'gopls'
 
