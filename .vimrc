@@ -11,7 +11,8 @@ Bundle 'VundleVim/Vundle.vim'
 Bundle 'skywind3000/asyncrun.vim'
 "such as: AsyncRun tmux send-keys -t2 "go test" enter
 " lepture/vim-velocity
-Bundle 't9md/vim-choosewin'
+" replace choosewin by vim-easymotion
+" Bundle 't9md/vim-choosewin'
 Bundle 'kshenoy/vim-signature'
 " Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'majutsushi/tagbar'
@@ -19,9 +20,10 @@ Bundle 'vim-scripts/grep.vim'
 " Bundle 'mxw/vim-jsx'
 Bundle 'vim-scripts/FencView.vim'
 Bundle 'scrooloose/nerdtree'
+Bundle 'Xuyuanp/nerdtree-git-plugin'
 " replaced by ale
 " Bundle 'vim-syntastic/syntastic'
-Bundle 'w0rp/ale'
+Bundle 'dense-analysis/ale'
 " Bundle 'python-mode/python-mode', {'for': 'python', 'branch': 'develop'}
 Bundle 'davidhalter/jedi-vim'
 " 'sjl/gundo.vim'
@@ -244,8 +246,8 @@ command! -nargs=0 L :call SourceSession()
 let g:EasyMotion_smartcase = 1
 nmap s <Plug>(easymotion-overwin-f2)
 nmap ; <Plug>(easymotion-lineanywhere)
-nmap , <Plug>(easymotion-bd-jk)
-nmap , <Plug>(easymotion-overwin-line)
+nmap <c-h> <Plug>(easymotion-bd-jk)
+nmap <c-h> <Plug>(easymotion-overwin-line)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 nmap f <Plug>(easymotion-sl)
@@ -293,7 +295,7 @@ let b:ale_fixers = ['autopep8', 'yapf']
 let b:ale_linters = {
             \'cpp': ['clang'],
             \'c': ['clang'],
-            \'go': ['govet'],
+            \ 'go': ['gopls', 'golint'],
             \}
 " }}}
 
@@ -377,27 +379,46 @@ let g:Lf_ShortcutF = '<C-P>'
 " This way you can press <tab> to go to LeaderfFile normal mode and then press
 " u to reopen LeadefFile with parent folder.
 let g:Lf_NormalMap = { "File":   [["u", ':LeaderfFile ..<CR>']] }
-" replace choosewin by vim-easymotion
-" nmap wc :ChooseWin<CR>
 nmap tn :tabnext<CR>
 nmap tp :tabprevious<CR>
 map <leader>c :call CompileRun()<CR>
 nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
 nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" move
+" movement
 nmap gm :call cursor(0, len(getline('.'))/2)<CR>
 nmap ge $
-nmap <C-j> 10j
-nmap <C-k> 10k
-nnoremap <Down> gj
-nnoremap <Up> gk
-vnoremap <Down> gj
-vnoremap <Up> gk
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
+
+nnoremap <silent> <up> :call ScrollRatioOfWindow('up', 5)<CR>
+nnoremap <silent> <down> :call ScrollRatioOfWindow('down', 5)<CR>
+function! ScrollRatioOfWindow(move, r)
+    let height=winheight(0)
+    if a:move == 'up'
+        let key="\<C-Y>"
+    else
+        let key="\<C-E>"
+    endif
+    execute 'normal! ' . height/a:r . key
+endfunction
+
+nmap <Leader>j :call GotoJump()<CR>
+function! GotoJump()
+  jumps
+  let j = input("Please select your jump: ")
+  if j != ''
+    let pattern = '\v\c^\+'
+    if j =~ pattern
+      let j = substitute(j, pattern, '', 'g')
+      execute "normal " . j . "\<c-i>"
+    else
+      execute "normal " . j . "\<c-o>"
+    endif
+  endif
+endfunction
 " }}}
 
 "{{{ python
