@@ -1,4 +1,4 @@
-" myxjtu@gmail.com created@2005 with help from Guanjun Zhang
+""" 2005: weiguoz@github created this file by Guanjun Zhang' helping
 
 " bundle {{{
 set secure nocompatible
@@ -9,7 +9,7 @@ call vundle#rc('/Users/weiguo/.vim/vundle') " 规定插件的安装路径
 " Bundle 'gmarik/vundle'
 Bundle 'VundleVim/Vundle.vim'
 Bundle 'skywind3000/asyncrun.vim'
-"such as: AsyncRun tmux send-keys -t2 "go test" enter
+"such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 " lepture/vim-velocity
 " replace choosewin by vim-easymotion
 " Bundle 't9md/vim-choosewin'
@@ -26,6 +26,7 @@ Bundle 'Xuyuanp/nerdtree-git-plugin'
 Bundle 'dense-analysis/ale'
 " Bundle 'python-mode/python-mode', {'for': 'python', 'branch': 'develop'}
 Bundle 'davidhalter/jedi-vim'
+Bundle 'lfv89/vim-interestingwords'
 " 'sjl/gundo.vim'
 Bundle 'simnalamburt/vim-mundo'
 Bundle 'SirVer/ultisnips'
@@ -47,8 +48,6 @@ Bundle 'mhinz/vim-signify'
 Bundle 'tpope/vim-fugitive'
 " statusbar
 Bundle 'vim-airline/vim-airline'
-" multi highlight
-Bundle 'lfv89/vim-interestingwords'
 " word jump by <leader><leader>w / b(ack)
 Bundle 'easymotion/vim-easymotion'
 Bundle 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
@@ -142,90 +141,14 @@ if has("win32") " Fix findstr for Win32
         winpos 0 0
     endif
 endif
-
-" jsx/javascript
-" let g:jsx_ext_required = 0
-"
-" 打开大文件优化 http://vim.wikia.com/wiki/Faster_loading_of_large_files
-"   if !exists("my_auto_commands_loaded")
-"       let my_auto_commands_loaded=1
-"       let g:LargeFile=1024 * 1024 * 10
-"       augroup LargeFile
-"           autocmd BufReadPre
-"                       \ * let f=expand("<afile>") | if getfsize(f) > g:LargeFile | set eventignore+=FileType | setlocal noswapfile bufhidden=unload buftype=nowrite undolevels=-1 | else | set eventignore-=FileType | endif
-"       augroup END
-"   endif
 " }}}
 
 colorscheme PaperColor " molokai herald 256-jungle
 " autocmd BufNewFile,BufRead *.go colorscheme PaperColor
+" let g:airline_theme='molokai'
+set background=dark
 
-" {{{ compile and execute
-func CompileRun()
-    silent exe "w"
-    " compile_args=-DDBG -Wall -Wextra -Werror -Wconversion -Wshadow -g -std=c++11
-    if (&filetype=="c")
-        exec "!clang   -DDBG -Wall -Wextra -Werror -Wshadow -g -o %< %"
-    elseif (&filetype=="cpp" ||&filetype=="cxx")
-        exec "!clang++ -DDBG -Wall -Wextra -Werror -Wshadow -g -std=c++14 -o %< %"
-    else
-        echohl WarningMsg | echo "filetype["&filetype"] isn't a c/cpp file" | echohl None
-        return
-    endif
-    if !v:shell_error
-        exec "!./%<"
-        silent exec "!rm -rf %< %<.dSYM"
-    endif
-endfunc
-" }}}
-
-" {{{ 源码说明头
-command! -nargs=0 Adddesc :call AddDesc()
-function AddDesc()
-    call AddTemplate()
-    call AddTitle()
-    exec "w"
-endf
-
-function AddTitle()
-    if (&filetype=="c" || &filetype=="cpp" || &filetype=="cxx")
-        call append(0, "/*{{{+++++++++++++++++++++++ <Description> ++++++++++++++++++++++++++")
-        call append(1, " * @Brief:")
-        call append(2, " *")
-        call append(3, " * @History:")
-        call append(4, " * ---------------------------------")
-        call append(5, " * @author: w7u created [".strftime("%Y-%m-%d")."]")
-        call append(6, " *")
-        call append(7, " * -------------------------------------------------------------}}}*/")
-    else
-        call append(0, "# {{{ +++++++++++++++++++++++++ <Description> +++++++++++++++++++++++++++++++")
-        call append(1, "# @Brief:")
-        call append(2, "#")
-        call append(3, "# @History:")
-        call append(4, "# ---------------------------------")
-        call append(5, "# @author: w7u created [".strftime("%Y-%m-%d")."]")
-        call append(6, "#")
-        call append(7, "# -------------------------------------------------------------------------}}}")
-    endif
-endf
-
-function AddTemplate()
-    if (&filetype=="c" || &filetype=="cpp" || &filetype=="cxx")
-        call append(0, "#include <cstdio>")
-        let index=1
-    else
-        return
-    endif
-    call append(index+1, "#ifdef DBG")
-    call append(index+2, "int main() {")
-    call append(index+3, "    printf(\"TODO\\n\");")
-    call append(index+4, "	return 0;")
-    call append(index+5, "}")
-    call append(index+6, "#endif")
-endf
-" }}}
-
-" {{{ 插件配置
+"{{{ 插件配置 +++
 let NERDTreeWinPos='left'           " tree 目录在右边right
 let NERDTreeHighlightCursorline=0    " 高亮当前行
 let NERDTreeShowHidden=1             " 显示隐藏文件
@@ -235,38 +158,11 @@ let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$']
 
 set autochdir
 
-" 历史记录保存、载入
-function SourceSession()
-    silent exe ":source Session.vim"
-endfunction
-command! -nargs=0 L :call SourceSession()
+" interestingwords
+let g:interestingWordsCycleColors=1
 
-" easymotion
-" Turn on case-insensitive feature
-let g:EasyMotion_smartcase = 1
-nmap s <Plug>(easymotion-overwin-f2)
-nmap ; <Plug>(easymotion-lineanywhere)
-nmap <c-h> <Plug>(easymotion-bd-jk)
-nmap <c-h> <Plug>(easymotion-overwin-line)
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-nmap f <Plug>(easymotion-sl)
-
-" lint {{{
-" syntastic 配置, 20190122改用ale
-" " let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_always_populate_loc_list=0 " 1  enable jump next err-point with lne(xt)/lprev
-" let g:syntastic_error_symbol = '✗'
-" let g:syntastic_warning_symbol = "⚠"
-" let g:syntastic_check_on_wq=1
-" let g:syntastic_auto_jump=0
-" let g:syntastic_loc_list_height=5
-" let g:syntastic_auto_loc_list = 0
-" nnoremap sn :lnext<cr>
-" nnoremap sp :lprevious<cr>
-"
-" ale 配置
-" Write this in your vimrc file
+" linter {{{ ale
+" 20190122改 syntasitic 为 ale
 let g:ale_lint_on_text_changed = 'normal'
 " You can disable this option too
 " if you don't want linters to run on opening a file
@@ -280,11 +176,6 @@ let g:ale_statusline_format = ['✗ %d', '⚠  %d', '✔ OK']
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-"普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
-nmap e <Plug>(ale_previous_wrap)
-nmap E <Plug>(ale_next_wrap)
-"<Leader>s触发/关闭语法检查
-nmap <Leader>l :ALEToggle<CR>
 " Fix Python files with autopep8 and yapf.
 let b:ale_fixers = ['autopep8', 'yapf']
 " 命令 :Errors 弹出loc_list
@@ -314,10 +205,6 @@ let g:gundo_right=1
 " let g:jedi#documentation_command = "K"
 " }}}
 
-" JSX syntax highlighting and indenting will be enabled only for files with
-" the .jsx extension. If you would like JSX in .js files, add
-" let g:jsx_ext_required = 0
-
 " 对齐线段配置 vim-indent-guides
 let g:indent_guides_guide_size=1
 let g:indent_guides_start_level=2
@@ -326,14 +213,7 @@ let g:indent_guides_auto_colors = 0
 autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=6
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=7
 
-" colorschema
-" let g:airline_theme='molokai'
-set background=dark
-
-" interestingwords
-let g:interestingWordsCycleColors=1
-
-" tagbar
+"{{{ tagbar
 let g:tagbar_type_go = {
             \ 'ctagstype' : 'go',
             \ 'kinds'     : [
@@ -363,63 +243,11 @@ let g:tagbar_type_go = {
             \ }
 "}}}
 
-" {{{ mappings
-imap ww <Esc> :w<CR>
-nmap <leader>w :w<CR>
-nmap <leader>q :q<CR>
-nmap <leader>h :MundoToggle<CR>
-nmap <leader>a :AsyncRun<space>
-nmap <Leader>n :NERDTreeToggle<CR>
-nmap <Leader>t :TagbarToggle<CR>
-
-" leaderf mapping
-map <leader>f :Leaderf<SPACE>
-let g:Lf_ShortcutF = '<C-P>'
-" https://vi.stackexchange.com/questions/17896/how-to-move-to-parent-directory-with-leaderf
-" This way you can press <tab> to go to LeaderfFile normal mode and then press
-" u to reopen LeadefFile with parent folder.
-let g:Lf_NormalMap = { "File":   [["u", ':LeaderfFile ..<CR>']] }
-nmap tn :tabnext<CR>
-nmap tp :tabprevious<CR>
-map <leader>c :call CompileRun()<CR>
-nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
-nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
-" movement
-nmap gm :call cursor(0, len(getline('.'))/2)<CR>
-nmap ge $
-let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsEditSplit="vertical"
-
-nnoremap <silent> <up> :call ScrollRatioOfWindow('up', 5)<CR>
-nnoremap <silent> <down> :call ScrollRatioOfWindow('down', 5)<CR>
-function! ScrollRatioOfWindow(move, r)
-    let height=winheight(0)
-    if a:move == 'up'
-        let key="\<C-Y>"
-    else
-        let key="\<C-E>"
-    endif
-    execute 'normal! ' . height/a:r . key
-endfunction
-
-nmap <Leader>j :call GotoJump()<CR>
-function! GotoJump()
-  jumps
-  let j = input("Please select your jump: ")
-  if j != ''
-    let pattern = '\v\c^\+'
-    if j =~ pattern
-      let j = substitute(j, pattern, '', 'g')
-      execute "normal " . j . "\<c-i>"
-    else
-      execute "normal " . j . "\<c-o>"
-    endif
-  endif
-endfunction
+" {{{ easymotion
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
 " }}}
+"}}} 插件配置 ---
 
 "{{{ python
 " let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
@@ -452,15 +280,9 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-
-au FileType go nmap gs <Plug>(go-def-vertical)
-au FileType go nmap <Leader>r :GoReferrers<CR>
-au FileType go nmap ds :GoDefStack<CR>
-" (go-def-tab) (go-def-split)
 " }}}
 
-"{{{ 将代码行最后的无效空格highlight
-" vim-airline comments +++
+"{{{vim-airline comments +++
 " let loaded_trailing_whitespace_plugin=1
 " " Highlight EOL whitespace, http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 " highlight ExtraWhitespace ctermbg=darkred guibg=#382424
@@ -471,13 +293,158 @@ au FileType go nmap ds :GoDefStack<CR>
 " autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 " autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 " vim-airline comments ---
+"}}}
 
+" {{{ functions
+" Run :FixWhitespace to remove end of line white space
 function! s:FixWhitespace(line1,line2)
     let l:save_cursor=getpos(".")
     silent! execute ':' . a:line1 . ',' . a:line2 . 's/\s\+$//'
     call setpos('.', l:save_cursor)
 endfunction
 
-" Run :FixWhitespace to remove end of line white space
+function! ScrollRatioOfWindow(move, r)
+    let height=winheight(0)
+    if a:move == 'up'
+        let key="\<C-Y>"
+    else
+        let key="\<C-E>"
+    endif
+    execute 'normal! ' . height/a:r . key
+endfunction
+
+function! GotoJump()
+  jumps
+  let j = input("Please select your jump: ")
+  if j != ''
+    let pattern = '\v\c^\+'
+    if j =~ pattern
+      let j = substitute(j, pattern, '', 'g')
+      execute "normal " . j . "\<c-i>"
+    else
+      execute "normal " . j . "\<c-o>"
+    endif
+  endif
+endfunction
+
+func CompileRun()
+    silent exe "w"
+    " compile_args=-DDBG -Wall -Wextra -Werror -Wconversion -Wshadow -g -std=c++11
+    if (&filetype=="c")
+        exec "!clang   -DDBG -Wall -Wextra -Werror -Wshadow -g -o %< %"
+    elseif (&filetype=="cpp" ||&filetype=="cxx")
+        exec "!clang++ -DDBG -Wall -Wextra -Werror -Wshadow -g -std=c++14 -o %< %"
+    else
+        echohl WarningMsg | echo "filetype["&filetype"] isn't a c/cpp file" | echohl None
+        return
+    endif
+    if !v:shell_error
+        exec "!./%<"
+        silent exec "!rm -rf %< %<.dSYM"
+    endif
+endfunc
+
+function AddDesc()
+    call AddTemplate()
+    call AddTitle()
+    exec "w"
+endf
+
+function AddTitle()
+    if (&filetype=="c" || &filetype=="cpp" || &filetype=="cxx")
+        call append(0, "/*+++++++++++++++++++++++ <Description> ++++++++++++++++++++++++++")
+        call append(1, " * @Brief:")
+        call append(2, " *")
+        call append(3, " * @History:")
+        call append(4, " * ---------------------------------")
+        call append(5, " * @author: w7u created [".strftime("%Y-%m-%d")."]")
+        call append(6, " *")
+        call append(7, " * -------------------------------------------------------------*/")
+    else
+        call append(0, "# +++++++++++++++++++++++++ <Description> +++++++++++++++++++++++++++++++")
+        call append(1, "# @Brief:")
+        call append(2, "#")
+        call append(3, "# @History:")
+        call append(4, "# ---------------------------------")
+        call append(5, "# @author: w7u created [".strftime("%Y-%m-%d")."]")
+        call append(6, "#")
+        call append(7, "# -------------------------------------------------------------------------")
+    endif
+endf
+
+function AddTemplate()
+    if (&filetype=="c" || &filetype=="cpp" || &filetype=="cxx")
+        call append(0, "#include <cstdio>")
+        let index=1
+    else
+        return
+    endif
+    call append(index+1, "#ifdef DBG")
+    call append(index+2, "int main() {")
+    call append(index+3, "    printf(\"TODO\\n\");")
+    call append(index+4, "	return 0;")
+    call append(index+5, "}")
+    call append(index+6, "#endif")
+endf
+" }}}
+
+" {{{ shortcut, movements & jumps
 command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
-"}}}
+command! -nargs=0 Adddesc :call AddDesc() " 源码说明头
+nnoremap <silent> <up> :call ScrollRatioOfWindow('up', 5)<CR>
+nnoremap <silent> <down> :call ScrollRatioOfWindow('down', 5)<CR>
+nmap <Leader>j :call GotoJump()<CR>
+map <leader>c :call CompileRun()<CR>
+
+""" go
+au FileType go nmap gs <Plug>(go-def-vertical)
+au FileType go nmap <Leader>r :GoReferrers<CR>
+au FileType go nmap ds :GoDefStack<CR>
+" (go-def-tab) (go-def-split)
+
+"<Leader>s触发/关闭语法检查
+nmap <Leader>l :ALEToggle<CR>
+
+imap ww <Esc> :w<CR>
+nmap <leader>w :w<CR>
+nmap <leader>q :q<CR>
+nmap <leader>h :MundoToggle<CR>
+nmap <leader>a :AsyncRun<space>
+nmap <Leader>n :NERDTreeToggle<CR>
+nmap <Leader>t :TagbarToggle<CR>
+
+" leaderf mapping
+map <leader>f :Leaderf<SPACE>
+let g:Lf_ShortcutF = '<C-P>'
+" https://vi.stackexchange.com/questions/17896/how-to-move-to-parent-directory-with-leaderf
+" This way you can press <tab> to go to LeaderfFile normal mode and then press
+" u to reopen LeadefFile with parent folder.
+let g:Lf_NormalMap = { "File":   [["u", ':LeaderfFile ..<CR>']] }
+nnoremap <leader>gl :YcmCompleter GoToDeclaration<CR>
+nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+""" movement +++
+nmap gm :call cursor(0, len(getline('.'))/2)<CR>
+nmap ge $
+" easymotion
+" Turn on case-insensitive feature
+nmap s <Plug>(easymotion-overwin-f2)
+nmap ; <Plug>(easymotion-lineanywhere)
+nmap <c-h> <Plug>(easymotion-bd-jk)
+nmap <c-h> <Plug>(easymotion-overwin-line)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+nmap f <Plug>(easymotion-sl)
+" 普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
+nmap tn :tabnext<CR>
+nmap tp :tabprevious<CR>
+nmap e <Plug>(ale_previous_wrap)
+nmap E <Plug>(ale_next_wrap)
+""" movement ---
+
+let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsEditSplit="vertical"
+" }}}
