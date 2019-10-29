@@ -310,7 +310,17 @@ function! ScrollRatioOfWindow(move, r)
     else
         let key="\<C-E>"
     endif
-    execute 'normal! ' . height/a:r . key
+    execute 'normal! ' . height * a:r /100 . key
+endfunction
+
+function! MoveRatioOfWindow(move, r)
+    let height=winheight(0)
+    if a:move == 'up'
+        let key="k"
+    else
+        let key="j"
+    endif
+    execute 'normal! ' . height * a:r / 100 . key
 endfunction
 
 function! GotoJump()
@@ -391,8 +401,10 @@ endf
 " {{{ shortcut, movements & jumps
 command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
 command! -nargs=0 Adddesc :call AddDesc() " 源码说明头
-nnoremap <silent> <up> :call ScrollRatioOfWindow('up', 5)<CR>
-nnoremap <silent> <down> :call ScrollRatioOfWindow('down', 5)<CR>
+nnoremap <silent> <up> :call ScrollRatioOfWindow('up', 30)<CR>
+nnoremap <silent> <down> :call ScrollRatioOfWindow('down', 30)<CR>
+nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
+nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 nmap <Leader>j :call GotoJump()<CR>
 map <leader>c :call CompileRun()<CR>
 
@@ -405,8 +417,8 @@ au FileType go nmap ds :GoDefStack<CR>
 "<Leader>s触发/关闭语法检查
 nmap <Leader>l :ALEToggle<CR>
 
-imap ww <Esc> :w<CR>
-nmap <leader>w :w<CR>
+imap <silent> ww <Esc> :w<CR>
+nmap <silent> <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>h :MundoToggle<CR>
 nmap <leader>a :AsyncRun<space>
@@ -429,7 +441,7 @@ nmap gm :call cursor(0, len(getline('.'))/2)<CR>
 nmap ge $
 " easymotion
 " Turn on case-insensitive feature
-map <Leader> <Plug>(easymotion-prefix)
+nmap , <Plug>(easymotion-prefix)
 nmap s <Plug>(easymotion-overwin-f2)
 nmap ; <Plug>(easymotion-lineanywhere)
 map  / <Plug>(easymotion-sn)
