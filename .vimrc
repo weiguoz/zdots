@@ -429,13 +429,11 @@ nmap gm :call cursor(0, len(getline('.'))/2)<CR>
 nmap ge $
 " easymotion
 " Turn on case-insensitive feature
+map <Leader> <Plug>(easymotion-prefix)
 nmap s <Plug>(easymotion-overwin-f2)
 nmap ; <Plug>(easymotion-lineanywhere)
-nmap <c-h> <Plug>(easymotion-bd-jk)
-nmap <c-h> <Plug>(easymotion-overwin-line)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
-nmap f <Plug>(easymotion-sl)
 " 普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
 nmap tn :tabnext<CR>
 nmap tp :tabprevious<CR>
