@@ -8,11 +8,13 @@ call vundle#rc('/Users/weiguo/.vim/vundle') " 规定插件的安装路径
 " 需要安装的插件列表放在这里
 " Bundle 'gmarik/vundle'
 Bundle 'VundleVim/Vundle.vim'
-Bundle 'skywind3000/asyncrun.vim'
 "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
+Bundle 'skywind3000/asyncrun.vim'
+""" colorschema
+" Bundle 'tomasr/molokai'
+Bundle 'NLKNguyen/papercolor-theme'
 " lepture/vim-velocity
-" replace choosewin by vim-easymotion
-" Bundle 't9md/vim-choosewin'
+Bundle 't9md/vim-choosewin'
 Bundle 'kshenoy/vim-signature'
 " Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'majutsushi/tagbar'
@@ -32,17 +34,14 @@ Bundle 'simnalamburt/vim-mundo'
 Bundle 'SirVer/ultisnips'
 "  有 SirVer/ultisnips 为啥还需要 honza/vim-snippets 呢
 Bundle 'fatih/vim-go'
-""" colorschema
-" Bundle 'tomasr/molokai'
-Bundle 'NLKNguyen/papercolor-theme'
 """""""" following 2 plugins replaced by LeaderF by Yggdroot@newsmth
 " 'kien/ctrlp.vim'
 " 'vim-scripts/mru.vim'
 " install then do: install.sh
-Bundle 'Yggdroot/LeaderF', {'do': './install.sh'}
+"Bundle 'Yggdroot/LeaderF', {'do': './install.sh'}
 " Bundle 'ervandew/supertab'
 " git plugin
-" replace gitgutter by vim-signify
+" replace airblade/vim-gitgutter by vim-signify
 Bundle 'mhinz/vim-signify'
 " Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
@@ -62,8 +61,6 @@ autocmd! bufwritepost .vimrc source %
 " 让vim的补全菜单行为与一般ide一致
 set completeopt=longest,menu
 let g:mapleader=" "
-let g:ycm_global_ycm_extra_conf='~/w7udots/ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf=1
 au BufWrite /private/etc/pw.* set nowritebackup nobackup " Don't write backup file if vim is being called by "chpass"
 filetype plugin indent on      " 重新打开文件类型检查
 syntax enable
@@ -82,7 +79,7 @@ set smarttab
 set smartindent
 set ts=4 sw=4 ai et
 set nu " rnu relativenumber 相对行号
-set mouse-=a           " set if mousemodel=extend
+set mouse-=r           " enable mouse, or mouse-=a
 set linebreak	       " 不在单词中间折行
 set foldmethod=marker  " marker 这个容易操控. /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
 " set ffs=unix,dos,mac
@@ -149,7 +146,7 @@ colorscheme PaperColor " molokai herald 256-jungle
 set background=dark
 
 "{{{ 插件配置 +++
-let NERDTreeWinPos='left'           " tree 目录在右边right
+let NERDTreeWinPos='left'
 let NERDTreeHighlightCursorline=0    " 高亮当前行
 let NERDTreeShowHidden=1             " 显示隐藏文件
 let NERDChristmasTree=1              " 色彩显示
@@ -160,6 +157,9 @@ set autochdir
 
 " interestingwords
 let g:interestingWordsCycleColors=1
+" YouCompleteMe
+let g:ycm_global_ycm_extra_conf='~/w7udots/ycm_extra_conf.py'
+let g:ycm_confirm_extra_conf=1
 
 " linter {{{ ale
 " 20190122改 syntasitic 为 ale
@@ -171,7 +171,7 @@ let g:ale_set_highlights = 0
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 "在vim自带的状态栏中整合ale
-let g:ale_statusline_format = ['✗ %d', '⚠  %d', '✔ OK']
+let g:ale_statusline_format = ['✗ %d', '⚠ %d', '✔ OK']
 "显示Linter名称,出错或警告等相关信息
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
@@ -184,9 +184,9 @@ let b:ale_fixers = ['autopep8', 'yapf']
 " you can define b:ale_linters for a single buffer, or g:ale_linters globally.
 " 'go': ['golint', 'govet', 'gometalinter'],
 let b:ale_linters = {
+            \'go': ['golint', 'gopls'],
             \'cpp': ['clang'],
             \'c': ['clang'],
-            \ 'go': ['gopls', 'golint'],
             \}
 " }}}
 
@@ -303,16 +303,6 @@ function! s:FixWhitespace(line1,line2)
     call setpos('.', l:save_cursor)
 endfunction
 
-function! ScrollRatioOfWindow(move, r)
-    let height=winheight(0)
-    if a:move == 'up'
-        let key="\<C-Y>"
-    else
-        let key="\<C-E>"
-    endif
-    execute 'normal! ' . height * a:r /100 . key
-endfunction
-
 function! MoveRatioOfWindow(move, r)
     let height=winheight(0)
     if a:move == 'up'
@@ -337,7 +327,7 @@ function! GotoJump()
   endif
 endfunction
 
-func CompileRun()
+func! CompileRun()
     silent exe "w"
     " compile_args=-DDBG -Wall -Wextra -Werror -Wconversion -Wshadow -g -std=c++11
     if (&filetype=="c")
@@ -354,13 +344,13 @@ func CompileRun()
     endif
 endfunc
 
-function AddDesc()
+function! AddDesc()
     call AddTemplate()
     call AddTitle()
     exec "w"
 endf
 
-function AddTitle()
+function! AddTitle()
     if (&filetype=="c" || &filetype=="cpp" || &filetype=="cxx")
         call append(0, "/*+++++++++++++++++++++++ <Description> ++++++++++++++++++++++++++")
         call append(1, " * @Brief:")
@@ -382,7 +372,7 @@ function AddTitle()
     endif
 endf
 
-function AddTemplate()
+function! AddTemplate()
     if (&filetype=="c" || &filetype=="cpp" || &filetype=="cxx")
         call append(0, "#include <cstdio>")
         let index=1
@@ -401,12 +391,10 @@ endf
 " {{{ shortcut, movements & jumps
 command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
 command! -nargs=0 Adddesc :call AddDesc() " 源码说明头
-nnoremap <silent> <up> :call ScrollRatioOfWindow('up', 30)<CR>
-nnoremap <silent> <down> :call ScrollRatioOfWindow('down', 30)<CR>
 nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
 nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 nmap <Leader>j :call GotoJump()<CR>
-map <leader>c :call CompileRun()<CR>
+nmap <c-c> :ChooseWin<CR>
 
 """ go
 au FileType go nmap gs <Plug>(go-def-vertical)
@@ -414,11 +402,9 @@ au FileType go nmap <Leader>r :GoReferrers<CR>
 au FileType go nmap ds :GoDefStack<CR>
 " (go-def-tab) (go-def-split)
 
-"<Leader>s触发/关闭语法检查
 nmap <Leader>l :ALEToggle<CR>
-
-imap <silent> ww <Esc> :w<CR>
-nmap <silent> <leader>w :w<CR>
+imap <silent>ww <Esc> :w<CR>
+nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>h :MundoToggle<CR>
 nmap <leader>a :AsyncRun<space>
@@ -437,7 +423,7 @@ nnoremap <leader>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <leader>gg :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 """ movement +++
-nmap gm :call cursor(0, len(getline('.'))/2)<CR>
+nmap <silent>gm :call cursor(0, len(getline('.'))/2)<CR>
 nmap ge $
 " easymotion
 " Turn on case-insensitive feature
