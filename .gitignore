@@ -1,7 +1,6 @@
 *
 !.gitignore
 !.gitconfig
-!.vimrc
 !.ideavimrc
 !.zshenv
 !.zshrc
@@ -27,3 +26,6 @@
 !w7udots/tmux/
 !w7udots/tmux/tmux.conf
 !w7udots/tmux/tmux.conf.local
+
+!w7udots/dotvim/
+!w7udots/dotvim/*
