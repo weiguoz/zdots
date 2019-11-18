@@ -61,3 +61,23 @@ pc() {
         tmux send-keys -t$p "$c" enter
     fi
 }
+
+# Control the pip version in virtualenv
+# https://stackoverflow.com/a/58775012
+ve() {
+    local py="python3"
+    if [ ! -d ./.venv ]; then
+        echo "creating venv..."
+        if ! $py -m venv .venv --prompt=$(basename $PWD) --without-pip; then
+            echo "ERROR: Problem creating venv" >&2
+            return 1
+        else
+            local whl=$($py -c "import pathlib, ensurepip; [whl] = pathlib.Path(ensurepip.__path__[0]).glob('_bundled/pip*.whl'); print(whl)")
+            echo "boostrapping pip using $whl"
+            .venv/bin/python $whl/pip install --upgrade pip setuptools wheel
+            source .venv/bin/activate
+        fi
+    else
+        source .venv/bin/activate
+    fi
+}

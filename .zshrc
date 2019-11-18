@@ -86,7 +86,7 @@ source $HOME/${MY_DOTS_IN}/zsh-autosuggestions/zsh-autosuggestions.zsh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # weiguozhu
-. ${HOME}/${MY_DOTS_IN}/shrc_profile.sh
+. ${HOME}/${MY_DOTS_IN}/sh/shrc_profile.sh
 limit coredumpsize 0
 setopt AUTO_LIST
 setopt AUTO_MENU
