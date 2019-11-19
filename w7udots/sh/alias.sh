@@ -37,7 +37,7 @@ alias chrome="sh ${DOTS}/sh/search_on_terminal.sh"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias vi='vim +'
-alias nv='nvim'
+alias vin='nvim'
 
 if [ -f ${DOTS}/z/z.sh ]; then
     z_then_ls() {
