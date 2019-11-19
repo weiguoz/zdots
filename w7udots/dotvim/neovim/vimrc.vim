@@ -1,6 +1,6 @@
 syntax on
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/nv_plugged')
 
 Plug 'scrooloose/nerdtree'  " file list
 Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
@@ -18,6 +18,7 @@ Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
 Plug 'tpope/vim-commentary'  "comment-out by gc
 Plug 'roxma/nvim-yarp'  " dependency of ncm2
 Plug 'ncm2/ncm2'  " awesome autocomplete plugin
+Plug 'ncm2/float-preview.nvim'
 Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
 Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
 Plug 'ncm2/ncm2-path'  " filepath completion
@@ -56,7 +57,7 @@ set nowrap  " i turn on wrap manually when needed
 
 set scrolloff=3 " keep three lines between the cursor and the edge of the screen
 
-set undodir=~/.vim/undodir
+set undodir=~/.vim/undo
 set undofile  " save undos
 set undolevels=10000  " maximum number of changes that can be undone
 set undoreload=100000  " maximum number lines to save for undo on a buffer reload
