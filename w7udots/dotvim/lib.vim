@@ -29,14 +29,6 @@ function! CleanWin32Toolbar()
 endf
 " }}}
 
-" {{{ Run :FixWhitespace to remove end of line white space
-function! s:FixWhitespace(line1,line2)
-    let l:save_cursor=getpos(".")
-    silent! execute ':' . a:line1 . ',' . a:line2 . 's/\s\+$//'
-    call setpos('.', l:save_cursor)
-endfunction
-" }}}
-
 " {{{ move
 function! MoveRatioOfWindow(move, r)
     let height=winheight(0)
