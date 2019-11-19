@@ -12,47 +12,46 @@ filetype off                   " 必须先关闭文件类型检查
 " Bundle 'kshenoy/vim-signature'
 let g:plugged_home = '~/.vim/plugged'
 call plug#begin(g:plugged_home)
-    "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
-    Plug 'skywind3000/asyncrun.vim'
-    """ colorschema
-    Plug 'NLKNguyen/papercolor-theme'
-    Plug 't9md/vim-choosewin'
-    Plug 'kshenoy/vim-signature'
-    Plug 'majutsushi/tagbar'
-    Plug 'vim-scripts/grep.vim'
-    " Plug 'mxw/vim-jsx'
-    Plug 'vim-scripts/FencView.vim'
-    Plug 'scrooloose/nerdtree'
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    " replaced by ale
-    " Plug 'vim-syntastic/syntastic'
-    Plug 'dense-analysis/ale'
-    " Plug 'python-mode/python-mode', {'for': 'python', 'branch': 'develop'}
-    Plug 'davidhalter/jedi-vim'
-    Plug 'lfv89/vim-interestingwords'
-    Plug 'simnalamburt/vim-mundo'
-    Plug 'SirVer/ultisnips'
-    "  有 SirVer/ultisnips 为啥还需要 honza/vim-snippets 呢
-    Plug 'fatih/vim-go'
-    """""""" following 2 plugins replaced by LeaderF by Yggdroot@newsmth
-    " 'kien/ctrlp.vim'
-    " 'vim-scripts/mru.vim'
-    " install then do: install.sh
-    Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
-    " Plug 'ervandew/supertab'
-    " git plugin
-    " replace airblade/vim-gitgutter by vim-signify
-    Plug 'mhinz/vim-signify'
-    " Plug 'airblade/vim-gitgutter'
-    Plug 'tpope/vim-fugitive'
-    " statusbar
-    Plug 'vim-airline/vim-airline'
-    " word jump by <leader><leader>w / b(ack)
-    Plug 'easymotion/vim-easymotion'
-    Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
-    " Vim client for TabNine which is the all-language autocompleter
-    " TabNine uses deep learning to help you write code faster.
-    Plug 'zxqfl/tabnine-vim'
+  "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
+  Plug 'skywind3000/asyncrun.vim'
+  """ colorschema
+  Plug 'NLKNguyen/papercolor-theme'
+  Plug 't9md/vim-choosewin'
+  Plug 'kshenoy/vim-signature'
+  Plug 'majutsushi/tagbar'
+  Plug 'vim-scripts/grep.vim'
+  " Plug 'mxw/vim-jsx'
+  Plug 'vim-scripts/FencView.vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'Xuyuanp/nerdtree-git-plugin'
+  Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
+  " replaced by ale
+  " Plug 'vim-syntastic/syntastic'
+  Plug 'dense-analysis/ale'
+  Plug 'lfv89/vim-interestingwords'
+  Plug 'simnalamburt/vim-mundo'
+  Plug 'SirVer/ultisnips'
+  "  有 SirVer/ultisnips 为啥还需要 honza/vim-snippets 呢
+  Plug 'fatih/vim-go'
+  """""""" following 2 plugins replaced by LeaderF by Yggdroot@newsmth
+  " 'kien/ctrlp.vim'
+  " 'vim-scripts/mru.vim'
+  " install then do: install.sh
+  Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
+  " Plug 'ervandew/supertab'
+  " git plugin
+  " replace airblade/vim-gitgutter by vim-signify
+  Plug 'mhinz/vim-signify'
+  " Plug 'airblade/vim-gitgutter'
+  Plug 'tpope/vim-fugitive'
+  " statusbar
+  Plug 'vim-airline/vim-airline'
+  " word jump by <leader><leader>w / b(ack)
+  Plug 'easymotion/vim-easymotion'
+  Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
+  " Vim client for TabNine which is the all-language autocompleter
+  " TabNine uses deep learning to help you write code faster.
+  Plug 'zxqfl/tabnine-vim'
 call plug#end()
 " }}}
 
@@ -60,8 +59,6 @@ filetype plugin indent on
 set autochdir
 
 " general settings {{{
-" 自动加修改中的 .vimrc 文件
-autocmd! bufwritepost .vimrc source %
 " 自动补全
 " 让vim的补全菜单行为与一般ide一致
 set completeopt=longest,menu
@@ -144,9 +141,18 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 " }}}
 
-" {{{ shortcut, movements & jumps
+" {{{ trailing whitespace
+match Error /\s\+$/
 command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
-command! -nargs=0 Adddesc :call AddDesc() " 源码说明头
+function! s:FixWhitespace(line1,line2)
+    let l:save_cursor=getpos(".")
+    silent! execute ':' . a:line1 . ',' . a:line2 . 's/\s\+$//'
+    call setpos('.', l:save_cursor)
+endfunction
+" }}}
+
+" {{{ shortcut, movements & jumps
+au FileType cpp,c,python command! -nargs=0 Adddesc :call AddDesc() " 源码说明头
 nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
 nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 nmap <Leader>j :call GotoJump()<CR>
@@ -158,6 +164,9 @@ au FileType go nmap ds :GoDefStack<CR>
 au FileType go nmap <Leader>r :GoReferrers<CR>
 " (go-def-tab) (go-def-split)
 
+" mapping ESC
+cnoremap <Esc> <C-c>
+inoremap <c-c> <ESC>
 imap <silent>ww <Esc> :w<CR>
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
@@ -196,11 +205,3 @@ let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射�
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
-
-" jedi {{{
-" let g:jedi#rename_command = "<leader>r"
-" let g:jedi#goto_definitions_command = "<leader>d"
-" let g:jedi#usages_command = "<leader>u"
-" let g:jedi#completions_command = "<C-Space>"
-" let g:jedi#documentation_command = "K"
-" }}}
