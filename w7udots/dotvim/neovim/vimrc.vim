@@ -162,8 +162,8 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = '0'
 let g:ale_lint_on_save = '1'
 
-nmap e <Plug>(ale_previous_wrap)
-nmap E <Plug>(ale_next_wrap)
+nmap E <Plug>(ale_previous_wrap)
+nmap e <Plug>(ale_next_wrap)
 
 " highlight python and self function
 autocmd BufEnter * syntax match Type /\v\.[a-zA-Z0-9_]+\ze(\[|\s|$|,|\]|\)|\.|:)/hs=s+1
