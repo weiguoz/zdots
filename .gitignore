@@ -31,3 +31,7 @@
 
 !w7udots/dotvim/
 !w7udots/dotvim/*
+!w7udots/dotvim/vim/
+!w7udots/dotvim/vim/*
+!w7udots/dotvim/neovim/
+!w7udots/dotvim/neovim/*
