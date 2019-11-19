@@ -22,23 +22,26 @@ let g:ycm_filetype_whitelist = {
 			\ }
 " }}}
 
-" {{{ linter ale
+" {{{ ale
 " 20190122改 syntasitic 为 ale
-let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_text_changed = 'never' " normal
 " You can disable this option too
 " if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = 0
+let g:ale_lint_on_enter = '0'
+let g:ale_lint_on_save = '1'
 let g:ale_set_highlights = 0
+let g:ale_list_window_size = 4
+let g:ale_sign_column_always = 0
+let g:ale_open_list = 1
+let g:ale_keep_list_window_open = '1'
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 "在vim自带的状态栏中整合ale
 let g:ale_statusline_format = ['✗ %d', '⚠ %d', '✔ OK']
-"显示Linter名称,出错或警告等相关信息
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" Fix Python files with autopep8 and yapf.
-let b:ale_fixers = ['autopep8', 'yapf']
+" 显示Linter名称,出错或警告等相关信息
+" python
+let g:ale_python_flake8_options = '--ignore=E129,E501,E302,E265,E241,E305,E402,W503'
+let g:ale_python_pylint_options = '-j 0 --max-line-length=120'
 " 命令 :Errors 弹出loc_list
 " By default, all available tools for all supported languages will be run.
 " If you want to only select a subset of the tools,
