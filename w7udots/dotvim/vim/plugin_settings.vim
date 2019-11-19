@@ -10,7 +10,7 @@ let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$']
 let g:interestingWordsCycleColors=1 " interestingwords
 
 " {{{ YouCompleteMe
-let g:ycm_global_ycm_extra_conf='~/w7udots/ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=1
 let g:ycm_filetype_whitelist = {
 			\ "c":1,
@@ -18,6 +18,7 @@ let g:ycm_filetype_whitelist = {
 			\ "sh":1,
 			\ "zsh":1,
 			\ "python":1,
+			\ "go":1,
 			\ }
 " }}}
 
