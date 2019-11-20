@@ -38,7 +38,6 @@ call plug#begin(g:plugged_home)
   " 'vim-scripts/mru.vim'
   " install then do: install.sh
   Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
-  " Plug 'ervandew/supertab'
   " git plugin
   " replace airblade/vim-gitgutter by vim-signify
   Plug 'mhinz/vim-signify'
@@ -56,13 +55,17 @@ call plug#end()
 " }}}
 
 filetype plugin indent on
-set autochdir
 
 " general settings {{{
+let mapleader = " " " Leader is the space key
+let g:mapleader = " "
+let maplocalleader = "`"
+let g:maplocalleader = "`"
+nnoremap <SPACE> <Nop>
 " 自动补全
 " 让vim的补全菜单行为与一般ide一致
 set completeopt=longest,menu
-let g:mapleader=" "
+set autochdir
 au BufWrite /private/etc/pw.* set nowritebackup nobackup " Don't write backup file if vim is being called by "chpass"
 syntax enable
 set t_Co=256
@@ -79,7 +82,8 @@ set backspace=indent,eol,start
 set smarttab
 set smartindent
 set ts=4 sw=4 ai et
-set nu " rnu relativenumber 相对行号
+set nu
+set rnu
 set mouse-=r           " enable mouse, or mouse-=a
 set linebreak	       " 不在单词中间折行
 set foldmethod=marker  " marker 这个容易操控. /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
@@ -167,16 +171,23 @@ au FileType go nmap <Leader>r :GoReferrers<CR>
 " mapping ESC
 cnoremap <Esc> <C-c>
 inoremap <c-c> <ESC>
-imap <silent>ww <Esc> :w<CR>
-nmap <leader>w :w<CR>
-nmap <leader>q :q<CR>
+imap ww <Esc> :w<CR>
+nnoremap S diw"0P
+nmap <leader>w :w!<cr>
+nmap <leader>q :q!<cr>
+
+" map paste, yank and delete 
+set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
+nnoremap x "_x
+vnoremap x "_x
+set clipboard=unnamed
 
 nmap <Leader>l :ALEToggle<CR>
 nmap <leader>h :MundoToggle<CR>
 nmap <leader>a :AsyncRun<space>
 nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>t :TagbarToggle<CR>
-
+nnoremap <leader>s :FlyGrep<cr>
 map <leader>f :Leaderf<SPACE>
 let g:Lf_ShortcutF = '<C-P>'
 " https://vi.stackexchange.com/questions/17896/how-to-move-to-parent-directory-with-leaderf
