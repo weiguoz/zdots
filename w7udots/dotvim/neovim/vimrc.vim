@@ -98,15 +98,13 @@ inoremap <c-c> <ESC>
 " map S to replace current word with pasteboard
 nnoremap S diw"0P
 nnoremap cc "_cc
-nnoremap q: :q<CR>
-nnoremap w: :w<CR>
 
 " map paste, yank and delete to named register so the content
 " will not be overwritten (I know I should just remember...)
 nnoremap x "_x
 vnoremap x "_x
 
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " ncm2 settings
 autocmd BufEnter * call ncm2#enable_for_buffer()
