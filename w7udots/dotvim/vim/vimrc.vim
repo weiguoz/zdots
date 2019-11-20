@@ -173,8 +173,8 @@ cnoremap <Esc> <C-c>
 inoremap <c-c> <ESC>
 imap ww <Esc> :w<CR>
 nnoremap S diw"0P
-nmap <leader>w :w!<cr>
-nmap <leader>q :q!<cr>
+nmap <leader>w :w!<CR>
+nmap <leader>q :q!<CR>
 
 " map paste, yank and delete 
 set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
@@ -187,7 +187,7 @@ nmap <leader>h :MundoToggle<CR>
 nmap <leader>a :AsyncRun<space>
 nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>t :TagbarToggle<CR>
-nnoremap <leader>s :FlyGrep<cr>
+nnoremap <leader>/ :FlyGrep<cr>
 map <leader>f :Leaderf<SPACE>
 let g:Lf_ShortcutF = '<C-P>'
 " https://vi.stackexchange.com/questions/17896/how-to-move-to-parent-directory-with-leaderf
