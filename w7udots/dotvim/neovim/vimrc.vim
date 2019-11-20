@@ -1,28 +1,27 @@
 syntax on
 
 call plug#begin('~/.vim/nv_plugged')
-
-Plug 'scrooloose/nerdtree'  " file list
-Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
-Plug 'vim-airline/vim-airline'  " make statusline awesome
-Plug 'vim-airline/vim-airline-themes'  " themes for statusline
-Plug 'jonathanfilip/vim-lucius'  " nice white colortheme
-Plug 'davidhalter/jedi-vim'   " jedi for python
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
-Plug 'Vimjas/vim-python-pep8-indent'  "better indenting for python
-Plug 'kien/ctrlp.vim'  " fuzzy search files
-Plug 'tweekmonster/impsort.vim'  " color and sort imports
-Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
-Plug 'w0rp/ale'  " python linters
-Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
-Plug 'tpope/vim-commentary'  "comment-out by gc
-Plug 'roxma/nvim-yarp'  " dependency of ncm2
-Plug 'ncm2/ncm2'  " awesome autocomplete plugin
-Plug 'ncm2/float-preview.nvim'
-Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
-Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
-Plug 'ncm2/ncm2-path'  " filepath completion
-
+  Plug 'scrooloose/nerdtree'  " file list
+  Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
+  Plug 'vim-airline/vim-airline'  " make statusline awesome
+  Plug 'vim-airline/vim-airline-themes'  " themes for statusline
+  Plug 'jonathanfilip/vim-lucius'  " nice white colortheme
+  Plug 'davidhalter/jedi-vim'   " jedi for python
+  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
+  Plug 'Vimjas/vim-python-pep8-indent'  "better indenting for python
+  Plug 'kien/ctrlp.vim'  " fuzzy search files
+  Plug 'tweekmonster/impsort.vim'  " color and sort imports
+  Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
+  Plug 'w0rp/ale'  " python linters
+  Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
+  Plug 'tpope/vim-commentary'  "comment-out by gc
+  Plug 'roxma/nvim-yarp'  " dependency of ncm2
+  Plug 'ncm2/ncm2'  " awesome autocomplete plugin
+  Plug 'ncm2/float-preview.nvim'
+  Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
+  Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
+  Plug 'ncm2/ncm2-path'  " filepath completion
+  Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 call plug#end()
 
 " path to your python
@@ -96,8 +95,11 @@ cnoremap <Esc> <C-c>
 inoremap <c-c> <ESC>
 
 " map S to replace current word with pasteboard
-nnoremap S diw"0P
 nnoremap cc "_cc
+imap ww <Esc> :w<CR>
+nnoremap S diw"0P
+nmap <leader>w :w!<CR>
+nmap <leader>q :lcl<CR>:q<CR>
 
 " map paste, yank and delete to named register so the content
 " will not be overwritten (I know I should just remember...)
@@ -130,12 +132,9 @@ let maplocalleader = "`"
 let g:maplocalleader = "`"
 nnoremap <SPACE> <Nop>
 
-"auto indent for brackets
-nmap <leader>w :w!<cr>
-nmap <leader>q :lcl<cr>:q<cr>
-
 " FlyGrep settings
-nnoremap <leader>s :FlyGrep<cr>
+nnoremap <leader>/ :FlyGrep<cr>
+nmap <leader>a :AsyncRun<space>
 
 " easy breakpoint python
 au FileType python map <silent> <leader>b ofrom pudb import set_trace; set_trace()<esc>
