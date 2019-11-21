@@ -14,6 +14,7 @@ call plug#begin('~/.vim/nv_plugged')
   Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
   Plug 'w0rp/ale'  " python linters
   Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
+  Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
   Plug 'tpope/vim-commentary'  "comment-out by gc
   Plug 'roxma/nvim-yarp'  " dependency of ncm2
   Plug 'ncm2/ncm2'  " awesome autocomplete plugin
@@ -22,6 +23,12 @@ call plug#begin('~/.vim/nv_plugged')
   Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
   Plug 'ncm2/ncm2-path'  " filepath completion
   Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
+  Plug 'easymotion/vim-easymotion'
+  " {{{ for golang
+  Plug 'fatih/vim-go'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+  " }}}
 call plug#end()
 
 " path to your python
@@ -211,7 +218,6 @@ let g:ctrlp_custom_ignore = '\v\.(npy|jpg|pyc|so|dll)$'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " movement
-nmap <silent>gm :call cursor(0, len(getline('.'))/2)<CR>
 nmap ge $
 
 nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
@@ -220,3 +226,53 @@ nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 " move between defs python:
 nnoremap [[ [m
 nnoremap ]] ]m
+
+" {{{ git-messenger
+nmap <silent>gm <Plug>(git-messenger)
+let g:git_messenger_always_into_popup = v:true
+let g:git_messenger_include_diff = "current"
+hi gitmessengerPopupNormal term=None guifg=#eeeeee guibg=#333333 ctermfg=255 ctermbg=234
+hi gitmessengerHeader term=None guifg=#88b8f6 ctermfg=111
+hi gitmessengerHash term=None guifg=#f0eaaa ctermfg=229
+hi gitmessengerHistory term=None guifg=#fd8489 ctermfg=210
+" }}}
+
+" {{{ golang
+" vim-go 默认使用 guru 做跳转，太慢了. 根据
+" https://github.com/fatih/vim-go/issues/887#issuecomment-224107754
+" 中途我换过 godef,  在2019 年 10 月开始换成 gopls
+let g:go_def_mode = 'gopls'
+
+"" https://github.com/golang/lint
+" set rtp+=/User/weiguo/go/src/golang.org/x/lint/misc/vim
+" invoke gofmt without plugin using `au BufWritePost *.go silent !gofmt -w %`
+" then `set autoread` to reload buffer
+let g:go_fmt_autosave=1
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
+" autocmd BufWritePost,FileWritePost *.go silent execute 'GoMetaLinter' | cwindow
+
+" GoMetaLinter invoke all possible linters (golint, vet, errcheck, deadcode, etc.) and put
+" the result in the quickfix or location list.
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:deoplete#enable_at_startup = 1
+
+au FileType go nmap gs <Plug>(go-def-vertical)
+au FileType go nmap ds :GoDefStack<CR>
+au FileType go nmap <Leader>r :GoReferrers<CR>
+" (go-def-tab) (go-def-split)
+" }}}
+
+" {{{ easymotion
+let g:EasyMotion_smartcase = 1
+nmap , <Plug>(easymotion-prefix)
+nmap s <Plug>(easymotion-overwin-f2)
+nmap ; <Plug>(easymotion-lineanywhere)
+map  / <Plug>(easymotion-sn)
+" }}}
