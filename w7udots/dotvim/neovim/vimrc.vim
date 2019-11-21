@@ -52,6 +52,7 @@ set fillchars+=vert:\  " remove chars from seperators
 set softtabstop=4
 
 set history=1000  " remember more commands and search history
+set foldmethod=marker
 
 set nobackup  " no backup or swap file, live dangerously
 set noswapfile  " swap files give annoying warning
@@ -283,7 +284,7 @@ map  / <Plug>(easymotion-sn)
 set list listchars=extends:❯,precedes:❮,tab:▸\ ,trail:˽
 command! -range=% FixWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
-"" function
+"{{{ function
 function! GotoJump()
   jumps
   let j = input("Please select your jump: ")
@@ -297,3 +298,4 @@ function! GotoJump()
     endif
   endif
 endfunction
+"}}} function
