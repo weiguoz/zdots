@@ -151,7 +151,7 @@ au FileType go nmap <Leader>r :GoReferrers<CR>
 " }}}
 
 " {{{ trailing whitespace
-set list listchars=extends:❯,precedes:❮,tab:▸\ ,trail:˽ " match Error /\s\+$/
+match Error /\s\+$/
 " another better implementation is: command! -range=% FixWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
 function! s:FixWhitespace(line1,line2)

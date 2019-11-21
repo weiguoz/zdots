@@ -24,6 +24,7 @@ call plug#begin('~/.vim/nv_plugged')
   Plug 'ncm2/ncm2-path'  " filepath completion
   Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
   Plug 'easymotion/vim-easymotion'
+  Plug 'lfv89/vim-interestingwords'
   " {{{ for golang
   Plug 'fatih/vim-go'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -213,6 +214,9 @@ augroup END
 " neovim options
 au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 
+" vim-interesting
+let g:interestingWordsCycleColors=1 " interestingwords
+
 " vimgutter options
 let g:gitgutter_override_sign_column_highlight = 0
 let g:gitgutter_map_keys = 0
@@ -281,7 +285,7 @@ nmap ; <Plug>(easymotion-lineanywhere)
 map  / <Plug>(easymotion-sn)
 " }}}
 
-set list listchars=extends:❯,precedes:❮,tab:▸\ ,trail:˽
+match Error /\s\+$/
 command! -range=% FixWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 "{{{ function
