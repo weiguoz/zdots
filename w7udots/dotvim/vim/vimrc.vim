@@ -172,9 +172,9 @@ nmap <c-c> :ChooseWin<CR>
 cnoremap <Esc> <C-c>
 inoremap <c-c> <ESC>
 imap ww <Esc> :w<CR>
+nmap qq :q<CR>
 nnoremap S diw"0P
-nmap w: :w!<CR>
-nmap q: :q!<CR>
+nmap <Leader>w :w!<CR>
 
 " map paste, yank and delete
 set viminfo='20,<1000  " allow copying of more than 50 lines to other applications

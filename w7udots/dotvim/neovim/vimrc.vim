@@ -94,6 +94,13 @@ let g:lucius_contrast="low"
 colo lucius
 set background=light
 
+let mapleader = " " " Leader is the space key
+let g:mapleader = " "
+let maplocalleader = "`"
+let g:maplocalleader = "`"
+nnoremap <SPACE> <Nop>
+
+
 " tabs:
 nnoremap tn :tabnew<Space>
 nnoremap tk :tabnext<CR>
@@ -106,9 +113,9 @@ inoremap <c-c> <ESC>
 " map S to replace current word with pasteboard
 nnoremap cc "_cc
 imap ww <Esc> :w<CR>
-nmap w: :w!<CR>
-nmap q: :lcl<CR>:q<CR>
+nmap qq :q<CR>
 nnoremap S diw"0P
+nmap <Leader>w :w!<CR>
 
 " map paste, yank and delete to named register so the content
 " will not be overwritten (I know I should just remember...)
@@ -134,12 +141,6 @@ inoremap <silent> <expr> <CR> (pumvisible() && empty(v:completed_item)) ?  "\<c-
 let g:airline_powerline_fonts = 1
 let g:airline_section_y = ""
 let g:airline#extensions#tabline#enabled = 1
-
-let mapleader = " " " Leader is the space key
-let g:mapleader = " "
-let maplocalleader = "`"
-let g:maplocalleader = "`"
-nnoremap <SPACE> <Nop>
 
 " FlyGrep settings
 nnoremap <leader>/ :FlyGrep<cr>
