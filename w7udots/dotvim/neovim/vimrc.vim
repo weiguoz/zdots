@@ -142,6 +142,9 @@ nnoremap <SPACE> <Nop>
 " FlyGrep settings
 nnoremap <leader>/ :FlyGrep<cr>
 nmap <leader>a :AsyncRun<space>
+nmap <Leader>n :NERDTreeToggle<CR>
+nmap <Leader>t :TagbarToggle<CR>
+nmap <Leader>j :call GotoJump()<CR>
 
 " easy breakpoint python
 au FileType python map <silent> <leader>b ofrom pudb import set_trace; set_trace()<esc>
@@ -276,3 +279,21 @@ nmap s <Plug>(easymotion-overwin-f2)
 nmap ; <Plug>(easymotion-lineanywhere)
 map  / <Plug>(easymotion-sn)
 " }}}
+
+set list listchars=extends:❯,precedes:❮,tab:▸\ ,trail:˽
+command! -range=% FixWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+"" function
+function! GotoJump()
+  jumps
+  let j = input("Please select your jump: ")
+  if j != ''
+    let pattern = '\v\c^\+'
+    if j =~ pattern
+      let j = substitute(j, pattern, '', 'g')
+      execute "normal " . j . "\<c-i>"
+    else
+      execute "normal " . j . "\<c-o>"
+    endif
+  endif
+endfunction
