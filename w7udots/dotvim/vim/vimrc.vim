@@ -172,8 +172,8 @@ cnoremap <Esc> <C-c>
 inoremap <c-c> <ESC>
 imap ww <Esc> :w<CR>
 nnoremap S diw"0P
-nmap <leader>w :w!<CR>
-nmap <leader>q :q!<CR>
+nmap w: :w!<CR>
+nmap q: :q!<CR>
 
 " map paste, yank and delete
 set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
