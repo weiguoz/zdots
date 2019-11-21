@@ -19,7 +19,6 @@ call plug#begin(g:plugged_home)
   Plug 't9md/vim-choosewin'
   Plug 'kshenoy/vim-signature'
   Plug 'majutsushi/tagbar'
-  Plug 'vim-scripts/grep.vim'
   " Plug 'mxw/vim-jsx'
   Plug 'vim-scripts/FencView.vim'
   Plug 'scrooloose/nerdtree'
@@ -41,7 +40,6 @@ call plug#begin(g:plugged_home)
   " git plugin
   " replace airblade/vim-gitgutter by vim-signify
   Plug 'mhinz/vim-signify'
-  " Plug 'airblade/vim-gitgutter'
   Plug 'tpope/vim-fugitive'
   " statusbar
   Plug 'vim-airline/vim-airline'
@@ -50,7 +48,7 @@ call plug#begin(g:plugged_home)
   Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
   " Vim client for TabNine which is the all-language autocompleter
   " TabNine uses deep learning to help you write code faster.
-  Plug 'zxqfl/tabnine-vim'
+  " Plug 'zxqfl/tabnine-vim'
 call plug#end()
 " }}}
 
@@ -143,6 +141,13 @@ let g:go_highlight_fields = 1
 let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+
+""" go
+au FileType go nmap gs <Plug>(go-def-vertical)
+au FileType go nmap ds :GoDefStack<CR>
+au FileType go nmap <Leader>r :GoReferrers<CR>
+" (go-def-tab) (go-def-split)
+
 " }}}
 
 " {{{ trailing whitespace
@@ -162,12 +167,6 @@ nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 nmap <Leader>j :call GotoJump()<CR>
 nmap <c-c> :ChooseWin<CR>
 
-""" go
-au FileType go nmap gs <Plug>(go-def-vertical)
-au FileType go nmap ds :GoDefStack<CR>
-au FileType go nmap <Leader>r :GoReferrers<CR>
-" (go-def-tab) (go-def-split)
-
 " mapping ESC
 cnoremap <Esc> <C-c>
 inoremap <c-c> <ESC>
@@ -176,7 +175,7 @@ nnoremap S diw"0P
 nmap <leader>w :w!<CR>
 nmap <leader>q :q!<CR>
 
-" map paste, yank and delete 
+" map paste, yank and delete
 set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
 nnoremap x "_x
 vnoremap x "_x
