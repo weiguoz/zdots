@@ -41,8 +41,8 @@ filetype indent on
 set fileformat=unix
 set shortmess+=c
 
-set mouse=a  " change cursor per mode
-set number  " always show current line number
+set mouse-=r " enable mouse, or mouse-=a
+set number   " always show current line number
 set smartcase  " better case-sensitivity when searching
 set wrapscan  " begin search from top of file when nothing is found anymore
 
@@ -132,7 +132,8 @@ let ncm2#popup_delay = 5
 let ncm2#complete_length = [[1,1]]
 let g:ncm2#matcher = 'substrfuzzy'
 
-set pumheight=5
+" affect the complete #candidates number, or just comment it
+" set pumheight=5
 
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
