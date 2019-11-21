@@ -90,7 +90,7 @@ set viminfo='20,<1000  " allow copying of more than 50 lines to other applicatio
 
 " colorscheme options
 let g:lucius_style="light"
-let g:lucius_contrast="low"
+let g:lucius_contrast="high"
 colo lucius
 set background=light
 
