@@ -104,9 +104,9 @@ inoremap <c-c> <ESC>
 " map S to replace current word with pasteboard
 nnoremap cc "_cc
 imap ww <Esc> :w<CR>
+nmap w: :w!<CR>
+nmap q: :lcl<CR>:q<CR>
 nnoremap S diw"0P
-nmap <leader>w :w!<CR>
-nmap <leader>q :lcl<CR>:q<CR>
 
 " map paste, yank and delete to named register so the content
 " will not be overwritten (I know I should just remember...)
