@@ -25,11 +25,12 @@ call plug#begin('~/.vim/nv_plugged')
   Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
   Plug 'easymotion/vim-easymotion'
   Plug 'lfv89/vim-interestingwords'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " {{{ for golang
   Plug 'fatih/vim-go'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
   " }}}
+  Plug 'Shougo/deoplete-clangx'
 call plug#end()
 
 " path to your python
@@ -285,6 +286,14 @@ nmap , <Plug>(easymotion-prefix)
 nmap s <Plug>(easymotion-overwin-f2)
 nmap ; <Plug>(easymotion-lineanywhere)
 map  / <Plug>(easymotion-sn)
+" }}}
+
+" {{{ Shougo/deoplete-clangx
+" Change clang binary path
+call deoplete#custom#var('clangx', 'clang_binary', '/usr/bin/clang')
+" Change clang options
+call deoplete#custom#var('clangx', 'default_c_options', '')
+call deoplete#custom#var('clangx', 'default_cpp_options', '')
 " }}}
 
 match Error /\s\+$/
