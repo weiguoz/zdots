@@ -5,7 +5,7 @@ call plug#begin('~/.vim/nv_plugged')
   Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
   Plug 'vim-airline/vim-airline'  " make statusline awesome
   Plug 'vim-airline/vim-airline-themes'  " themes for statusline
-  Plug 'jonathanfilip/vim-lucius'  " nice white colortheme
+  Plug 'joshdick/onedark.vim'
   Plug 'davidhalter/jedi-vim'   " jedi for python
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
   Plug 'Vimjas/vim-python-pep8-indent'  "better indenting for python
@@ -89,11 +89,11 @@ set t_vb=
 set relativenumber
 set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
 
-" colorscheme options
 let g:lucius_style="light"
 let g:lucius_contrast="high"
-colo lucius
-set background=light
+set background=dark         " for the light version
+let g:one_allow_italics = 1 " I love italic for comments
+colorscheme onedark
 
 let mapleader = " " " Leader is the space key
 let g:mapleader = " "
@@ -298,19 +298,3 @@ call deoplete#custom#var('clangx', 'default_cpp_options', '')
 
 match Error /\s\+$/
 command! -range=% FixWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-
-"{{{ function
-function! GotoJump()
-  jumps
-  let j = input("Please select your jump: ")
-  if j != ''
-    let pattern = '\v\c^\+'
-    if j =~ pattern
-      let j = substitute(j, pattern, '', 'g')
-      execute "normal " . j . "\<c-i>"
-    else
-      execute "normal " . j . "\<c-o>"
-    endif
-  endif
-endfunction
-"}}} function
