@@ -62,7 +62,6 @@ set noswapfile  " swap files give annoying warning
 set breakindent  " preserve horizontal whitespace when wrapping
 set showbreak=..
 set lbr  " wrap words
-set nowrap  " i turn on wrap manually when needed
 
 set scrolloff=3 " keep three lines between the cursor and the edge of the screen
 
