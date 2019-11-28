@@ -46,9 +46,6 @@ call plug#begin(g:plugged_home)
   " word jump by <leader><leader>w / b(ack)
   Plug 'easymotion/vim-easymotion'
   Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
-  " Vim client for TabNine which is the all-language autocompleter
-  " TabNine uses deep learning to help you write code faster.
-  " Plug 'zxqfl/tabnine-vim'
 call plug#end()
 " }}}
 
