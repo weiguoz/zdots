@@ -16,22 +16,14 @@ call plug#begin('~/.vim/nv_plugged')
   Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
   Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
   Plug 'tpope/vim-commentary'  "comment-out by gc
-  " {{{ ncm2
-  Plug 'roxma/nvim-yarp'  " dependency of ncm2
-  Plug 'ncm2/ncm2'  " awesome autocomplete plugin
-  Plug 'ncm2/float-preview.nvim'
-  Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
-  Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
-  Plug 'ncm2/ncm2-path'  " filepath completion
-  " }}}
   Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
   Plug 'easymotion/vim-easymotion'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " golang
+  " {{{ deoplete
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  " {{{ for golang
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-  " }}}
   Plug 'Shougo/deoplete-clangx'
+  " }}}
 call plug#end()
 
 " path to your python
@@ -125,13 +117,7 @@ vnoremap x "_x
 
 set clipboard=unnamed
 
-" ncm2 settings
-autocmd BufEnter * call ncm2#enable_for_buffer()
 set completeopt=menuone,noselect,noinsert
-" make it FAST
-let ncm2#popup_delay = 5
-let ncm2#complete_length = [[1,1]]
-let g:ncm2#matcher = 'substrfuzzy'
 
 " affect the complete #candidates number, or just comment it
 " set pumheight=5
@@ -272,12 +258,14 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-let g:deoplete#enable_at_startup = 1
-
 au FileType go nmap gs <Plug>(go-def-vertical)
 au FileType go nmap ds :GoDefStack<CR>
 au FileType go nmap <Leader>r :GoReferrers<CR>
 " (go-def-tab) (go-def-split)
+" }}}
+"
+" {{{ deoplete
+let g:deoplete#enable_at_startup = 1
 " }}}
 
 " {{{ easymotion
