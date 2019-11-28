@@ -23,6 +23,7 @@ call plug#begin('~/.vim/nv_plugged')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
   Plug 'Shougo/deoplete-clangx'
+  Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
   " }}}
 call plug#end()
 
@@ -276,12 +277,17 @@ nmap ; <Plug>(easymotion-lineanywhere)
 map  / <Plug>(easymotion-sn)
 " }}}
 
-" {{{ Shougo/deoplete-clangx
+" {{{ Shougo/deoplete
 " Change clang binary path
 call deoplete#custom#var('clangx', 'clang_binary', '/usr/bin/clang')
 " Change clang options
 call deoplete#custom#var('clangx', 'default_c_options', '')
 call deoplete#custom#var('clangx', 'default_cpp_options', '')
+"
+call deoplete#custom#var('tabnine', {
+\ 'line_limit': 500,
+\ 'max_num_results': 5,
+\ })
 " }}}
 
 match Error /\s\+$/
