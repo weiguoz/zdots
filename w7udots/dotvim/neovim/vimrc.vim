@@ -16,18 +16,19 @@ call plug#begin('~/.vim/nv_plugged')
   Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
   Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
   Plug 'tpope/vim-commentary'  "comment-out by gc
+  " {{{ ncm2
   Plug 'roxma/nvim-yarp'  " dependency of ncm2
   Plug 'ncm2/ncm2'  " awesome autocomplete plugin
   Plug 'ncm2/float-preview.nvim'
   Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want type info or snippet support)
   Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
   Plug 'ncm2/ncm2-path'  " filepath completion
+  " }}}
   Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
   Plug 'easymotion/vim-easymotion'
-  Plug 'lfv89/vim-interestingwords'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   " {{{ for golang
-  Plug 'fatih/vim-go'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
   " }}}
   Plug 'Shougo/deoplete-clangx'
