@@ -13,12 +13,14 @@ call plug#begin('~/.vim/nv_plugged')
   Plug 'tweekmonster/impsort.vim'  " color and sort imports
   Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
   Plug 'w0rp/ale'  " python linters
+  Plug 'lfv89/vim-interestingwords'
   Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
   Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
   Plug 'tpope/vim-commentary'  "comment-out by gc
   Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
   Plug 'easymotion/vim-easymotion'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " golang
+  " Plug 'wesleyche/SrcExpl' I don't like tags which used by SrcExpl
   " {{{ deoplete
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
@@ -38,7 +40,9 @@ set shortmess+=c
 
 set mouse-=r " enable mouse, or mouse-=a
 set number   " always show current line number
+" set relativenumber
 set smartcase  " better case-sensitivity when searching
+set ignorecase " type :fly<press tab> would display `FlyGrep` in commandline
 set wrapscan  " begin search from top of file when nothing is found anymore
 
 set expandtab
@@ -79,7 +83,6 @@ set cpoptions+=x  " stay at seach item when <esc>
 set noerrorbells  " remove bells (i think this is default in neovim)
 set visualbell
 set t_vb=
-set relativenumber
 set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
 
 let g:lucius_style="light"
@@ -131,8 +134,6 @@ let g:airline_powerline_fonts = 1
 let g:airline_section_y = ""
 let g:airline#extensions#tabline#enabled = 1
 
-" FlyGrep settings
-nnoremap <leader>/ :FlyGrep<cr>
 nmap <leader>a :AsyncRun<space>
 nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>t :TagbarToggle<CR>
