@@ -184,7 +184,6 @@ nmap <leader>h :MundoToggle<CR>
 nmap <leader>a :AsyncRun<space>
 nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>t :TagbarToggle<CR>
-nnoremap <leader>/ :FlyGrep<cr>
 map <leader>f :Leaderf<SPACE>
 let g:Lf_ShortcutF = '<C-P>'
 " https://vi.stackexchange.com/questions/17896/how-to-move-to-parent-directory-with-leaderf
