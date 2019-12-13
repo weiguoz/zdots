@@ -6,13 +6,15 @@ call plug#begin('~/.vim/nv_plugged')
   Plug 'vim-airline/vim-airline'  " make statusline awesome
   Plug 'vim-airline/vim-airline-themes'  " themes for statusline
   Plug 'joshdick/onedark.vim'
-  Plug 'davidhalter/jedi-vim'   " jedi for python
   Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
+  " {{{ python
+  Plug 'deoplete-plugins/deoplete-jedi'
   Plug 'Vimjas/vim-python-pep8-indent'  "better indenting for python
+  " }}}
   Plug 'kien/ctrlp.vim'  " fuzzy search files
   Plug 'tweekmonster/impsort.vim'  " color and sort imports
   Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
-  Plug 'w0rp/ale'  " python linters
+  Plug 'w0rp/ale'  " linters
   Plug 'lfv89/vim-interestingwords'
   Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
   Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
@@ -284,10 +286,10 @@ call deoplete#custom#var('clangx', 'clang_binary', '/usr/bin/clang')
 " Change clang options
 call deoplete#custom#var('clangx', 'default_c_options', '')
 call deoplete#custom#var('clangx', 'default_cpp_options', '')
-"
+" tabnine
 call deoplete#custom#var('tabnine', {
 \ 'line_limit': 500,
-\ 'max_num_results': 5,
+\ 'max_num_results': 2,
 \ })
 " }}}
 

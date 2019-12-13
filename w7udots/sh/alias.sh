@@ -38,6 +38,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias vi='vim +'
 alias e='nvim'
+alias t='tmux'
 
 if [ -f ${DOTS}/z/z.sh ]; then
     z_then_ls() {
