@@ -1,35 +1,35 @@
 syntax on
 
 call plug#begin('~/.vim/nv_plugged')
-  Plug 'scrooloose/nerdtree'  " file list
-  Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
-  Plug 'vim-airline/vim-airline'  " make statusline awesome
-  Plug 'vim-airline/vim-airline-themes'  " themes for statusline
-  Plug 'joshdick/onedark.vim'
-  Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
-  " {{{ python
-  Plug 'deoplete-plugins/deoplete-jedi'
-  Plug 'Vimjas/vim-python-pep8-indent'  "better indenting for python
-  " }}}
-  Plug 'kien/ctrlp.vim'  " fuzzy search files
-  Plug 'tweekmonster/impsort.vim'  " color and sort imports
-  Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
-  Plug 'w0rp/ale'  " linters
-  Plug 'lfv89/vim-interestingwords'
-  Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
-  Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
-  Plug 'tpope/vim-commentary'  "comment-out by gc
-  Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
-  Plug 'easymotion/vim-easymotion'
-  Plug 'SirVer/ultisnips'
-  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " golang
-  " Plug 'wesleyche/SrcExpl' I don't like tags which used by SrcExpl
-  " {{{ deoplete
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
-  Plug 'Shougo/deoplete-clangx'
-  Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-  " }}}
+Plug 'scrooloose/nerdtree'  " file list
+Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
+Plug 'vim-airline/vim-airline'  " make statusline awesome
+Plug 'vim-airline/vim-airline-themes'  " themes for statusline
+Plug 'joshdick/onedark.vim'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
+" {{{ python
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'Vimjas/vim-python-pep8-indent'  "better indenting for python
+" }}}
+Plug 'kien/ctrlp.vim'  " fuzzy search files
+Plug 'tweekmonster/impsort.vim'  " color and sort imports
+Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
+Plug 'dense-analysis/ale'  " linters
+Plug 'lfv89/vim-interestingwords'
+Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
+Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
+Plug 'tpope/vim-commentary'  "comment-out by gc
+Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
+Plug 'easymotion/vim-easymotion'
+Plug 'SirVer/ultisnips'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " golang
+" Plug 'wesleyche/SrcExpl' I don't like tags which used by SrcExpl
+" {{{ deoplete
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+Plug 'Shougo/deoplete-clangx'
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+" }}}
 call plug#end()
 
 " path to your python
@@ -166,6 +166,11 @@ let g:ale_lint_on_save = '1'
 
 nmap E <Plug>(ale_previous_wrap)
 nmap e <Plug>(ale_next_wrap)
+let b:ale_linters = {
+            \'go': ['golint', 'gopls'],
+            \'cpp': ['clang'],
+            \'c': ['clang'],
+            \}
 
 " highlight python and self function
 autocmd BufEnter * syntax match Type /\v\.[a-zA-Z0-9_]+\ze(\[|\s|$|,|\]|\)|\.|:)/hs=s+1
@@ -289,9 +294,9 @@ call deoplete#custom#var('clangx', 'default_c_options', '')
 call deoplete#custom#var('clangx', 'default_cpp_options', '')
 " tabnine
 call deoplete#custom#var('tabnine', {
-\ 'line_limit': 500,
-\ 'max_num_results': 3,
-\ })
+            \ 'line_limit': 500,
+            \ 'max_num_results': 3,
+            \ })
 " }}}
 
 " {{{ ultisnips
