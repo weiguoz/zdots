@@ -114,7 +114,6 @@ inoremap <c-c> <ESC>
 nnoremap cc "_cc
 imap ww <Esc> :w<CR>
 nmap qq :q<CR>
-nnoremap s diw"0P
 nmap <Leader>w :w!<CR>
 
 " map paste, yank and delete to named register so the content
@@ -263,10 +262,11 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-au FileType go nmap gs <Plug>(go-def-vertical)
+au FileType go nmap gr :GoReferrers<CR>
+au FileType go nmap gv <Plug>(go-def-vertical)
 au FileType go nmap ds :GoDefStack<CR>
-au FileType go nmap <Leader>r :GoReferrers<CR>
-" (go-def-tab) (go-def-split)
+au FileType go nmap <Leader>d <Plug>(go-def-tab)
+au FileType go nmap <leader>T <Plug>(go-test)
 " }}}
 "
 " {{{ deoplete
@@ -277,8 +277,8 @@ let g:deoplete#enable_at_startup = 1
 let g:EasyMotion_smartcase = 1
 nmap , <Plug>(easymotion-prefix)
 nmap ; <Plug>(easymotion-lineanywhere)
-map  / <Plug>(easymotion-sn)
-map  / <Plug>(easymotion-tn)
+map  s <Plug>(easymotion-sn)
+map  s <Plug>(easymotion-tn)
 " }}}
 
 " {{{ Shougo/deoplete

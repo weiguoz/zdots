@@ -139,12 +139,11 @@ let g:go_highlight_types = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
-""" go
-au FileType go nmap gs <Plug>(go-def-vertical)
+au FileType go nmap gr :GoReferrers<CR>
+au FileType go nmap gv <Plug>(go-def-vertical)
 au FileType go nmap ds :GoDefStack<CR>
-au FileType go nmap <Leader>r :GoReferrers<CR>
-" (go-def-tab) (go-def-split)
-
+au FileType go nmap <Leader>d <Plug>(go-def-tab)
+au FileType go nmap <leader>T <Plug>(go-test)
 " }}}
 
 " {{{ trailing whitespace
@@ -170,7 +169,6 @@ cnoremap <Esc> <C-c>
 inoremap <c-c> <ESC>
 imap ww <Esc> :w<CR>
 nmap qq :q<CR>
-nnoremap s diw"0P
 nmap <Leader>w :w!<CR>
 
 " map paste, yank and delete
@@ -198,8 +196,8 @@ nmap ge $
 " Turn on case-insensitive feature
 nmap , <Plug>(easymotion-prefix)
 nmap ; <Plug>(easymotion-lineanywhere)
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+map  s <Plug>(easymotion-sn)
+omap s <Plug>(easymotion-tn)
 " 普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
 nmap tn :tabnext<CR>
 nmap tp :tabprevious<CR>
