@@ -21,6 +21,7 @@ call plug#begin('~/.vim/nv_plugged')
   Plug 'tpope/vim-commentary'  "comment-out by gc
   Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
   Plug 'easymotion/vim-easymotion'
+  Plug 'SirVer/ultisnips'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " golang
   " Plug 'wesleyche/SrcExpl' I don't like tags which used by SrcExpl
   " {{{ deoplete
@@ -114,7 +115,6 @@ nnoremap cc "_cc
 imap ww <Esc> :w<CR>
 nmap qq :q<CR>
 nnoremap S diw"0P
-nmap <Leader>w :w!<CR>
 
 " map paste, yank and delete to named register so the content
 " will not be overwritten (I know I should just remember...)
@@ -289,8 +289,15 @@ call deoplete#custom#var('clangx', 'default_cpp_options', '')
 " tabnine
 call deoplete#custom#var('tabnine', {
 \ 'line_limit': 500,
-\ 'max_num_results': 2,
+\ 'max_num_results': 3,
 \ })
+" }}}
+
+" {{{ ultisnips
+let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsEditSplit="vertical"
 " }}}
 
 match Error /\s\+$/
