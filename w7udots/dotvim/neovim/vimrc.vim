@@ -275,8 +275,10 @@ let g:deoplete#enable_at_startup = 1
 
 " {{{ easymotion
 let g:EasyMotion_smartcase = 1
+nmap , <Plug>(easymotion-prefix)
 nmap ; <Plug>(easymotion-lineanywhere)
 map  / <Plug>(easymotion-sn)
+map  / <Plug>(easymotion-tn)
 " }}}
 
 " {{{ Shougo/deoplete
