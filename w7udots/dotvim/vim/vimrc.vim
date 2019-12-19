@@ -196,6 +196,7 @@ nmap <silent>gm :call cursor(0, len(getline('.'))/2)<CR>
 nmap ge $
 " easymotion
 " Turn on case-insensitive feature
+nmap , <Plug>(easymotion-prefix)
 nmap ; <Plug>(easymotion-lineanywhere)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
