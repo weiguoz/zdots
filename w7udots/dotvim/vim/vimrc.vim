@@ -170,7 +170,7 @@ cnoremap <Esc> <C-c>
 inoremap <c-c> <ESC>
 imap ww <Esc> :w<CR>
 nmap qq :q<CR>
-nnoremap S diw"0P
+nnoremap s diw"0P
 nmap <Leader>w :w!<CR>
 
 " map paste, yank and delete
@@ -196,8 +196,6 @@ nmap <silent>gm :call cursor(0, len(getline('.'))/2)<CR>
 nmap ge $
 " easymotion
 " Turn on case-insensitive feature
-nmap , <Plug>(easymotion-prefix)
-nmap s <Plug>(easymotion-overwin-f2)
 nmap ; <Plug>(easymotion-lineanywhere)
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
@@ -212,3 +210,4 @@ let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射�
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
+" }}}

@@ -114,7 +114,8 @@ inoremap <c-c> <ESC>
 nnoremap cc "_cc
 imap ww <Esc> :w<CR>
 nmap qq :q<CR>
-nnoremap S diw"0P
+nnoremap s diw"0P
+nmap <Leader>w :w!<CR>
 
 " map paste, yank and delete to named register so the content
 " will not be overwritten (I know I should just remember...)
@@ -274,8 +275,6 @@ let g:deoplete#enable_at_startup = 1
 
 " {{{ easymotion
 let g:EasyMotion_smartcase = 1
-nmap , <Plug>(easymotion-prefix)
-nmap s <Plug>(easymotion-overwin-f2)
 nmap ; <Plug>(easymotion-lineanywhere)
 map  / <Plug>(easymotion-sn)
 " }}}
