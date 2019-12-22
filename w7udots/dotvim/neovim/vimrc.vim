@@ -9,6 +9,7 @@ Plug 'joshdick/onedark.vim'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
 " {{{ python
 Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'davidhalter/jedi-vim'
 Plug 'Vimjas/vim-python-pep8-indent'  "better indenting for python
 " }}}
 Plug 'kien/ctrlp.vim'  " fuzzy search files
