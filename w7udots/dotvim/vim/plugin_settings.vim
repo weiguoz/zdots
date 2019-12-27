@@ -117,3 +117,12 @@ let g:EasyMotion_smartcase = 1
 " autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 " autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 " }}}
+
+" {{{ git-messenger
+nmap <silent>gm <Plug>(git-messenger)
+let g:git_messenger_always_into_popup = v:true
+let g:git_messenger_include_diff = "current"
+hi gitmessengerHeader term=None guifg=#88b8f6 ctermfg=111
+hi gitmessengerHash term=None guifg=#f0eaaa ctermfg=229
+hi gitmessengerHistory term=None guifg=#fd8489 ctermfg=210
+" }}}

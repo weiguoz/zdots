@@ -12,40 +12,33 @@ filetype off                   " 必须先关闭文件类型检查
 " Bundle 'kshenoy/vim-signature'
 let g:plugged_home = '~/.vim/plugged'
 call plug#begin(g:plugged_home)
-  "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
-  Plug 'skywind3000/asyncrun.vim'
-  """ colorschema
-  Plug 'NLKNguyen/papercolor-theme'
+  Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
+  Plug 'NLKNguyen/papercolor-theme' """ colorschema
   Plug 't9md/vim-choosewin'
   Plug 'kshenoy/vim-signature'
   Plug 'majutsushi/tagbar'
-  " Plug 'mxw/vim-jsx'
   Plug 'vim-scripts/FencView.vim'
   Plug 'scrooloose/nerdtree'
   Plug 'Xuyuanp/nerdtree-git-plugin'
   Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
-  " replaced by ale
-  " Plug 'vim-syntastic/syntastic'
   Plug 'dense-analysis/ale'
   Plug 'lfv89/vim-interestingwords'
   Plug 'simnalamburt/vim-mundo'
   Plug 'SirVer/ultisnips'
-  "  有 SirVer/ultisnips 为啥还需要 honza/vim-snippets 呢
   Plug 'fatih/vim-go'
   """""""" following 2 plugins replaced by LeaderF by Yggdroot@newsmth
   " 'kien/ctrlp.vim'
   " 'vim-scripts/mru.vim'
-  " install then do: install.sh
   Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
   " git plugin
-  " replace airblade/vim-gitgutter by vim-signify
   Plug 'mhinz/vim-signify'
   Plug 'tpope/vim-fugitive'
-  " statusbar
-  Plug 'vim-airline/vim-airline'
+  Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
+  Plug 'vim-airline/vim-airline' " statusbar
   " word jump by <leader><leader>w / b(ack)
   Plug 'easymotion/vim-easymotion'
   Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
+  Plug 'vim/killersheep'
 call plug#end()
 " }}}
 
@@ -78,7 +71,6 @@ set smarttab
 set smartindent
 set ts=4 sw=4 ai et
 set nu
-set rnu
 set mouse-=r           " enable mouse, or mouse-=a
 set linebreak	       " 不在单词中间折行
 set foldmethod=marker  " marker 这个容易操控. /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
@@ -104,7 +96,7 @@ set wildignore=*.o,*.obj,*~
 colorscheme PaperColor " molokai herald 256-jungle
 " autocmd BufNewFile,BufRead *.go colorscheme PaperColor
 " let g:airline_theme='molokai'
-set background=dark
+set background=light
 
 "{{{ python
 " let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'

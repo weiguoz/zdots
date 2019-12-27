@@ -6,6 +6,7 @@ Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
 Plug 'vim-airline/vim-airline'  " make statusline awesome
 Plug 'vim-airline/vim-airline-themes'  " themes for statusline
 Plug 'joshdick/onedark.vim'
+Plug 't9md/vim-choosewin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
 " {{{ python
 Plug 'deoplete-plugins/deoplete-jedi'
@@ -27,7 +28,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " golang
 " Plug 'wesleyche/SrcExpl' I don't like tags which used by SrcExpl
 " {{{ deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+" Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'} " already has vim-go
 Plug 'Shougo/deoplete-clangx'
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 " }}}
@@ -91,7 +92,7 @@ set viminfo='20,<1000  " allow copying of more than 50 lines to other applicatio
 
 let g:lucius_style="light"
 let g:lucius_contrast="high"
-set background=dark         " for the light version
+set background=dark       " for the light version
 let g:one_allow_italics = 1 " I love italic for comments
 colorscheme onedark
 
@@ -114,6 +115,9 @@ inoremap <c-c> <ESC>
 " map S to replace current word with pasteboard
 nnoremap cc "_cc
 imap ww <Esc> :w<CR>
+imap jj <Esc> :w<CR>
+imap jw <Esc> :w<CR>
+imap wj <Esc> :w<CR>
 nmap qq :q<CR>
 nmap <Leader>w :w!<CR>
 
@@ -141,6 +145,7 @@ nmap <leader>a :AsyncRun<space>
 nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>t :TagbarToggle<CR>
 nmap <Leader>j :call GotoJump()<CR>
+nmap <c-c> :ChooseWin<CR>
 
 " easy breakpoint python
 au FileType python map <silent> <leader>b ofrom pudb import set_trace; set_trace()<esc>
