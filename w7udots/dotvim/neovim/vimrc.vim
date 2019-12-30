@@ -1,36 +1,38 @@
 syntax on
 
 call plug#begin('~/.vim/nv_plugged')
+Plug 'joshdick/onedark.vim'
 Plug 'scrooloose/nerdtree'  " file list
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
 Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
 Plug 'vim-airline/vim-airline'  " make statusline awesome
 Plug 'vim-airline/vim-airline-themes'  " themes for statusline
-Plug 'joshdick/onedark.vim'
 Plug 't9md/vim-choosewin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
-" {{{ python
-Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'davidhalter/jedi-vim'
-Plug 'Vimjas/vim-python-pep8-indent'  "better indenting for python
-" }}}
-Plug 'kien/ctrlp.vim'  " fuzzy search files
-Plug 'tweekmonster/impsort.vim'  " color and sort imports
 Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
 Plug 'dense-analysis/ale'  " linters
 Plug 'lfv89/vim-interestingwords'
-Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
-Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
-Plug 'tpope/vim-commentary'  "comment-out by gc
+Plug 'SirVer/ultisnips'
 Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 Plug 'easymotion/vim-easymotion'
-Plug 'SirVer/ultisnips'
+
+Plug 'kien/ctrlp.vim'  " fuzzy search files
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " golang
+" {{{ git
+Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
+Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
+" }}}
 " Plug 'wesleyche/SrcExpl' I don't like tags which used by SrcExpl
 " {{{ deoplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'} " already has vim-go
 Plug 'Shougo/deoplete-clangx'
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+" }}}
+" {{{ python
+Plug 'deoplete-plugins/deoplete-jedi'
+Plug 'davidhalter/jedi-vim'
+Plug 'Vimjas/vim-python-pep8-indent'  "better indenting for python
+Plug 'tweekmonster/impsort.vim'  " color and sort imports
 " }}}
 call plug#end()
 

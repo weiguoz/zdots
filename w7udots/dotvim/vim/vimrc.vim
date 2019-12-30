@@ -10,35 +10,32 @@ filetype off                   " 必须先关闭文件类型检查
 " Bundle 'VundleVim/Vundle.vim'
 " Bundle ...
 " Bundle 'kshenoy/vim-signature'
-let g:plugged_home = '~/.vim/plugged'
-call plug#begin(g:plugged_home)
-  Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
-  Plug 'NLKNguyen/papercolor-theme' """ colorschema
-  Plug 't9md/vim-choosewin'
-  Plug 'kshenoy/vim-signature'
-  Plug 'majutsushi/tagbar'
-  Plug 'vim-scripts/FencView.vim'
-  Plug 'scrooloose/nerdtree'
-  Plug 'Xuyuanp/nerdtree-git-plugin'
-  Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
-  Plug 'dense-analysis/ale'
-  Plug 'lfv89/vim-interestingwords'
-  Plug 'simnalamburt/vim-mundo'
-  Plug 'SirVer/ultisnips'
-  Plug 'fatih/vim-go'
-  """""""" following 2 plugins replaced by LeaderF by Yggdroot@newsmth
-  " 'kien/ctrlp.vim'
-  " 'vim-scripts/mru.vim'
-  Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
-  " git plugin
-  Plug 'mhinz/vim-signify'
-  Plug 'tpope/vim-fugitive'
-  Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
-  Plug 'vim-airline/vim-airline' " statusbar
-  " word jump by <leader><leader>w / b(ack)
-  Plug 'easymotion/vim-easymotion'
-  Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
-  Plug 'vim/killersheep'
+call plug#begin('~/.vim/plugged')
+Plug 'NLKNguyen/papercolor-theme' """ colorschema
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'majutsushi/tagbar'
+Plug 'vim-airline/vim-airline' " statusbar
+Plug 't9md/vim-choosewin'
+Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
+Plug 'dense-analysis/ale'
+Plug 'lfv89/vim-interestingwords'
+Plug 'SirVer/ultisnips'
+Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
+" word jump by <leader><leader>w / b(ack)
+Plug 'easymotion/vim-easymotion'
+
+Plug 'Yggdroot/LeaderF', {'do': './install.sh'} " kien/ctrlp.vim & vim-scripts/mru.vim --> replaced by LeaderF by Yggdroot@newsmth
+Plug 'fatih/vim-go'
+" {{{ git plugin
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-fugitive'
+Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
+" }}}
+Plug 'kshenoy/vim-signature' " Plugin to toggle, display and navigate marks
+Plug 'vim-scripts/FencView.vim'
+Plug 'simnalamburt/vim-mundo'
+Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
 call plug#end()
 " }}}
 
@@ -160,6 +157,9 @@ nmap <c-c> :ChooseWin<CR>
 cnoremap <Esc> <C-c>
 inoremap <c-c> <ESC>
 imap ww <Esc> :w<CR>
+imap jj <Esc> :w<CR>
+imap jw <Esc> :w<CR>
+imap wj <Esc> :w<CR>
 nmap qq :q<CR>
 nmap <Leader>w :w!<CR>
 
