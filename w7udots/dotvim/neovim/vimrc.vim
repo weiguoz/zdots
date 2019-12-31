@@ -1,7 +1,7 @@
 syntax on
 
 call plug#begin('~/.vim/nv_plugged')
-Plug 'joshdick/onedark.vim'
+Plug 'NLKNguyen/papercolor-theme' " colorschema joshdick/onedark.vim
 Plug 'scrooloose/nerdtree'  " file list
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
 Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
@@ -32,7 +32,6 @@ Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 Plug 'deoplete-plugins/deoplete-jedi'
 Plug 'davidhalter/jedi-vim'
 Plug 'Vimjas/vim-python-pep8-indent'  "better indenting for python
-Plug 'tweekmonster/impsort.vim'  " color and sort imports
 " }}}
 call plug#end()
 
@@ -94,9 +93,9 @@ set viminfo='20,<1000  " allow copying of more than 50 lines to other applicatio
 
 let g:lucius_style="light"
 let g:lucius_contrast="high"
-set background=dark       " for the light version
+set background=light        " for the light version
 let g:one_allow_italics = 1 " I love italic for comments
-colorscheme onedark
+colorscheme PaperColor " molokai herald 256-jungle onedark
 
 let mapleader = " " " Leader is the space key
 let g:mapleader = " "
@@ -156,29 +155,29 @@ au FileType python map <silent> <leader>j ofrom pdb import set_trace; set_trace(
 au FileType python map <silent> <leader>J Ofrom pdb import set_trace; set_trace()<esc>
 
 " ale options
-let g:ale_python_flake8_options = '--ignore=E129,E501,E302,E265,E241,E305,E402,W503'
-let g:ale_python_pylint_options = '-j 0 --max-line-length=120'
-let g:ale_list_window_size = 4
-let g:ale_sign_column_always = 0
-let g:ale_open_list = 1
-let g:ale_keep_list_window_open = '1'
-
-" Options are in .pylintrc!
-highlight VertSplit ctermbg=253
-
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚠'
-let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_enter = '0'
 let g:ale_lint_on_save = '1'
 
-nmap E <Plug>(ale_previous_wrap)
-nmap e <Plug>(ale_next_wrap)
+let g:ale_list_window_size = 4
+let g:ale_sign_column_always = 0
+let g:ale_open_list = 0
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚠'
+let g:ale_statusline_format = ['✗ %d', '⚠ %d', '✔ OK']
+
+" Options are in .pylintrc!
+highlight VertSplit ctermbg=253
+let g:ale_python_flake8_options = '--ignore=E129,E501,E302,E265,E241,E305,E402,W503'
+let g:ale_python_pylint_options = '-j 0 --max-line-length=120'
 let b:ale_linters = {
             \'go': ['golint', 'gopls'],
             \'cpp': ['clang'],
             \'c': ['clang'],
             \}
+
+nmap E <Plug>(ale_previous_wrap)
+nmap e <Plug>(ale_next_wrap)
 
 " highlight python and self function
 autocmd BufEnter * syntax match Type /\v\.[a-zA-Z0-9_]+\ze(\[|\s|$|,|\]|\)|\.|:)/hs=s+1

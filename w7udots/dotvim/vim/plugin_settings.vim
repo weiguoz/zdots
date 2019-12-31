@@ -24,16 +24,15 @@ let g:ycm_filetype_whitelist = {
 
 " {{{ ale
 " 20190122改 syntasitic 为 ale
-let g:ale_lint_on_text_changed = 'never' " normal
+let g:ale_lint_on_text_changed = 'always' " normal
 " You can disable this option too
 " if you don't want linters to run on opening a file
 let g:ale_lint_on_enter = '0'
 let g:ale_lint_on_save = '1'
-let g:ale_set_highlights = 0
 let g:ale_list_window_size = 4
+let g:ale_set_highlights = 0
 let g:ale_sign_column_always = 0
-let g:ale_open_list = 1
-let g:ale_keep_list_window_open = '1'
+let g:ale_open_list = 0
 let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚠'
 "在vim自带的状态栏中整合ale
