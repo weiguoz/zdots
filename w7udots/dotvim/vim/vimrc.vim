@@ -154,7 +154,6 @@ nmap <Leader>j :call GotoJump()<CR>
 nmap <c-c> :ChooseWin<CR>
 
 " mapping ESC
-cnoremap <Esc> <C-c>
 inoremap <c-c> <ESC>
 imap ww <Esc> :w<CR>
 imap jj <Esc> :w<CR>
@@ -181,7 +180,7 @@ let g:Lf_ShortcutF = '<C-P>'
 " u to reopen LeadefFile with parent folder.
 let g:Lf_NormalMap = { "File":   [["u", ':LeaderfFile ..<CR>']] }
 
-""" movement +++
+""" {{{ movement
 nmap <silent>gm :call cursor(0, len(getline('.'))/2)<CR>
 nmap ge $
 " easymotion
@@ -195,7 +194,7 @@ nmap tn :tabnext<CR>
 nmap tp :tabprevious<CR>
 nmap E <Plug>(ale_previous_wrap)
 nmap e <Plug>(ale_next_wrap)
-""" movement ---
+""" movement }}}
 
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
