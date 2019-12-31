@@ -37,6 +37,7 @@ alias chrome="sh ${DOTS}/sh/search_on_terminal.sh"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias vi='vim +'
+alias v='vim'
 alias e='nvim'
 alias t='tmux'
 
