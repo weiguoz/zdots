@@ -93,7 +93,7 @@ set wildignore=*.o,*.obj,*~
 colorscheme PaperColor " molokai herald 256-jungle
 " autocmd BufNewFile,BufRead *.go colorscheme PaperColor
 " let g:airline_theme='molokai'
-set background=light
+set background=dark
 
 "{{{ python
 " let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
