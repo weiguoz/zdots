@@ -11,7 +11,7 @@ filetype off                   " 必须先关闭文件类型检查
 " Bundle ...
 " Bundle 'kshenoy/vim-signature'
 call plug#begin('~/.vim/plugged')
-Plug 'NLKNguyen/papercolor-theme' """ colorschema
+Plug 'mcmartelle/vim-monokai-bold'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
@@ -49,7 +49,8 @@ let g:maplocalleader = "`"
 nnoremap <SPACE> <Nop>
 " 自动补全
 " 让vim的补全菜单行为与一般ide一致
-set completeopt=longest,menu
+set completeopt=popup "https://github.com/neovim/neovim/issues/10996 support popup for version.vim >= 8.1.1880
+" set completeopt=longest,menu
 set autochdir
 au BufWrite /private/etc/pw.* set nowritebackup nobackup " Don't write backup file if vim is being called by "chpass"
 syntax enable
@@ -85,12 +86,12 @@ set incsearch
 set hlsearch
 set nolazyredraw " Don't redraw while executing macros
 " set verbose=9	" turn this ON when we want to debug
-set wildmode=list:longest
 set wildmenu
+set wildmode=longest,full " list
 set wildignore=*.o,*.obj,*~
 " }}}
 
-colorscheme PaperColor " molokai herald 256-jungle
+colorscheme monokai-bold " PaperColor  molokai herald 256-jungle
 " autocmd BufNewFile,BufRead *.go colorscheme PaperColor
 " let g:airline_theme='molokai'
 set background=dark
