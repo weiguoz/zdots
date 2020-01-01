@@ -13,13 +13,13 @@ let g:interestingWordsCycleColors=1 " interestingwords
 let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=1
 let g:ycm_filetype_whitelist = {
-			\ "c":1,
-			\ "cpp":1,
-			\ "sh":1,
-			\ "zsh":1,
-			\ "python":1,
-			\ "go":1,
-			\ }
+            \ "c":1,
+            \ "cpp":1,
+            \ "sh":1,
+            \ "zsh":1,
+            \ "python":1,
+            \ "go":1,
+            \ }
 " }}}
 
 " {{{ ale
@@ -119,8 +119,8 @@ let g:EasyMotion_smartcase = 1
 
 " {{{ git-messenger
 nmap <silent>gm <Plug>(git-messenger)
-let g:git_messenger_always_into_popup = v:true
-let g:git_messenger_include_diff = "current"
+let g:git_messenger_always_into_popup=v:true
+let g:git_messenger_include_diff="current"
 hi gitmessengerHeader term=None guifg=#88b8f6 ctermfg=111
 hi gitmessengerHash term=None guifg=#f0eaaa ctermfg=229
 hi gitmessengerHistory term=None guifg=#fd8489 ctermfg=210

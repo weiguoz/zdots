@@ -26,7 +26,7 @@ Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messe
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'} " already has vim-go
 Plug 'Shougo/deoplete-clangx'
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+" Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' } too much noise
 " }}}
 " {{{ python
 Plug 'deoplete-plugins/deoplete-jedi'
@@ -299,11 +299,11 @@ call deoplete#custom#var('clangx', 'clang_binary', '/usr/bin/clang')
 " Change clang options
 call deoplete#custom#var('clangx', 'default_c_options', '')
 call deoplete#custom#var('clangx', 'default_cpp_options', '')
-" tabnine
-call deoplete#custom#var('tabnine', {
-            \ 'line_limit': 500,
-            \ 'max_num_results': 3,
-            \ })
+"" tabnine
+"call deoplete#custom#var('tabnine', {
+"            \ 'line_limit': 100,
+"            \ 'max_num_results': 3,
+"            \ })
 " }}}
 
 " {{{ ultisnips
