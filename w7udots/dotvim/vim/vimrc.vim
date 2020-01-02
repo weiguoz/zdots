@@ -155,7 +155,7 @@ nmap <Leader>j :call GotoJump()<CR>
 nmap <c-c> :ChooseWin<CR>
 
 " mapping ESC
-inoremap <c-c> <ESC>
+inoremap <c-c> <ESC> :w<CR>
 " imap ww <Esc> :w<CR>
 nmap qq :q<CR>
 nmap <Leader>w :w!<CR>
