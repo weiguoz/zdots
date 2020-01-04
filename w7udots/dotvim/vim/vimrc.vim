@@ -1,15 +1,9 @@
 """ Author: weiguoz@github
 """ Events:
-""" - 2015 created this file by Guanjun Zhang's helping
+""" - 2005 created this file by Guanjun Zhang's helping
 
-" {{{ vim-plug, turn vundle/bundle to vim-plugin at 2019.11.18
 filetype off                   " 必须先关闭文件类型检查
-" set secure nocompatible
-" set rtp+=/Users/weiguo/.vim/vundle/Vundle.vim " 规定Vundle的路径
-" call vundle#rc('/Users/weiguo/.vim/vundle') "   规定插件的安装路径
-" Bundle 'VundleVim/Vundle.vim'
-" Bundle ...
-" Bundle 'kshenoy/vim-signature'
+" {{{ vim-plug, turn vundle/bundle to vim-plugin at 2019.11.18
 call plug#begin('~/.vim/plugged')
 Plug 'mcmartelle/vim-monokai-bold'
 Plug 'scrooloose/nerdtree'
@@ -22,23 +16,19 @@ Plug 'dense-analysis/ale'
 Plug 'lfv89/vim-interestingwords'
 Plug 'SirVer/ultisnips'
 Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
-" word jump by <leader><leader>w / b(ack)
 Plug 'easymotion/vim-easymotion'
-
 Plug 'Yggdroot/LeaderF', {'do': './install.sh'} " kien/ctrlp.vim & vim-scripts/mru.vim --> replaced by LeaderF by Yggdroot@newsmth
 Plug 'fatih/vim-go'
-" {{{ git plugin
+" {{{ git plugins
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
 " }}}
-Plug 'kshenoy/vim-signature' " Plugin to toggle, display and navigate marks
 Plug 'vim-scripts/FencView.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
 call plug#end()
 " }}}
-
 filetype plugin indent on
 
 " general settings {{{
