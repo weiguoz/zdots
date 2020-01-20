@@ -2,10 +2,8 @@
 # [include]
 #    path = /path/to/me
 [alias]
-    ### `git reflog`
-    lg = log --graph --abbrev-commit --decorate --stat --date=relative # --all --author=
-    lg0 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-    lg1 = log --graph --decorate --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
+    ls = log --graph --abbrev-commit --decorate --stat # --all --author=
+    ll = log --graph --decorate --pretty=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)'
     logf = log --stat --follow -p -M
     st = status
     ci = commit -v

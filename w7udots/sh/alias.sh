@@ -1,7 +1,7 @@
 DOTS="/Users/weiguo/w7udots"
 # sourced by ~/.bashrc normally
 # just4fun
-alias woman='man'
+alias woman='navi'
 alias calc='bc'
 # here we go
 alias diff='icdiff'
