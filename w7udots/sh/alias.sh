@@ -38,7 +38,8 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias vi='vim +'
 alias v='vim'
-alias e='nvim'
+alias nvi='nvim +'
+alias nv='nvim'
 alias t='tmux'
 
 if [ -f ${DOTS}/z/z.sh ]; then

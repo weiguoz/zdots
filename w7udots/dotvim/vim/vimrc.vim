@@ -156,6 +156,7 @@ nnoremap x "_x
 vnoremap x "_x
 set clipboard=unnamed
 
+nmap <Leader>o :on<CR>
 nmap <Leader>l :ALEToggle<CR>
 nmap <leader>h :MundoToggle<CR>
 nmap <leader>a :AsyncRun<space>

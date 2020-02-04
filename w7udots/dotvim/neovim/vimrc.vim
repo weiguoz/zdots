@@ -118,6 +118,7 @@ nnoremap cc "_cc
 " imap ww <Esc> :w<CR>
 nmap qq :q<CR>
 nmap <Leader>w :w!<CR>
+nmap <Leader>o :on<CR>
 
 " map paste, yank and delete to named register so the content
 " will not be overwritten (I know I should just remember...)
