@@ -14,6 +14,8 @@ Plug 't9md/vim-choosewin'
 Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
 Plug 'dense-analysis/ale'
 Plug 'lfv89/vim-interestingwords'
+" https://github.com/MattesGroeger/vim-bookmarks#usage
+Plug 'MattesGroeger/vim-bookmarks'
 Plug 'SirVer/ultisnips'
 Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 Plug 'easymotion/vim-easymotion'

@@ -14,7 +14,8 @@ Plug 'lfv89/vim-interestingwords'
 Plug 'SirVer/ultisnips'
 Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 Plug 'easymotion/vim-easymotion'
-
+" https://github.com/MattesGroeger/vim-bookmarks#usage
+Plug 'MattesGroeger/vim-bookmarks'
 Plug 'kien/ctrlp.vim'  " fuzzy search files
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " golang
 " {{{ git
