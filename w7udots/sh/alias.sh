@@ -30,7 +30,8 @@ alias arccos="sh ${SSH_HELPER}/rcp_id_rsa_pub.sh"
 alias svnlog='svn log -l300 -v|more'
 alias mvnp='mvn clean package -Dmaven.test.skip'
 alias ptags='find . -name "*.py" -print | xargs python /usr/local/Frameworks/Python.framework/Versions/3.7/share/doc/python3.7/examples/Tools/scripts/ptags.py'
-alias chrome="sh ${DOTS}/sh/search_on_terminal.sh"
+alias b="sh ${DOTS}/sh/search_on_terminal.sh"
+alias g="googler"
 # alias cd.
 #  Q: why not recursion, such as .9='.. && .8' ?
 #  A: have a look at 'cd -'
