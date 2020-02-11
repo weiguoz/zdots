@@ -104,11 +104,12 @@ let maplocalleader = "`"
 let g:maplocalleader = "`"
 nnoremap <SPACE> <Nop>
 
-
-" tabs:
-nnoremap tn :tabnew<Space>
-nnoremap tk :tabnext<CR>
-nnoremap tj :tabprev<CR>
+" tabs
+nnoremap tn :tabnext<CR>
+nnoremap tp :tabprev<CR>
+" buffer
+nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 " mapping Esc
 cnoremap <Esc> <C-c>
