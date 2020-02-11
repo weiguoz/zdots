@@ -181,10 +181,14 @@ nmap ; <Plug>(easymotion-lineanywhere)
 map  s <Plug>(easymotion-sn)
 omap s <Plug>(easymotion-tn)
 " 普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
-nmap tn :tabnext<CR>
-nmap tp :tabprevious<CR>
 nmap E <Plug>(ale_previous_wrap)
 nmap e <Plug>(ale_next_wrap)
+" tabs
+nnoremap tn :tabnext<CR>
+nnoremap tp :tabprev<CR>
+" buffer
+nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 """ movement }}}
 
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
