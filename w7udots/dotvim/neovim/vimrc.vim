@@ -312,5 +312,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
 " }}}
 
+" easymotion/vim-easymotion
+hi link EasyMotionTarget2Second Search
+
 match Error /\s\+$/
 command! -range=% FixWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
