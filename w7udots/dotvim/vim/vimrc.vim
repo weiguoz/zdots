@@ -5,7 +5,7 @@
 filetype off                   " 必须先关闭文件类型检查
 " {{{ vim-plug, turn vundle/bundle to vim-plugin at 2019.11.18
 call plug#begin('~/.vim/plugged')
-Plug 'mcmartelle/vim-monokai-bold'
+Plug 'tomasr/molokai'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
@@ -83,7 +83,7 @@ set wildmode=longest,full " list
 set wildignore=*.o,*.obj,*~
 " }}}
 
-colorscheme monokai-bold " PaperColor  molokai herald 256-jungle
+colorscheme molokai " monokai-bold PaperColor herald 256-jungle
 " autocmd BufNewFile,BufRead *.go colorscheme PaperColor
 " let g:airline_theme='molokai'
 set background=dark

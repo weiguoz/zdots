@@ -314,7 +314,8 @@ let g:UltiSnipsEditSplit="vertical"
 " }}}
 
 " easymotion/vim-easymotion
-hi link EasyMotionTarget2Second Search
+hi link EasyMotionTarget2First  IncSearch
+hi link EasyMotionTarget2Second IncSearch
 
 match Error /\s\+$/
 command! -range=% FixWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
