@@ -147,6 +147,10 @@ nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>t :TagbarToggle<CR>
 nmap <Leader>j :call GotoJump()<CR>
 nmap <c-c> :ChooseWin<CR>
+" quickfix ++
+nmap <leader>c :cclose<space>
+autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
+" quickfix --
 
 " easy breakpoint python
 au FileType python map <silent> <leader>b ofrom pudb import set_trace; set_trace()<esc>
@@ -155,16 +159,15 @@ au FileType python map <silent> <leader>j ofrom pdb import set_trace; set_trace(
 au FileType python map <silent> <leader>J Ofrom pdb import set_trace; set_trace()<esc>
 
 " ale options
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_enter = '0'
-let g:ale_lint_on_save = '1'
-
-let g:ale_list_window_size = 4
-let g:ale_sign_column_always = 0
-let g:ale_open_list = 0
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚠'
-let g:ale_statusline_format = ['✗ %d', '⚠ %d', '✔ OK']
+let g:ale_lint_on_text_changed='normal'
+let g:ale_lint_on_enter='0'
+let g:ale_lint_on_save='1'
+let g:ale_list_window_size=4
+let g:ale_sign_column_always=0
+let g:ale_open_list=0
+let g:ale_sign_error='✗'
+let g:ale_sign_warning='⚠'
+let g:ale_statusline_format=['✗ %d', '⚠ %d', '✔ OK']
 
 " Options are in .pylintrc!
 highlight VertSplit ctermbg=253

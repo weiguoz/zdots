@@ -102,7 +102,7 @@ let g:tagbar_type_go = {
 let g:EasyMotion_smartcase = 1
 " }}}
 
-" {{{ vim-airline comments +++
+" {{{ vim-airline comments
 " let loaded_trailing_whitespace_plugin=1
 " " Highlight EOL whitespace, http://vim.wikia.com/wiki/Highlight_unwanted_spaces
 " highlight ExtraWhitespace ctermbg=darkred guibg=#382424
@@ -118,7 +118,4 @@ let g:EasyMotion_smartcase = 1
 nmap <silent>gm <Plug>(git-messenger)
 let g:git_messenger_always_into_popup=v:true
 let g:git_messenger_include_diff="current"
-hi gitmessengerHeader term=None guifg=#88b8f6 ctermfg=111
-hi gitmessengerHash term=None guifg=#f0eaaa ctermfg=229
-hi gitmessengerHistory term=None guifg=#fd8489 ctermfg=210
 " }}}
