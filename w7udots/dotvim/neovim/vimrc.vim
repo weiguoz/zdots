@@ -118,7 +118,7 @@ inoremap <c-c> <ESC> :w<CR>
 " map S to replace current word with pasteboard
 nnoremap cc "_cc
 " imap ww <Esc> :w<CR>
-nmap qq :q<CR>
+nmap q: :q<CR>
 nmap <Leader>w :w!<CR>
 nmap <Leader>o :on<CR>
 
