@@ -149,6 +149,7 @@ nmap <c-c> :ChooseWin<CR>
 " mapping ESC
 inoremap <c-c> <ESC> :w<CR>
 " imap ww <Esc> :w<CR>
+nmap qa :wqa<CR>
 nmap q: :q<CR>
 nmap <Leader>w :w!<CR>
 
