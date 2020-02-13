@@ -5,6 +5,8 @@ let NERDTreeShowHidden=1             " 显示隐藏文件
 let NERDChristmasTree=1              " 色彩显示
 " ignore files in NERDTree
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$']
+"Quit when where is no active buffer https://github.com/preservim/nerdtree/issues/21#issuecomment-157212312
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " }}}
 
 let g:interestingWordsCycleColors=1 " interestingwords

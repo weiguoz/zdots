@@ -313,6 +313,16 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
 " }}}
 
+" {{{ nerdtree
+let NERDTreeWinPos='left'
+let NERDTreeHighlightCursorline=0    " 高亮当前行
+let NERDTreeShowHidden=1             " 显示隐藏文件
+let NERDChristmasTree=1              " 色彩显示
+let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$']
+"Quit when where is no active buffer https://github.com/preservim/nerdtree/issues/21#issuecomment-157212312
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" }}}
+
 " easymotion/vim-easymotion
 hi link EasyMotionTarget2First  IncSearch
 hi link EasyMotionTarget2Second IncSearch
