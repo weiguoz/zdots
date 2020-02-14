@@ -85,9 +85,9 @@ set wildignore=*.o,*.obj,*~
 " }}}
 
 colorscheme molokai " monokai-bold PaperColor herald 256-jungle
+" set background=dark
 autocmd BufNewFile,BufRead *.go colorscheme iceberg
 " let g:airline_theme='molokai'
-set background=dark
 
 "{{{ python
 " let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
