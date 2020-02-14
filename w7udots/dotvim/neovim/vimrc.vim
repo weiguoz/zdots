@@ -12,12 +12,11 @@ Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
 Plug 'dense-analysis/ale'  " linters
 Plug 'lfv89/vim-interestingwords'
 Plug 'SirVer/ultisnips'
-Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
+Plug 'skywind3000/asyncrun.vim' " such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 Plug 'easymotion/vim-easymotion'
 " https://github.com/MattesGroeger/vim-bookmarks#usage
 Plug 'MattesGroeger/vim-bookmarks'
-Plug 'kien/ctrlp.vim'  " fuzzy search files
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } " golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 " {{{ git
 Plug 'airblade/vim-gitgutter'  " show git changes to files in gutter
 Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
@@ -111,16 +110,13 @@ nnoremap tp :tabprev<CR>
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
-" mapping Esc
-cnoremap <Esc> <C-c>
+cnoremap <Esc> <C-c> " mapping Esc
 inoremap <c-c> <ESC> :w<CR>
-
-" map S to replace current word with pasteboard
-nnoremap cc "_cc
-" imap ww <Esc> :w<CR>
-nmap qa :wqa<CR>
-nmap q: :q<CR>
-nmap <Leader>w :w!<CR>
+nmap <c-c> :wq<CR>
+inoremap <c-w> <ESC> :ChooseWin<CR>
+nmap <Leader>w :ChooseWin<CR>
+nnoremap cc "_cc " map S to replace current word with pasteboard
+nmap <Leader>q :qa<CR>
 nmap <Leader>o :on<CR>
 
 " map paste, yank and delete to named register so the content
@@ -147,7 +143,6 @@ nmap <leader>a :AsyncRun<space>
 nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>t :TagbarToggle<CR>
 nmap <Leader>j :call GotoJump()<CR>
-nmap <c-c> :ChooseWin<CR>
 " quickfix ++
 nmap <leader>c :cclose<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>

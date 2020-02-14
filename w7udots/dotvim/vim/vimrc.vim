@@ -6,6 +6,7 @@ filetype off                   " 必须先关闭文件类型检查
 " {{{ vim-plug, turn vundle/bundle to vim-plugin at 2019.11.18
 call plug#begin('~/.vim/plugged')
 Plug 'tomasr/molokai'
+Plug 'cocopon/iceberg.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
@@ -84,7 +85,7 @@ set wildignore=*.o,*.obj,*~
 " }}}
 
 colorscheme molokai " monokai-bold PaperColor herald 256-jungle
-" autocmd BufNewFile,BufRead *.go colorscheme PaperColor
+autocmd BufNewFile,BufRead *.go colorscheme iceberg
 " let g:airline_theme='molokai'
 set background=dark
 
@@ -144,14 +145,14 @@ au FileType cpp,c,python command! -nargs=0 Adddesc :call AddDesc() " 源码说�
 nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
 nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 nmap <Leader>j :call GotoJump()<CR>
-nmap <c-c> :ChooseWin<CR>
 
-" mapping ESC
+cnoremap <Esc> <C-c> " mapping ESC
 inoremap <c-c> <ESC> :w<CR>
-" imap ww <Esc> :w<CR>
-nmap qa :wqa<CR>
-nmap q: :q<CR>
-nmap <Leader>w :w!<CR>
+nmap <c-c> :wq<CR>
+inoremap <c-w> <ESC> :ChooseWin<CR>
+nmap <leader>w :ChooseWin<CR>
+nmap <Leader>q :qa<CR>
+nmap <Leader>o :on<CR>
 
 " map paste, yank and delete
 set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
@@ -159,7 +160,6 @@ nnoremap x "_x
 vnoremap x "_x
 set clipboard=unnamed
 
-nmap <Leader>o :on<CR>
 nmap <Leader>l :ALEToggle<CR>
 nmap <leader>h :MundoToggle<CR>
 nmap <leader>a :AsyncRun<space>
