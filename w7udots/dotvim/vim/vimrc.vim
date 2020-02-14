@@ -164,7 +164,7 @@ nmap <Leader>l :ALEToggle<CR>
 nmap <leader>h :MundoToggle<CR>
 nmap <leader>a :AsyncRun<space>
 " quickfix ++
-nmap <leader>c :cclose<space>
+nmap <leader>c :cclose<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 " quickfix --
 nmap <Leader>n :NERDTreeToggle<CR>

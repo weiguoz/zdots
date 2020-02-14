@@ -149,7 +149,7 @@ nmap <Leader>t :TagbarToggle<CR>
 nmap <Leader>j :call GotoJump()<CR>
 nmap <c-c> :ChooseWin<CR>
 " quickfix ++
-nmap <leader>c :cclose<space>
+nmap <leader>c :cclose<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 " quickfix --
 
@@ -319,7 +319,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 " {{{ nerdtree
 let NERDTreeWinPos='left'
-let NERDTreeHighlightCursorline=0    " 高亮当前行
+let NERDTreeHighlightCursorline=1    " 高亮当前行
 let NERDTreeShowHidden=1             " 显示隐藏文件
 let NERDChristmasTree=1              " 色彩显示
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$']
