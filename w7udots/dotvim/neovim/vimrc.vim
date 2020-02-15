@@ -112,11 +112,10 @@ nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :wri
 
 cnoremap <Esc> <C-c> " mapping Esc
 inoremap <c-c> <ESC> :w<CR>
-nmap <c-c> :wq<CR>
-inoremap <c-w> <ESC> :ChooseWin<CR>
-nmap <Leader>w :ChooseWin<CR>
+nmap Q :q!<CR>
+nmap c :ChooseWin<CR>
 nnoremap cc "_cc " map S to replace current word with pasteboard
-nmap <Leader>q :qa<CR>
+nmap <Leader>qa :qa<CR>
 nmap <Leader>o :on<CR>
 
 " map paste, yank and delete to named register so the content

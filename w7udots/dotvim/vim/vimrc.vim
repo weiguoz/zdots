@@ -5,7 +5,6 @@
 filetype off                   " 必须先关闭文件类型检查
 " {{{ vim-plug, turn vundle/bundle to vim-plugin at 2019.11.18
 call plug#begin('~/.vim/plugged')
-Plug 'tomasr/molokai'
 Plug 'cocopon/iceberg.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -84,11 +83,10 @@ set wildmode=longest,full " list
 set wildignore=*.o,*.obj,*~
 " }}}
 
-colorscheme molokai " monokai-bold PaperColor herald 256-jungle
+colorscheme iceberg " monokai-bold PaperColor herald 256-jungle
 " set background=dark
-autocmd BufNewFile,BufRead *.go colorscheme iceberg
+" a lot of bugs autocmd BufNewFile,BufRead *.go colorscheme iceberg
 " let g:airline_theme='molokai'
-
 "{{{ python
 " let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
 " " https://github.com/vim/vim/issues/3117 解决启动时因为python3的报警
@@ -148,10 +146,9 @@ nmap <Leader>j :call GotoJump()<CR>
 
 cnoremap <Esc> <C-c> " mapping ESC
 inoremap <c-c> <ESC> :w<CR>
-nmap <c-c> :wq<CR>
-inoremap <c-w> <ESC> :ChooseWin<CR>
-nmap <leader>w :ChooseWin<CR>
-nmap <Leader>q :qa<CR>
+nmap c :ChooseWin<CR>
+nmap Q :q!<CR>
+nmap <Leader>qa :qa<CR>
 nmap <Leader>o :on<CR>
 
 " map paste, yank and delete
