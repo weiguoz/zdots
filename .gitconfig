@@ -2,7 +2,7 @@
 	name = w7u
 	email = wg.z@qq.com
 [include]
-    path = ~/w7udots/gitconfig.include
+    path = ~/w7udots/gits/gitconfig.include
 [core]
     excludesfile = /Users/weiguo/.gitignore_global
     quotepath = false
