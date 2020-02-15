@@ -12,7 +12,9 @@
 !w7udots/sh/
 !w7udots/sh/*
 !w7udots/ycm_extra_conf.py
-!w7udots/gitconfig.include
+!w7udots/gits/
+!w7udots/gits/gitconfig.include
+!w7udots/gits/*.sh
 
 !w7udots/oh-my-zsh-helper
 !w7udots/oh-my-zsh-helper/*
