@@ -5,6 +5,7 @@ Plug 'NLKNguyen/papercolor-theme' " colorschema joshdick/onedark.vim
 Plug 'scrooloose/nerdtree'  " file list
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'  "to highlight files in nerdtree
 Plug 'majutsushi/tagbar'  " show tags in a bar (functions etc) for easy browsing
+Plug 'airblade/vim-rooter'
 Plug 'vim-airline/vim-airline'  " make statusline awesome
 Plug 'vim-airline/vim-airline-themes'  " themes for statusline
 Plug 't9md/vim-choosewin'
@@ -106,24 +107,23 @@ nnoremap <SPACE> <Nop>
 " tabs
 nnoremap tn :tabnext<CR>
 nnoremap tp :tabprev<CR>
-" buffer
+" buffer switch by tab
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
-cnoremap <Esc> <C-c> " mapping Esc
-inoremap <c-c> <ESC> :w<CR>
-nmap Q :q!<CR>
-nmap c :ChooseWin<CR>
-nnoremap cc "_cc " map S to replace current word with pasteboard
-nmap <Leader>qa :qa<CR>
+" nnoremap cc "_cc " map S to replace current word with pasteboard
+" cnoremap <Esc> <C-c> " mapping Esc
+inoremap <c-c> <ESC> :w!<CR>
+nmap <c-c> :ChooseWin<CR>
+nmap <Leader>w :w!<CR>
+nmap <Leader>q :wq!<CR>
 nmap <Leader>o :on<CR>
 
 " map paste, yank and delete to named register so the content
 " will not be overwritten (I know I should just remember...)
-nnoremap x "_x
-vnoremap x "_x
-
-set clipboard=unnamed
+" nnoremap x "_x
+" vnoremap x "_x
+" set clipboard=unnamed
 
 set completeopt=menuone,noselect,noinsert
 
@@ -311,6 +311,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
 " }}}
 
+" {{{
+" vim-rooter will unset &autochdir if it's set.
+let g:rooter_patterns = ['Rakefile', '.git/']
+" }}}
+
 " {{{ nerdtree
 let NERDTreeWinPos='left'
 let NERDTreeHighlightCursorline=1    " 高亮当前行
@@ -319,6 +324,11 @@ let NERDChristmasTree=1              " 色彩显示
 let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$']
 "Quit when where is no active buffer https://github.com/preservim/nerdtree/issues/21#issuecomment-157212312
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" }}}
+
+" {{{
+" vim-rooter will unset &autochdir if it's set.
+let g:rooter_patterns = ['Rakefile', '.git/']
 " }}}
 
 " easymotion/vim-easymotion

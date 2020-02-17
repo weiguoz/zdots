@@ -38,8 +38,8 @@ gli() {
                 xargs -I % sh -c 'git show --color=always % $filter | less -R') << 'FZF-EOF'
                 {}
                 FZF-EOF"
-   --preview-window=right:65%\
-       --height 70%
+   --preview-window=right:64% \
+       --height 89%
   )
 
   # piping them
