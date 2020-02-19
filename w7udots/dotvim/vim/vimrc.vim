@@ -164,10 +164,10 @@ nmap <Leader>j :call GotoJump()<CR>
 
 " cnoremap <Esc> <C-c>
 inoremap <c-c> <ESC> :w!<CR>
-nmap <c-c> :ChooseWin<CR>
 nmap <Leader>w :w!<CR>
-nmap <Leader>q :wq!<CR>
+nmap <Leader>q :q!<CR>
 nmap <Leader>o :on<CR>
+nmap <c-c> :ChooseWin<CR>
 
 " map paste, yank and delete
 " set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
@@ -204,8 +204,8 @@ omap s <Plug>(easymotion-tn)
 nmap E <Plug>(ale_previous_wrap)
 nmap e <Plug>(ale_next_wrap)
 " tabs
-nnoremap tn :tabnext<CR>
-nnoremap tp :tabprev<CR>
+nmap <c-h> :tabprev<CR>
+nmap <c-l> :tabnext<CR>
 " buffer
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
@@ -215,4 +215,7 @@ let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射�
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit="vertical"
+" 保存一个本该 sudo 打开的文件
+" cnoremap
+cnoreabbrev w!! w !sudo tee >/dev/null %
 " }}}
