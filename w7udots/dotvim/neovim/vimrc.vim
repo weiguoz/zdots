@@ -105,8 +105,8 @@ let g:maplocalleader = "`"
 nnoremap <SPACE> <Nop>
 
 " tabs
-nnoremap tn :tabnext<CR>
-nnoremap tp :tabprev<CR>
+nmap <c-h> :tabprev<CR>
+nmap <c-l> :tabnext<CR>
 " buffer switch by tab
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
@@ -114,10 +114,10 @@ nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :wri
 " nnoremap cc "_cc " map S to replace current word with pasteboard
 " cnoremap <Esc> <C-c> " mapping Esc
 inoremap <c-c> <ESC> :w!<CR>
-nmap <c-c> :ChooseWin<CR>
 nmap <Leader>w :w!<CR>
-nmap <Leader>q :wq!<CR>
+nmap <Leader>q :q!<CR>
 nmap <Leader>o :on<CR>
+nmap <c-c> :ChooseWin<CR>
 
 " map paste, yank and delete to named register so the content
 " will not be overwritten (I know I should just remember...)
