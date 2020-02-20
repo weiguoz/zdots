@@ -112,7 +112,6 @@ nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :wri
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
 
 " nnoremap cc "_cc " map S to replace current word with pasteboard
-" cnoremap <Esc> <C-c> " mapping Esc
 inoremap <c-c> <ESC> :w!<CR>
 nmap <Leader>w :w!<CR>
 nmap <Leader>q :q!<CR>
