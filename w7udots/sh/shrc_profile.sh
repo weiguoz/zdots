@@ -13,7 +13,7 @@ import ~/.fzf.zsh # https://github.com/junegunn/fzf
 #eval $(thefuck --alias)
 import ${DOTS}/z/z.sh # https://github.com/rupa/z
 import ${DOTS}/sh/exports.sh
-import ${DOTS}/sh/settings.sh
+import ${DOTS}/sh/keybinding.sh
 import ${DOTS}/sh/init.sh
 import ${DOTS}/sh/alias.sh
 import ${DOTS}/gits/git_fzf.sh
