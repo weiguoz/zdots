@@ -2,11 +2,9 @@
 #
 # https://gist.github.com/tamphh/3c9a4aa07ef21232624bacb4b3f3c580/edit
 # https://asciinema.org/a/257939
-#
 
 # git log show with fzf
-gli() {
-
+gig() {
   # param validation
   if [[ ! `git log -n 1 $@ | head -n 1` ]] ;then
     return
