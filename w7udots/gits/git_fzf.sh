@@ -4,7 +4,7 @@
 # https://asciinema.org/a/257939
 
 # git log show with fzf
-gi() {
+gig() {
   # param validation
   if [[ ! `git log -n 1 $@ | head -n 1` ]] ;then
     return
