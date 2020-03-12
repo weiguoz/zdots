@@ -5,7 +5,7 @@
 filetype off                   " 必须先关闭文件类型检查
 " {{{ vim-plug, turn vundle/bundle to vim-plugin at 2019.11.18
 call plug#begin('~/.vim/plugged')
-Plug 'cocopon/iceberg.vim'
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
@@ -20,6 +20,7 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'SirVer/ultisnips'
 Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 Plug 'easymotion/vim-easymotion'
+Plug 'pechorin/any-jump.vim'
 Plug 'Yggdroot/LeaderF', {'do': './install.sh'} " kien/ctrlp.vim & vim-scripts/mru.vim --> replaced by LeaderF by Yggdroot@newsmth
 Plug 'fatih/vim-go'
 " {{{ git plugins
@@ -84,10 +85,13 @@ set wildmode=longest,full " list
 set wildignore=*.o,*.obj,*~
 " }}}
 
-colorscheme iceberg " monokai-bold PaperColor herald 256-jungle
-" set background=dark
-" a lot of bugs autocmd BufNewFile,BufRead *.go colorscheme iceberg
-" let g:airline_theme='molokai'
+" {{{ colorscheme
+let g:palenight_terminal_italics=1
+set background=dark
+colorscheme palenight " Also, I like monokai-bold PaperColor herald 256-jungle
+let g:airline_theme = "palenight"
+" }}}
+
 "{{{ python
 " let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
 " " https://github.com/vim/vim/issues/3117 解决启动时因为python3的报警
@@ -160,9 +164,9 @@ endfunction
 au FileType cpp,c,python command! -nargs=0 Adddesc :call AddDesc() " 源码说明头
 nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
 nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
-nmap <Leader>j :call GotoJump()<CR>
+" nmap <Leader>j :call GotoJump()<CR>
 
-inoremap <c-c> <ESC> :w!<CR>
+inoremap <c-c> <ESC> :w<CR>
 nmap <Leader>w :w!<CR>
 nmap <Leader>q :q!<CR>
 nmap <Leader>o :on<CR>
@@ -189,6 +193,17 @@ let g:Lf_ShortcutF = '<C-P>'
 " This way you can press <tab> to go to LeaderfFile normal mode and then press
 " u to reopen LeadefFile with parent folder.
 let g:Lf_NormalMap = { "File":   [["u", ':LeaderfFile ..<CR>']] }
+
+" any-jump
+let g:any_jump_disable_default_keybindings = 1
+" Normal mode: Jump to definition under cursore
+nnoremap <leader>j :AnyJump<CR>
+" Visual mode: jump to selected text in visual mode
+xnoremap <leader>j :AnyJumpVisual<CR>
+" Normal mode: open previous opened file (after jump)
+nnoremap <leader>ab :AnyJumpBack<CR>
+" Normal mode: open last closed search window again
+nnoremap <leader>al :AnyJumpLastResults<CR>
 
 """ {{{ movement
 nmap <silent>gm :call cursor(0, len(getline('.'))/2)<CR>
