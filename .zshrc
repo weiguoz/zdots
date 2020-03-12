@@ -93,22 +93,6 @@ setopt AUTO_MENU
 # PS1="$PS1 \W$(parse_svn_branch)$"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/weiguo/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/weiguo/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/weiguo/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/weiguo/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # specify the ruby version https://github.com/rbenv/rbenv/issues/939#issuecomment-253940228
 eval "$(rbenv init -)"
