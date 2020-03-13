@@ -7,7 +7,6 @@ filetype off                   " 必须先关闭文件类型检查
 call plug#begin('~/.vim/plugged')
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline' " statusbar
 Plug 'airblade/vim-rooter'
@@ -20,10 +19,10 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'SirVer/ultisnips'
 Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 Plug 'easymotion/vim-easymotion'
-Plug 'pechorin/any-jump.vim'
 Plug 'Yggdroot/LeaderF', {'do': './install.sh'} " kien/ctrlp.vim & vim-scripts/mru.vim --> replaced by LeaderF by Yggdroot@newsmth
 Plug 'fatih/vim-go'
 " {{{ git plugins
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
@@ -31,6 +30,12 @@ Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messe
 Plug 'vim-scripts/FencView.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
+" {{{ 试用期
+Plug 'pechorin/any-jump.vim'
+Plug 'ap/vim-buftabline'
+Plug 'mhinz/vim-startify'
+Plug 'junegunn/gv.vim' " a git commit browser.
+" }}}
 call plug#end()
 " }}}
 filetype plugin indent on
@@ -217,12 +222,9 @@ omap s <Plug>(easymotion-tn)
 " 普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
 nmap E <Plug>(ale_previous_wrap)
 nmap e <Plug>(ale_next_wrap)
-" tabs
-nmap <c-h> :tabprev<CR>
-nmap <c-l> :tabnext<CR>
 " buffer
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
-nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
+nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>
 """ movement }}}
 
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
