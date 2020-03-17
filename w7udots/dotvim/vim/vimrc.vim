@@ -174,7 +174,7 @@ nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 imap <c-c> <ESC> :w<CR>
 omap <c-c> <ESC> :w<CR>
 nmap <Leader>w :w!<CR>
-nmap <Leader>q :q!<CR>
+nmap <Leader>q :wq!<CR>
 nmap <Leader>o :on<CR>
 nmap <c-c> :ChooseWin<CR>
 
@@ -207,9 +207,9 @@ nnoremap <leader>j :AnyJump<CR>
 " Visual mode: jump to selected text in visual mode
 xnoremap <leader>j :AnyJumpVisual<CR>
 " Normal mode: open previous opened file (after jump)
-nnoremap <leader>ab :AnyJumpBack<CR>
+" nnoremap <leader>ab :AnyJumpBack<CR>
 " Normal mode: open last closed search window again
-nnoremap <leader>al :AnyJumpLastResults<CR>
+" nnoremap <leader>al :AnyJumpLastResults<CR>
 
 """ {{{ movement
 nmap <silent>gm :call cursor(0, len(getline('.'))/2)<CR>
@@ -220,7 +220,6 @@ nmap , <Plug>(easymotion-prefix)
 nmap ; <Plug>(easymotion-lineanywhere)
 map  s <Plug>(easymotion-sn)
 omap s <Plug>(easymotion-tn)
-" 普通模式下，sp前往上一个错误或警告，sn前往下一个错误或警告
 nmap E <Plug>(ale_previous_wrap)
 nmap e <Plug>(ale_next_wrap)
 " buffer
@@ -236,3 +235,5 @@ let g:UltiSnipsEditSplit="vertical"
 " cnoremap
 cnoreabbrev w!! w !sudo tee >/dev/null %
 " }}}
+
+
