@@ -172,8 +172,8 @@ nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
 nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 " nmap <Leader>j :call GotoJump()<CR>
 
-imap <c-c> <ESC> :w<CR>
-omap <c-c> <ESC> :w<CR>
+imap <c-c> <ESC> :w<CR>l
+omap <c-c> <ESC> :w<CR>l
 nmap <Leader>w :w!<CR>
 nmap <Leader>q :wq<CR>
 nmap <Leader>o :on<CR>
