@@ -30,11 +30,12 @@ Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messe
 Plug 'vim-scripts/FencView.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
+Plug 'mhinz/vim-startify'
 " {{{ 试用期
 Plug 'pechorin/any-jump.vim'
 Plug 'ap/vim-buftabline'
-Plug 'mhinz/vim-startify'
 Plug 'junegunn/gv.vim' " a git commit browser.
+Plug 'luochen1990/rainbow'
 " }}}
 call plug#end()
 " }}}
@@ -174,7 +175,7 @@ nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 imap <c-c> <ESC> :w<CR>
 omap <c-c> <ESC> :w<CR>
 nmap <Leader>w :w!<CR>
-nmap <Leader>q :wq!<CR>
+nmap <Leader>q :wq<CR>
 nmap <Leader>o :on<CR>
 nmap <c-c> :ChooseWin<CR>
 
