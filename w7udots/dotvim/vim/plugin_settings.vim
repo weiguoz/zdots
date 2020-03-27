@@ -11,6 +11,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 let g:interestingWordsCycleColors=1 " interestingwords
 
+let g:rainbow_active = 1 " https://github.com/luochen1990/rainbow
+
 " {{{ YouCompleteMe
 let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=1
