@@ -4,8 +4,6 @@ bindkey \^U backward-kill-line
 
 bindkey ' ' magic-space
 
-bindkey "^w" forward-word
-bindkey "^b" backward-word
-bindkey '^l' autosuggest-accept # auto-suggestion
-bindkey -M emacs '^k' history-substring-search-up
-bindkey -M emacs '^j' history-substring-search-down
+bindkey "^l" forward-word
+bindkey "^h" backward-word
+bindkey '^j' autosuggest-accept # auto-suggestion
