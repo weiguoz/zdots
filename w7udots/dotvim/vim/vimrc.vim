@@ -175,7 +175,7 @@ nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 imap <c-c> <ESC> :w<CR>l
 omap <c-c> <ESC> :w<CR>l
 nmap <Leader>w :w!<CR>
-nmap <Leader>q :wq<CR>
+nmap <Leader>q :q<CR>
 nmap <Leader>o :on<CR>
 nmap <c-c> :ChooseWin<CR>
 
