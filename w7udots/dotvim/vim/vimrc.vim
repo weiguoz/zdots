@@ -11,7 +11,12 @@ Plug 'majutsushi/tagbar'
 Plug 'vim-airline/vim-airline' " statusbar
 Plug 'airblade/vim-rooter'
 Plug 't9md/vim-choosewin'
-Plug 'wsdjeg/FlyGrep.vim'  " awesome grep on the fly
+" 1. kien/ctrlp.vim & vim-scripts/mru.vim --> replaced by LeaderF by Yggdroot@newsmth
+" 2. LeaderF replaced by fzf : Files
+" Plug 'Yggdroot/LeaderF', {'do': './install.sh'} 
+" Plug 'wsdjeg/FlyGrep.vim' 被 fzf的ag/rg 替代了
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'dense-analysis/ale'
 Plug 'lfv89/vim-interestingwords'
 " https://github.com/MattesGroeger/vim-bookmarks#usage
@@ -19,7 +24,6 @@ Plug 'MattesGroeger/vim-bookmarks'
 Plug 'SirVer/ultisnips'
 Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 Plug 'easymotion/vim-easymotion'
-Plug 'Yggdroot/LeaderF', {'do': './install.sh'} " kien/ctrlp.vim & vim-scripts/mru.vim --> replaced by LeaderF by Yggdroot@newsmth
 Plug 'fatih/vim-go'
 " {{{ git plugins
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -188,18 +192,14 @@ nmap <c-c> :ChooseWin<CR>
 nmap <Leader>l :ALEToggle<CR>
 nmap <leader>h :MundoToggle<CR>
 nmap <leader>a :AsyncRun<space>
+nmap <leader>s :Ag<CR>
 " quickfix ++
 nmap <leader>c :cclose<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 " quickfix --
 nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>t :TagbarToggle<CR>
-map <leader>f :Leaderf<SPACE>
-let g:Lf_ShortcutF = '<C-P>'
-" https://vi.stackexchange.com/questions/17896/how-to-move-to-parent-directory-with-leaderf
-" This way you can press <tab> to go to LeaderfFile normal mode and then press
-" u to reopen LeadefFile with parent folder.
-let g:Lf_NormalMap = { "File":   [["u", ':LeaderfFile ..<CR>']] }
+map <leader>f :Files<CR>
 
 " any-jump
 let g:any_jump_disable_default_keybindings = 1
@@ -236,5 +236,3 @@ let g:UltiSnipsEditSplit="vertical"
 " cnoremap
 cnoreabbrev w!! w !sudo tee >/dev/null %
 " }}}
-
-
