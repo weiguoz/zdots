@@ -181,3 +181,11 @@ let g:any_jump_references_only_for_current_filetype = 0
 " (default: false, search engine will ignore vcs untracked files)
 let g:any_jump_disable_vcs_ignore = 0
 "}}}
+
+" {{{ leaderf replaced by fzf
+" let g:Lf_ShortcutF = '<C-P>'
+" " https://vi.stackexchange.com/questions/17896/how-to-move-to-parent-directory-with-leaderf
+" " This way you can press <tab> to go to LeaderfFile normal mode and then press
+" " u to reopen LeadefFile with parent folder.
+" let g:Lf_NormalMap = { "File":   [["u", ':LeaderfFile ..<CR>']] }
+" }}}"
