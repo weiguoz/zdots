@@ -200,6 +200,7 @@ autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 nmap <Leader>n :NERDTreeToggle<CR>
 nmap <Leader>t :TagbarToggle<CR>
 map <leader>f :Files<CR>
+map <leader>b :Buf<CR>
 
 " any-jump
 let g:any_jump_disable_default_keybindings = 1
