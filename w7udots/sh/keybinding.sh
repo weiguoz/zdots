@@ -6,4 +6,4 @@ bindkey ' ' magic-space
 
 bindkey "^l" forward-word
 bindkey "^h" backward-word
-bindkey '^p' autosuggest-accept # auto-suggestion
+bindkey "^j" autosuggest-accept # auto-suggestion
