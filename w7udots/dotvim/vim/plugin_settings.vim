@@ -182,7 +182,7 @@ let g:any_jump_references_only_for_current_filetype = 0
 let g:any_jump_disable_vcs_ignore = 0
 "}}}
 
-" {{{ leaderf replaced by fzf
+" {{{ Leaderf
 " let g:Lf_ShortcutF = '<C-P>'
 " " https://vi.stackexchange.com/questions/17896/how-to-move-to-parent-directory-with-leaderf
 " " This way you can press <tab> to go to LeaderfFile normal mode and then press

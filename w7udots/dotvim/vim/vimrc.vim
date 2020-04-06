@@ -179,7 +179,7 @@ nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 imap <c-c> <ESC> :w<CR>l
 omap <c-c> <ESC> :w<CR>l
 nmap <Leader>w :w!<CR>
-nmap <Leader>q :q<CR>
+nmap <Leader>q :bd<CR>
 nmap <Leader>o :on<CR>
 nmap <c-c> :ChooseWin<CR>
 
@@ -238,4 +238,21 @@ let g:UltiSnipsEditSplit="vertical"
 " 保存一个本该 sudo 打开的文件
 " cnoremap
 cnoreabbrev w!! w !sudo tee >/dev/null %
+" }}}
+
+" {{{ auto save and load session
+let g:AutoSessionFile=".session.vim"
+let g:OrigPWD=getcwd()
+if filereadable(g:AutoSessionFile)
+    if argc() == 0
+        au VimEnter * call EnterHandler()
+        au VimLeave * call LeaveHandler()
+    endif
+endif
+function! LeaveHandler()
+    exec "mks! ".g:OrigPWD."/".g:AutoSessionFile
+endfunction
+function! EnterHandler()
+    exe "source ".g:AutoSessionFile
+endfunction
 " }}}
