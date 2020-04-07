@@ -13,7 +13,7 @@ Plug 'airblade/vim-rooter'
 Plug 't9md/vim-choosewin'
 " 1. kien/ctrlp.vim & vim-scripts/mru.vim --> replaced by LeaderF by Yggdroot@newsmth
 " 2. LeaderF replaced by fzf : Files
-" Plug 'Yggdroot/LeaderF', {'do': './install.sh'} 
+" Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
 " Plug 'wsdjeg/FlyGrep.vim' 被 fzf的ag/rg 替代了
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -238,21 +238,4 @@ let g:UltiSnipsEditSplit="vertical"
 " 保存一个本该 sudo 打开的文件
 " cnoremap
 cnoreabbrev w!! w !sudo tee >/dev/null %
-" }}}
-
-" {{{ auto save and load session
-let g:AutoSessionFile=".session.vim"
-let g:OrigPWD=getcwd()
-if filereadable(g:AutoSessionFile)
-    if argc() == 0
-        au VimEnter * call EnterHandler()
-        au VimLeave * call LeaveHandler()
-    endif
-endif
-function! LeaveHandler()
-    exec "mks! ".g:OrigPWD."/".g:AutoSessionFile
-endfunction
-function! EnterHandler()
-    exe "source ".g:AutoSessionFile
-endfunction
 " }}}
