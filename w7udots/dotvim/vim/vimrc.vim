@@ -38,8 +38,6 @@ Plug 'mhinz/vim-startify'
 " {{{ 试用期
 Plug 'pechorin/any-jump.vim'
 Plug 'ap/vim-buftabline'
-Plug 'junegunn/gv.vim' " a git commit browser.
-Plug 'luochen1990/rainbow'
 " }}}
 call plug#end()
 " }}}
