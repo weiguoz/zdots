@@ -1,18 +1,3 @@
-" undo3 {{{
-function! DirUndo()
-    if v:version>=703
-        let $DUNDO=$HOME."/.vim/undo"
-        if isdirectory($DUNDO)==0
-            :silent !mkdir -p $DUNDO > /dev/null 2>&1
-        endif
-        set undodir=$DUNDO
-        set undolevels=500 " undo次数
-        set undofile       " :wq之后可继续撤销, 高级用法是 :earlier :later
-        set colorcolumn=+1
-    endif
-endf
-" }}}
-
 " {{{ CleanWin32Toolbar
 function! CleanWin32Toolbar()
     if has("win32") " Fix findstr for Win32
