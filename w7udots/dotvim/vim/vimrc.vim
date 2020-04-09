@@ -32,7 +32,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
 " }}}
 Plug 'vim-scripts/FencView.vim'
-Plug 'simnalamburt/vim-mundo'
+Plug 'thaerkh/vim-workspace'
 Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
 Plug 'mhinz/vim-startify'
 " {{{ 试用期
@@ -79,7 +79,6 @@ set foldmethod=marker  " marker 这个容易操控. /indent 根据缩进自动�
 set encoding=utf-8 fileencodings=utf-8,gbk,gb2312,gb18030 termencoding=utf-8 " 编码控制
 " set guifont=Monaco:h9 Monaco:h10 Courier_New:h11:cANSI 指定字体
 
-call DirUndo()
 call CleanWin32Toolbar()
 
 set ignorecase   " Ignore case when searching
