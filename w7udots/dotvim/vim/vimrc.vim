@@ -139,15 +139,10 @@ au FileType go nmap <Leader>d <Plug>(go-def-tab)
 au FileType go nmap <leader>T <Plug>(go-test)
 " }}}
 
-" {{{ trailing whitespace
-match Error /\s\+$/
-" another better implementation is: command! -range=% FixWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
-command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
-function! s:FixWhitespace(line1,line2)
-    let l:save_cursor=getpos(".")
-    silent! execute ':' . a:line1 . ',' . a:line2 . 's/\s\+$//'
-    call setpos('.', l:save_cursor)
-endfunction
+" {{{ trailing whitespace, tail/end
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\+\|\t\+\zs \+/
+command! -range=% FixWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " }}}
 
 " {{{ Automatically fitting a quickfix window height
