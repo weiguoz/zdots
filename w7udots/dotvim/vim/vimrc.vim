@@ -14,7 +14,7 @@ Plug 't9md/vim-choosewin'
 " 1. kien/ctrlp.vim & vim-scripts/mru.vim --> replaced by LeaderF by Yggdroot@newsmth
 " 2. LeaderF replaced by fzf : Files
 " Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
-" Plug 'wsdjeg/FlyGrep.vim' 被 fzf的ag/rg 替代了
+" Plug 'wsdjeg/FlyGrep.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'dense-analysis/ale'
