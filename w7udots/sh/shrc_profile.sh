@@ -8,8 +8,6 @@ import() {
 
 DOTS='/Users/weiguo/w7udots'
 
-
-import ~/.fzf.zsh # https://github.com/junegunn/fzf
 #eval $(thefuck --alias)
 import ${DOTS}/z/z.sh # https://github.com/rupa/z
 import ${DOTS}/sh/exports.sh
