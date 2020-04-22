@@ -51,9 +51,9 @@ let b:ale_linters = {
 " }}}
 
 " undo {{{
-let g:gundo_width=50
-let g:gundo_preview_height=40
-let g:gundo_right=1
+" let g:gundo_width=50
+" let g:gundo_preview_height=40
+" let g:gundo_right=1
 " }}}
 
 " let MRU_Max_Entries=400
@@ -199,5 +199,4 @@ let g:workspace_autosave_ignore = ['gitcommit']
 " {{{ buftabline
 let g:buftabline_show=1
 let g:buftabline_numbers=2
-let g:buftabline_plug_max=20
 " }}}
