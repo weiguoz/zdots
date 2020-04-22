@@ -4,8 +4,8 @@ DOTS="/Users/weiguo/w7udots"
 alias woman='navi'
 alias calc='bc'
 # here we go
-alias diff='icdiff'
 alias md5sum='md5 -r'
+alias diff='icdiff'
 alias ls='ls -pFGh'
 alias l='ls -l'
 alias ll='ls -al'
@@ -14,10 +14,10 @@ alias lsh='ls -ld .?*' # ls hidden files
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
 alias sah='xargs grep -HLi'
 alias grep='grep --color=always' # -i -n -m(max=8)
-alias f='open -a Finder .'
+alias fo='open -a Finder .'
 alias ff='find . -type f -iname'
 alias fd='find . -type d -iname'
-alias fn='find . ! -wholename'
+# alias fn='find . ! -wholename'
 # login +++
 SSH_HELPER=${DOTS}/ssh-helper
 alias sin="LC_ALL=\"zh_CN.GBK\" luit ${SSH_HELPER}/bastion_with_cookie.exp"  # running in tmux with luit

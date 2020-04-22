@@ -182,9 +182,8 @@ nmap <c-c> :ChooseWin<CR>
 " set clipboard=unnamed
 
 nmap <Leader>l :ALEToggle<CR>
-nmap <leader>h :MundoToggle<CR>
 nmap <leader>a :AsyncRun<space>
-nmap <leader>s :Ag<CR>
+nmap <leader>s :Rg<CR>
 " quickfix ++
 nmap <leader>c :cclose<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
