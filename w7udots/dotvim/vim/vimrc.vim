@@ -37,7 +37,6 @@ Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --cl
 Plug 'mhinz/vim-startify'
 " {{{ 试用期
 Plug 'pechorin/any-jump.vim'
-Plug 'ap/vim-buftabline'
 " }}}
 call plug#end()
 " }}}
