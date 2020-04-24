@@ -21,7 +21,6 @@ Plug 'dense-analysis/ale'
 Plug 'lfv89/vim-interestingwords'
 " https://github.com/MattesGroeger/vim-bookmarks#usage
 Plug 'MattesGroeger/vim-bookmarks'
-Plug 'SirVer/ultisnips'
 Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go'
@@ -35,8 +34,9 @@ Plug 'vim-scripts/FencView.vim'
 Plug 'thaerkh/vim-workspace'
 Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
 Plug 'mhinz/vim-startify'
-" {{{ 试用期
 Plug 'pechorin/any-jump.vim'
+" {{{ 试用期
+Plug 'SirVer/ultisnips'
 " }}}
 call plug#end()
 " }}}
