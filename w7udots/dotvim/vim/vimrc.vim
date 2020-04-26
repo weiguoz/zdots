@@ -31,12 +31,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
 " }}}
 Plug 'vim-scripts/FencView.vim'
-Plug 'thaerkh/vim-workspace'
 Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
 Plug 'mhinz/vim-startify'
 Plug 'pechorin/any-jump.vim'
 " {{{ 试用期
 Plug 'SirVer/ultisnips'
+" Plug 'thaerkh/vim-workspace' " not passed. sth. bad to GoReferrers
 " }}}
 call plug#end()
 " }}}
