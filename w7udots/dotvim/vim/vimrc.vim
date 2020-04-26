@@ -36,11 +36,15 @@ Plug 'mhinz/vim-startify'
 Plug 'pechorin/any-jump.vim'
 " {{{ 试用期
 Plug 'SirVer/ultisnips'
+Plug 'simnalamburt/vim-mundo'
 " Plug 'thaerkh/vim-workspace' " not passed. sth. bad to GoReferrers
 " }}}
 call plug#end()
 " }}}
 filetype plugin indent on
+
+" brings vim-mundo back
+call DirUndo()
 
 " general settings {{{
 let mapleader = " " " Leader is the space key
