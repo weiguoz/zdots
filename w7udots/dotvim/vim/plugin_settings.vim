@@ -189,11 +189,12 @@ let g:any_jump_disable_vcs_ignore = 0
 " }}}"
 
 " {{{ vim-workspace: https://github.com/thaerkh/vim-workspace
-let g:workspace_session_directory = $HOME . '/.vim/sessions/'
-let g:workspace_persist_undo_history = 1
-let g:workspace_undodir = $HOME . '/.vim/undo/'
-let g:workspace_autosave_always = 1
-let g:workspace_autosave_ignore = ['gitcommit']
+" Plug 'thaerkh/vim-workspace' " is sth. bad to GoReferrers
+" let g:workspace_session_directory = $HOME . '/.vim/sessions/'
+" let g:workspace_persist_undo_history = 1
+" let g:workspace_undodir = $HOME . '/.vim/undo/'
+" let g:workspace_autosave_always = 1
+" let g:workspace_autosave_ignore = ['gitcommit']
 " }}}
 
 " {{{ buftabline
