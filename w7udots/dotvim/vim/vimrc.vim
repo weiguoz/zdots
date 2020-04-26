@@ -136,9 +136,8 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 au FileType go nmap gr :GoReferrers<CR>
-au FileType go nmap gv <Plug>(go-def-vertical)
 au FileType go nmap ds :GoDefStack<CR>
-au FileType go nmap <Leader>d <Plug>(go-def-tab)
+au FileType go nmap gv <Plug>(go-def-vertical)
 au FileType go nmap <leader>T <Plug>(go-test)
 " }}}
 
@@ -167,8 +166,8 @@ endfunction
 
 " {{{ shortcut, movements & jumps
 au FileType cpp,c,python command! -nargs=0 Adddesc :call AddDesc() " 源码说明头
-nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
-nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
+nnoremap <silent> ˚ :call MoveRatioOfWindow('up', 40)<CR> " a-h on mac
+nnoremap <silent> ∆ :call MoveRatioOfWindow('down', 40)<CR> " a-j on mac
 " nmap <Leader>j :call GotoJump()<CR>
 
 imap <c-c> <ESC> :w<CR>l
@@ -177,6 +176,11 @@ nmap <Leader>w :w!<CR>
 nmap <Leader>q :bd<CR>
 nmap <Leader>o :on<CR>
 nmap <c-c> :ChooseWin<CR>
+imap <c-w> <c-o><c-w>
+nmap <silent> <c-h> :wincmd h<CR>  " a-h on mac
+nmap <silent> <c-j> :wincmd j<CR>
+nmap <silent> <c-k> :wincmd k<CR>
+nmap <silent> <c-l> :wincmd l<CR>
 
 " map paste, yank and delete
 " set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
@@ -221,8 +225,8 @@ nmap e <Plug>(ale_next_wrap)
 " buffer
 " nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 " nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>
-nnoremap <c-l> :bnext<CR>
-nnoremap <c-h> :bprev<CR>
+nnoremap ¬ :bnext<CR> " alt-l on mac
+nnoremap ˙ :bprev<CR> " alh-h on mac
 """ movement }}}
 
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
