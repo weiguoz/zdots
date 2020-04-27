@@ -166,8 +166,8 @@ endfunction
 
 " {{{ shortcut, movements & jumps
 au FileType cpp,c,python command! -nargs=0 Adddesc :call AddDesc() " 源码说明头
-nnoremap <silent> ˚ :call MoveRatioOfWindow('up', 40)<CR> " a-h on mac
-nnoremap <silent> ∆ :call MoveRatioOfWindow('down', 40)<CR> " a-j on mac
+nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
+nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 " nmap <Leader>j :call GotoJump()<CR>
 
 imap <c-c> <ESC> :w<CR>l
@@ -177,10 +177,7 @@ nmap <Leader>q :bd<CR>
 nmap <Leader>o :on<CR>
 nmap <c-c> :ChooseWin<CR>
 imap <c-w> <c-o><c-w>
-nmap <silent> <c-h> :wincmd h<CR>  " a-h on mac
-nmap <silent> <c-j> :wincmd j<CR>
-nmap <silent> <c-k> :wincmd k<CR>
-nmap <silent> <c-l> :wincmd l<CR>
+nmap <c-m> <c-w><c-w> " :wincmd h<CR>
 
 " map paste, yank and delete
 " set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
@@ -225,8 +222,8 @@ nmap e <Plug>(ale_next_wrap)
 " buffer
 " nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 " nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>
-nnoremap ¬ :bnext<CR> " alt-l on mac
-nnoremap ˙ :bprev<CR> " alh-h on mac
+nnoremap <c-l> :bnext<CR>
+nnoremap <c-h> :bprev<CR>
 """ movement }}}
 
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
