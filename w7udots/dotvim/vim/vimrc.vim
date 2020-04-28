@@ -214,7 +214,8 @@ nmap ge $
 " easymotion
 " Turn on case-insensitive feature
 nmap , <Plug>(easymotion-prefix)
-nmap ; <Plug>(easymotion-lineanywhere)
+nmap ' <Plug>(easymotion-lineanywhere)
+nmap ; <Plug>(easymotion-jumptoanywhere)
 map  s <Plug>(easymotion-sn)
 omap s <Plug>(easymotion-tn)
 nmap E <Plug>(ale_previous_wrap)
@@ -233,4 +234,10 @@ let g:UltiSnipsEditSplit="vertical"
 " 保存一个本该 sudo 打开的文件
 " cnoremap
 cnoreabbrev w!! w !sudo tee >/dev/null %
+" }}}
+
+" {{{ mksession, functions defined in lib.vim
+au VimEnter * nested :call LoadSession()
+au VimLeave * :call UpdateSession()
+map <leader>m :call MakeSession()<CR>
 " }}}
