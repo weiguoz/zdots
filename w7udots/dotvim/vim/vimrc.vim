@@ -239,5 +239,6 @@ cnoreabbrev w!! w !sudo tee >/dev/null %
 " {{{ mksession, functions defined in lib.vim
 au VimEnter * nested :call LoadSession()
 au VimLeave * :call UpdateSession()
-map <leader>m :call MakeSession()<CR>
+map <leader>+ :call AddSession()<CR>
+map <leader>- :call DelSession()<CR>
 " }}}
