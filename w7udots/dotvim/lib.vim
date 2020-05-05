@@ -119,7 +119,7 @@ function! AddTemplate()
 endf
 " }}}
 
-" {{{ self define statusline {{{ replaced by : vim-airline/vim-airline
+" {{{ self define statusline replaced by : vim-airline/vim-airline
 function! SetStatusLine()
     set cmdheight=1
     set report=0
@@ -141,7 +141,7 @@ endf
 " }}}
 
 " {{{ Creates a session
-function! MakeSession()
+function! AddSession()
   let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
   if (filewritable(b:sessiondir) != 2)
     exe 'silent !mkdir -p ' b:sessiondir
@@ -149,6 +149,16 @@ function! MakeSession()
   endif
   let b:sessionfile = b:sessiondir . '/session.vim'
   exe "mksession! " . b:sessionfile
+endfunction
+
+function! DelSession()
+  let b:sessiondir = $HOME . "/.vim/sessions" . getcwd()
+  let b:sessionfile = b:sessiondir . "/session.vim"
+  if (filereadable(b:sessionfile))
+    exe 'silent !rm -rf ' b:sessionfile
+    redraw!
+    echo "deleting session"
+  endif
 endfunction
 
 " Updates a session, BUT ONLY IF IT ALREADY EXISTS
