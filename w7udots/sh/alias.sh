@@ -1,4 +1,4 @@
-DOTS="/Users/weiguo/w7udots"
+DOTS="${HOME}/w7udots"
 # sourced by ~/.bashrc normally
 # just4fun
 alias woman='navi'

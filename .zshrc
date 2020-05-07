@@ -68,7 +68,7 @@ source $ZSH/oh-my-zsh.sh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # weiguozhu
-. ${HOME}/${MY_DOTS_IN}/sh/shrc_profile.sh
+. ${HOME}/${MY_DOTS_IN}/sh/entrance.sh
 limit coredumpsize 0
 setopt AUTO_LIST
 setopt AUTO_MENU
