@@ -1,4 +1,4 @@
-""" Author: weiguoz@github
+""" Author: w e i g u o z@github
 """ Events:
 """ - 2005 created this file by Guanjun Zhang's helping
 
@@ -119,7 +119,7 @@ let g:pymode_rope = 0
 let g:go_def_mode = 'gopls'
 
 "" https://github.com/golang/lint
-" set rtp+=/User/weiguo/go/src/golang.org/x/lint/misc/vim
+" set rtp+=/path/to/go/src/golang.org/x/lint/misc/vim
 " invoke gofmt without plugin using `au BufWritePost *.go silent !gofmt -w %`
 " then `set autoread` to reload buffer
 let g:go_fmt_autosave=1

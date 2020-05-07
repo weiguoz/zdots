@@ -36,7 +36,7 @@ if [ ${#t_type} -lt 1 ]; then
     t_type=none
 fi
 
-# ssh-add -K /Users/weiguo/.ssh/id_rsa
+# ssh-add -K ~/.ssh/id_rsa
 if [ `grep $t_host $iplistf | wc -l` -eq 0 ]; then
     cat ~/.ssh/id_rsa.pub | (ssh -p $t_port $t_user@$t_host "cat >> ~/.ssh/authorized_keys")
     # cat ~/.ssh/id_rsa.pub | (ssh -p $t_port $t_user@$t_host "cat >> ~/.ssh/known_hosts")
