@@ -75,7 +75,7 @@ set smartindent
 set ts=4 sw=4 ai et
 set nu
 set mouse-=r           " enable mouse, or mouse-=a
-set linebreak	       " 不在单词中间折行
+set linebreak          " 不在单词中间折行
 set foldmethod=marker  " marker 这个容易操控. /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
 " set ffs=unix,dos,mac
 " set encoding=utf-8
@@ -239,6 +239,6 @@ cnoreabbrev w!! w !sudo tee >/dev/null %
 " {{{ mksession, functions defined in lib.vim
 au VimEnter * nested :call LoadSession()
 au VimLeave * :call UpdateSession()
-map <leader>+ :call AddSession()<CR>
+map <leader>= :call AddSession()<CR> " +
 map <leader>- :call DelSession()<CR>
 " }}}
