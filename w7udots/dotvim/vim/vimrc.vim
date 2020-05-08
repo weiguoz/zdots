@@ -166,8 +166,9 @@ endfunction
 
 " {{{ shortcut, movements & jumps
 au FileType cpp,c,python command! -nargs=0 Adddesc :call AddDesc() " 源码说明头
-nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
-nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
+" such c-j/k replaced by c-u/d
+" nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
+" nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 " nmap <Leader>j :call GotoJump()<CR>
 
 imap <c-c> <ESC> :w<CR>l
@@ -214,8 +215,10 @@ nmap ge $
 " easymotion
 " Turn on case-insensitive feature
 nmap , <Plug>(easymotion-prefix)
-nmap ' <Plug>(easymotion-lineanywhere)
-nmap ; <Plug>(easymotion-jumptoanywhere)
+nmap ; <Plug>(easymotion-lineanywhere)
+nmap ' <Plug>(easymotion-jumptoanywhere)
+map <c-j> <Plug>(easymotion-j)
+map <c-k> <Plug>(easymotion-k)
 map  s <Plug>(easymotion-sn)
 omap s <Plug>(easymotion-tn)
 nmap E <Plug>(ale_previous_wrap)
