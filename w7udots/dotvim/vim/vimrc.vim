@@ -228,6 +228,8 @@ nmap e <Plug>(ale_next_wrap)
 " nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>
 nnoremap <c-l> :bnext<CR>
 nnoremap <c-h> :bprev<CR>
+nnoremap <c-f> <c-u>
+nnoremap <c-u> <c-f>
 """ movement }}}
 
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
