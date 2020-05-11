@@ -12,11 +12,11 @@ cds() {
 
 tellme() {
     # brew install terminal-notifier
-    msg="done"
+    msg="NULL"
     if [ $# -ne 0 ]; then
         msg=$1
     fi
-    terminal-notifier -title 't3rm!na1' -message 'w7u：'$msg
+    terminal-notifier -title "weiguo" -message "$msg"
 }
 
 # funny for my little son

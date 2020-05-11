@@ -166,9 +166,9 @@ endfunction
 
 " {{{ shortcut, movements & jumps
 au FileType cpp,c,python command! -nargs=0 Adddesc :call AddDesc() " 源码说明头
-" such c-j/k replaced by c-u/d
-" nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
-" nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
+nnoremap <silent> <c-d> :call MoveRatioOfWindow('up', 40)<CR>
+nnoremap <silent> <c-f> :call MoveRatioOfWindow('down', 40)<CR>
+nnoremap <c-u> <c-f>
 " nmap <Leader>j :call GotoJump()<CR>
 
 imap <c-c> <ESC> :w<CR>l
@@ -228,8 +228,6 @@ nmap e <Plug>(ale_next_wrap)
 " nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>
 nnoremap <c-l> :bnext<CR>
 nnoremap <c-h> :bprev<CR>
-nnoremap <c-f> <c-u>
-nnoremap <c-u> <c-f>
 """ movement }}}
 
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
