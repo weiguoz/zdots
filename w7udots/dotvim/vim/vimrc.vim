@@ -174,10 +174,8 @@ imap <c-c> <ESC> :w<CR>l
 omap <c-c> <ESC> :w<CR>l
 nmap <Leader>w :w!<CR>
 nmap <Leader>q :bd<CR>
-nmap <Leader>o :on<CR>
+nmap <Leader>o :only<CR>
 nmap <c-c> :ChooseWin<CR>
-imap <c-w> <c-o><c-w>
-nmap <c-m> <c-w><c-w> " :wincmd h<CR>
 
 " map paste, yank and delete
 " set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
@@ -188,14 +186,14 @@ nmap <c-m> <c-w><c-w> " :wincmd h<CR>
 nmap <Leader>l :ALEToggle<CR>
 nmap <leader>a :AsyncRun<space>
 nmap <leader>s :Rg<CR>
+map <leader>f :Files<CR>
+map <leader>b :Buf<CR>
 " quickfix ++
 nmap <leader>c :cclose<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 " quickfix --
-nmap <Leader>n :NERDTreeToggle<CR>
-nmap <Leader>t :TagbarToggle<CR>
-map <leader>f :Files<CR>
-map <leader>b :Buf<CR>
+" nmap <Leader>n :NERDTreeToggle<CR>
+" nmap <Leader>t :TagbarToggle<CR>
 
 " any-jump
 let g:any_jump_disable_default_keybindings = 1
