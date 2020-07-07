@@ -5,10 +5,10 @@
 filetype off                   " 必须先关闭文件类型检查
 " {{{ vim-plug, turn vundle/bundle to vim-plugin at 2019.11.18
 call plug#begin('~/.vim/plugged')
-Plug 'drewtempelmeyer/palenight.vim'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
-Plug 'vim-airline/vim-airline' " statusbar
+" Plug 'vim-airline/vim-airline' " statusbar
 Plug 'airblade/vim-rooter'
 Plug 't9md/vim-choosewin'
 " 1. kien/ctrlp.vim & vim-scripts/mru.vim --> replaced by LeaderF by Yggdroot@newsmth
@@ -98,8 +98,8 @@ set wildignore=*.o,*.obj,*~
 " {{{ colorscheme
 let g:palenight_terminal_italics=1
 set background=dark
-colorscheme palenight " Also, I like monokai-bold PaperColor herald 256-jungle
-let g:airline_theme = "palenight"
+colorscheme PaperColor " Also, I like monokai-bold PaperColor herald 256-jungle palenight 
+" let g:airline_theme = "palenight"
 " }}}
 
 "{{{ python

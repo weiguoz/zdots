@@ -7,8 +7,8 @@ my_prx() {
         if ([ -z "$proxy" ]); then
             echo "Can't find a proxy server"
         else
-            export http_proxy=$proxy
-            export https_proxy=$proxy
+            export http_proxy="$proxy"
+            export https_proxy="$proxy"
             echo "Terminal proxy is: $proxy"
         fi
     elif [ $1 = "off" ]; then
