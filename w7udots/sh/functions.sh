@@ -7,7 +7,7 @@ solrversion2date() {
 }
 
 cds() {
-    builtin cd "$1" && l
+    builtin cd "$1" && ls -lh
 }
 
 tellme() {
