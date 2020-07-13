@@ -31,7 +31,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
 " }}}
 Plug 'vim-scripts/FencView.vim'
-Plug 'Valloric/YouCompleteMe', {'do': 'python3 install.py --system-libclang --clang-completer --go-completer'}
+Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --clangd-completer --go-completer'}
 Plug 'mhinz/vim-startify'
 Plug 'pechorin/any-jump.vim'
 " {{{ 试用期

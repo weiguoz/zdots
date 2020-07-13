@@ -6,7 +6,7 @@ solrversion2date() {
     fi
 }
 
-cds() {
+cs() {
     builtin cd "$1" && ls -lh
 }
 
