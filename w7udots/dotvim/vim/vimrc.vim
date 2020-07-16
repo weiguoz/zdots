@@ -183,6 +183,9 @@ nmap <c-c> :ChooseWin<CR>
 " vnoremap x "_x
 " set clipboard=unnamed
 
+" History depends on fzf  https://stackoverflow.com/a/32047331/479812
+nmap <silent> <leader>m :History<CR>
+
 nmap <Leader>l :ALEToggle<CR>
 nmap <leader>a :AsyncRun<space>
 nmap <leader>s :Rg<CR>
