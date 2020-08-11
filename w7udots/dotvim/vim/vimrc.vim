@@ -99,7 +99,7 @@ set wildignore=*.o,*.obj,*~
 " {{{ colorscheme
 let g:palenight_terminal_italics=1
 set background=dark
-colorscheme PaperColor " Also, I like monokai-bold PaperColor herald 256-jungle palenight 
+colorscheme PaperColor " Also, I like monokai-bold PaperColor herald 256-jungle palenight
 " let g:airline_theme = "palenight"
 " }}}
 
@@ -184,14 +184,15 @@ nmap <c-c> :ChooseWin<CR>
 " vnoremap x "_x
 " set clipboard=unnamed
 
-" History depends on fzf  https://stackoverflow.com/a/32047331/479812
-nmap <silent> <leader>m :History<CR>
-
 nmap <Leader>l :ALEToggle<CR>
 nmap <leader>a :AsyncRun<space>
-nmap <leader>s :Rg<CR>
+" fzf quicks +++
+" https://stackoverflow.com/a/32047331/479812
+nmap <silent> <leader>m :History<CR>
 map <leader>f :Files<CR>
 map <leader>b :Buf<CR>
+nmap <leader>s :Rg<CR>
+" fzf quicks ---
 " quickfix ++
 nmap <leader>c :cclose<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
@@ -211,7 +212,7 @@ xnoremap <leader>j :AnyJumpVisual<CR>
 " nnoremap <leader>al :AnyJumpLastResults<CR>
 
 """ {{{ movement
-nmap <silent>gm :call cursor(0, len(getline('.'))/2)<CR>
+" nmap <silent>gm :call cursor(0, len(getline('.'))/2)<CR>
 nmap ge $
 " easymotion
 " Turn on case-insensitive feature
