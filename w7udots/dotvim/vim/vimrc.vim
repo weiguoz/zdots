@@ -217,8 +217,8 @@ nmap ge $
 " easymotion
 " Turn on case-insensitive feature
 nmap , <Plug>(easymotion-prefix)
-nmap ' <Plug>(easymotion-lineanywhere)
-nmap ; <Plug>(easymotion-bd-jk)
+nmap ; <Plug>(easymotion-lineanywhere)
+nmap ' <Plug>(easymotion-bd-jk)
 map  s <Plug>(easymotion-sn)
 omap s <Plug>(easymotion-tn)
 nmap E <Plug>(ale_previous_wrap)

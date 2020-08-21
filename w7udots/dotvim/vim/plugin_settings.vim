@@ -223,3 +223,9 @@ command! BD call fzf#run(fzf#wrap({
   \ 'sink*': { lines -> s:delete_buffers(lines) },
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept' }))
 " }}}
+
+"{{{ MattersGroeger/vim-bookmarks
+let g:bookmark_sign='♥'
+let g:bookmark_save_per_working_dir=1
+let g:bookmark_auto_save=1
+"}}}
