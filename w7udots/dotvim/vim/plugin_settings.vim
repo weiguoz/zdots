@@ -264,7 +264,8 @@ noremap <Leader>q :Bw<CR>
 function! g:BuffetSetCustomColors()
       hi! BuffetCurrentBuffer cterm=NONE ctermbg=5 ctermfg=8 guibg=#00FF00 guifg=#000000
 endfunction
-let g:buffet_use_devicons=1
+let g:buffet_always_show_tabline = 0
+let g:buffet_use_devicons = 1
 let g:buffet_powerline_separators = 1
 let g:buffet_tab_icon = "\uf00a"
 let g:buffet_show_index = 1
