@@ -38,7 +38,7 @@ Plug 'pechorin/any-jump.vim'
 " install the fonts{mac: brew tap homebrew/cask-fonts && brew cask install font-hack-nerd-font }
 Plug 'ryanoasis/vim-devicons'
 " {{{ 试用期
-Plug 'bagrat/vim-buffet' " 已经有fzf的:Buf, 所以有点多余
+Plug 'bagrat/vim-buffet'
 Plug 'SirVer/ultisnips'
 Plug 'simnalamburt/vim-mundo'
 " Plug 'thaerkh/vim-workspace' " not passed. sth. bad to GoReferrers
