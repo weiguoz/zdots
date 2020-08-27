@@ -35,7 +35,10 @@ Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --clangd-completer --g
 Plug 'rhysd/vim-clang-format'
 Plug 'mhinz/vim-startify'
 Plug 'pechorin/any-jump.vim'
+" install the fonts{mac: brew tap homebrew/cask-fonts && brew cask install font-hack-nerd-font }
+Plug 'ryanoasis/vim-devicons'
 " {{{ 试用期
+Plug 'bagrat/vim-buffet' " 已经有fzf的:Buf, 所以有点多余
 Plug 'SirVer/ultisnips'
 Plug 'simnalamburt/vim-mundo'
 " Plug 'thaerkh/vim-workspace' " not passed. sth. bad to GoReferrers
@@ -79,7 +82,6 @@ set mouse-=r           " enable mouse, or mouse-=a
 set linebreak          " 不在单词中间折行
 set foldmethod=marker  " marker 这个容易操控. /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
 " set ffs=unix,dos,mac
-" set encoding=utf-8
 set encoding=utf-8 fileencodings=utf-8,gbk,gb2312,gb18030 termencoding=utf-8 " 编码控制
 " set guifont=Monaco:h9 Monaco:h10 Courier_New:h11:cANSI 指定字体
 
@@ -174,7 +176,6 @@ nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 imap <c-c> <ESC> :w<CR>l
 omap <c-c> <ESC> :w<CR>l
 nmap <Leader>w :w!<CR>
-nmap <Leader>q :bd<CR>
 nmap <Leader>o :only<CR>
 nmap <c-c> :ChooseWin<CR>
 
@@ -226,8 +227,6 @@ nmap e <Plug>(ale_next_wrap)
 " buffer
 " nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 " nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>
-nnoremap <c-l> :bnext<CR>
-nnoremap <c-h> :bprev<CR>
 """ movement }}}
 
 let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
