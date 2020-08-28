@@ -16,8 +16,8 @@
 !w7udots/gits/gitconfig.include
 !w7udots/gits/*.sh
 
-!w7udots/oh-my-zsh-helper
-!w7udots/oh-my-zsh-helper/*
+!w7udots/ohmyzsh-helper
+!w7udots/ohmyzsh-helper/*
 
 !w7udots/ssh-helper/
 !w7udots/ssh-helper/*.sh
@@ -37,4 +37,3 @@
 !w7udots/dotvim/vim/*
 !w7udots/dotvim/neovim/
 !w7udots/dotvim/neovim/*
-.vim_bookmarks
