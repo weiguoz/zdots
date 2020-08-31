@@ -258,8 +258,8 @@ nmap <leader>7 <Plug>BuffetSwitch(7)
 nmap <leader>8 <Plug>BuffetSwitch(8)
 nmap <leader>9 <Plug>BuffetSwitch(9)
 nmap <leader>0 <Plug>BuffetSwitch(10)
-noremap <Tab> :bp<CR>
-noremap <S-Tab> :bn<CR>
+noremap <Tab> :bn<CR>
+noremap <S-Tab> :bp<CR>
 noremap <Leader>q :Bw<CR>
 function! g:BuffetSetCustomColors()
     hi! BuffetCurrentBuffer cterm=NONE ctermbg=5 ctermfg=8 guibg=#00FF00 guifg=#000000
