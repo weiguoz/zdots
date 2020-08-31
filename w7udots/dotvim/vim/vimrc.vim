@@ -213,15 +213,16 @@ xnoremap <leader>j :AnyJumpVisual<CR>
 " nnoremap <leader>al :AnyJumpLastResults<CR>
 
 """ {{{ movement
-" nmap <silent>gm :call cursor(0, len(getline('.'))/2)<CR>
-nmap ge $
+" nmap <silent>ge :call cursor(0, len(getline('.'))/2)<CR>
+nmap - $
 " easymotion
 " Turn on case-insensitive feature
-nmap , <Plug>(easymotion-prefix)
-nmap ; <Plug>(easymotion-lineanywhere)
-nmap ' <Plug>(easymotion-bd-jk)
+" nmap , <Plug>(easymotion-prefix)
 map  s <Plug>(easymotion-sn)
 omap s <Plug>(easymotion-tn)
+nmap ; <Plug>(easymotion-lineanywhere)
+nmap ' <Plug>(easymotion-bd-jk)
+
 nmap E <Plug>(ale_previous_wrap)
 nmap e <Plug>(ale_next_wrap)
 " buffer
