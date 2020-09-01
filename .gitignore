@@ -6,6 +6,7 @@
 !.zshrc
 
 !w7udots/
+!w7udots/INSTALL
 !w7udots/*.sh
 !w7udots/*.exp
 !w7udots/bin/

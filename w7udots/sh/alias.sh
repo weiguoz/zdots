@@ -2,7 +2,6 @@ DOTS="${HOME}/w7udots"
 # sourced by ~/.bashrc normally
 # just4fun
 alias woman='navi'
-alias calc='bc'
 # here we go
 alias md5sum='md5 -r'
 alias diff='icdiff'
@@ -14,9 +13,9 @@ alias lsh='ls -ld .?*' # ls hidden files
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
 alias sah='xargs grep -HLi'
 alias grep='grep --color=always' # -i -n -m(max=8)
-alias fo='open -a Finder .'
+alias of='open -a Finder .'
 alias ff='find . -type f -iname'
-alias fd='find . -type d -iname'
+# alias fd='find . -type d -iname'
 # alias fn='find . ! -wholename'
 # login +++
 SSH_HELPER=${DOTS}/ssh-helper
@@ -26,10 +25,9 @@ alias arcsin="${SSH_HELPER}/bastion.exp"
 alias cos="${SSH_HELPER}/sin.sh"
 alias arccos="sh ${SSH_HELPER}/rcp_id_rsa_pub.sh"
 # login ---
-alias svnlog='svn log -l300 -v|more'
 alias mvnp='mvn clean package -Dmaven.test.skip'
 alias antlr4='java -jar /usr/local/lib/antlr-4.5.3-complete.jar'
-alias ptags='find . -name "*.py" -print | xargs python /usr/local/Frameworks/Python.framework/Versions/3.7/share/doc/python3.7/examples/Tools/scripts/ptags.py'
+alias ptags='find . -name "*.py" -print | xargs python /usr/local/Frameworks/Python.framework/Versions/Current/share/doc/python3.8/examples/Tools/scripts/ptags.py'
 alias b="sh ${DOTS}/sh/search_on_terminal.sh"
 alias g="googler"
 # alias cd.
