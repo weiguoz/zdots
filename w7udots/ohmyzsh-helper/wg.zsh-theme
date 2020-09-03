@@ -15,7 +15,7 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 # ZSH_THEME_SVN_PROMPT_DIRTY="${VCS_DIRTY_COLOR} ${VCS_SUFIX_COLOR}"
 # ZSH_THEME_SVN_PROMPT_CLEAN="${VCS_CLEAN_COLOR} ${VCS_SUFIX_COLOR}"
 
-PROMPT="%{$reset_color%}%F{112}%~ ${gitL} ${ret_status}%{$reset_color%} "
+PROMPT="%{$reset_color%}%F{112}%~${gitL} ${ret_status}%{$reset_color%} "
 # RPROMPT='%{$fg_bold[blue]%}$(git_prompt_info)$(svn_prompt_info) %{$fg_bold[blue]%}%{$reset_color%}%B%F{039}%t%{$reset_color%}'
 RPROMPT="%{$reset_color%}${gitR} %B%F{039}%t%{$reset_color%}"
 # RPROMPT='%{$fg_bold[blue]%}$(git_prompt_info) $(git_prompt_short_sha) %{$fg_bold[blue]%}%{$reset_color%}%B%F{039}%t%{$reset_color%}'
