@@ -105,16 +105,6 @@ colorscheme PaperColor " Also, I like monokai-bold PaperColor herald 256-jungle 
 " let g:airline_theme = "palenight"
 " }}}
 
-"{{{ python
-" let g:ycm_path_to_python_interpreter = '/usr/local/bin/python3'
-" " https://github.com/vim/vim/issues/3117 解决启动时因为python3的报警
-" if has('python3')
-"     silent! python3 1
-" endif
-" let g:ycm_server_python_interpreter
-let g:pymode_rope = 0
-"}}}
-
 "{{{ golang
 " vim-go 默认使用 guru 做跳转，太慢了. 根据
 " https://github.com/fatih/vim-go/issues/887#issuecomment-224107754

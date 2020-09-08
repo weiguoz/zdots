@@ -24,6 +24,15 @@ let g:ycm_filetype_whitelist = {
             \ "python":1,
             \ "go":1,
             \ }
+"{{{ python
+if has('python3')
+    " silent! python3 1 https://github.com/vim/vim/issues/3117 解决启动时因为python3的报警
+    let g:ycm_server_python_interpreter='/usr/local/bin/python3'
+    let g:pymode_rope=0
+    nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+endif
+"}}}
+
 " }}}
 
 " {{{ ale
@@ -45,10 +54,11 @@ let g:ale_statusline_format = ['✗ %d', '⚠ %d', '✔ OK']
 " If you want to only select a subset of the tools,
 " you can define b:ale_linters for a single buffer, or g:ale_linters globally.
 " 'go': ['golint', 'govet', 'gometalinter'],
-let b:ale_linters = {
+let g:ale_linters = {
             \'go': ['golint', 'gopls'],
             \'cpp': ['clang'],
             \'c': ['clang'],
+            \'python': ['pylint'],
             \}
 " }}}
 
