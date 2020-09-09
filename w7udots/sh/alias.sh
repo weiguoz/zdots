@@ -17,6 +17,7 @@ alias of='open -a Finder .'
 alias ff='find . -type f -iname'
 # alias fd='find . -type d -iname'
 # alias fn='find . ! -wholename'
+
 # login +++
 SSH_HELPER=${DOTS}/ssh-helper
 alias sin="LC_ALL=\"zh_CN.GBK\" luit ${SSH_HELPER}/bastion_with_cookie.exp"  # running in tmux with luit
@@ -27,7 +28,7 @@ alias arccos="sh ${SSH_HELPER}/rcp_id_rsa_pub.sh"
 # login ---
 alias mvnp='mvn clean package -Dmaven.test.skip'
 alias antlr4='java -jar /usr/local/lib/antlr-4.5.3-complete.jar'
-alias ptags='find . -name "*.py" -print | xargs python /usr/local/Frameworks/Python.framework/Versions/Current/share/doc/python3.8/examples/Tools/scripts/ptags.py'
+alias ptags='find . -name "*.py" -print | xargs python /usr/local/opt/python3/Frameworks/Python.framework/Versions/Current/share/doc/python3.8/examples/Tools/scripts/ptags.py'
 alias b="sh ${DOTS}/sh/search_on_terminal.sh"
 alias g="googler"
 # alias cd.
