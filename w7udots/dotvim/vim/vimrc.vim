@@ -39,7 +39,6 @@ Plug 'pechorin/any-jump.vim'
 Plug 'ryanoasis/vim-devicons'
 " {{{ 试用期
 Plug 'bagrat/vim-buffet'
-Plug 'SirVer/ultisnips'
 Plug 'simnalamburt/vim-mundo'
 " Plug 'thaerkh/vim-workspace' " not passed. sth. bad to GoReferrers
 " }}}
@@ -227,11 +226,4 @@ let g:UltiSnipsEditSplit="vertical"
 " 保存一个本该 sudo 打开的文件
 " cnoremap
 cnoreabbrev w!! w !sudo tee >/dev/null %
-" }}}
-
-" {{{ mksession, functions defined in lib.vim
-au VimEnter * nested :call LoadSession()
-au VimLeave * :call UpdateSession()
-map <leader>= :call AddSession()<CR> " +
-map <leader>- :call DelSession()<CR>
 " }}}

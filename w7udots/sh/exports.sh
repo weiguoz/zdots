@@ -30,6 +30,9 @@ export GOPATH=~/go
 iPATH=$iPATH:$GOPATH/bin
 iPATH=$iPATH:/usr/local/opt/go@1.13/bin
 
+## python
+iPATH=$iPATH:/usr/local/opt/python3/Frameworks/Python.framework/Versions/Current/bin
+
 ## ruby
 ### iPATH=/usr/local/opt/ruby/bin:$iPATH
 
