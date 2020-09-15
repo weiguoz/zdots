@@ -6,7 +6,7 @@ filetype off                   " 必须先关闭文件类型检查
 " {{{ vim-plug, turn vundle/bundle to vim-plugin at 2019.11.18
 call plug#begin('~/.vim/plugged')
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 Plug 'majutsushi/tagbar'
 " Plug 'vim-airline/vim-airline' " statusbar
 Plug 'airblade/vim-rooter'
