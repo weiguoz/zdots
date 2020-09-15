@@ -203,7 +203,7 @@ xnoremap <leader>j :AnyJumpVisual<CR>
 
 """ {{{ movement
 " nmap <silent>ge :call cursor(0, len(getline('.'))/2)<CR>
-nmap - $
+nmap ge $
 " easymotion
 " Turn on case-insensitive feature
 " nmap , <Plug>(easymotion-prefix)
