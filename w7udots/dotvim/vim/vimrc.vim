@@ -167,6 +167,7 @@ omap <c-c> <ESC> :w<CR>l
 nmap <Leader>w :w!<CR>
 nmap <Leader>o :only<CR>
 nmap <c-c> :ChooseWin<CR>
+command F :NERDTreeFind
 
 " map paste, yank and delete
 " set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
