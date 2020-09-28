@@ -38,6 +38,8 @@ Plug 'pechorin/any-jump.vim'
 " install the fonts{mac: brew tap homebrew/cask-fonts && brew cask install font-hack-nerd-font }
 Plug 'ryanoasis/vim-devicons'
 " {{{ 试用期
+" A git blame plugin for (neo)vim inspired by VS Code's GitLens plugin
+Plug 'APZelos/blamer.nvim'
 Plug 'bagrat/vim-buffet'
 Plug 'simnalamburt/vim-mundo'
 " Plug 'thaerkh/vim-workspace' " not passed. sth. bad to GoReferrers
