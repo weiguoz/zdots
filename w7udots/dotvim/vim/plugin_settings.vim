@@ -1,4 +1,6 @@
 " {{{ NERDTree, NerdTreeFind...
+command F :NERDTreeFind
+command T :NERDTreeToggle
 let NERDTreeWinPos='left'
 let NERDTreeHighlightCursorline=0    " 高亮当前行
 let NERDTreeShowHidden=1             " 显示隐藏文件
@@ -287,6 +289,6 @@ let g:buffet_max_plug = 10
 let g:blamer_enabled = 1
 let g:blamer_delay = 300
 let g:blamer_prefix = "\t "
-let g:blamer_date_format = '%y/%m-%d %H:%M'
+let g:blamer_date_format = '%Y-%m-%d %H:%M'
 let g:blamer_template = '<author>, <committer-time> • <summary>'
 " }}}
