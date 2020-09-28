@@ -282,3 +282,10 @@ let g:buffet_tab_icon = "\uf00a"
 let g:buffet_show_index = 1
 let g:buffet_max_plug = 10
 ""}}}
+
+" {{{ APZelos/blamer.nvim
+let g:blamer_enabled = 1
+let g:blamer_delay = 300
+let g:blamer_prefix = "\t "
+let g:blamer_date_format = '%y/%m-%d %H:%M'
+" }}}
