@@ -28,7 +28,8 @@ Plug 'fatih/vim-go'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
-Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
+Plug 'rhysd/git-messenger.vim'
+" :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
 " }}}
 Plug 'vim-scripts/FencView.vim'
 Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --clangd-completer --go-completer'}
@@ -39,7 +40,7 @@ Plug 'pechorin/any-jump.vim'
 Plug 'ryanoasis/vim-devicons'
 " {{{ 试用期
 " A git blame plugin for (neo)vim inspired by VS Code's GitLens plugin
-Plug 'APZelos/blamer.nvim'
+" Plug 'APZelos/blamer.nvim' not passed. incompatible with 'tpope/vim-fugitive' & 'rhysd/git-messenger.vim'
 Plug 'bagrat/vim-buffet'
 Plug 'simnalamburt/vim-mundo'
 " Plug 'thaerkh/vim-workspace' " not passed. sth. bad to GoReferrers
