@@ -28,7 +28,6 @@ alias arccos="sh ${SSH_HELPER}/rcp_id_rsa_pub.sh"
 # login ---
 alias mvnp='mvn clean package -Dmaven.test.skip'
 alias antlr4='java -jar /usr/local/lib/antlr-4.5.3-complete.jar'
-alias ptags='find . -name "*.py" -print | xargs python /usr/local/opt/python3/Frameworks/Python.framework/Versions/Current/share/doc/python3.8/examples/Tools/scripts/ptags.py'
 alias b="sh ${DOTS}/sh/search_on_terminal.sh"
 alias g="googler"
 # alias cd.
