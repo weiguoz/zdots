@@ -29,7 +29,7 @@ let g:ycm_filetype_whitelist = {
 "{{{ python
 if has('python3')
     " silent! python3 1 https://github.com/vim/vim/issues/3117 解决启动时因为python3的报警
-    let g:ycm_server_python_interpreter='/usr/local/bin/python3'
+    " let g:ycm_server_python_interpreter='/usr/local/bin/python3' 正确设置好 python，则不需要这行配置
     let g:pymode_rope=0
     nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 endif
