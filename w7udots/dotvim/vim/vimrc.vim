@@ -181,7 +181,7 @@ nmap <Leader>l :ALEToggle<CR>
 nmap <leader>a :AsyncRun<space>
 " fzf quicks +++
 " https://stackoverflow.com/a/32047331/479812
-nmap <silent> <leader>m :History<CR>
+nmap <silent> <leader>h :History<CR>
 map <leader>f :Files<CR>
 map <leader>b :Buf<CR>
 nmap <leader>s :Rg<CR>
