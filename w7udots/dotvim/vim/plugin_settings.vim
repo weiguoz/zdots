@@ -274,8 +274,7 @@ noremap <Tab> :bn<CR>
 noremap <S-Tab> :bp<CR>
 noremap <Leader>q :Bw<CR>
 function! g:BuffetSetCustomColors()
-    " hi! BuffetCurrentBuffer cterm=NONE ctermbg=5 ctermfg=8 guibg=#00FF00 guifg=#000000
-    hi! BuffetCurrentBuffer cterm=NONE ctermbg=4 ctermfg=7 guibg=#00FF00 guifg=#000000
+    hi! BuffetCurrentBuffer cterm=NONE ctermbg=5 ctermfg=7 guibg=#00FF00 guifg=#000000
 endfunction
 let g:buffet_always_show_tabline = 0
 let g:buffet_use_devicons = 1
