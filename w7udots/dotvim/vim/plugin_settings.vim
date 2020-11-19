@@ -286,8 +286,8 @@ let g:buffet_max_plug = 10
 
 " {{{ APZelos/blamer.nvim
 " let g:blamer_enabled = 1
-" 1let g:blamer_delay = 300
-" let g:blamer_prefix = "\t "
-" let g:blamer_date_format = '%Y-%m-%d %H:%M'
-" let g:blamer_template = '<author>, <committer-time> • <summary>'
+let g:blamer_delay = 300
+let g:blamer_prefix = "\t "
+let g:blamer_date_format = '%Y-%m-%d %H:%M'
+let g:blamer_template = '<author>, <committer-time> • <summary>'
 " }}}
