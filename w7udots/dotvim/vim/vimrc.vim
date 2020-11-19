@@ -8,7 +8,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'preservim/nerdtree'
 Plug 'majutsushi/tagbar'
-" Plug 'vim-airline/vim-airline' " statusbar
+Plug 'vim-airline/vim-airline' " statusbar
 Plug 'airblade/vim-rooter'
 Plug 't9md/vim-choosewin'
 " 1. kien/ctrlp.vim & vim-scripts/mru.vim --> replaced by LeaderF by Yggdroot@newsmth
@@ -41,6 +41,7 @@ Plug 'ryanoasis/vim-devicons'
 " {{{ 试用期
 " A git blame plugin for (neo)vim inspired by VS Code's GitLens plugin
 " Plug 'APZelos/blamer.nvim' not passed. incompatible with 'tpope/vim-fugitive' & 'rhysd/git-messenger.vim'
+Plug 'APZelos/blamer.nvim'
 Plug 'bagrat/vim-buffet'
 Plug 'simnalamburt/vim-mundo'
 " Plug 'thaerkh/vim-workspace' " not passed. sth. bad to GoReferrers
