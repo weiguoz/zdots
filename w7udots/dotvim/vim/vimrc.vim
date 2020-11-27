@@ -42,7 +42,7 @@ Plug 'ryanoasis/vim-devicons'
 " A git blame plugin for (neo)vim inspired by VS Code's GitLens plugin
 " Plug 'APZelos/blamer.nvim' not passed. incompatible with 'tpope/vim-fugitive' & 'rhysd/git-messenger.vim'
 " Plug 'APZelos/blamer.nvim'
-Plug 'bagrat/vim-buffet'
+" Plug 'bagrat/vim-buffet'
 Plug 'simnalamburt/vim-mundo'
 " Plug 'thaerkh/vim-workspace' " not passed. sth. bad to GoReferrers
 " }}}
