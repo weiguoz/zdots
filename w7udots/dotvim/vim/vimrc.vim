@@ -8,7 +8,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'preservim/nerdtree'
 Plug 'majutsushi/tagbar'
-Plug 'vim-airline/vim-airline' " statusbar
+" statusbar
+Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-rooter'
 Plug 't9md/vim-choosewin'
 " 1. kien/ctrlp.vim & vim-scripts/mru.vim --> replaced by LeaderF by Yggdroot@newsmth
@@ -21,7 +22,8 @@ Plug 'dense-analysis/ale'
 Plug 'lfv89/vim-interestingwords'
 " https://github.com/MattesGroeger/vim-bookmarks#usage
 Plug 'MattesGroeger/vim-bookmarks'
-Plug 'skywind3000/asyncrun.vim' "such as: AsyncRun tmux send-keys -t2 \"go test\" enter
+"such as: AsyncRun tmux send-keys -t2 \"go test\" enter
+Plug 'skywind3000/asyncrun.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go'
 " {{{ git plugins
@@ -41,7 +43,6 @@ Plug 'ryanoasis/vim-devicons'
 " {{{ 试用期
 " A git blame plugin for (neo)vim inspired by VS Code's GitLens plugin
 " Plug 'APZelos/blamer.nvim' not passed. incompatible with 'tpope/vim-fugitive' & 'rhysd/git-messenger.vim'
-" Plug 'APZelos/blamer.nvim'
 " Plug 'bagrat/vim-buffet'
 Plug 'simnalamburt/vim-mundo'
 " Plug 'thaerkh/vim-workspace' " not passed. sth. bad to GoReferrers
@@ -140,7 +141,7 @@ au FileType go nmap <leader>T <Plug>(go-test)
 " {{{ trailing whitespace, tail/end
 highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\+\|\t\+\zs \+/
-command! -range=% FixWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+command! -range=% TrimWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " }}}
 
 " {{{ Automatically fitting a quickfix window height
@@ -182,10 +183,7 @@ nmap <Leader>l :ALEToggle<CR>
 nmap <leader>a :AsyncRun<space>
 " fzf quicks +++
 " https://stackoverflow.com/a/32047331/479812
-nmap <silent> <leader>h :History<CR>
 map <leader>f :Files<CR>
-map <leader>b :Buf<CR>
-nmap <leader>s :Rg<CR>
 " fzf quicks ---
 " quickfix ++
 nmap <leader>c :cclose<CR>
@@ -214,7 +212,7 @@ nmap ge $
 map  s <Plug>(easymotion-sn)
 omap s <Plug>(easymotion-tn)
 nmap ; <Plug>(easymotion-lineanywhere)
-nmap ' <Plug>(easymotion-bd-jk)
+nmap , <Plug>(easymotion-bd-jk)
 
 nmap E <Plug>(ale_previous_wrap)
 nmap e <Plug>(ale_next_wrap)

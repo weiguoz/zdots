@@ -235,6 +235,23 @@ command! BD call fzf#run(fzf#wrap({
   \ 'source': s:list_buffers(),
   \ 'sink*': { lines -> s:delete_buffers(lines) },
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept' }))
+
+function! RipgrepOpt(arg, fullscreen)
+  let tokens  = split(a:arg)
+  let opts = join(filter(copy(tokens), 'v:val =~ "^-"'))
+  let query = join(filter(copy(tokens), 'v:val !~ "^-"'))
+
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case '.opts.' -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+" Customized Rg, support options like:
+" :Rg -C2 -tgo os.remove<enter>
+" :Rg -C2 -tgo <enter>, then> os.remove
+" :Rg os.remove<enter>
+command! -nargs=* -bang Rg call RipgrepOpt(<q-args>, <bang>0)
 " }}}
 
 "{{{ MattersGroeger/vim-bookmarks
