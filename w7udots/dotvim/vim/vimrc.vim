@@ -216,6 +216,13 @@ nmap , <Plug>(easymotion-bd-jk)
 
 nmap E <Plug>(ale_previous_wrap)
 nmap e <Plug>(ale_next_wrap)
+" movements in the insert mode
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+inoremap <C-w> <S-Right>
+inoremap <C-b> <S-Left>
 " buffer
 " nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 " nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>
