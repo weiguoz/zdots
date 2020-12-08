@@ -221,6 +221,7 @@ inoremap <C-h> <Left>
 inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-l> <Right>
+" a word
 inoremap <C-w> <S-Right>
 inoremap <C-b> <S-Left>
 " buffer
