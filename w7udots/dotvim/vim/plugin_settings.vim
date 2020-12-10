@@ -231,12 +231,12 @@ function! s:delete_buffers(lines)
   execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
 endfunction
 
-command! BD call fzf#run(fzf#wrap({
+command! Buffers0 call fzf#run(fzf#wrap({
   \ 'source': s:list_buffers(),
   \ 'sink*': { lines -> s:delete_buffers(lines) },
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept' }))
 
-function! RipgrepOpt(arg, fullscreen)
+function! RGOpt(arg, fullscreen)
   let tokens  = split(a:arg)
   let opts = join(filter(copy(tokens), 'v:val =~ "^-"'))
   let query = join(filter(copy(tokens), 'v:val !~ "^-"'))
@@ -251,7 +251,7 @@ endfunction
 " :Rg -C2 -tgo os.remove<enter>
 " :Rg -C2 -tgo <enter>, then> os.remove
 " :Rg os.remove<enter>
-command! -nargs=* -bang Rg call RipgrepOpt(<q-args>, <bang>0)
+command! -nargs=* -bang Rg call RGOpt(<q-args>, <bang>0)
 " }}}
 
 "{{{ MattersGroeger/vim-bookmarks
