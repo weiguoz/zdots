@@ -4,9 +4,9 @@ bindkey \^U backward-kill-line
 
 bindkey ' ' magic-space
 
-# bindkey "^l" forward-word   # replaced by alt+b/f
-# bindkey "^h" backward-word
+bindkey "^l" forward-word   # replaced by alt+b/f
+bindkey "^h" backward-word
 # bindkey "^j" autosuggest-accept # auto-e uggestion. c-e
-bindkey '^n' forward-word
-bindkey -r '^j'
+bindkey '^j' forward-word
+# bindkey -r '^j'
 # bindkey '^b' backward-word c-w
