@@ -184,6 +184,7 @@ nmap <leader>a :AsyncRun<space>
 " fzf quicks +++
 " https://stackoverflow.com/a/32047331/479812
 map <leader>f :Files<CR>
+map <leader>b :Buffers<CR>
 map <leader>/ :Rg 
 " fzf quicks ---
 " quickfix ++
