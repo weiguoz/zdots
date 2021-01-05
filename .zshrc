@@ -46,8 +46,10 @@ setopt HIST_IGNORE_ALL_DUPS
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# w7u https://github.com/zsh-users/zsh-syntax-highlighting
-plugins=(git svn history history-substring-search zsh-syntax-highlighting zsh-autosuggestions)
+# w7u: It looks the plugins configuration could be replaced by plug mgr
+# https://www.aloxaf.com/2019/11/zplugin_tutorial/ it the future.
+plugins=(git svn history history-substring-search zsh-syntax-highlighting zsh-autosuggestions vi-mode)
+export EDITOR='vim'
 
 source $ZSH/oh-my-zsh.sh
 
@@ -67,7 +69,7 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
-# weiguozhu
+# w7u
 . ${HOME}/${MY_DOTS_IN}/sh/entrance.sh
 limit coredumpsize 0
 setopt AUTO_LIST
