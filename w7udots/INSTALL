@@ -1,3 +1,4 @@
 1. [fzf](https://github.com/junegunn/fzf) is a general-purpose command-line fuzzy finder.
 1. [navi](https://github.com/denisidoro/navi) is an interactive cheatsheet tool for the command-line and application launchers.
 1. [fd](https://github.com/sharkdp/fd) is a simple, fast and user-friendly alternative to [find](https://www.gnu.org/software/findutils/).
+1. [bat](https://github.com/sharkdp/bat) is a colorful cat. `brew install bat`
