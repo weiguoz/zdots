@@ -1,6 +1,6 @@
 my_prx() {
     if [ $# -eq 0 ]; then
-        echo "Bad command"
+        echo "Bad command, specific {on,off} {server_tag_to_find_the_right_port}"
     elif [ $1 = "on" ]; then
         server_tag=$2
         proxy=$(lsof -i -n -P | grep LISTEN | grep ${server_tag} | tr -s ' ' | cut -d' ' -f 9)
@@ -16,6 +16,6 @@ my_prx() {
         unset https_proxy
         echo 'Shutdown proxy on terminal'
     else
-        echo "Bad command: $1"
+        echo "Bad command, specific {on,off} {server_tag_to_find_the_right_port}"
     fi
 }
