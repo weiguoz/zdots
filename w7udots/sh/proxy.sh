@@ -3,7 +3,7 @@ my_prx() {
         echo "Bad command"
     elif [ $1 = "on" ]; then
         server_tag=$2
-        proxy=$(lsof -i -n -P | grep LISTEN |grep ${server_tag} | tr -s ' ' | cut -d' ' -f 9)
+        proxy=$(lsof -i -n -P | grep LISTEN | grep ${server_tag} | tr -s ' ' | cut -d' ' -f 9)
         if ([ -z "$proxy" ]); then
             echo "Can't find a proxy server"
         else

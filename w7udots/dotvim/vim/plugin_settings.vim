@@ -1,6 +1,5 @@
 " {{{ NERDTree, NerdTreeFind...
 command F :NERDTreeFind
-command T :NERDTreeToggle
 let NERDTreeWinPos='left'
 let NERDTreeHighlightCursorline=0    " 高亮当前行
 let NERDTreeShowHidden=1             " 显示隐藏文件
