@@ -28,10 +28,10 @@ iPATH=$iPATH:~/w7udots/bin
 ## go
 export GOPATH=~/go
 iPATH=$iPATH:$GOPATH/bin
-iPATH=$iPATH:/usr/local/opt/go@1.13/bin
+iPATH=$iPATH:/usr/local/opt/go/bin
 
 ## python
-iPATH=$iPATH:/usr/local/opt/python@3.9/bin
+iPATH=$iPATH:/usr/local/opt/python@3/bin
 
 ## ruby
 ### iPATH=/usr/local/opt/ruby/bin:$iPATH
