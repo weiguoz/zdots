@@ -38,7 +38,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias vi='vim +'
 alias t='tmux'
-alias bat='bat --style=numbers,changes --italic-text=always --theme=Dracula'
+alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'
 
 if [ -f ${DOTS}/z/z.sh ]; then
     z_then_ls() {
