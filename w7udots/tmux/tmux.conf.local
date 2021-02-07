@@ -294,3 +294,8 @@ tmux_conf_copy_to_os_clipboard=true
 # move status line to top
 #set -g status-position top
 set -g display-panes-time 5000
+
+# @w7u: change screen-256color to xterm, so as to enable **italic** in tmux
+# e.i., enable `bat --italic-text=always`
+# NOTE: 'xterm-256color' was set in MacOS::Terminal-Advanced-Terminfo
+set -g default-terminal "xterm-256color"
