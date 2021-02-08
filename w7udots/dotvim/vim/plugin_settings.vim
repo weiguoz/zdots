@@ -301,9 +301,9 @@ let g:bookmark_auto_save_file=BMWorkDirFileLocation()
 " ""}}}
 
 " {{{ APZelos/blamer.nvim
-" let g:blamer_enabled = 1
-" let g:blamer_delay = 300
+let g:blamer_enabled = 1
+let g:blamer_delay = 200
 " let g:blamer_prefix = "\t "
 " let g:blamer_date_format = '%Y-%m-%d %H:%M'
-" let g:blamer_template = '<author>, <committer-time> • <summary>'
+let g:blamer_template = '<author>, <committer-time> • <summary>'
 " }}}
