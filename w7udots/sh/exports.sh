@@ -39,8 +39,6 @@ iPATH=$iPATH:/usr/local/opt/python@3/bin
 ### export DYLD_LIBRARY_PATH=$MYSQL_HOME/lib:$DYLD_LIBRARY_PATH
 ### export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/Cellar/openssl/1.0.2s/include
 ### export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/Cellar/openssl/1.0.2s/include
-export CC=/usr/bin/clang
-export CXX=/usr/bin/clang++
 
 export -U PATH=$PATH:$iPATH # avoiding duplicates export caused by tmux
 PROMPT_COMMAND='echo -ne "\033]0; `basename $PWD`\007"'
