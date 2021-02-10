@@ -4,8 +4,8 @@ bindkey \^U backward-kill-line
 
 bindkey ' ' magic-space
 
+# bindkey.md https://gist.github.com/ssebastianj/dd4a42da5eee3304751712dc8aa1dc62
 bindkey "^l" forward-word   # replaced by alt+b/f
 bindkey "^h" backward-word
-# bindkey "^j" autosuggest-accept # auto-e uggestion. c-e
+bindkey "^k" kill-line # it looks disabled >= big sur 11.2.1
 bindkey -r '^j' # unbind
-# bindkey '^b' backward-word c-w
