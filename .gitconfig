@@ -1,6 +1,6 @@
 [user]
-	name = weiguoz
-	email = wg.z@qq.com
+    name = weiguoz
+    email = wg.z@qq.com
 [include]
     path = ~/w7udots/gits/gitconfig.include
 [core]
@@ -15,9 +15,9 @@
 [filter "spacify"]
     clean = expand --tabs=4 --initial
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
 [pull]
-	ff = only
+    ff = only
