@@ -34,7 +34,7 @@ Plug 'rhysd/git-messenger.vim'
 " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
 " }}}
 Plug 'vim-scripts/FencView.vim'
-Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --clangd-completer'}
+Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --clangd-completer --go-completer'}
 Plug 'rhysd/vim-clang-format'
 Plug 'mhinz/vim-startify'
 Plug 'pechorin/any-jump.vim'

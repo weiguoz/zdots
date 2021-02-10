@@ -1,3 +1,10 @@
+## Manual
+
+1. [ohmyzsh](https://github.com/ohmyzsh/ohmyzsh), ohmyzsh/custom/plugins{autosuggestion,zsh-syntax-highlighting}
+1. [z](http://github.com/rupa/z.git)
+
+## Homebrew
+
 1. [fzf](https://github.com/junegunn/fzf) is a general-purpose command-line fuzzy finder.
 1. [navi](https://github.com/denisidoro/navi) is an interactive cheatsheet tool for the command-line and application launchers.
 1. [fd](https://github.com/sharkdp/fd) is a simple, fast and user-friendly alternative to [find](https://www.gnu.org/software/findutils/).
