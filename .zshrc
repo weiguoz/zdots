@@ -25,7 +25,7 @@ zinit light-mode for \
 # refers to
 # https://github.com/Aloxaf/dotfiles/blob/master/zsh/.config/zsh/zshrc.zsh
 
-zinit ice lucid wait='1'
+zinit ice lucid wait='0'
 zinit light skywind3000/z.lua
 
 zinit ice lucid wait='0' atinit='zpcompinit'
