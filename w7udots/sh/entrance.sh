@@ -8,8 +8,8 @@ import() {
 
 DOTS="${HOME}/w7udots"
 
-#eval $(thefuck --alias)
-import ${DOTS}/z/z.sh # https://github.com/rupa/z
+# eval $(thefuck --alias)
+# import ${DOTS}/z/z.sh # https://github.com/rupa/z
 import ${DOTS}/sh/exports.sh
 import ${DOTS}/sh/keybinding.sh
 import ${DOTS}/sh/init.sh

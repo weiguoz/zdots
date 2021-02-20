@@ -5,12 +5,12 @@ alias woman='navi'
 # here we go
 alias md5sum='md5 -r'
 alias diff='icdiff'
-alias ls='ls -pFGh'
+alias ls='exa -pFGh'
 alias cp='cp -i'
-alias l='ls -l'
-alias ll='ls -al'
-alias la='ls -a'
-alias lsh='ls -ld .?*' # ls hidden files
+alias l='exa -l'
+alias ll='exa -al'
+alias la='exa -a'
+alias lsh='exa -ld .?*' # ls hidden files
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
 alias sah='xargs grep -HLi'
 alias grep='grep --color=always' # -i -n -m(max=8)
@@ -40,12 +40,12 @@ alias vi='vim +'
 alias t='tmux'
 alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'
 
-if [ -f ${DOTS}/z/z.sh ]; then
-    z_then_ls() {
-        z "$1" && l
-    }
-    alias z='z_then_ls'
-fi
+# if [ -f ${DOTS}/z/z.sh ]; then
+#     z_then_ls() {
+#         z "$1" && l
+#     }
+#     alias z='z_then_ls'
+# fi
 
 # package name: osascript -e 'id of app "Finder"'
 # du -d 1 | sort -nr | head -3
