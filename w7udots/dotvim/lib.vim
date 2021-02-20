@@ -62,7 +62,7 @@ func! CompileRun()
     if (&filetype=="c")
         exec "!clang   -DDBG -Wall -Wextra -Werror -Wshadow -g -o %< %"
     elseif (&filetype=="cpp" ||&filetype=="cxx")
-        exec "!clang++ -DDBG -Wall -Wextra -Werror -Wshadow -g -std=c++14 -o %< %"
+        exec "!clang++ -DDBG -Wall -Wextra -Werror -Wshadow -g -std=c++17 -o %< %"
     else
         echohl WarningMsg | echo "filetype["&filetype"] isn't a c/cpp file" | echohl None
         return

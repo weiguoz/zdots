@@ -1,6 +1,6 @@
-MY_DOTS_IN='w7udots'
+MY_DOTS_IN="$HOME/w7udots"
 # Path to your ohmyzsh installation.
-export ZSH=$HOME/${MY_DOTS_IN}/ohmyzsh
+export ZSH=${MY_DOTS_IN}/ohmyzsh
 
 # Set name of the theme to load.
 ZSH_THEME="wg"
@@ -46,9 +46,8 @@ setopt HIST_IGNORE_ALL_DUPS
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# w7u: It looks the plugins configuration could be replaced by plug mgr
-# https://www.aloxaf.com/2019/11/zplugin_tutorial/ it the future.
-plugins=(git svn history history-substring-search zsh-syntax-highlighting zsh-autosuggestions vi-mode)
+# https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins
+plugins=(git history history-substring-search zsh-syntax-highlighting zsh-autosuggestions vi-mode z fzf)
 export EDITOR='vim'
 
 source $ZSH/oh-my-zsh.sh
@@ -70,7 +69,7 @@ source $ZSH/oh-my-zsh.sh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 # w7u
-. ${HOME}/${MY_DOTS_IN}/sh/entrance.sh
+. ${MY_DOTS_IN}/sh/entrance.sh
 limit coredumpsize 0
 setopt AUTO_LIST
 setopt AUTO_MENU
