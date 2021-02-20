@@ -1,22 +1,3 @@
-# {{{ w7u, preview configuration for ohmyzsh
-source ${HOME}/w7udots/sh/entrance.sh
-limit coredumpsize 0
-setopt AUTO_LIST
-setopt AUTO_MENU
-# PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="yyyy-mm-dd"
-setopt share_history
-setopt hist_ignore_dups
-setopt HIST_IGNORE_ALL_DUPS
-
-# specify the ruby version https://github.com/rbenv/rbenv/issues/939#issuecomment-253940228
-# eval "$(rbenv init -)"
-# }}}
-
 # {{{ Added by Zinit's installer
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
     print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
@@ -99,4 +80,23 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# }}}
+
+# {{{ w7u, preview configuration for ohmyzsh
+source ${HOME}/w7udots/sh/entrance.sh
+limit coredumpsize 0
+setopt AUTO_LIST
+setopt AUTO_MENU
+# PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+HIST_STAMPS="yyyy-mm-dd"
+setopt share_history
+setopt hist_ignore_dups
+setopt HIST_IGNORE_ALL_DUPS
+
+# specify the ruby version https://github.com/rbenv/rbenv/issues/939#issuecomment-253940228
+# eval "$(rbenv init -)"
 # }}}

@@ -5,12 +5,10 @@ alias woman='navi'
 # here we go
 alias md5sum='md5 -r'
 alias diff='icdiff'
-alias ls='exa -pFGh'
 alias cp='cp -i'
-alias l='exa -l'
-alias ll='exa -al'
-alias la='exa -a'
-alias lsh='exa -ld .?*' # ls hidden files
+alias ls='exa'
+alias ll='ls -l'
+alias lh='ls -ld .?*' # ls hidden files
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
 alias sah='xargs grep -HLi'
 alias grep='grep --color=always' # -i -n -m(max=8)
