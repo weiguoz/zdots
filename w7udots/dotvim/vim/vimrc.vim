@@ -163,7 +163,6 @@ endfunction
 " }}}
 
 " {{{ shortcut, movements & jumps
-au FileType cpp,c,python command! -nargs=0 Adddesc :call AddDesc() " 源码说明头
 nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
 nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 " nmap <Leader>j :call GotoJump()<CR>
@@ -240,3 +239,8 @@ let g:UltiSnipsEditSplit="vertical"
 " cnoremap
 cnoreabbrev w!! w !sudo tee >/dev/null %
 " }}}
+
+" Expose functions defined in lib.vim
+au FileType cpp,c command! -nargs=0 Compilerun :call CompileRun()
+au FileType * command! -nargs=0 Cleanemptybuffers :call CleanEmptyBuffers()
+au FileType cpp,c,python command! -nargs=0 Adddesc :call AddDesc() " 源码说明头
