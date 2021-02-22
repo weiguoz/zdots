@@ -28,7 +28,6 @@ alias arccos="sh ${SSH_HELPER}/rcp_id_rsa_pub.sh"
 alias mvnp='mvn clean package -Dmaven.test.skip'
 alias antlr4='java -jar /usr/local/lib/antlr-4.5.3-complete.jar'
 alias b="sh ${DOTS}/sh/search_on_terminal.sh"
-alias g="googler"
 # alias cd.
 #  Q: why not recursion, such as .9='.. && .8' ?
 #  A: have a look at 'cd -'
