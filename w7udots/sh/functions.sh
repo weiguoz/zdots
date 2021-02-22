@@ -83,7 +83,3 @@ ve() {
         source .venv/bin/activate
     fi
 }
-
-gitdiff() {
-    git diff --name-only --diff-filter=d | xargs bat --diff
-}
