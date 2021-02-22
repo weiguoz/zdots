@@ -69,6 +69,7 @@ case $THEME in
     p10k)
         zinit ice depth=1
         zinit light romkatv/powerlevel10k
+        export EXA_COLORS="${EXA_COLORS}:da=1;30:di=1;36:ln=1;34:"
         ;;
 esac
 
