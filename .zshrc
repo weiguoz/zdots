@@ -88,15 +88,13 @@ source ${HOME}/w7udots/sh/entrance.sh
 limit coredumpsize 0
 setopt AUTO_LIST
 setopt AUTO_MENU
-# PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
-
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="yyyy-mm-dd"
-setopt share_history
-setopt hist_ignore_dups
+setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
 
 # specify the ruby version https://github.com/rbenv/rbenv/issues/939#issuecomment-253940228
 # eval "$(rbenv init -)"
