@@ -1,4 +1,4 @@
-DOTS="${HOME}/w7udots"
+# DOTS defined in entrance.sh
 # sourced by ~/.bashrc normally
 # just4fun
 alias woman='navi'
@@ -14,20 +14,18 @@ alias sah='xargs grep -HLi'
 alias grep='grep --color=always' # -i -n -m(max=8)
 alias of='open -a Finder .'
 alias ff='find . -type f -iname'
-# alias fd='find . -type d -iname'
 # alias fn='find . ! -wholename'
 
 # login +++
-SSH_HELPER=${DOTS}/ssh-helper
-alias sin="LC_ALL=\"zh_CN.GBK\" luit ${SSH_HELPER}/bastion_with_cookie.exp"  # running in tmux with luit
-alias sin2="export LC_ALL='zh_CN.GBK' && ${SSH_HELPER}/bastion_with_cookie.exp; export LC_ALL='en_US.UTF-8'"
-alias arcsin="${SSH_HELPER}/bastion.exp"
-alias cos="${SSH_HELPER}/sin.sh"
-alias arccos="sh ${SSH_HELPER}/rcp_id_rsa_pub.sh"
+alias sin='LC_ALL="zh_CN.GBK" luit ${DOTS}/ssh-helper/bastion_with_cookie.exp'  # running in tmux with luit
+alias sin2='export LC_ALL="zh_CN.GBK" && ${DOTS}/ssh-helper/bastion_with_cookie.exp; export LC_ALL="en_US.UTF-8"'
+alias arcsin='${DOTS}/ssh-helper/bastion.exp'
+alias cos='${DOTS}/ssh-helper/sin.sh'
+alias arccos='sh ${DOTS}/ssh-helper/rcp_id_rsa_pub.sh'
 # login ---
 alias mvnp='mvn clean package -Dmaven.test.skip'
 alias antlr4='java -jar /usr/local/lib/antlr-4.5.3-complete.jar'
-alias b="sh ${DOTS}/sh/search_on_terminal.sh"
+alias b='sh ${DOTS}/sh/search_on_terminal.sh'
 # alias cd.
 #  Q: why not recursion, such as .9='.. && .8' ?
 #  A: have a look at 'cd -'
