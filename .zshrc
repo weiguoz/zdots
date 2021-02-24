@@ -36,6 +36,9 @@ zinit light zsh-users/zsh-autosuggestions
 
 zinit light Aloxaf/fzf-tab
 
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
+
 # {{{ load ohmyzsh plugin
 zinit snippet OMZ::lib/completion.zsh
 zinit snippet OMZ::lib/history.zsh
