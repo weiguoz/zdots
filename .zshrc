@@ -18,7 +18,7 @@ zinit light-mode for \
     zinit-zsh/z-a-as-monitor \
     zinit-zsh/z-a-patch-dl \
     zinit-zsh/z-a-bin-gem-node
-# }}}
+# End of Zinit's installer chunk }}}
 
 # Copied from:
 # https://zhuanlan.zhihu.com/p/98450570
@@ -36,9 +36,6 @@ zinit light zsh-users/zsh-autosuggestions
 
 zinit light Aloxaf/fzf-tab
 
-zinit ice depth=1
-zinit light jeffreytse/zsh-vi-mode
-
 # {{{ load ohmyzsh plugin
 zinit snippet OMZ::lib/completion.zsh
 zinit snippet OMZ::lib/history.zsh
@@ -50,7 +47,6 @@ zinit ice lucid wait='0'
 zinit snippet OMZ::plugins/git/git.plugin.zsh
 # }}}
 
-### End of Zinit's installer chunk
 # {{{ 加载补全
 zinit ice mv="*.zsh -> _fzf" as="completion"
 zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/completion.zsh'
