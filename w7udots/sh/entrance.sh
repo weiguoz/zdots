@@ -19,3 +19,4 @@ import ${DOTS}/sh/fzfhelper.sh
 # import /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 # export PS1='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%~ %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
 # uptime
+# dig +short myip.opendns.com @resolver1.opendns.com

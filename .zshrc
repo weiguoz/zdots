@@ -38,6 +38,14 @@ zinit light Aloxaf/fzf-tab
 
 zinit snippet OMZ::lib/history.zsh
 
+# Since this plugin will overwrite the previous key bindings,
+# this causes the key bindings of other plugins ( such as fzf ) to fail.
+# zinit ice depth=1
+# zinit light jeffreytse/zsh-vi-mode
+# zinit ice lucid wait
+# zinit snippet OMZP::fzf
+# tasted not so good.
+
 # {{{ 加载补全
 zinit ice mv="*.zsh -> _fzf" as="completion"
 zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/completion.zsh'
