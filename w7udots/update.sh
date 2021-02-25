@@ -1,11 +1,11 @@
-cd "$(brew --repo)"
-echo "[0] git brew" #  git prune, called by git gc
-git gc && git fetch && git reset --hard origin/master
-echo "\n[1] brew update && brew upgrade && brew cleanup"
+cd "$(brew --repo)" || return
+# echo "[0] git brew" #  git prune, called by git gc
+# git pull origin master --depth 1
+printf "[1] brew update && brew upgrade && brew cleanup\n"
 brew update && brew upgrade && brew cleanup
 
-echo "\n[2] update zinit plugins"
-echo 'Run `zinit self-update && zinit update && zinit delete --clean` manually'
+printf "[2] update zinit plugins\n"
+printf "Run \"zinit self-update && zinit update && zinit delete --clean\" manually\n"
 
 # cd /path/to/playground/XX-Net && git pull --rebase --stat origin master
 # echo "\n[3] tnpm update"
