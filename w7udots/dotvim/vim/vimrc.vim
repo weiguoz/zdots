@@ -213,8 +213,8 @@ nmap ge $
 " nmap , <Plug>(easymotion-prefix)
 map  s <Plug>(easymotion-sn)
 omap s <Plug>(easymotion-tn)
-nmap ; <Plug>(easymotion-lineanywhere)
-nmap , <Plug>(easymotion-bd-jk)
+nmap ; <Plug>(easymotion-bd-jk)
+nmap ' <Plug>(easymotion-lineanywhere)
 
 nmap E <Plug>(ale_previous_wrap)
 nmap e <Plug>(ale_next_wrap)
