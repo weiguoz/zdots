@@ -32,7 +32,6 @@ alias b='sh ${DOTS}/sh/search_on_terminal.sh'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias vi='vim +'
-alias t='tmux'
 alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'
 
 # if [ -f ${DOTS}/z/z.sh ]; then
