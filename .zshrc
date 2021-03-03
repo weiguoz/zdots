@@ -35,10 +35,15 @@ zinit ice lucid wait="0" atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
 zinit light Aloxaf/fzf-tab
+## https://github.com/Aloxaf/fzf-tab#configure
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 
 zinit snippet OMZ::lib/history.zsh
 
-# Since this plugin will overwrite the previous key bindings,
+# Since the plugin(jeffreytse/zsh-vi-mode) will overwrite the previous key bindings,
 # this causes the key bindings of other plugins ( such as fzf ) to fail.
 # zinit ice depth=1
 # zinit light jeffreytse/zsh-vi-mode
