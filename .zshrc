@@ -79,7 +79,6 @@ case $THEME in
           source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
         fi
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-        export EXA_COLORS="${EXA_COLORS}:da=1;30" # :di=1;34:ln=1;34:"
         ;;
 esac
 # }}}
