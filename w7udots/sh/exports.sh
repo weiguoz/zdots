@@ -30,8 +30,9 @@ export GOPATH=~/go
 iPATH=$iPATH:$GOPATH/bin
 iPATH=$iPATH:/usr/local/opt/go/bin
 
-## python
+## only python3
 iPATH=$iPATH:/usr/local/opt/python@3/bin
+export PYTHONPATH="/usr/local/lib/python3.9/site-packages:$PYTHONPATH" # pip3 installed
 
 ## ruby
 ### iPATH=/usr/local/opt/ruby/bin:$iPATH
