@@ -14,6 +14,7 @@ alias sah='xargs grep -HLi'
 alias grep='grep --color=always' # -i -n -m(max=8)
 alias of='open -a Finder .'
 alias ff='find . -type f -iname'
+alias t='tmux'
 # alias fn='find . ! -wholename'
 
 # login +++
