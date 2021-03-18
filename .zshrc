@@ -53,8 +53,8 @@ zinit snippet OMZ::lib/history.zsh
 
 # {{{ 加载补全
 zinit ice mv="*.zsh -> _fzf" as="completion"
-zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/completion.zsh'
-zinit snippet 'https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh'
+zinit snippet 'https://github.com/junegunn/fzf/tree/master/shell/completion.zsh'
+zinit snippet 'https://github.com/junegunn/fzf/tree/master/shell/key-bindings.zsh'
 zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
 # }}}
