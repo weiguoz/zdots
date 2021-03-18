@@ -18,7 +18,7 @@ tellme() {
     if [ $# -ne 0 ]; then
         msg=$1
     fi
-    terminal-notifier -title "weiguo" -message "$msg"
+    terminal-notifier -title "w7u" -message "$msg"
 }
 
 # funny for my little son

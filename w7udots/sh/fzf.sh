@@ -49,3 +49,13 @@ f() {
     local file
     file="$(rga --max-count=1 --ignore-case --files-with-matches --no-messages "$@" | fzf-tmux +m --preview="rga --ignore-case --pretty --context 10 '"$@"' {}")" && open "$file"
 }
+
+## Use ~~ as the trigger sequence instead of the default **
+export FZF_COMPLETION_TRIGGER='@@'
+## Options to fzf command
+export FZF_COMPLETION_OPTS='+c -x'
+## fzf examples: https://github.com/junegunn/fzf/wiki/examples
+export FZF_DEFAULT_OPTS='--height 40% --layout reverse --bind ctrl-f:page-down,ctrl-b:page-up' # --border
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_DEFAULT_COMMAND='fd --type f --follow --hidden --exclude .git --exclude node_modules'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
