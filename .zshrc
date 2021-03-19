@@ -38,6 +38,8 @@ zinit light Aloxaf/fzf-tab
 ## https://github.com/Aloxaf/fzf-tab#configure
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
+# https://superuser.com/a/1092328 cd case-insensitive matching
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # preview directory's content with exa when completing cd
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 
