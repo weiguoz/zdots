@@ -5,6 +5,7 @@ bindkey \^U backward-kill-line
 bindkey ' ' magic-space
 
 # bindkey.md https://gist.github.com/ssebastianj/dd4a42da5eee3304751712dc8aa1dc62
+bindkey "^g" kill-word   # alt+d
 bindkey "^l" forward-word   # alt+b/f
 bindkey "^h" backward-word
 bindkey "^k" kill-line # it looks disabled >= big sur 11.2.1
