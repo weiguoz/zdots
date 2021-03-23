@@ -6,7 +6,7 @@
 1. [bat](https://github.com/sharkdp/bat) is a colorful cat. `brew install bat`
 1. [exa](https://github.com/ogham/exa) is a modern replacement for ls. `brew install exa`
 1. [delta](https://github.com/dandavison/delta) helps git diff. `brew install git-delta`
-1. [clang-format](https://formulae.brew.sh/formula/clang-format) `brew install clang-format && clang-format -style=Google -dump-config > .clang-format`
+1. [clang-format](https://formulae.brew.sh/formula/clang-format) `brew install clang-format && clang-format -style="{BasedOnStyle: Google, IndentWidth: 4}" -dump-config > ~/.clang-format`
 
 ## zsh
 
