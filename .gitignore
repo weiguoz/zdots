@@ -5,6 +5,9 @@
 !.ideavimrc
 !.zshenv
 !.zshrc
+!.vimrc
+!.tmux.conf
+!.tmux.conf.local
 
 !zdots/
 !zdots/INSTALL.md
@@ -17,13 +20,6 @@
 !zdots/gits/
 !zdots/gits/gitconfig.include
 !zdots/gits/*.sh
-
-!zdots/ohmyzsh-helper
-!zdots/ohmyzsh-helper/*
-
-!zdots/ssh-helper/
-!zdots/ssh-helper/*.sh
-!zdots/ssh-helper/*.exp
 
 !zdots/rime/
 !zdots/rime/*.yaml

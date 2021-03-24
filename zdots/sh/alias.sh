@@ -17,13 +17,6 @@ alias ff='find . -type f -iname'
 alias t='tmux'
 # alias fn='find . ! -wholename'
 
-# login +++
-alias sin='LC_ALL="zh_CN.GBK" luit ${DOTS}/ssh-helper/bastion_with_cookie.exp'  # running in tmux with luit
-alias sin2='export LC_ALL="zh_CN.GBK" && ${DOTS}/ssh-helper/bastion_with_cookie.exp; export LC_ALL="en_US.UTF-8"'
-alias arcsin='${DOTS}/ssh-helper/bastion.exp'
-alias cos='${DOTS}/ssh-helper/sin.sh'
-alias arccos='sh ${DOTS}/ssh-helper/rcp_id_rsa_pub.sh'
-# login ---
 alias mvnp='mvn clean package -Dmaven.test.skip'
 alias antlr4='java -jar /usr/local/lib/antlr-4.5.3-complete.jar'
 alias b='sh ${DOTS}/sh/search_on_terminal.sh'
