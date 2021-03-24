@@ -6,7 +6,7 @@ import() {
     fi
 }
 
-DOTS="${HOME}/w7udots"
+DOTS="${HOME}/zdots"
 
 # eval $(thefuck --alias)
 # import ${DOTS}/z/z.sh # https://github.com/rupa/z

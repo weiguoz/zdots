@@ -7,7 +7,7 @@ line_num=0
 choice=1
 
 new_ip_config() {
-    local ipconf=~/w7udots/ssh-helper/iplist.cfg
+    local ipconf=~/zdots/ssh-helper/iplist.cfg
     if [ -e ${ipconf} ]; then
         while [ -e ${ipconf_now} ]; do
             ipconf_now=/tmp/ip_cfg_`date +%s`
@@ -69,7 +69,7 @@ autologin() {
         psw=$psw_sit
     fi
     if [ ${#psw} -gt 0 ]; then
-        ~/w7udots/ssh-helper/sin-helper.exp ${USER[${choice}]} ${IP[${choice}]} ${PORT[${choice}]} $psw
+        ~/zdots/ssh-helper/sin-helper.exp ${USER[${choice}]} ${IP[${choice}]} ${PORT[${choice}]} $psw
     else
         ssh ${USER[${choice}]}@${IP[${choice}]} -p${PORT[${choice}]}
     fi

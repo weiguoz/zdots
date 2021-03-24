@@ -6,36 +6,36 @@
 !.zshenv
 !.zshrc
 
-!w7udots/
-!w7udots/INSTALL.md
-!w7udots/*.sh
-!w7udots/*.exp
-!w7udots/bin/
-!w7udots/sh/
-!w7udots/sh/*
-!w7udots/ycm_extra_conf.py
-!w7udots/gits/
-!w7udots/gits/gitconfig.include
-!w7udots/gits/*.sh
+!zdots/
+!zdots/INSTALL.md
+!zdots/*.sh
+!zdots/*.exp
+!zdots/bin/
+!zdots/sh/
+!zdots/sh/*
+!zdots/ycm_extra_conf.py
+!zdots/gits/
+!zdots/gits/gitconfig.include
+!zdots/gits/*.sh
 
-!w7udots/ohmyzsh-helper
-!w7udots/ohmyzsh-helper/*
+!zdots/ohmyzsh-helper
+!zdots/ohmyzsh-helper/*
 
-!w7udots/ssh-helper/
-!w7udots/ssh-helper/*.sh
-!w7udots/ssh-helper/*.exp
+!zdots/ssh-helper/
+!zdots/ssh-helper/*.sh
+!zdots/ssh-helper/*.exp
 
-!w7udots/rime/
-!w7udots/rime/*.yaml
-!w7udots/rime/*.md
+!zdots/rime/
+!zdots/rime/*.yaml
+!zdots/rime/*.md
 
-!w7udots/tmux/
-!w7udots/tmux/tmux.conf
-!w7udots/tmux/tmux.conf.local
+!zdots/tmux/
+!zdots/tmux/tmux.conf
+!zdots/tmux/tmux.conf.local
 
-!w7udots/dotvim/
-!w7udots/dotvim/*
-!w7udots/dotvim/vim/
-!w7udots/dotvim/vim/*
-!w7udots/dotvim/neovim/
-!w7udots/dotvim/neovim/*
+!zdots/dotvim/
+!zdots/dotvim/*
+!zdots/dotvim/vim/
+!zdots/dotvim/vim/*
+!zdots/dotvim/neovim/
+!zdots/dotvim/neovim/*

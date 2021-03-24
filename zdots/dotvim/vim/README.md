@@ -5,7 +5,7 @@ autocmd! bufwritepost .vimrc source %
 
 ## usage
 ```sh
-echo "source ~/w7udots/dotvim/lib.vim
-source ~/w7udots/dotvim/vim/vimrc.vim
-source ~/w7udots/dotvim/vim/plugin_settings.vim" > ~/.vimrc
+echo "source ~/zdots/dotvim/lib.vim
+source ~/zdots/dotvim/vim/vimrc.vim
+source ~/zdots/dotvim/vim/plugin_settings.vim" > ~/.vimrc
 ```
