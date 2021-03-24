@@ -1,7 +1,7 @@
 #!/bin/sh
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
 
-iplistf=~/w7udots/ssh-helper/iplist.cfg
+iplistf=~/zdots/ssh-helper/iplist.cfg
 while getopts "h:u:p:c:t:" opt; do
     case $opt in
         h) t_host="$OPTARG"

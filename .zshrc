@@ -86,7 +86,7 @@ esac
 # }}}
 
 # {{{ w7u, preview configuration for ohmyzsh
-source ${HOME}/w7udots/sh/entrance.sh
+source ${HOME}/zdots/sh/entrance.sh
 limit coredumpsize 0
 setopt AUTO_LIST
 setopt AUTO_MENU

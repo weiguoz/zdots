@@ -23,7 +23,7 @@ export CLASSPATH=".:/usr/local/lib/antlr-4.5.3-complete.jar:$CLASSPATH"
 ### export CLOUDENGINE_HOME=/usr/local/share/cloudengine
 ### iPATH=$iPATH:$CLOUDENGINE_HOME/bin
 
-iPATH=$iPATH:~/w7udots/bin
+iPATH=$iPATH:~/zdots/bin
 
 ## go
 export GOPATH=~/go

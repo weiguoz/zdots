@@ -7,4 +7,4 @@ import() {
 }
 
 # 为了能够在vim中使用alias，所以把alias放置在env中
-import ${HOME}/w7udots/sh/functions.sh
+import ${HOME}/zdots/sh/functions.sh

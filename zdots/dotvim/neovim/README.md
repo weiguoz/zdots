@@ -4,6 +4,6 @@ I found
 
 ## usage
 ```bash
-echo "source ~/w7udots/dotvim/lib.vim
-source ~/w7udots/dotvim/neovim/vimrc.vim" > ~/.config/nvim/init.vim
+echo "source ~/zdots/dotvim/lib.vim
+source ~/zdots/dotvim/neovim/vimrc.vim" > ~/.config/nvim/init.vim
 ```
