@@ -309,3 +309,7 @@ let g:blamer_delay = 200
 let g:blamer_date_format = '%Y-%m-%d %H:%M'
 let g:blamer_template = '<author>, <committer-time> • <summary>'
 " }}}
+
+" {{{ vim-clang-format
+autocmd FileType c,cpp,h ClangFormatAutoEnable
+" }}}
