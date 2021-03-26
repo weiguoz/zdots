@@ -145,23 +145,6 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$\| \+\ze\t\+\|\t\+\zs \+/
 command! -range=% TrimWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 " }}}
 
-" {{{ Automatically fitting a quickfix window height
-au FileType qf call AdjustWindowHeight(3, 10)
-function! AdjustWindowHeight(minheight, maxheight)
-    let l = 1
-    let n_lines = 0
-    let w_width = winwidth(0)
-    while l <= line('$')
-        " number to float for division
-        let l_len = strlen(getline(l)) + 0.0
-        let line_width = l_len/w_width
-        let n_lines += float2nr(ceil(line_width))
-        let l += 1
-    endw
-    exe max([min([n_lines, a:maxheight]), a:minheight]) . "wincmd _"
-endfunction
-" }}}
-
 " {{{ shortcut, movements & jumps
 nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
 nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
@@ -169,7 +152,7 @@ nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
 
 imap <c-c> <ESC> :w<CR>l
 omap <c-c> <ESC> :w<CR>l
-nmap <Leader>w :w!<CR>
+nnoremap <leader>w :call Write()<CR>
 nmap <Leader>o :only<CR>
 nmap <c-c> :ChooseWin<CR>
 
@@ -190,6 +173,22 @@ map <leader>/ :Rg
 " quickfix ++
 nmap <leader>c :cclose<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
+" Automatically fitting a quickfix window height
+au FileType qf call AdjustWindowHeight(3, 10)
+function! AdjustWindowHeight(minheight, maxheight)
+    let l = 1
+    let n_lines = 0
+    let w_width = winwidth(0)
+    while l <= line('$')
+        " number to float for division
+        let l_len = strlen(getline(l)) + 0.0
+        let line_width = l_len/w_width
+        let n_lines += float2nr(ceil(line_width))
+        let l += 1
+    endw
+    exe max([min([n_lines, a:maxheight]), a:minheight]) . "wincmd _"
+endfunction
+
 " quickfix --
 " nmap <Leader>n :NERDTreeToggle<CR>
 " nmap <Leader>t :TagbarToggle<CR>
@@ -241,6 +240,6 @@ cnoreabbrev w!! w !sudo tee >/dev/null %
 " }}}
 
 " Expose functions defined in lib.vim
-au FileType cpp,c command! -nargs=0 Compilerun :call CompileRun()
+au FileType cpp,c command! -nargs=0 Crun :call CompileCxxAndRun()
+au FileType cpp,c,python command! -nargs=0 Adddesc :call AddDesc()
 au FileType * command! -nargs=0 Cleanemptybuffers :call CleanEmptyBuffers()
-au FileType cpp,c,python command! -nargs=0 Adddesc :call AddDesc() " 源码说明头
