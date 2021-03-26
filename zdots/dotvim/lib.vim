@@ -55,13 +55,13 @@ function! GotoJump()
 endfunction
 " }}}
 
-" {{{ complie&run
-func! CompileRun()
+" {{{ complie a single cpp/c file & run
+func! CompileCxxAndRun()
     silent exe "w"
     " compile_args=-DDBG -Wall -Wextra -Werror -Wconversion -Wshadow -g -std=c++11
     if (&filetype=="c")
         exec "!clang   -DDBG -Wall -Wextra -Werror -Wshadow -g -o %< %"
-    elseif (&filetype=="cpp" ||&filetype=="cxx")
+    elseif (&filetype=="cpp")
         exec "!clang++ -DDBG -Wall -Wextra -Werror -Wshadow -g -std=c++17 -o %< %"
     else
         echohl WarningMsg | echo "filetype["&filetype"] isn't a c/cpp file" | echohl None
@@ -148,3 +148,10 @@ function! CleanEmptyBuffers()
     endif
 endf
 " }}}
+
+function! Write()
+    if (&filetype=="cpp" || &filetype=="c" || &filetype=="h" )
+        exe "ClangFormat"
+    endif
+    exe "w"
+endfunction
