@@ -13,7 +13,7 @@ cs() {
 }
 
 tellme() {
-    # brew install terminal-notifier
+    ## brew install terminal-notifier
     msg="NULL"
     if [ $# -ne 0 ]; then
         msg=$1
@@ -21,7 +21,7 @@ tellme() {
     terminal-notifier -title "w7u" -message "$msg"
 }
 
-# funny for my little son
+## funny for my little son
 wgg() {
     LOOP=1
     if [ $# -gt 0 ]; then
@@ -83,3 +83,8 @@ ve() {
         source .venv/bin/activate
     fi
 }
+
+uniq_csv() {
+    echo "$1" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }'
+}
+
