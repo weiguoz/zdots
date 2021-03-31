@@ -32,7 +32,7 @@ iPATH=$iPATH:/usr/local/opt/go/bin
 
 ## only python3
 iPATH=$iPATH:/usr/local/opt/python@3/bin
-export PYTHONPATH="/usr/local/lib/python3.9/site-packages:$PYTHONPATH" # pip3 installed
+export PYTHONPATH=`uniq_csv "/usr/local/lib/python3.9/site-packages:$PYTHONPATH"`
 
 ## ruby
 ### iPATH=/usr/local/opt/ruby/bin:$iPATH
@@ -41,7 +41,9 @@ export PYTHONPATH="/usr/local/lib/python3.9/site-packages:$PYTHONPATH" # pip3 in
 ### export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/Cellar/openssl/1.0.2s/include
 ### export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/Cellar/openssl/1.0.2s/include
 
-export -U PATH=$PATH:$iPATH # avoiding duplicates export caused by tmux
+# avoiding duplicates caused by tmux
+iPATH=$iPATH:/usr/local/opt/go/bin:/usr/local/opt/python@3/bin
+export PATH=`uniq_csv "$PATH:$iPATH"`
 
 ### exa(colorful ls) color
 export EXA_COLORS="${EXA_COLORS}:da=1;30" # :di=1;34:ln=1;34:"
