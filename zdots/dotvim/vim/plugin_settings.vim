@@ -113,6 +113,13 @@ let g:tagbar_type_go = {
 " {{{ easymotion
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
+" Turn on case-insensitive feature
+" nmap , <Plug>(easymotion-prefix)
+map  s <Plug>(easymotion-sn)
+omap s <Plug>(easymotion-tn)
+nmap ; <Plug>(easymotion-bd-jk)
+nmap ' <Plug>(easymotion-lineanywhere)
+nmap , <Plug>(easymotion-jumptoanywhere)
 " }}}
 
 " {{{ vim-airline comments
