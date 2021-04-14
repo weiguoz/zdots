@@ -46,4 +46,4 @@ iPATH=$iPATH:/usr/local/opt/go/bin:/usr/local/opt/python@3/bin
 export PATH=`uniq_csv "$PATH:$iPATH"`
 
 ### exa(colorful ls) color
-export EXA_COLORS="${EXA_COLORS}:da=1;30:di=1;35" # :ln=1;34:"
+export EXA_COLORS="${EXA_COLORS}:da=1;30:di=1;36" # :ln=1;34:"
