@@ -16,7 +16,7 @@ let g:interestingWordsCycleColors=1 " interestingwords
 let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 let g:ycm_confirm_extra_conf=1
 let g:ycm_use_clangd = "Always"
-let g:ycm_clangd_binary_path = "/Library/Developer/CommandLineTools/usr/bin/clangd"
+let g:ycm_clangd_binary_path = "clangd"
 let g:ycm_filetype_whitelist = {
             \ "c":1,
             \ "cpp":1,
