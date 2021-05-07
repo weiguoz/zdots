@@ -25,13 +25,17 @@ YCM在随着Mac系统更新时，出的问题太多了，放弃使用并转向`c
 参考[language-servers](https://github.com/neoclide/coc.nvim/wiki/Language-servers)，我目前在用的是：
 ```json
 {
-    "clangd.path": "/Library/Developer/CommandLineTools/usr/bin/clangd",
     "languageserver": {
         "golang": {
             "command": "gopls",
             "rootPatterns": ["go.mod"],
             "disableWorkspaceFolders": true,
             "filetypes": ["go"]
+        },
+        "clangd": {
+            "command": "/Library/Developer/CommandLineTools/usr/bin/clangd",
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json"],
+            "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
         }
     }
 }
