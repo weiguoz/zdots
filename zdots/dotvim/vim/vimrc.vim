@@ -34,11 +34,13 @@ Plug 'rhysd/git-messenger.vim'
 " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
 " }}}
 Plug 'vim-scripts/FencView.vim'
-" youcomplete 是个大杀器，但问题太多了:
-" 1）更新升级之后经常出现不能自动补全；2）需重新编译；3）submodules
-" 常无法下载。vim里遇到的问题，80%都来自YCM，所以在202157开始弃用它，计划转向
-" coc 之类
+" 单一的大杀器 youcompleteme 问题太多了:
+" 1）更新升级之后经常出现不能自动补全
+" 2）需重新编译
+" 3）submodules 常无法下载
+" vim 里遇到的问题，80% 都来自 YCM，所以在 202157 转投支持 lsp 的 coc
 " Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --clangd-completer --go-completer'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'rhysd/vim-clang-format'
 Plug 'mhinz/vim-startify'
 Plug 'pechorin/any-jump.vim'
