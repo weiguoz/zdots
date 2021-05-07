@@ -12,28 +12,28 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 let g:interestingWordsCycleColors=1 " interestingwords
 
-" {{{ YouCompleteMe
-let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
-let g:ycm_confirm_extra_conf=1
-let g:ycm_use_clangd = "Always"
-" xcode-select --install brings commandlinetools/../clangd
-let g:ycm_clangd_binary_path = "/Library/Developer/CommandLineTools/usr/bin/clangd"
-let g:ycm_filetype_whitelist = {
-            \ "c":1,
-            \ "cpp":1,
-            \ "sh":1,
-            \ "zsh":1,
-            \ "python":1,
-            \ "go":1,
-            \ }
-"{{{ python
-if has('python3')
-    " silent! python3 1 https://github.com/vim/vim/issues/3117 解决启动时因为python3的报警
-    " let g:ycm_server_python_interpreter='/usr/local/bin/python3' 正确设置好 python，则不需要这行配置
-    let g:pymode_rope=0
-    nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
-endif
-"}}}
+" " {{{ YouCompleteMe
+" let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
+" let g:ycm_confirm_extra_conf=1
+" let g:ycm_use_clangd = "Always"
+" " xcode-select --install brings commandlinetools/../clangd
+" let g:ycm_clangd_binary_path = "/Library/Developer/CommandLineTools/usr/bin/clangd"
+" let g:ycm_filetype_whitelist = {
+"             \ "c":1,
+"             \ "cpp":1,
+"             \ "sh":1,
+"             \ "zsh":1,
+"             \ "python":1,
+"             \ "go":1,
+"             \ }
+" "{{{ python
+" if has('python3')
+"     " silent! python3 1 https://github.com/vim/vim/issues/3117 解决启动时因为python3的报警
+"     " let g:ycm_server_python_interpreter='/usr/local/bin/python3' 正确设置好 python，则不需要这行配置
+"     let g:pymode_rope=0
+"     nnoremap <leader>gd :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" endif
+" "}}}
 
 " }}}
 

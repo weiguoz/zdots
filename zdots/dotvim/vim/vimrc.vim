@@ -22,7 +22,7 @@ Plug 'dense-analysis/ale'
 Plug 'lfv89/vim-interestingwords'
 " https://github.com/MattesGroeger/vim-bookmarks#usage
 Plug 'MattesGroeger/vim-bookmarks'
-"such as: AsyncRun tmux send-keys -t2 \"go test\" enter
+" such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 Plug 'skywind3000/asyncrun.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go'
@@ -34,7 +34,11 @@ Plug 'rhysd/git-messenger.vim'
 " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
 " }}}
 Plug 'vim-scripts/FencView.vim'
-Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --clangd-completer --go-completer'}
+" youcomplete 是个大杀器，但问题太多了:
+" 1）更新升级之后经常出现不能自动补全；2）需重新编译；3）submodules
+" 常无法下载。vim里遇到的问题，80%都来自YCM，所以在202157开始弃用它，计划转向
+" coc 之类
+" Plug 'ycm-core/YouCompleteMe', {'do': 'python3 install.py --clangd-completer --go-completer'}
 Plug 'rhysd/vim-clang-format'
 Plug 'mhinz/vim-startify'
 Plug 'pechorin/any-jump.vim'
@@ -223,10 +227,6 @@ inoremap <C-b> <S-Left>
 " nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>
 """ movement }}}
 
-let g:UltiSnipsExpandTrigger="<c-l>" " 因为YouCompleteMe和ultisnips都映射了tab键引起冲突, 这儿更换掉ultisnips的映射
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsEditSplit="vertical"
 " 保存一个本该 sudo 打开的文件
 " cnoremap
 cnoreabbrev w!! w !sudo tee >/dev/null %
