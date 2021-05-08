@@ -149,8 +149,8 @@ let g:tagbar_type_go = {
 let g:EasyMotion_smartcase = 1
 " Turn on case-insensitive feature
 " nmap , <Plug>(easymotion-prefix)
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
+map  s <Plug>(easymotion-sn)
+omap s <Plug>(easymotion-tn)
 nmap ; <Plug>(easymotion-bd-jk)
 nmap ' <Plug>(easymotion-lineanywhere)
 nmap , <Plug>(easymotion-jumptoanywhere)
