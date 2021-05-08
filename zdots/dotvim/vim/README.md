@@ -25,6 +25,7 @@ YCM在随着Mac系统更新时，出的问题太多了，放弃使用并转向`c
 参考[language-servers](https://github.com/neoclide/coc.nvim/wiki/Language-servers)，我目前在用的是：
 ```json
 {
+    "pyright.disableDiagnostics": true,
     "languageserver": {
         "golang": {
             "command": "gopls",
