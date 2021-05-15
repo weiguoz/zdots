@@ -152,8 +152,8 @@ command! -range=% TrimWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>
 " }}}
 
 " {{{ shortcut, movements & jumps
-nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 40)<CR>
-nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 40)<CR>
+nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 33)<CR>
+nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 33)<CR>
 " nmap <Leader>j :call GotoJump()<CR>
 
 imap <c-c> <ESC> :w<CR>l
@@ -198,17 +198,6 @@ endfunction
 " quickfix --
 " nmap <Leader>n :NERDTreeToggle<CR>
 " nmap <Leader>t :TagbarToggle<CR>
-
-" any-jump
-let g:any_jump_disable_default_keybindings = 1
-" Normal mode: Jump to definition under cursore
-nnoremap <leader>j :AnyJump<CR>
-" Visual mode: jump to selected text in visual mode
-xnoremap <leader>j :AnyJumpVisual<CR>
-" Normal mode: open previous opened file (after jump)
-" nnoremap <leader>ab :AnyJumpBack<CR>
-" Normal mode: open last closed search window again
-" nnoremap <leader>al :AnyJumpLastResults<CR>
 
 """ {{{ movement
 " nmap <silent>ge :call cursor(0, len(getline('.'))/2)<CR>
