@@ -68,34 +68,58 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <leader>h :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" provide custom statusline: lightline.vim, vim-airline.
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " }}}
 
-" {{{ ale
-" 20190122改 syntasitic 为 ale
-let g:ale_lint_on_text_changed = 'always' " normal
-" You can disable this option too
-" if you don't want linters to run on opening a file
-let g:ale_lint_on_enter = '0'
-let g:ale_lint_on_save = '1'
-let g:ale_list_window_size = 4
-let g:ale_set_highlights = 0
-let g:ale_sign_column_always = 1
-let g:ale_open_list = 0
-let g:ale_sign_error = '✗'
-let g:ale_sign_warning = '⚠'
-"在vim自带的状态栏中整合ale
-let g:ale_statusline_format = ['✗ %d', '⚠ %d', '✔ OK']
-" By default, all available tools for all supported languages will be run.
-" If you want to only select a subset of the tools,
-" you can define b:ale_linters for a single buffer, or g:ale_linters globally.
-" 'go': ['golint', 'govet', 'gometalinter'],
-let g:ale_linters = {
-            \'go': ['golint', 'gopls'],
-            \'cpp': ['clang'],
-            \'c': ['clang'],
-            \'python': ['pylint'],
-            \}
-" }}}
+" " {{{ ale
+" " 20190122改 syntasitic 为 ale
+" let g:ale_lint_on_text_changed = 'always' " normal
+" " You can disable this option too
+" " if you don't want linters to run on opening a file
+" let g:ale_lint_on_enter = '0'
+" let g:ale_lint_on_save = '1'
+" let g:ale_list_window_size = 4
+" let g:ale_set_highlights = 0
+" let g:ale_sign_column_always = 1
+" let g:ale_open_list = 0
+" let g:ale_sign_error = '✗'
+" let g:ale_sign_warning = '⚠'
+" "在vim自带的状态栏中整合ale
+" let g:ale_statusline_format = ['✗ %d', '⚠ %d', '✔ OK']
+" " By default, all available tools for all supported languages will be run.
+" " If you want to only select a subset of the tools,
+" " you can define b:ale_linters for a single buffer, or g:ale_linters globally.
+" " 'go': ['golint', 'govet', 'gometalinter'],
+" let g:ale_linters = {
+"             \'go': ['golint', 'gopls'],
+"             \'cpp': ['clang'],
+"             \'c': ['clang'],
+"             \'python': ['pylint'],
+"             \}
+" " }}}
 
 " undo {{{
 " let g:gundo_width=50
