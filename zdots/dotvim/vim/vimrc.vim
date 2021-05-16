@@ -18,7 +18,7 @@ Plug 't9md/vim-choosewin'
 " Plug 'wsdjeg/FlyGrep.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale' replaced by coc
 Plug 'lfv89/vim-interestingwords'
 " https://github.com/MattesGroeger/vim-bookmarks#usage
 Plug 'MattesGroeger/vim-bookmarks'
@@ -168,7 +168,7 @@ nmap <c-c> :ChooseWin<CR>
 " vnoremap x "_x
 " set clipboard=unnamed
 
-nmap <Leader>l :ALEToggle<CR>
+" nmap <Leader>l :ALEToggle<CR>
 nmap <leader>a :AsyncRun<space>
 " fzf quicks +++
 " https://stackoverflow.com/a/32047331/479812
@@ -203,8 +203,8 @@ endfunction
 " nmap <silent>ge :call cursor(0, len(getline('.'))/2)<CR>
 nmap ge $
 
-nmap E <Plug>(ale_previous_wrap)
-nmap e <Plug>(ale_next_wrap)
+" nmap E <Plug>(ale_previous_wrap)
+" nmap e <Plug>(ale_next_wrap)
 " movements in the insert mode
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
