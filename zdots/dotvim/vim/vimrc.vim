@@ -6,7 +6,8 @@ filetype off                   " 必须先关闭文件类型检查
 " {{{ vim-plug, turn vundle/bundle to vim-plugin at 2019.11.18
 call plug#begin('~/.vim/plugged')
 Plug 'NLKNguyen/papercolor-theme'
-Plug 'preservim/nerdtree'
+" replaced by https://github.com/weirongxu/coc-explorer
+" Plug 'preservim/nerdtree'
 Plug 'majutsushi/tagbar'
 " statusbar
 Plug 'vim-airline/vim-airline'
@@ -27,7 +28,6 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'fatih/vim-go'
 " {{{ git plugins
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'rhysd/git-messenger.vim'
@@ -194,10 +194,7 @@ function! AdjustWindowHeight(minheight, maxheight)
     endw
     exe max([min([n_lines, a:maxheight]), a:minheight]) . "wincmd _"
 endfunction
-
 " quickfix --
-" nmap <Leader>n :NERDTreeToggle<CR>
-" nmap <Leader>t :TagbarToggle<CR>
 
 """ {{{ movement
 " nmap <silent>ge :call cursor(0, len(getline('.'))/2)<CR>
