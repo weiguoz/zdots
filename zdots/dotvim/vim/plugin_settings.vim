@@ -49,8 +49,8 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap e <Plug>(coc-diagnostic-prev)
-nmap E <Plug>(coc-diagnostic-next)
+nmap E <Plug>(coc-diagnostic-prev)
+nmap e <Plug>(coc-diagnostic-next)
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
