@@ -53,10 +53,6 @@ YCM在随着Mac系统更新时，出的问题太多了，放弃使用并转向`c
 			"ignoredRootPaths": []
 		}
     },
-    "diagnostic.errorSign": "\uf467",
-    "diagnostic.warningSign": "\uf071",
-    "diagnostic.infoSign": "\uf129",
-    "diagnostic.hintSign": "\uf864",
     "diagnostic.displayByAle": false,
     "diagnostic.refreshOnInsertMode": false,
     "diagnostic.checkCurrentLine": true,
