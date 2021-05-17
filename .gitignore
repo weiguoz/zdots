@@ -16,7 +16,6 @@
 !zdots/bin/
 !zdots/sh/
 !zdots/sh/*
-!zdots/ycm_extra_conf.py
 !zdots/gits/
 !zdots/gits/gitconfig.include
 !zdots/gits/*.sh
