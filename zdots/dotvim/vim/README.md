@@ -25,21 +25,21 @@ YCM在随着Mac系统更新时，出的问题太多了，放弃使用并转向`c
 参考[language-servers](https://github.com/neoclide/coc.nvim/wiki/Language-servers)，我目前在用的是：
 ```json
 {
-	"coc.preferences.enableFloatHighlight": true,
+    "coc.preferences.enableFloatHighlight": true,
     "suggest.autoTrigger": "always",
-	"suggest.timeout": 5000,
-	"suggest.enablePreview": true,
-	"suggest.floatEnable": true,
+    "suggest.timeout": 5000,
+    "suggest.enablePreview": true,
+    "suggest.floatEnable": true,
     "languageserver": {
         "golang": {
             "command": "gopls",
             "rootPatterns": ["go.mod"],
             "filetypes": ["go"],
             "initializationOptions": {
-				"gocodeCompletionEnabled": true,
-				"diagnosticsEnabled": true,
-				"lintTool": "golint"
-			}
+                "gocodeCompletionEnabled": true,
+                "diagnosticsEnabled": true,
+                "lintTool": "golint"
+            }
         },
         "clangd": {
             "command": "/Library/Developer/CommandLineTools/usr/bin/clangd",
@@ -47,18 +47,21 @@ YCM在随着Mac系统更新时，出的问题太多了，放弃使用并转向`c
             "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"]
         },
         "bash": {
-			"command": "bash-language-server",
-			"args": ["start"],
-			"filetypes": ["sh"],
-			"ignoredRootPaths": []
-		}
+            "command": "bash-language-server",
+            "args": ["start"],
+            "filetypes": ["sh"],
+            "ignoredRootPaths": []
+        }
     },
     "diagnostic.displayByAle": false,
     "diagnostic.refreshOnInsertMode": false,
     "diagnostic.checkCurrentLine": true,
     "diagnostic.virtualTextPrefix": " ❯❯❯ ",
     "diagnostic.virtualText": true,
-    "codeLens.enable": true
+    "explorer.quitOnOpen": true,
+    "explorer.file.column.indent.indentLine": true,
+	"explorer.file.showHiddenFiles": true,
+	"explorer.icon.enableNerdfont": true,
+	"explorer.buffer.showHiddenBuffers": false
 }
 ```
-
