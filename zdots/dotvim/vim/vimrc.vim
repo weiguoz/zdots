@@ -45,7 +45,8 @@ Plug 'rhysd/vim-clang-format'
 Plug 'mhinz/vim-startify'
 Plug 'pechorin/any-jump.vim'
 " install the fonts{mac: brew tap homebrew/cask-fonts && brew cask install font-hack-nerd-font }
-Plug 'ryanoasis/vim-devicons'
+" Plug 'ryanoasis/vim-devicons' this plugin helps nerdtree, but we don't need
+" nerdtree anymore.
 " {{{ 试用期
 " A git blame plugin for (neo)vim inspired by VS Code's GitLens plugin
 " blamer.nvim is not passed. incompatible with 'tpope/vim-fugitive' & 'rhysd/git-messenger.vim'
