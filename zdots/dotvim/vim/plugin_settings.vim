@@ -1,14 +1,14 @@
-" {{{ NERDTree, NerdTreeFind...
-command F :NERDTreeFind
-let NERDTreeWinPos='left'
-let NERDTreeHighlightCursorline=0    " 高亮当前行
-let NERDTreeShowHidden=1             " 显示隐藏文件
-let NERDChristmasTree=1              " 色彩显示
-" ignore files in NERDTree
-let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$']
-"Quit when where is no active buffer https://github.com/preservim/nerdtree/issues/21#issuecomment-157212312
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" }}}
+" " {{{ NERDTree, NerdTreeFind...
+" command F :NERDTreeFind
+" let NERDTreeWinPos='left'
+" let NERDTreeHighlightCursorline=0    " 高亮当前行
+" let NERDTreeShowHidden=1             " 显示隐藏文件
+" let NERDChristmasTree=1              " 色彩显示
+" " ignore files in NERDTree
+" let NERDTreeIgnore=['\.pyc$', '\~$', '\.swp$']
+" "Quit when where is no active buffer https://github.com/preservim/nerdtree/issues/21#issuecomment-157212312
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+" " }}}
 
 let g:interestingWordsCycleColors=1 " interestingwords
 
@@ -37,6 +37,11 @@ let g:interestingWordsCycleColors=1 " interestingwords
 " }}}
 
 " {{{ coc
+let g:coc_global_extensions = [
+            \ 'coc-json',
+            \ 'coc-explorer',
+            \ 'coc-pyright',
+            \ 'coc-snippets']
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
@@ -92,6 +97,9 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" {{{ coc-explorer
+nnoremap <space>e :CocCommand explorer<CR>
+" }}}
 " }}}
 
 " " {{{ ale
@@ -282,7 +290,7 @@ let g:any_jump_disable_vcs_ignore = 0
 
 " {{{ fzf buffers <- so I remove the buftabline from my plugins
 let g:fzf_buffers_jump = 1
-let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.7 } }
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 
 function! s:list_buffers()
   redir => list
@@ -381,6 +389,8 @@ let g:any_jump_disable_default_keybindings = 1
 nnoremap <leader>j :AnyJump<CR>
 " Visual mode: jump to selected text in visual mode
 xnoremap <leader>j :AnyJumpVisual<CR>
+let g:any_jump_window_width_ratio  = 0.8
+let g:any_jump_window_height_ratio = 0.9
 " Normal mode: open previous opened file (after jump)
 " nnoremap <leader>ab :AnyJumpBack<CR>
 " Normal mode: open last closed search window again
