@@ -1,5 +1,10 @@
 {
     "coc.preferences.enableFloatHighlight": true,
+    "explorer.quitOnOpen": true,
+    "explorer.file.column.indent.indentLine": true,
+    "explorer.file.showHiddenFiles": false,
+    "explorer.icon.enableNerdfont": true,
+    "explorer.buffer.showHiddenBuffers": false,
     "suggest.autoTrigger": "always",
     "suggest.noselect": true,
     "suggest.timeout": 5000,
@@ -32,10 +37,5 @@
     "diagnostic.refreshOnInsertMode": false,
     "diagnostic.checkCurrentLine": true,
     "diagnostic.virtualTextPrefix": " ❯❯❯ ",
-    "diagnostic.virtualText": true,
-    "explorer.quitOnOpen": true,
-    "explorer.file.column.indent.indentLine": true,
-    "explorer.file.showHiddenFiles": true,
-    "explorer.icon.enableNerdfont": true,
-    "explorer.buffer.showHiddenBuffers": false
+    "diagnostic.virtualText": true
 }
