@@ -1,7 +1,7 @@
 {
     "coc.preferences.enableFloatHighlight": true,
     "suggest.autoTrigger": "always",
-    "suggest.noselect": false,
+    "suggest.noselect": true,
     "suggest.timeout": 5000,
     "suggest.enablePreview": true,
     "suggest.floatEnable": true,
