@@ -1,4 +1,5 @@
 {
+    "coc.source.around.enable": false,
     "coc.preferences.enableFloatHighlight": true,
     "explorer.quitOnOpen": true,
     "explorer.file.column.indent.indentLine": true,
