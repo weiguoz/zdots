@@ -107,6 +107,9 @@ nnoremap <space>e :CocCommand explorer<CR>
 " let g:ale_lint_on_text_changed = 'always' " normal
 " " You can disable this option too
 " " if you don't want linters to run on opening a file
+" nmap <Leader>l :ALEToggle<CR>
+" nmap E <Plug>(ale_previous_wrap)
+" nmap e <Plug>(ale_next_wrap)
 " let g:ale_lint_on_enter = '0'
 " let g:ale_lint_on_save = '1'
 " let g:ale_list_window_size = 4
