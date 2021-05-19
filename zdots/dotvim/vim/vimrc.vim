@@ -8,7 +8,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'NLKNguyen/papercolor-theme'
 " replaced by https://github.com/weirongxu/coc-explorer
 " Plug 'preservim/nerdtree'
-Plug 'majutsushi/tagbar'
+" replaced by vista.vim
+" Plug 'majutsushi/tagbar'
+Plug 'liuchengxu/vista.vim'
 " statusbar
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-rooter'
