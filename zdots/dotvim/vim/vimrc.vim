@@ -171,7 +171,6 @@ nmap <c-c> :ChooseWin<CR>
 " vnoremap x "_x
 " set clipboard=unnamed
 
-" nmap <Leader>l :ALEToggle<CR>
 nmap <leader>a :AsyncRun<space>
 " fzf quicks +++
 " https://stackoverflow.com/a/32047331/479812
@@ -203,8 +202,6 @@ endfunction
 " nmap <silent>ge :call cursor(0, len(getline('.'))/2)<CR>
 nmap ge $
 
-" nmap E <Plug>(ale_previous_wrap)
-" nmap e <Plug>(ale_next_wrap)
 " movements in the insert mode
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
