@@ -159,6 +159,7 @@ nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 33)<CR>
 nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 33)<CR>
 " nmap <Leader>j :call GotoJump()<CR>
 
+map  <c-n> :tabnew<CR>
 imap <c-c> <ESC> :w<CR>l
 omap <c-c> <ESC> :w<CR>l
 nnoremap <leader>w :call Write()<CR>
@@ -220,7 +221,8 @@ inoremap <C-b> <S-Left>
 cnoreabbrev w!! w !sudo tee >/dev/null %
 " }}}
 
+autocmd BufNewFile *.sh,*.py,*.c,*.cpp,*.h,*.hpp,*.hxx,*.hh exec ":call SetTitle()"
+" autocmd BufWrite *.sh,*py if getline(6) != "# Modify Author: ".expand("$USER") || split(getline(7))[3] != strftime("%F") | call ModifyTitle() | endif
 " Expose functions defined in lib.vim
 au FileType cpp,c command! -nargs=0 Crun :call CompileCxxAndRun()
-au FileType cpp,c,python command! -nargs=0 Adddesc :call AddDesc()
 au FileType * command! -nargs=0 Cleanemptybuffers :call CleanEmptyBuffers()

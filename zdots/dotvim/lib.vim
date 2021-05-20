@@ -41,17 +41,17 @@ function! MoveRatioOfWindow(move, r)
 endfunction
 
 function! GotoJump()
-  jumps
-  let j = input("Please select your jump: ")
-  if j != ''
-    let pattern = '\v\c^\+'
-    if j =~ pattern
-      let j = substitute(j, pattern, '', 'g')
-      execute "normal " . j . "\<c-i>"
-    else
-      execute "normal " . j . "\<c-o>"
+    jumps
+    let j = input("Please select your jump: ")
+    if j != ''
+        let pattern = '\v\c^\+'
+        if j =~ pattern
+            let j = substitute(j, pattern, '', 'g')
+            execute "normal " . j . "\<c-i>"
+        else
+            execute "normal " . j . "\<c-o>"
+        endif
     endif
-  endif
 endfunction
 " }}}
 
@@ -72,51 +72,6 @@ func! CompileCxxAndRun()
         silent exec "!rm -rf %< %<.dSYM"
     endif
 endfunc
-" }}}
-
-" {{{ header help
-function! AddDesc()
-    call AddTemplate()
-    call AddTitle()
-    exec "w"
-endf
-
-function! AddTitle()
-    if (&filetype=="c" || &filetype=="cpp" || &filetype=="cxx")
-        call append(0, "/*+++++++++++++++++++++++ <Description> ++++++++++++++++++++++++++")
-        call append(1, " * @Brief:")
-        call append(2, " *")
-        call append(3, " * @History:")
-        call append(4, " * ---------------------------------")
-        call append(5, " * @author: w7u created [".strftime("%Y-%m-%d")."]")
-        call append(6, " *")
-        call append(7, " * -------------------------------------------------------------*/")
-    else
-        call append(0, "# +++++++++++++++++++++++++ <Description> +++++++++++++++++++++++++++++++")
-        call append(1, "# @Brief:")
-        call append(2, "#")
-        call append(3, "# @History:")
-        call append(4, "# ---------------------------------")
-        call append(5, "# @author: w7u created [".strftime("%Y-%m-%d")."]")
-        call append(6, "#")
-        call append(7, "# -------------------------------------------------------------------------")
-    endif
-endf
-
-function! AddTemplate()
-    if (&filetype=="c" || &filetype=="cpp" || &filetype=="cxx")
-        call append(0, "#include <cstdio>")
-        let index=1
-    else
-        return
-    endif
-    call append(index+1, "#ifdef DBG")
-    call append(index+2, "int main() {")
-    call append(index+3, "    printf(\"TODO\\n\");")
-    call append(index+4, "	return 0;")
-    call append(index+5, "}")
-    call append(index+6, "#endif")
-endf
 " }}}
 
 " {{{ self define statusline replaced by : vim-airline/vim-airline
@@ -150,8 +105,43 @@ endf
 " }}}
 
 function! Write()
-    if (&filetype=="cpp" || &filetype=="c" || &filetype=="h" )
+    if (&filetype=="cpp" || &filetype=="c")
         exe "ClangFormat"
     endif
     exe "w"
 endfunction
+
+func SetTitle()
+    if (&filetype == 'sh' || &filetype == 'python')
+        if &filetype == 'sh'
+            call setline(1, "\#!/bin/sh")
+        else
+            call setline(1, "\#!/usr/bin/python")
+        endif
+        call append(line("."), "\#****************************************************************#")
+        call append(line(".")+1, "\# ".expand("$USER")." created ".expand("%")." at ".strftime("%F %R"))
+        call append(line(".")+2, "\# Function:")
+        call append(line(".")+3, "\#***************************************************************#")
+        call append(line(".")+4, "")
+        :4
+    elseif (&filetype == "cpp" || &filetype == "c")
+        call setline(1, "\/**")
+        call append(line("."), "\ * ".expand("$USER")." created ".expand("%")." at ".strftime("%F %R"))
+        call append(line(".")+1, "\ *")
+        call append(line(".")+2, "\ * Description:")
+        call append(line(".")+3, "\ */")
+        call append(line(".")+4, "")
+        if expand('%:e') =~? '\v^h%(pp|h|\+\+|xx)?$'
+            :4
+        else
+            call append(line(".")+5, "#include <cstdio>")
+            call append(line(".")+6, "")
+            call append(line(".")+7, "int main() {")
+            call append(line(".")+8, "    printf(\"TODO\\n\");")
+            call append(line(".")+9, "    return 0;")
+            call append(line(".")+10, "}")
+            :10
+        endif
+    endif
+endfunc
+" }}}
