@@ -105,7 +105,7 @@ endf
 " }}}
 
 function! Write()
-    if (&filetype=="cpp" || &filetype=="c")
+    if (&filetype=="c" || &filetype=="cpp")
         exe "ClangFormat"
     endif
     exe "w"
@@ -124,7 +124,7 @@ func SetTitle()
         call append(line(".")+3, "\#***************************************************************#")
         call append(line(".")+4, "")
         :4
-    elseif (&filetype == "cpp" || &filetype == "c")
+    elseif (&filetype == "c" || &filetype == "cpp")
         call setline(1, "\/**")
         call append(line("."), "\ * ".expand("$USER")." created ".expand("%")." at ".strftime("%F %R"))
         call append(line(".")+1, "\ *")
@@ -134,7 +134,11 @@ func SetTitle()
         if expand('%:e') =~? '\v^h%(pp|h|\+\+|xx)?$'
             :4
         else
-            call append(line(".")+5, "#include <cstdio>")
+            if &filetype == "c"
+                call append(line(".")+5, "#include <stdio.h>")
+            else
+                call append(line(".")+5, "#include <cstdio>")
+            endif
             call append(line(".")+6, "")
             call append(line(".")+7, "int main() {")
             call append(line(".")+8, "    printf(\"TODO\\n\");")
