@@ -10,8 +10,6 @@
 " autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " " }}}
 
-let g:interestingWordsCycleColors=1 " interestingwords
-
 " " {{{ YouCompleteMe
 " let g:ycm_global_ycm_extra_conf='~/.vim/plugged/YouCompleteMe/third_party/ycmd/.ycm_extra_conf.py'
 " let g:ycm_confirm_extra_conf=1

@@ -22,7 +22,6 @@ Plug 't9md/vim-choosewin'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " Plug 'dense-analysis/ale' replaced by coc
-Plug 'lfv89/vim-interestingwords'
 " https://github.com/MattesGroeger/vim-bookmarks#usage
 Plug 'MattesGroeger/vim-bookmarks'
 " such as: AsyncRun tmux send-keys -t2 \"go test\" enter
