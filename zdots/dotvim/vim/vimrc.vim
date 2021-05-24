@@ -176,10 +176,10 @@ nmap <leader>a :AsyncRun<space>
 " https://stackoverflow.com/a/32047331/479812
 map <leader>f :Files<CR>
 map <leader>b :Buffers<CR>
-map <leader>/ :Rg 
+nmap <leader>/ *
 " fzf quicks ---
 " quickfix ++
-nmap <leader>c :cclose<CR>
+nmap <leader>q :cclose<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 " Automatically fitting a quickfix window height
 au FileType qf call AdjustWindowHeight(3, 10)
