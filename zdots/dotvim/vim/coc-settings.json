@@ -1,7 +1,6 @@
 {
     "codeLens.enable": true,
-    "coc.source.around.enable": false,
-    "coc.preferences.hoverTarget": "preview",
+    "coc.source.around.enable": true,
     "coc.preferences.enableFloatHighlight": true,
     "languageserver": {
         "golang": {
