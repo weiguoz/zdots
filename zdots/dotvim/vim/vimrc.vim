@@ -163,7 +163,7 @@ imap <c-c> <ESC> :w<CR>l
 omap <c-c> <ESC> :w<CR>l
 nnoremap <leader>w :call Write()<CR>
 nmap <Leader>o :only<CR>
-nmap <c-c> :ChooseWin<CR>
+nmap cc :ChooseWin<CR>
 
 " map paste, yank and delete
 " set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
