@@ -174,6 +174,11 @@ nnoremap <space>e :CocCommand explorer<CR>
 "             \ 'ctagsargs' : '-sort -silent'
 "             \ }
 " "}}}
+
+" {{{ dstein64/vim-win
+map - <plug>WinWin
+" }}}
+
 "{{{ liuchengxu/vista.vim
 noremap <leader>v :silent! Vista finder coc<CR>
 let g:vista_default_executive = 'coc'
