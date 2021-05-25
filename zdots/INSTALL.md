@@ -8,6 +8,7 @@
 1. [delta](https://github.com/dandavison/delta) helps git diff. `brew install git-delta`
 1. [clang-format](https://formulae.brew.sh/formula/clang-format) `brew install clang-format && clang-format -style="{BasedOnStyle: Google, IndentWidth: 4}" -dump-config > ~/.clang-format`
 1. [ctags](https://github.com/universal-ctags/ctags) is a maintained implementation of ctags. `brew install --HEAD universal-ctags/universal-ctags/universal-ctags`
+1. [ranger](https://github.com/ranger/ranger) is a console file manager with VI key bindings. install in mac: `pip3 install ranger-fm`
 
 ## zsh
 
