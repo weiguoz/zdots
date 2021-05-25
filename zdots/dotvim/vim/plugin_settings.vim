@@ -177,6 +177,7 @@ nnoremap <space>e :CocCommand explorer<CR>
 
 " {{{ dstein64/vim-win
 map - <plug>WinWin
+let g:win_ext_command_map = {"\<cr>": 'Win#exit'}
 " }}}
 
 "{{{ liuchengxu/vista.vim
