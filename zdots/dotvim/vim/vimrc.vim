@@ -1,8 +1,8 @@
-""" Author: w e i g u o z@github
+""" Author: weiguoz@GitHub
 """ Events:
 """ - 2005 created this file by Guanjun Zhang's helping
 
-filetype off                   " 必须先关闭文件类型检查
+filetype off " 必须先关闭文件类型检查
 " {{{ vim-plug, turn vundle/bundle to vim-plugin at 2019.11.18
 call plug#begin('~/.vim/plugged')
 Plug 'NLKNguyen/papercolor-theme'
@@ -163,6 +163,7 @@ imap <c-c> <ESC> :w<CR>l
 omap <c-c> <ESC> :w<CR>l
 nnoremap <leader>w :call Write()<CR>
 nmap <Leader>o :only<CR>
+nmap qq :q<CR>
 nmap cc :ChooseWin<CR>
 
 " map paste, yank and delete
