@@ -1,19 +1,3 @@
-" {{{ CleanWin32Toolbar
-function! CleanWin32Toolbar()
-    if has("win32") " Fix findstr for Win32
-        set grepprg=findstr\ /R\ /S\ /N
-        " 设置初始窗口位置、大小
-        if has("gui")
-            set guioptions-=T " 隐藏gVim工具栏，set go=" 隐藏工具栏和菜单栏
-            set guioptions-=L " 隐藏gVim左边滚动条
-            set lines=35
-            set columns=150
-            winpos 0 0
-        endif
-    endif
-endf
-" }}}
-
 " undo3 {{{
 function! DirUndo()
     if v:version>=703
@@ -104,6 +88,7 @@ function! CleanEmptyBuffers()
 endf
 " }}}
 
+" {{{ SetTitle
 function! Write()
     if (&filetype=="c" || &filetype=="cpp")
         exe "ClangFormat"
