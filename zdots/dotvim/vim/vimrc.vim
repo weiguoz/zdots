@@ -66,8 +66,8 @@ call DirUndo()
 " general settings {{{
 let mapleader = " " " Leader is the space key
 let g:mapleader = " "
-let maplocalleader = "`"
-let g:maplocalleader = "`"
+let maplocalleader = " "
+let g:maplocalleader = " "
 nnoremap <SPACE> <Nop>
 " 自动补全
 " 让vim的补全菜单行为与一般ide一致
