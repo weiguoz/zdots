@@ -163,7 +163,7 @@ imap <c-c> <ESC> :w<CR>l
 omap <c-c> <ESC> :w<CR>l
 nnoremap <leader>w :call Write()<CR>
 nmap <Leader>o :only<CR>
-nmap qq :q<CR>
+nmap zz :q<CR>
 nmap cc :ChooseWin<CR>
 
 " map paste, yank and delete
