@@ -27,7 +27,7 @@ Plug 'MattesGroeger/vim-bookmarks'
 " such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 Plug 'skywind3000/asyncrun.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go' replaced by coc
 " {{{ git plugins
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
@@ -118,34 +118,29 @@ colorscheme PaperColor " Also, I like monokai-bold PaperColor herald 256-jungle 
 " let g:airline_theme = "palenight"
 " }}}
 
-"{{{ golang
-" vim-go 默认使用 guru 做跳转，太慢了. 根据
-" https://github.com/fatih/vim-go/issues/887#issuecomment-224107754
-" 中途我换过 godef,  在2019 年 10 月开始换成 gopls
-let g:go_def_mode = 'gopls'
-
-"" https://github.com/golang/lint
-" set rtp+=/path/to/go/src/golang.org/x/lint/misc/vim
-" invoke gofmt without plugin using `au BufWritePost *.go silent !gofmt -w %`
-" then `set autoread` to reload buffer
-let g:go_fmt_autosave=1
-let g:go_fmt_command = "goimports"
-" autocmd BufWritePost,FileWritePost *.go silent execute 'GoMetaLinter' | cwindow
-
-" GoMetaLinter invoke all possible linters (golint, vet, errcheck, deadcode, etc.) and put
-" the result in the quickfix or location list.
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_types = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
-
-au FileType go nmap gr :GoReferrers<CR>
-au FileType go nmap ds :GoDefStack<CR>
-au FileType go nmap gv <Plug>(go-def-vertical)
-au FileType go nmap <leader>T <Plug>(go-test)
-" }}}
+" "{{{ golang
+" "" https://github.com/golang/lint
+" " set rtp+=/path/to/go/src/golang.org/x/lint/misc/vim
+" " invoke gofmt without plugin using `au BufWritePost *.go silent !gofmt -w %`
+" " then `set autoread` to reload buffer
+" let g:go_fmt_autosave=1
+" let g:go_fmt_command = "goimports"
+" " autocmd BufWritePost,FileWritePost *.go silent execute 'GoMetaLinter' | cwindow
+"
+" " GoMetaLinter invoke all possible linters (golint, vet, errcheck, deadcode, etc.) and put
+" " the result in the quickfix or location list.
+" let g:go_highlight_functions = 1
+" let g:go_highlight_methods = 1
+" let g:go_highlight_fields = 1
+" let g:go_highlight_types = 1
+" let g:go_highlight_operators = 1
+" let g:go_highlight_build_constraints = 1
+"
+" au FileType go nmap gr :GoReferrers<CR>
+" au FileType go nmap ds :GoDefStack<CR>
+" au FileType go nmap gv <Plug>(go-def-vertical)
+" au FileType go nmap <leader>T <Plug>(go-test)
+" " }}}
 
 " {{{ trailing whitespace, tail/end
 highlight ExtraWhitespace ctermbg=red guibg=red
