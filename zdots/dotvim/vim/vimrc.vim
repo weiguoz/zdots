@@ -14,7 +14,7 @@ Plug 'liuchengxu/vista.vim'
 " statusbar
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-rooter'
-Plug 't9md/vim-choosewin'
+Plug 'dstein64/vim-win'
 " 1. kien/ctrlp.vim & vim-scripts/mru.vim --> replaced by LeaderF by Yggdroot@newsmth
 " 2. LeaderF replaced by fzf : Files
 " Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
@@ -164,7 +164,6 @@ omap <c-c> <ESC> :w<CR>l
 nnoremap <leader>w :call Write()<CR>
 nmap <Leader>o :only<CR>
 nmap zz :q<CR>
-nmap cc :ChooseWin<CR>
 
 " map paste, yank and delete
 " set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
