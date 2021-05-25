@@ -58,7 +58,7 @@ endfunction
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " {{{ coc-explorer
-nnoremap <space>e :CocCommand explorer<CR>
+nnoremap <leader>e :CocCommand explorer<CR>
 " }}}
 " }}}
 
@@ -229,4 +229,10 @@ let g:any_jump_window_height_ratio = 0.9
 nnoremap <leader>J :AnyJumpBack<CR>
 " Normal mode: open last closed search window again
 " nnoremap <leader>al :AnyJumpLastResults<CR>
+" }}}
+
+" {{{ francoiscabrol/ranger.vim
+let g:ranger_map_keys = 0
+let g:ranger_open_new_tab = 1
+nmap <leader>E :Ranger<CR>
 " }}}

@@ -29,6 +29,7 @@ Plug 'mhinz/vim-startify'
 Plug 'pechorin/any-jump.vim'
 " {{{ 试用期
 Plug 'simnalamburt/vim-mundo'
+Plug 'francoiscabrol/ranger.vim'
 " }}}
 call plug#end()
 " }}}
