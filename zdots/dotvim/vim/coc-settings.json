@@ -4,14 +4,9 @@
     "coc.preferences.enableFloatHighlight": true,
     "languageserver": {
         "golang": {
-            "command": "gopls",
+            "command": "$GOPATH/bin/gopls",
             "rootPatterns": ["go.mod"],
-            "filetypes": ["go"],
-            "initializationOptions": {
-                "gocodeCompletionEnabled": true,
-                "diagnosticsEnabled": true,
-                "lintTool": "golint"
-            }
+            "filetypes": ["go"]
         },
         "clangd": {
             "command": "/Library/Developer/CommandLineTools/usr/bin/clangd",
