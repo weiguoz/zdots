@@ -4,10 +4,6 @@ let g:coc_global_extensions = [
             \ 'coc-explorer',
             \ 'coc-pyright',
             \ 'coc-snippets']
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -43,7 +39,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> rn <Plug>(coc-rename)
 
-" Use K to show documentation in preview window.
+" Use h to show documentation in preview window.
 nnoremap <leader>h :call <SID>show_documentation()<CR>
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -234,5 +230,5 @@ nnoremap <leader>J :AnyJumpBack<CR>
 " {{{ francoiscabrol/ranger.vim
 let g:ranger_map_keys = 0
 let g:ranger_open_new_tab = 1
-nmap <leader>E :Ranger<CR>
+nmap <c-e> :Ranger<CR>
 " }}}
