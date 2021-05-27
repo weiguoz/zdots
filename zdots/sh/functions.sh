@@ -2,16 +2,6 @@
 
 ### invoked by .zshenv
 
-solrversion2date() {
-    if [ $# -eq 1 ]; then
-        date -r `expr $1 / 1024 / 1024 / 1000`
-    fi
-}
-
-cs() {
-    builtin cd "$1" && ls -lh
-}
-
 tellme() {
     ## brew install terminal-notifier
     msg="NULL"
@@ -21,7 +11,7 @@ tellme() {
     terminal-notifier -title "w7u" -message "$msg"
 }
 
-## funny for my little son
+## funny for my kids
 wgg() {
     LOOP=1
     if [ $# -gt 0 ]; then
@@ -64,8 +54,8 @@ pc() {
     fi
 }
 
-# Control the pip version in virtualenv
-# https://stackoverflow.com/a/58775012
+## Control the pip version in virtualenv
+## https://stackoverflow.com/a/58775012
 ve() {
     local py="python3"
     if [ ! -d ./.venv ]; then
@@ -84,7 +74,7 @@ ve() {
     fi
 }
 
+## used in export.sh
 uniq_csv() {
     echo "$1" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }'
 }
-
