@@ -53,7 +53,7 @@ rgr() {
 				--phony -q "$1" \
 				--bind "change:reload:$RG_PREFIX {q}" \
 				--preview-window="70%:wrap"
-	)" && echo "opening $file" && open "$file"
+	)" && echo "$file"
 }
 
 ## Use ~~ as the trigger sequence instead of the default **
