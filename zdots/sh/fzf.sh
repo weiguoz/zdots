@@ -44,10 +44,19 @@ gig() {
   $gitlog | $fzf
 }
 
-f() {
-    if [ ! "$#" -gt 0 ]; then echo "Specific the {query}"; return 1; fi
-    local file
-    file="$(rga --max-count=1 --ignore-case --files-with-matches --no-messages "$*" | fzf-tmux +m --preview="rga --ignore-case --pretty --context 10 '"$*"' {}")" && open "$file" || return 1;
+fz() {
+	RG_PREFIX="rga --ignore-case --files-with-matches"
+	local file
+    # file="$(rga --max-count=1 --ignore-case --files-with-matches --no-messages "$*" | fzf-tmux +m --preview="rga --ignore-case --pretty --context 10 '"$*"' {}")" && open "$file" || return 1;
+	file="$(
+		FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
+			fzf --sort --preview="[[ ! -z {} ]] && rga --ignore-case --pretty --context 5 {q} {}" \
+				--phony -q "$1" \
+				--bind "change:reload:$RG_PREFIX {q}" \
+				--preview-window="70%:wrap"
+	)" &&
+	echo "opening $file" &&
+	xdg-open "$file"
 }
 
 ## Use ~~ as the trigger sequence instead of the default **
