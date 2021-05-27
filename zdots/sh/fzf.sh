@@ -44,7 +44,7 @@ gig() {
   $gitlog | $fzf
 }
 
-fz() {
+rgr() {
 	RG_PREFIX="rga --ignore-case --files-with-matches"
     # file="$(rga --max-count=1 --ignore-case --files-with-matches --no-messages "$*" | fzf-tmux +m --preview="rga --ignore-case --pretty --context 10 '"$*"' {}")" && open "$file" || return 1;
 	local file="$(
@@ -53,7 +53,7 @@ fz() {
 				--phony -q "$1" \
 				--bind "change:reload:$RG_PREFIX {q}" \
 				--preview-window="70%:wrap"
-	)" && echo $file
+	)" && echo "opening $file" && open "$file"
 }
 
 ## Use ~~ as the trigger sequence instead of the default **
