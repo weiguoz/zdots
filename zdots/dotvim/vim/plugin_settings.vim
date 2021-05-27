@@ -230,5 +230,5 @@ nnoremap <leader>J :AnyJumpBack<CR>
 " {{{ francoiscabrol/ranger.vim
 let g:ranger_map_keys = 0
 let g:ranger_open_new_tab = 1
-nmap <c-e> :Ranger<CR>
+nmap <leader>l :Ranger<CR>
 " }}}
