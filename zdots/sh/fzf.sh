@@ -55,8 +55,7 @@ fz() {
 				--bind "change:reload:$RG_PREFIX {q}" \
 				--preview-window="70%:wrap"
 	)" &&
-	echo "opening $file" &&
-	xdg-open "$file"
+	echo "opening $file" && open "$file"
 }
 
 ## Use ~~ as the trigger sequence instead of the default **
