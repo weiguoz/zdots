@@ -45,11 +45,11 @@ gig() {
 }
 
 rgr() {
-	RG_PREFIX="rga --ignore-case --files-with-matches"
+	RG_PREFIX="rga --files-with-matches --smart-case --multiline" # --no-ignore: all files as `fd -I` does
     # file="$(rga --max-count=1 --ignore-case --files-with-matches --no-messages "$*" | fzf-tmux +m --preview="rga --ignore-case --pretty --context 10 '"$*"' {}")" && open "$file" || return 1;
 	local file="$(
 		FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
-			fzf --sort --preview="[[ ! -z {} ]] && rga --ignore-case --pretty --context 5 {q} {}" \
+			fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
 				--phony -q "$1" \
 				--bind "change:reload:$RG_PREFIX {q}" \
 				--preview-window="70%:wrap"
