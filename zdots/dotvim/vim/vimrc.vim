@@ -96,11 +96,10 @@ nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 33)<CR>
 nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 33)<CR>
 
 map  <c-n> :tabnew<CR>
-imap <c-c> <ESC> :call Write()<CR>
-omap <c-c> <ESC> :call Write()<CR>
-nnoremap <leader>w :call Write()<CR>
-nmap <Leader>o :only<CR>
-nmap zz :q<CR>
+imap <c-[> <ESC> :call Write('stay')<CR>
+omap <c-[> <ESC> :call Write('stay')<CR>
+nmap <leader>o :only<CR>
+nmap zz :call Write('quit')<CR>
 nmap <leader>/ *
 
 " quickfix ++
