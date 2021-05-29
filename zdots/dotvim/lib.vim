@@ -88,7 +88,7 @@ function! CleanEmptyBuffers()
 endf
 " }}}
 
-" {{{ SetTitle
+" {{{ Write & SetTitle
 function! Write(after)
     if (&filetype=="c" || &filetype=="cpp")
         exe "ClangFormat"
