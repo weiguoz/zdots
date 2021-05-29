@@ -89,11 +89,15 @@ endf
 " }}}
 
 " {{{ SetTitle
-function! Write()
+function! Write(after)
     if (&filetype=="c" || &filetype=="cpp")
         exe "ClangFormat"
     endif
-    exe "w"
+    if a:after == 'quit'
+        exe "wq"
+    else
+        exe "w"
+    endif
 endfunction
 
 func SetTitle()
