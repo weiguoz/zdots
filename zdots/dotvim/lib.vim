@@ -90,10 +90,10 @@ endf
 
 " {{{ Write & SetTitle
 function! Write(after)
-    if (&filetype=="c" || &filetype=="cpp")
-        exe "ClangFormat"
-    endif
     if a:after == 'quit'
+        if (&filetype=="c" || &filetype=="cpp")
+            exe "ClangFormat"
+        endif
         exe "wq"
     else
         exe "w"
