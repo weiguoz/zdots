@@ -97,6 +97,7 @@ nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 33)<CR>
 
 imap <c-[> <ESC> :call Write('stay')<CR>l
 omap <c-[> <ESC> :call Write('stay')<CR>l
+nmap <c-[> :call Write('stay')<CR>
 nmap zz :call Write('quit')<CR>
 nmap <leader>o :only<CR>
 nmap <leader>/ *
