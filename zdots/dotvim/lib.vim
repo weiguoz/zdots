@@ -88,18 +88,7 @@ function! CleanEmptyBuffers()
 endf
 " }}}
 
-" {{{ Write & SetTitle
-function! Write(after)
-    if a:after == 'quit'
-        if (&filetype=="c" || &filetype=="cpp")
-            exe "ClangFormat"
-        endif
-        exe "wq"
-    else
-        exe "w"
-    endif
-endfunction
-
+" {{{ SetTitle
 func SetTitle()
     if (&filetype == 'sh' || &filetype == 'python')
         if &filetype == 'sh'

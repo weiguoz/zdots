@@ -95,10 +95,10 @@ command! -range=% TrimWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>
 nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 33)<CR>
 nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 33)<CR>
 
-imap <c-w> <ESC> :call Write('stay')<CR>l
-omap <c-w> <ESC> :call Write('stay')<CR>l
-nmap <c-w> :call Write('stay')<CR>
-nmap zz :call Write('quit')<CR>
+imap <c-c> <ESC> :exec 'w'<CR>l
+omap <c-c> <ESC> :exec 'w'<CR>l
+nmap <c-c> :exec 'w'<CR>l
+nmap zz :exec 'wq'<CR>
 nmap <leader>o :only<CR>
 nmap <leader>/ *
 map  <c-n> :tabnew<CR>
