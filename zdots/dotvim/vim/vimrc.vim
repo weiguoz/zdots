@@ -97,11 +97,14 @@ command! -range=% TrimWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>
 nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 33)<CR>
 nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 33)<CR>
 
-imap <c-e> <ESC> :exec 'w'<CR>l
-omap <c-e> <ESC> :exec 'w'<CR>l
-nmap <c-e> :exec 'w'<CR>
-cmap <c-e> <ESC>
-nmap zz :exec 'wq'<CR>
+" 在正常模式和插入模式快速跳到行首行尾
+" nmap <silent>ge :call cursor(0, len(getline('.'))/2)<CR>
+nnoremap <c-a> 0
+nnoremap <c-e> $
+inoremap <c-a> <esc>I
+inoremap <c-e> <esc>A
+nmap <leader>w :exec 'w'<CR>
+nmap zz :exec 'q'<CR>
 nmap <leader>o :only<CR>
 nmap <leader>/ *
 map  <c-n> :tabnew<CR>
@@ -126,9 +129,6 @@ function! AdjustWindowHeight(minheight, maxheight)
 endfunction
 
 """ {{{ movement
-" nmap <silent>ge :call cursor(0, len(getline('.'))/2)<CR>
-nmap ge $
-
 " movements in the insert mode
 inoremap <C-h> <Left>
 inoremap <C-j> <Down>
