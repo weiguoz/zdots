@@ -100,6 +100,7 @@ nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 33)<CR>
 imap <c-e> <ESC> :exec 'w'<CR>l
 omap <c-e> <ESC> :exec 'w'<CR>l
 nmap <c-e> :exec 'w'<CR>
+cmap <c-e> <ESC>
 nmap zz :exec 'wq'<CR>
 nmap <leader>o :only<CR>
 nmap <leader>/ *
