@@ -130,12 +130,12 @@ endfunction
 
 """ {{{ movement
 " movements in the insert mode
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
-inoremap <C-w> <S-Right>
-inoremap <C-b> <S-Left>
+inoremap <c-h> <Left>
+inoremap <c-j> <Down>
+inoremap <c-k> <Up>
+inoremap <c-l> <Right>
+inoremap <c-w> <S-Right>
+inoremap <c-b> <S-Left>
 " buffer
 " nnoremap <silent>   <tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 " nnoremap <silent> <s-tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>
@@ -147,6 +147,6 @@ cnoreabbrev w!! w !sudo tee >/dev/null %
 
 autocmd BufNewFile *.sh,*.py,*.c,*.cpp,*.h,*.hpp,*.hxx,*.hh exec ":call SetTitle()"
 " autocmd BufWrite *.sh,*py if getline(6) != "# Modify Author: ".expand("$USER") || split(getline(7))[3] != strftime("%F") | call ModifyTitle() | endif
-" Expose functions defined in lib.vim
+" Exposed functions defined in lib.vim
 au FileType cpp,c command! -nargs=0 Crun :call CompileCxxAndRun()
 au FileType * command! -nargs=0 Cleanemptybuffers :call CleanEmptyBuffers()
