@@ -152,7 +152,7 @@ let g:any_jump_disable_vcs_ignore = 0
 " {{{ fzf buffers <- so I remove the buftabline from my plugins
 " fzf quicks
 map <leader>f :Files<CR>
-map <leader>b :Buffers<CR>
+map <leader>b :Buffers0<CR>
 
 let g:fzf_buffers_jump = 1
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
