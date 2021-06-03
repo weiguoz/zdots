@@ -4,7 +4,7 @@
 # https://asciinema.org/a/257939
 
 # git log show with fzf
-gig() {
+g() {
   # param validation
   if [[ ! `git log -n 1 "$@" | head -n 1` ]]; then
     return
@@ -44,7 +44,7 @@ gig() {
   $gitlog | $fzf
 }
 
-rgr() {
+q() {
 	RG_PREFIX="rga --files-with-matches --smart-case --multiline" # --no-ignore: all files as `fd -I` does
     # file="$(rga --max-count=1 --ignore-case --files-with-matches --no-messages "$*" | fzf-tmux +m --preview="rga --ignore-case --pretty --context 10 '"$*"' {}")" && open "$file" || return 1;
 	local file="$(
