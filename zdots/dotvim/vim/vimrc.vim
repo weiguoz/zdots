@@ -147,7 +147,7 @@ inoremap <c-b> <S-Left>
 cnoreabbrev w!! w !sudo tee >/dev/null %
 " }}}
 
-autocmd BufNewFile *.sh,*.py,*.c,*.cpp,*.h,*.hpp,*.hxx,*.hh exec ":call SetTitle()"
+autocmd BufNewFile *.go,*.sh,*.py,*.c,*.cpp,*.h,*.hpp,*.hxx,*.hh exec ":call SetTitle()"
 " autocmd BufWrite *.sh,*py if getline(6) != "# Modify Author: ".expand("$USER") || split(getline(7))[3] != strftime("%F") | call ModifyTitle() | endif
 " Exposed functions defined in lib.vim
 au FileType cpp,c,go command! -nargs=0 Crun :call CompileAndRun()

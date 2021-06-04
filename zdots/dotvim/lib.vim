@@ -127,6 +127,15 @@ func SetTitle()
             call append(line(".")+10, "}")
             :10
         endif
+    elseif (&filetype == "go")
+        call setline(1, "package main")
+        call append(line("."), "")
+        call append(line(".")+1, "import \"fmt\"")
+        call append(line(".")+2, "")
+        call append(line(".")+3, "func main() {")
+        call append(line(".")+4, "\tfmt.Println(\"hello\")")
+        call append(line(".")+5, "}")
+        :1
     endif
 endfunc
 " }}}
