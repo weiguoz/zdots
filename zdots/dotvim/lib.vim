@@ -40,13 +40,16 @@ endfunction
 " }}}
 
 " {{{ complie a single cpp/c file & run
-func! CompileCxxAndRun()
+func! CompileAndRun()
     silent exe "w"
     " compile_args=-DDBG -Wall -Wextra -Werror -Wconversion -Wshadow -g -std=c++11
     if (&filetype=="c")
         exec "!clang   -DDBG -Wall -Wextra -Werror -Wshadow -g -o %< %"
     elseif (&filetype=="cpp")
         exec "!clang++ -DDBG -Wall -Wextra -Werror -Wshadow -g -std=c++20 -o %< %"
+    elseif (&filetype=="go")
+        exec "!go run %"
+        return
     else
         echohl WarningMsg | echo "filetype["&filetype"] isn't a c/cpp file" | echohl None
         return
