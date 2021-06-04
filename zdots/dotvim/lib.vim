@@ -122,7 +122,7 @@ func SetTitle()
             endif
             call append(line(".")+6, "")
             call append(line(".")+7, "int main() {")
-            call append(line(".")+8, "    printf(\"TODO\\n\");")
+            call append(line(".")+8, "    printf(\"Hello\\n\");")
             call append(line(".")+9, "    return 0;")
             call append(line(".")+10, "}")
             :10
@@ -133,7 +133,7 @@ func SetTitle()
         call append(line(".")+1, "import \"fmt\"")
         call append(line(".")+2, "")
         call append(line(".")+3, "func main() {")
-        call append(line(".")+4, "\tfmt.Println(\"hello\")")
+        call append(line(".")+4, "\tfmt.Println(\"Hello\")")
         call append(line(".")+5, "}")
         :1
     endif
