@@ -2,7 +2,7 @@
 
 1. [fzf](https://github.com/junegunn/fzf) is a general-purpose command-line fuzzy finder.
 1. [rg(ripgrep)](https://github.com/BurntSushi/ripgrep) is a line-oriented search tool that recursively searches the current directory for a regex pattern. `brew install rg`.
-    1. Similarly, [rga](https://github.com/phiresky/ripgrep-all) is a line-oriented search tool that allows you to look for a regex in a multitude of file types. `brew install rga`
+    1. Similarly, [rga](https://github.com/phiresky/ripgrep-all) is a line-oriented search tool that allows you to look for a regex in a multitude of file types. Not used yet.
 1. [navi](https://github.com/denisidoro/navi) is an interactive cheatsheet tool for the command-line and application launchers.
 1. [fd](https://github.com/sharkdp/fd) is a simple, fast and user-friendly alternative to [find](https://www.gnu.org/software/findutils/).
 1. [bat](https://github.com/sharkdp/bat) is a colorful cat. `brew install bat`
