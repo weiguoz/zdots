@@ -178,7 +178,7 @@ function! RGOpt(arg, fullscreen)
   let opts = join(filter(copy(tokens), 'v:val =~ "^-"'))
   let query = join(filter(copy(tokens), 'v:val !~ "^-"'))
 
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case '.opts.' -- %s || true'
+  let command_fmt = 'rg -N --column --no-heading --color=always --smart-case '.opts.' -- %s || true'
   let initial_command = printf(command_fmt, shellescape(query))
   let reload_command = printf(command_fmt, '{q}')
   let spec = {'options': ['--phony', '--query', query, '--bind', 'change:reload:'.reload_command]}
@@ -189,7 +189,7 @@ endfunction
 " :Rg -C2 -tgo <enter>, then> os.remove
 " :Rg os.remove<enter>
 command! -nargs=* -bang Rg call RGOpt(<q-args>, <bang>0)
-nmap <silent> q :exec 'Rg'<CR>
+nmap <silent> rg :exec 'Rg'<CR>
 " }}}
 
 "{{{ MattersGroeger/vim-bookmarks

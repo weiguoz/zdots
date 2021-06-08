@@ -4,7 +4,7 @@
 # https://asciinema.org/a/257939
 
 # git log show with fzf
-g() {
+gig() {
   # param validation
   if [[ ! `git log -n 1 "$@" | head -n 1` ]]; then
     return
@@ -44,12 +44,12 @@ g() {
   $gitlog | $fzf
 }
 
-q() {
-	RG_PREFIX="rga --files-with-matches --smart-case --multiline" # --no-ignore: all files as `fd -I` does
+rgr() {
+	RG_PREFIX="rg --files-with-matches --smart-case --multiline" # --no-ignore: all files as `fd -I` does
     # file="$(rga --max-count=1 --ignore-case --files-with-matches --no-messages "$*" | fzf-tmux +m --preview="rga --ignore-case --pretty --context 10 '"$*"' {}")" && open "$file" || return 1;
 	local file="$(
 		FZF_DEFAULT_COMMAND="$RG_PREFIX '$1'" \
-			fzf --sort --preview="[[ ! -z {} ]] && rga --pretty --context 5 {q} {}" \
+			fzf --sort --preview="[[ ! -z {} ]] && rg --pretty --context 5 {q} {}" \
 				--phony -q "$1" \
 				--bind "change:reload:$RG_PREFIX {q}" \
 				--preview-window="70%:wrap"
