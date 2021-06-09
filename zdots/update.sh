@@ -14,3 +14,10 @@ printf "Run \"zinit self-update && zinit update && zinit delete --clean\" manual
 # tnpm -g outdated
 # npm -g install webpack
 # npm update -g npm
+printf 'Against the unstable network disrupt by GFW:
+while [ $? -ne 0 ]; do
+    sleep 30
+    echo "going to pull from GitHub"
+    git pull -p
+done
+'
