@@ -41,23 +41,19 @@ endfunction
 
 " {{{ complie a single cpp/c file & run
 func! CompileAndRun()
-    silent exe "w"
-    " compile_args=-DDBG -Wall -Wextra -Werror -Wconversion -Wshadow -g -std=c++11
-    if (&filetype=="c")
-        exec "!clear && clang   -DDBG -Wall -Wextra -Werror -Wshadow -g -o %< %"
-    elseif (&filetype=="cpp")
-        exec "!clear && clang++ -DDBG -Wall -Wextra -Werror -Wshadow -g -std=c++20 -o %< %"
-    elseif (&filetype=="go")
+    let opt = "-DDBG -Wall -Wextra -Werror -Wshadow -g" " -Wconversion
+    if (&filetype == "c")
+        exec "!clear && clang ".opt." -o %< % && (./%< ; rm -rf %< %<.dSYM)"
+    elseif (&filetype == "cpp")
+        exec "!clear && clang++ ".opt." -std=c++20 -o %< % && (./%< ; rm -rf %< %<.dSYM)"
+    elseif (&filetype == "go")
         exec "!clear && go run %"
-        return
     else
-        echohl WarningMsg | echo "filetype["&filetype"] isn't a c/cpp file" | echohl None
-        return
+        echohl WarningMsg | echo &filetype" is not a kind of runnable filetype" | echohl None
     endif
-    if !v:shell_error
-        exec "!./%<"
-        silent exec "!rm -rf %< %<.dSYM"
-    endif
+    " if !v:shell_error
+    "   ...
+    " endif
 endfunc
 " }}}
 
