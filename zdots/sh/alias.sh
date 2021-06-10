@@ -7,10 +7,10 @@ alias md5sum='md5 -r'
 alias diff='icdiff'
 alias cp='cp -i'
 alias ls='exa'
-alias ls='ls -lh'
+alias ll='exa -l'
 alias l='ranger'
-alias lst='ls --long --tree'
-alias lh='ls -ld .?*' # ls hidden files
+alias lst='exa --long --tree'
+alias lh='exa -ld .?*' # ls hidden files
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
 alias sah='xargs grep -HLi'
 alias grep='grep --color=always' # -i -n -m(max=8)
