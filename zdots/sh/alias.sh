@@ -7,6 +7,7 @@ alias md5sum='md5 -r'
 alias diff='icdiff'
 alias cp='cp -i'
 alias ls='exa'
+alias ls='ls -lh'
 alias l='ranger'
 alias lst='ls --long --tree'
 alias lh='ls -ld .?*' # ls hidden files
