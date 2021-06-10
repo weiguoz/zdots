@@ -14,35 +14,32 @@
     You can manually use `ranger --copy-config=all` to generate the configuration(under `~/.config/ranger/) after installation.
     1. [ranger+fzf](https://github.com/ranger/ranger/wiki/Custom-Commands#fzf-integration), Add the following code to `commands.py`
         ```python
-        class fzf_select(Command):
-          """
-          :fzf_select
-
-          Find a file using fzf.
-
-          With a prefix argument select only directories.
-
-          See: https://github.com/junegunn/fzf
-          """
-          def execute(self):
-              import subprocess
-              import os.path
-              if self.quantifier:
-                  # match only directories
-                  command = 'fd --type d --hidden --follow -E ".git" -E "node_modules" . | fzf +m'
-              else:
-                  # match files and directories
-                  command = 'fd --hidden --follow -E ".git" -E "node_modules" . | fzf +m'
-              fzf = self.fm.execute_command(command,
-                                            universal_newlines=True,
-                                            stdout=subprocess.PIPE)
-              stdout, stderr = fzf.communicate()
-              if fzf.returncode == 0:
-                  fzf_file = os.path.abspath(stdout.rstrip('\n'))
-                  if os.path.isdir(fzf_file):
-                      self.fm.cd(fzf_file)
-                  else:
-                      self.fm.select_file(fzf_file)
+          class fzf_select(Command):
+            """
+            :fzf_select
+            Find a file using fzf.
+            With a prefix argument select only directories.
+            See: https://github.com/junegunn/fzf
+            """
+            def execute(self):
+                import subprocess
+                import os.path
+                if self.quantifier:
+                    # match only directories
+                    command = 'fd -I --type d --hidden --follow -E ".git" -E "node_modules" . | fzf +m'
+                else:
+                    # match files and directories
+                    command = 'fd -I --hidden --follow -E ".git" -E "node_modules" . | fzf +m'
+                fzf = self.fm.execute_command(command,
+                                              universal_newlines=True,
+                                              stdout=subprocess.PIPE)
+                stdout, stderr = fzf.communicate()
+                if fzf.returncode == 0:
+                    fzf_file = os.path.abspath(stdout.rstrip('\n'))
+                    if os.path.isdir(fzf_file):
+                        self.fm.cd(fzf_file)
+                    else:
+                        self.fm.select_file(fzf_file)
         ```
         Then, we could use `fzf` command inside the `ranger` by `:fzf_select`. In addition, for convenience, `map <c-t> fzf_select` can be added to `rc.Conf` as a shortcut.
 
