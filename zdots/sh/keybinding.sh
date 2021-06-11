@@ -10,3 +10,8 @@ bindkey "^l" forward-word   # alt+b/f
 bindkey "^h" backward-word
 bindkey "^k" kill-line # it looks disabled >= big sur 11.2.1
 bindkey -r '^j' # unbind
+
+# Edit the current command line in $EDITOR
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
