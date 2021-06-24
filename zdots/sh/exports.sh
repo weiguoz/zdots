@@ -12,26 +12,21 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-## Java
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk/Contents/Home
-export M2_HOME=/usr/local/share/maven
-iPATH=$JAVA_HOME:$M2_HOME/bin
-export CLASSPATH=".:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
-export CLASSPATH=".:/usr/local/lib/antlr-4.5.3-complete.jar:$CLASSPATH"
-### export CLOUDENGINE_HOME=/usr/local/share/cloudengine
-### iPATH=$iPATH:$CLOUDENGINE_HOME/bin
+### Java
+#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk/Contents/Home
+#export M2_HOME=/usr/local/share/maven
+#iPATH=$JAVA_HOME:$M2_HOME/bin
+#export CLASSPATH=".:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
 
 ## go
 export GOPATH=~/go
 iPATH=$iPATH:$GOPATH/bin
-iPATH=$iPATH:/usr/local/opt/go/bin
 
 ## homebrew
 iPATH=$iPATH:/opt/homebrew/bin
 
 ## only python3
-iPATH=$iPATH:/usr/local/opt/python@3/bin
-export PYTHONPATH=`uniq_csv "/usr/local/lib/python3.9/site-packages:$PYTHONPATH"`
+export PYTHONPATH=`uniq_csv "/opt/homebrew/lib/python3.9/site-packages:$PYTHONPATH"`
 
 ### export DYLD_LIBRARY_PATH=$MYSQL_HOME/lib:$DYLD_LIBRARY_PATH
 ### export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/Cellar/openssl/1.0.2s/include
