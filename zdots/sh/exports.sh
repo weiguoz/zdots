@@ -26,6 +26,9 @@ export GOPATH=~/go
 iPATH=$iPATH:$GOPATH/bin
 iPATH=$iPATH:/usr/local/opt/go/bin
 
+## homebrew
+iPATH=$iPATH:/opt/homebrew/bin
+
 ## only python3
 iPATH=$iPATH:/usr/local/opt/python@3/bin
 export PYTHONPATH=`uniq_csv "/usr/local/lib/python3.9/site-packages:$PYTHONPATH"`

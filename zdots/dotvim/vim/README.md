@@ -15,6 +15,10 @@ ln -s ~/zdots/dotvim/vim/coc-settings.json ~/.vim/
 
 ## Plugins
 
+### 插件管理器
+
+安装[vim-plug](https://github.com/junegunn/vim-plug#vim)
+
 ### 补全 coc
 
 YCM在随着Mac系统更新时，出的问题太多了，放弃使用并转向`coc.nvim`。使用`coc`时，需要:
