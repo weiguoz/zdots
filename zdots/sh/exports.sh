@@ -12,11 +12,11 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-### Java
-#export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk/Contents/Home
-#export M2_HOME=/usr/local/share/maven
-#iPATH=$JAVA_HOME:$M2_HOME/bin
-#export CLASSPATH=".:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
+## Java
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk/Contents/Home
+export CLASSPATH=".:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
+export M2_HOME=/usr/local/share/maven
+iPATH=$JAVA_HOME:$M2_HOME/bin
 
 ## go
 export GOPATH=~/go
