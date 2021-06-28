@@ -19,7 +19,7 @@ export M2_HOME=/usr/local/share/maven
 iPATH=$JAVA_HOME:$M2_HOME/bin
 
 ## go
-export GOPATH=~/go
+export GOPATH=/opt/go
 iPATH=$iPATH:$GOPATH/bin
 
 ## homebrew
