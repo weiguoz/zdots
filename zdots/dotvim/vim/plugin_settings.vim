@@ -53,7 +53,7 @@ endfunction
 
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-" {{{ coc-explorer replaces tree viewer for files
+" {{{ coc-explorer
 nnoremap <leader>e :CocCommand explorer<CR>
 " }}}
 " }}}
