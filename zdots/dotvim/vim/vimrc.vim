@@ -34,6 +34,7 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'simnalamburt/vim-mundo'
 " coc-snippets works with vim-snippets
 Plug 'honza/vim-snippets'
+Plug 'solarnz/thrift.vim'
 " }}}
 call plug#end()
 " }}}
