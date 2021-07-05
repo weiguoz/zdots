@@ -29,11 +29,11 @@ Plug 'mhinz/vim-startify'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'pechorin/any-jump.vim'
+Plug 'francoiscabrol/ranger.vim'
 " {{{ 试用期
 Plug 'simnalamburt/vim-mundo'
 " coc-snippets works with vim-snippets
 Plug 'honza/vim-snippets'
-Plug 'francoiscabrol/ranger.vim'
 " }}}
 call plug#end()
 " }}}
