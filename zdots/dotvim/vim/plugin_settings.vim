@@ -81,7 +81,7 @@ map  s <Plug>(easymotion-sn)
 omap s <Plug>(easymotion-tn)
 nmap ; <Plug>(easymotion-lineanywhere)
 " nmap ' <Plug>(easymotion-bd-jk)
-nmap , <Plug>(easymotion-jumptoanywhere)
+nmap ' <Plug>(easymotion-jumptoanywhere)
 " }}}
 
 " {{{ git-messenger
