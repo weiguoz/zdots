@@ -109,7 +109,7 @@ inoremap <c-e> <esc>A
 nmap <leader>w :exec 'w'<CR>
 nmap zz :exec 'q'<CR>
 nmap <leader>o :only<CR>
-nmap <leader>/ * ``
+nmap <silent> <leader>k * ``
 map  <c-n> :tabnew<CR>
 
 " quickfix ++
