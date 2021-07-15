@@ -16,3 +16,10 @@ autoload -U edit-command-line
 zle -N edit-command-line
 # bindkey '\C-x\C-e' edit-command-line
 bindkey '\C-v' edit-command-line
+
+backward-kill-dir () {
+    local WORDCHARS=${WORDCHARS/\/}
+    zle backward-kill-word
+}
+zle -N backward-kill-dir
+bindkey "^w" backward-kill-dir
