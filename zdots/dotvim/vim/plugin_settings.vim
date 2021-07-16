@@ -230,7 +230,7 @@ let g:bookmark_auto_save_file=BMWorkDirFileLocation()
 " {{{ francoiscabrol/ranger.vim
 let g:ranger_map_keys = 0
 let g:ranger_open_new_tab = 1
-nmap <leader>l :Ranger<CR>
+nmap <weader>r :Ranger<CR>
 " }}}
 
 " {{{ vim-codefmt
