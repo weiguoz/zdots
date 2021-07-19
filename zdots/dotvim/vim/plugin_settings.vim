@@ -232,14 +232,3 @@ let g:ranger_map_keys = 0
 let g:ranger_open_new_tab = 1
 nmap <weader>r :Ranger<CR>
 " }}}
-
-" {{{ vim-codefmt
-augroup autoformat_settings
-  autocmd FileType c,cpp,proto,javascript,arduino AutoFormatBuffer clang-format
-  autocmd FileType dart AutoFormatBuffer dartfmt
-  autocmd FileType go AutoFormatBuffer gofmt
-  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
-  autocmd FileType java AutoFormatBuffer google-java-format
-  autocmd FileType python AutoFormatBuffer yapf
-augroup END
-" }}}
