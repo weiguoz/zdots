@@ -25,9 +25,6 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'vim-scripts/FencView.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhinz/vim-startify'
-" Add maktaba and codefmt to the runtimepath
-Plug 'google/vim-maktaba'
-Plug 'google/vim-codefmt'
 Plug 'pechorin/any-jump.vim'
 Plug 'francoiscabrol/ranger.vim'
 " {{{ 试用期

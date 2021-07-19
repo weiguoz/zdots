@@ -2,6 +2,7 @@
     "codeLens.enable": true,
     "coc.source.around.enable": true,
     "coc.preferences.enableFloatHighlight": true,
+    "coc.preferences.formatOnSaveFiletypes": ["go","c","cpp","proto","json","python","thrift"],
     "languageserver": {
         "golang": {
             "command": "$GOPATH/bin/gopls",
