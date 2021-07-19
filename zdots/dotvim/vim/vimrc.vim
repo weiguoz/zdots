@@ -26,7 +26,7 @@ Plug 'vim-scripts/FencView.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhinz/vim-startify'
 Plug 'pechorin/any-jump.vim'
-Plug 'francoiscabrol/ranger.vim'
+Plug 'rafaqz/ranger.vim'
 " {{{ 试用期
 Plug 'simnalamburt/vim-mundo'
 " coc-snippets works with vim-snippets
