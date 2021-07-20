@@ -12,6 +12,7 @@
 1. [ctags](https://github.com/universal-ctags/ctags) is a maintained implementation of ctags. `brew install --HEAD universal-ctags/universal-ctags/universal-ctags`
 1. [ranger](https://github.com/ranger/ranger) is a console file manager with VI key bindings. `pip3 install ranger-fm`
     You can manually use `ranger --copy-config=all` to generate the configuration(under `~/.config/ranger/) after installation.
+    1. [icons for ranger](https://github.com/alexanderjeurissen/ranger_devicons#install-instructions)
     1. [ranger+fzf](https://github.com/ranger/ranger/wiki/Custom-Commands#fzf-integration), Add the following code to `commands.py`
         ```python
           class fzf_select(Command):
