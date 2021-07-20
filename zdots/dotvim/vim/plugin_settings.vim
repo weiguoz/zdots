@@ -227,9 +227,8 @@ let g:bookmark_sign='♥'
 let g:bookmark_auto_save_file=BMWorkDirFileLocation()
 "}}}
 
-" {{{ rafaqz/ranger.vim > francoiscabrol/ranger.vim
-map <leader>r :RangerEdit<cr>
-map <leader>rv :RangerVSplit<cr>
-map <leader>rs :RangerSplit<cr>
-map <leader>rt :RangerTab<cr>
+" {{{ francoiscabrol/ranger.vim
+let g:ranger_map_keys = 0
+let g:ranger_open_new_tab = 1
+nmap <leader>r :RangerCurrentFileExistingOrNewTab<CR>
 " }}}
