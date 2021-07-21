@@ -78,9 +78,9 @@ let g:EasyMotion_smartcase = 1
 " nmap , <Plug>(easymotion-prefix)
 map s <Plug>(easymotion-sn)
 omap s <Plug>(easymotion-tn)
-nmap ; <Plug>(easymotion-lineanywhere)
-" nmap ' <Plug>(easymotion-bd-jk)
-nmap ' <Plug>(easymotion-jumptoanywhere)
+nmap ' <Plug>(easymotion-lineanywhere)
+nmap ; <Plug>(easymotion-bd-jk)
+" nmap ' <Plug>(easymotion-jumptoanywhere)
 " }}}
 
 " {{{ git-messenger
