@@ -130,6 +130,7 @@ endfunction
 
 """ {{{ movement
 " movements in the insert mode
+" conflict key with snippets expands, so i disable such keys
 inoremap <c-h> <Left>
 inoremap <c-j> <Down>
 inoremap <c-k> <Up>
