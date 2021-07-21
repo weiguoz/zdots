@@ -60,9 +60,9 @@ nnoremap <leader>e :CocCommand explorer<CR>
 
 nmap <leader>a :AsyncRun<space>
 
-" {{{ dstein64/vim-win
-map cc <plug>WinWin
-let g:win_ext_command_map = {"\<cr>": 'Win#exit'}
+" {{{ disabled <dstein64/vim-win>
+" map cc <plug>WinWin
+" let g:win_ext_command_map = {"\<cr>": 'Win#exit'}
 " }}}
 
 "{{{ liuchengxu/vista.vim
