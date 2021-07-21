@@ -9,7 +9,6 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'liuchengxu/vista.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-rooter'
-Plug 'dstein64/vim-win'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'MattesGroeger/vim-bookmarks'
@@ -32,6 +31,7 @@ Plug 'simnalamburt/vim-mundo'
 " coc-snippets works with vim-snippets
 Plug 'honza/vim-snippets'
 Plug 'solarnz/thrift.vim'
+Plug 'christoomey/vim-tmux-navigator'
 " }}}
 call plug#end()
 " }}}
@@ -94,8 +94,9 @@ command! -range=% TrimWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>
 " }}}
 
 " {{{ shortcut, movements & jumps
-nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 33)<CR>
-nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 33)<CR>
+" 试了下vim-tmux-navigator 感觉很不错, 因 mapping key 冲突，下两行先注释
+" nnoremap <silent> <c-k> :call MoveRatioOfWindow('up', 33)<CR>
+" nnoremap <silent> <c-j> :call MoveRatioOfWindow('down', 33)<CR>
 
 " 在正常模式和插入模式快速跳到行首行尾
 " nmap <silent>ge :call cursor(0, len(getline('.'))/2)<CR>
