@@ -1,7 +1,5 @@
 # DOTS defined in entrance.sh
 # sourced by ~/.bashrc normally
-# just4fun
-alias woman='navi'
 # here we go
 alias md5sum='md5 -r'
 alias diff='icdiff'
@@ -41,3 +39,4 @@ alias python3='python3.9'
 
 # package name: osascript -e 'id of app "Finder"'
 # du -d 1 | sort -nr | head -3
+eval "$(navi widget zsh)" # c-g call navi
