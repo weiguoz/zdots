@@ -28,7 +28,6 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias vi='vim +'
 alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'
-alias python3='python3.9'
 
 # if [ -f ${DOTS}/z/z.sh ]; then
 #     z_then_ls() {

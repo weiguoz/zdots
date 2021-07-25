@@ -16,24 +16,16 @@ export LC_ALL=en_US.UTF-8
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk/Contents/Home
 export CLASSPATH=".:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
 export M2_HOME=/usr/local/share/maven
-iPATH=$JAVA_HOME:$M2_HOME/bin
-
+iPATH=$JAVA_HOME/bin:$M2_HOME/bin
 ## go
 export GOPATH=/opt/go
 iPATH=$iPATH:$GOPATH/bin
-
 ## homebrew
 iPATH=$iPATH:/opt/homebrew/bin
+export PATH=`uniq_csv "$iPATH:$PATH"` # order is important
 
 ## only python3
 export PYTHONPATH=`uniq_csv "/opt/homebrew/lib/python3.9/site-packages:$PYTHONPATH"`
-
-### export DYLD_LIBRARY_PATH=$MYSQL_HOME/lib:$DYLD_LIBRARY_PATH
-### export CPLUS_INCLUDE_PATH=$CPLUS_INCLUDE_PATH:/usr/local/Cellar/openssl/1.0.2s/include
-### export C_INCLUDE_PATH=$C_INCLUDE_PATH:/usr/local/Cellar/openssl/1.0.2s/include
-
-iPATH=$iPATH:~/zdots/bin
-export PATH=`uniq_csv "$PATH:$iPATH"`
 
 ### exa(colorful ls) color
 ### export CLICOLOR=1
