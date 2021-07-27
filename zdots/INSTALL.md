@@ -49,3 +49,8 @@
 Let's remove ohmyzsh and turn to zinit due to the speed is too slow.
 
 1. [zinit](https://github.com/zdharma/zinit) is a plugin manager for zsh. install: sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+1. [cheat.sh](https://github.com/chubin/cheat.sh#installation) 独立安装，或[+zinit](https://github.com/zdharma/zinit/issues/369)
+    ```bash
+    curl https://cht.sh/:cht.sh | sudo tee /usr/local/bin/cht.sh
+    chmod +x /usr/local/bin/cht.sh
+    ```
