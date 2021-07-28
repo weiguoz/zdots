@@ -26,12 +26,11 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhinz/vim-startify'
 Plug 'pechorin/any-jump.vim'
 Plug 'francoiscabrol/ranger.vim'
+Plug 'honza/vim-snippets' " coc-snippets works with vim-snippets
+Plug 'christoomey/vim-tmux-navigator'
 " {{{ 试用期
 Plug 'simnalamburt/vim-mundo'
-" coc-snippets works with vim-snippets
-Plug 'honza/vim-snippets'
 Plug 'solarnz/thrift.vim'
-Plug 'christoomey/vim-tmux-navigator'
 " }}}
 call plug#end()
 " }}}
