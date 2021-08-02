@@ -40,4 +40,4 @@ alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'
 # du -d 1 | sort -nr | head -3
 # Enhance shell by cheat.sh & navi
 alias che='cht.sh --shell'
-eval "$(navi widget zsh)" # c-g call navi
+# eval "$(navi widget zsh)" # c-g call navi
