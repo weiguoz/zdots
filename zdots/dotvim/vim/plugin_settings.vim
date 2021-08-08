@@ -164,9 +164,6 @@ nnoremap <leader>J :AnyJumpBack<CR>
 
 " {{{ fzf buffers <- so I remove the buftabline from my plugins
 " fzf quicks
-map <leader>f :Files<CR>
-map <leader>b :Buffers0<CR>
-
 let g:fzf_buffers_jump = 1
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 
@@ -181,7 +178,7 @@ function! s:delete_buffers(lines)
   execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
 endfunction
 
-command! Buffers0 call fzf#run(fzf#wrap({
+command! BuffersDel call fzf#run(fzf#wrap({
   \ 'source': s:list_buffers(),
   \ 'sink*': { lines -> s:delete_buffers(lines) },
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept' }))
