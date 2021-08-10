@@ -44,7 +44,7 @@ gig() {
   $gitlog | $fzf
 }
 
-rgr() {
+f() {
 	command_fmt="rg --files-with-matches --smart-case --multiline --no-ignore" # --no-ignore: all files as `fd -I` does
 	echo "$(
 		FZF_DEFAULT_COMMAND="$command_fmt '$1'" \

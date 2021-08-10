@@ -199,8 +199,8 @@ endfunction
 " :Rg -C2 -tgo <enter>, then> os.remove
 " :Rg os.remove<enter>
 command! -nargs=* -bang Rg call RGOpt(<q-args>, <bang>0)
-nnoremap <leader>s :exec 'Rg'<CR>
-"nnoremap <silent> <S-F> :Rg<CR>
+nnoremap <leader>f :exec 'Rg'<CR>
+" nnoremap <silent> <S-F> :Rg<CR>
 " }}}
 
 "{{{ MattersGroeger/vim-bookmarks
