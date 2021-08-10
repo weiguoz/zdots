@@ -76,8 +76,8 @@ let g:vista_fzf_preview = ['right:50%']
 let g:EasyMotion_smartcase = 1
 " Turn on case-insensitive feature
 " nmap , <Plug>(easymotion-prefix)
-map s <Plug>(easymotion-sn)
-omap s <Plug>(easymotion-tn)
+map , <Plug>(easymotion-sn)
+omap , <Plug>(easymotion-tn)
 nmap ' <Plug>(easymotion-lineanywhere)
 nmap ; <Plug>(easymotion-bd-jk)
 " nmap ' <Plug>(easymotion-jumptoanywhere)
@@ -199,7 +199,7 @@ endfunction
 " :Rg -C2 -tgo <enter>, then> os.remove
 " :Rg os.remove<enter>
 command! -nargs=* -bang Rg call RGOpt(<q-args>, <bang>0)
-nnoremap q :exec 'Rg'<CR>
+nnoremap s :exec 'Rg'<CR>
 " nnoremap <silent> <S-F> :Rg<CR>
 " }}}
 
