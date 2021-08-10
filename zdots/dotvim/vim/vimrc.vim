@@ -102,7 +102,7 @@ nnoremap <c-a> 0
 nnoremap <c-e> $
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
-nmap <leader>w :exec 'w'<CR>
+nmap <leader>w :exec 'e'<CR>
 nmap zz :exec 'q'<CR>
 nmap <leader>o :only<CR>
 nmap <silent> <leader>k * ``
