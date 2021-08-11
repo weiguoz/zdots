@@ -15,34 +15,62 @@
     1. [icons for ranger](https://github.com/alexanderjeurissen/ranger_devicons#install-instructions)
     1. [ranger+fzf](https://github.com/ranger/ranger/wiki/Custom-Commands#fzf-integration), Add the following code to `commands.py`
         ```python
-          class fzf_select(Command):
-              """
-              :fzf_select
-              Find a file using fzf.
-              With a prefix argument select only directories.
-              See: https://github.com/junegunn/fzf
-              """
-              def execute(self):
-                  import subprocess
-                  import os.path
-                  if self.quantifier:
-                      # match only directories
-                      command = 'fd -I --type d --hidden --follow -E ".git" -E "node_modules" . | fzf +m'
-                  else:
-                      # match files and directories
-                      command = 'fd -I --hidden --follow -E ".git" -E "node_modules" . | fzf +m'
-                  fzf = self.fm.execute_command(command,
-                                                universal_newlines=True,
-                                                stdout=subprocess.PIPE)
-                  stdout, stderr = fzf.communicate()
-                  if fzf.returncode == 0:
-                      fzf_file = os.path.abspath(stdout.rstrip('\n'))
-                      if os.path.isdir(fzf_file):
-                          self.fm.cd(fzf_file)
-                      else:
-                          self.fm.select_file(fzf_file)
+class fzf_select(Command):
+    """
+    :fzf_select
+    Find a file using fzf.
+    With a prefix argument select only directories.
+    See: https://github.com/junegunn/fzf
+    """
+    def execute(self):
+      import subprocess
+      import os.path
+      if self.quantifier:
+          # match only directories
+          command = 'fd -I --type d --hidden --follow -E ".git" -E "node_modules" . | fzf +m'
+      else:
+          # match files and directories
+          command = 'fd -I --hidden --follow -E ".git" -E "node_modules" . | fzf +m'
+      fzf = self.fm.execute_command(command,
+                                    universal_newlines=True,
+                                    stdout=subprocess.PIPE)
+      stdout, stderr = fzf.communicate()
+      if fzf.returncode == 0:
+          fzf_file = os.path.abspath(stdout.rstrip('\n'))
+          if os.path.isdir(fzf_file):
+              self.fm.cd(fzf_file)
+          else:
+              self.fm.select_file(fzf_file)
+
+
+class fzf_rg(Command):
+    """
+    :fzf_rga_search_documents
+    Search in PDFs, E-Books and Office documents in current directory.
+    Allowed extensions: .epub, .odt, .docx, .fb2, .ipynb, .pdf.
+
+    Usage: fzf_rga_search_documents <search string>
+    """
+    def execute(self):
+        if self.arg(1):
+            search_string = self.rest(1)
+        else:
+            self.fm.notify("Usage: fzf_rga_search_documents <search string>", bad=True)
+            return
+
+        import subprocess
+        import os.path
+        from ranger.container.file import File
+        command_fmt="rg --files-with-matches --smart-case --multiline --no-ignore"
+        command="%s '%s' | fzf --sort --preview='[[ ! -z {} ]] && rg --pretty --context 10 {q} {}' --phony -q '%s' --bind 'change:reload:%s {q}'" % (command_fmt, search_string, search_string, command_fmt)
+
+        fzf = self.fm.execute_command(command, universal_newlines=True, stdout=subprocess.PIPE)
+        stdout, stderr = fzf.communicate()
+        if fzf.returncode == 0:
+            fzf_file = os.path.abspath(stdout.rstrip('\n'))
+            self.fm.execute_file(File(fzf_file))
         ```
-        Then, we could use `fzf` command inside the `ranger` by `:fzf_select`. In addition, for convenience, `map <c-t> fzf_select` can be added to `rc.Conf` as a shortcut.
+        Then, we could use `fzf` command inside the `ranger` by `:fzf_select`. In addition, for convenience, `map <c-t> fzf_select` and `map s console fzf_rg%space` can be added to `rc.Conf` as a shortcut.
 
 ## zsh
 
