@@ -11,8 +11,6 @@
     pager = delta
 [credential]
     helper = store
-[commit]
-    template = ~/.stCommitMsg
 [filter "spacify"]
     clean = expand --tabs=4 --initial
 [filter "lfs"]
