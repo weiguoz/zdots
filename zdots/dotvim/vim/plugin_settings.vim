@@ -200,7 +200,7 @@ endfunction
 " :Rg os.remove<enter>
 command! -nargs=* -bang Rg call RGOpt(<q-args>, <bang>0)
 nnoremap s :exec 'Rg'<CR>
-nnoremap t :exec 'GFiles'<CR>
+nnoremap t :exec 'Files'<CR>
 " nnoremap <silent> <S-F> :Rg<CR>
 " }}}
 
