@@ -14,9 +14,10 @@ export LC_ALL=en_US.UTF-8
 
 ## Java
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk/Contents/Home
+iPATH=$JAVA_HOME/bin
 export CLASSPATH=".:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
-export M2_HOME=/usr/local/share/maven
-iPATH=$JAVA_HOME/bin:$M2_HOME/bin
+# export M2_HOME=/usr/local/share/maven
+# iPATH=$iPATH:$M2_HOME/bin
 ## go
 export GOPATH=/opt/go
 iPATH=$iPATH:$GOPATH/bin
