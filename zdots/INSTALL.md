@@ -70,7 +70,7 @@ class fzf_rg(Command):
             fzf_file = os.path.abspath(stdout.rstrip('\n'))
             self.fm.execute_file(File(fzf_file))
         ```
-        Then, we could use `fzf` command inside the `ranger` by `:fzf_fd`. In addition, for convenience, `map <c-t> fzf_fd` and `map s console fzf_rg%space` can be added to `rc.Conf` as a shortcut. Or entry the console with `:`
+        Then, we could use `fzf` command inside the `ranger` by `:fzf_fd`. In addition, for convenience, `map <c-t> fzf_fd`, `map s console fzf_rg%space` or `map f console fzf_` can be added to `rc.Conf` as a shortcut. Or entry the console with `:`
 
 ## zsh
 
