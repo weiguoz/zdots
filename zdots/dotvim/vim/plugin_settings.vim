@@ -199,8 +199,8 @@ endfunction
 " :Rg -C2 -tgo <enter>, then> os.remove
 " :Rg os.remove<enter>
 command! -nargs=* -bang Rg call RGOpt(<q-args>, <bang>0)
-nnoremap s :exec 'Rg'<CR>
-nnoremap t :exec 'Files'<CR>
+nnoremap <leader>s :Rg<CR>
+nnoremap <leader>t :exec 'Files'<CR>
 " nnoremap <silent> <S-F> :Rg<CR>
 " }}}
 

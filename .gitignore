@@ -32,3 +32,12 @@
 !zdots/dotvim/*
 !zdots/dotvim/vim/
 !zdots/dotvim/vim/*
+
+!.config/
+!.config/bat/
+!.config/bat/config
+!.config/pip/
+!.config/pip/pip.conf
+!.config/ranger/
+!.config/ranger/rc.conf
+!.config/ranger/commands.py
