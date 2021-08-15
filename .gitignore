@@ -24,10 +24,6 @@
 !zdots/rime/*.yaml
 !zdots/rime/*.md
 
-!zdots/tmux/
-!zdots/tmux/tmux.conf
-!zdots/tmux/tmux.conf.local
-
 !zdots/dotvim/
 !zdots/dotvim/*
 !zdots/dotvim/vim/
