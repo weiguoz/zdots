@@ -16,28 +16,28 @@ case $1 in
         exit
         ;;
     -b)
-		web="https://www.baidu.com/s?wd="
-		;;
+        web="https://www.baidu.com/s?wd="
+        ;;
     -g)
         source ~/Documents/secret.sh
-		web=${GitHomeSeachURL}
-		;;
+        web=${GitHomeSeachURL}
+        ;;
     -npm)
-		web="https://www.npmjs.com/search?q="
-		;;
+        web="https://www.npmjs.com/search?q="
+        ;;
     *)
-		web="https://www.google.com/search?q="
-		;;
+        web="https://www.google.com/search?q="
+        ;;
 esac
 
 for item in $*
 do
-	if [[ "$item" != "-w" && "$item" != "-b" && "$item" != "-g" &&  "$item" != "-git" && "$item" != "-npm" ]]; then
-		if [ "$searchWord" == "" ];then
-			searchWord="$item"
-		else
-			searchWord="$searchWord $item"
-		fi
-	fi
+    if [[ "$item" != "-w" && "$item" != "-b" && "$item" != "-g" &&  "$item" != "-git" && "$item" != "-npm" ]]; then
+        if [ "$searchWord" == "" ];then
+            searchWord="$item"
+        else
+            searchWord="$searchWord $item"
+        fi
+    fi
 done;
 open "${web}${searchWord}"
