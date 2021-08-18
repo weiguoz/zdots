@@ -12,18 +12,15 @@ fi
 
 case $1 in
     -h)
-        echo "specify search engine with: -w/b/g/git/npm"
-        echo "eg: -g flume"
+        echo "specify search engine with: -w/b/g/npm"
         exit
         ;;
     -b)
 		web="https://www.baidu.com/s?wd="
 		;;
     -g)
-		web="https://www.google.com.hk/search?q="
-		;;
-    -git)
-		web="https://github.com/search?q="
+        source ~/Documents/secret.sh
+		web=${GitHomeSeachURL}
 		;;
     -npm)
 		web="https://www.npmjs.com/search?q="
