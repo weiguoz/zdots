@@ -12,7 +12,7 @@ fi
 
 case $1 in
     -h)
-        echo "specify search engine with: -w/b/g/npm"
+        echo "specify search engine with: -h/b/g/npm"
         exit
         ;;
     -b)
@@ -32,7 +32,7 @@ esac
 
 for item in $*
 do
-    if [[ "$item" != "-w" && "$item" != "-b" && "$item" != "-g" &&  "$item" != "-git" && "$item" != "-npm" ]]; then
+    if [[ "$item" != "-h" && "$item" != "-b" && "$item" != "-g" && "$item" != "-npm" ]]; then
         if [ "$searchWord" == "" ];then
             searchWord="$item"
         else
