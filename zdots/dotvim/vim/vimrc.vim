@@ -30,6 +30,7 @@ Plug 'christoomey/vim-tmux-navigator'
 " {{{ 试用期
 Plug 'simnalamburt/vim-mundo'
 Plug 'solarnz/thrift.vim'
+Plug 'mattn/vim-goimports'
 " }}}
 call plug#end()
 " }}}
