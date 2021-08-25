@@ -45,7 +45,7 @@ let maplocalleader = " "
 let g:maplocalleader = " "
 nnoremap <SPACE> <Nop>
 " 让vim的补全行为与一般ide一致
-set completeopt=popup "https://github.com/neovim/neovim/issues/10996 support popup for version.vim >= 8.1.1880
+" set completeopt=popup "https://github.com/neovim/neovim/issues/10996 support popup for version.vim >= 8.1.1880
 " set completeopt=longest,menu
 set autochdir
 au BufWrite /private/etc/pw.* set nowritebackup nobackup " Don't write backup file if vim is being called by "chpass"
