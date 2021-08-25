@@ -7,10 +7,10 @@ autocmd! bufwritepost .vimrc source %
 
 ```sh
 echo "source ~/zdots/dotvim/lib.vim
-source ~/zdots/dotvim/vim/vimrc.vim
-source ~/zdots/dotvim/vim/plugin_settings.vim" > ~/.vimrc
+source ~/zdots/dotvim/vimrc.vim
+source ~/zdots/dotvim/plugin_settings.vim" > ~/.vimrc
 
-ln -s ~/zdots/dotvim/vim/coc-settings.json ~/.vim/
+ln -s ~/zdots/dotvim/coc-settings.json ~/.vim/
 ```
 
 ## Plugins
@@ -32,3 +32,8 @@ YCM在随着Mac系统更新时，出的问题太多了，放弃使用并转向`c
         1. 官方`npm config set registry https://registry.npmjs.org/`
 
 [language-servers](https://github.com/neoclide/coc.nvim/wiki/Language-servers)以及coc配置在`coc-settings.json`.
+
+## nvim
+
+1. `brew install nvim`
+2. `cd ~/.config/nvim && ln -s ~/zdots/dotvim/coc-settings.json . && ln -s ~/.vimrc init.vim`
