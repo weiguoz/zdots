@@ -98,6 +98,9 @@ setopt SHARE_HISTORY
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
 
+# https://unix.stackexchange.com/a/37182
+setopt autocd
+
 # specify the ruby version https://github.com/rbenv/rbenv/issues/939#issuecomment-253940228
 # eval "$(rbenv init -)"
 # }}}
