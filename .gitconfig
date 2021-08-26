@@ -42,3 +42,5 @@
     hunk-header-decoration-style = yellow box
 [rerere]
     enabled = true
+[includeIf "gitdir:~/codebase/rinas/"]
+    path = ~/Documents/secrets/gitconfig-rinas

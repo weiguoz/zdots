@@ -19,7 +19,7 @@ case $1 in
         web="https://www.baidu.com/s?wd="
         ;;
     -g)
-        source ~/Documents/secret.sh
+        source ~/Documents/secrets/sensitive-env.sh
         web=${GitHomeSeachURL}
         ;;
     -npm)
