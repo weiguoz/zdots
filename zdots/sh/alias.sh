@@ -28,7 +28,7 @@ alias g='sh ${DOTS}/sh/search_on_terminal.sh -g'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias vi='vim +'
-alias e='nvim'
+alias vim='nvim'
 alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'
 
 # if [ -f ${DOTS}/z/z.sh ]; then
