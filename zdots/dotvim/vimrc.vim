@@ -31,6 +31,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'simnalamburt/vim-mundo'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
+Plug 'luochen1990/rainbow'
+Plug 'octol/vim-cpp-enhanced-highlight'
 " }}}
 call plug#end()
 " }}}
