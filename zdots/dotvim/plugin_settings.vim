@@ -236,3 +236,5 @@ nmap <leader>r :RangerCurrentFileExistingOrNewTab<CR>
 let g:snips_author=$USER
 let g:coc_snippet_next = '<c-n>'
 "}}}
+
+let g:rainbow_active = 1
