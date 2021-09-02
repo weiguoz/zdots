@@ -1,8 +1,9 @@
 " undo3 {{{
 function! DirUndo()
-    let $DUNDO=$HOME."/.vim/undo"
     if has('nvim')
-        let $DUNDO=$HOME."/.vim/nvundo"
+        let $DUNDO=$HOME."/.vim/undo/nv"
+    else
+        let $DUNDO=$HOME."/.vim/undo/v"
     endif
 
     if isdirectory($DUNDO)==0
