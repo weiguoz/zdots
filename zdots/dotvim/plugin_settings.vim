@@ -183,7 +183,7 @@ command! Buffersdel call fzf#run(fzf#wrap({
   \ 'sink*': { lines -> s:delete_buffers(lines) },
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept' }))
 
-function! RGOpt(arg, fullscreen)
+function! RGOptFun(arg, fullscreen)
   let tokens  = split(a:arg)
   let opts = join(filter(copy(tokens), 'v:val =~ "^-"'))
   let query = join(filter(copy(tokens), 'v:val !~ "^-"'))
@@ -198,8 +198,9 @@ endfunction
 " :Rg -C2 -tgo os.remove<enter>
 " :Rg -C2 -tgo <enter>, then> os.remove
 " :Rg os.remove<enter>
-command! -nargs=* -bang Rg call RGOpt(<q-args>, <bang>0)
-nnoremap <leader>s :Rg<CR>
+command! -nargs=* -bang RGOpt call RGOptFun(<q-args>, <bang>0)
+nnoremap <silent>s :Rg <C-R><C-W><CR>
+nnoremap <leader>s :RGOpt<CR>
 nnoremap <leader>t :exec 'GitFiles'<CR>
 " nnoremap <silent> <S-F> :Rg<CR>
 " }}}
