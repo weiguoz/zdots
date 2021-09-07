@@ -148,14 +148,8 @@ inoremap kj <Esc> " kj is faster than jj and better than jk
 cnoreabbrev w!! w !sudo tee >/dev/null %
 " }}}
 
-autocmd BufNewFile *.go,*.sh,*.py,*.c,*.cpp,*.h,*.hpp,*.hxx,*.hh exec ":call SetTitle()"
-" autocmd BufWrite *.sh,*py if getline(6) != "# Modify Author: ".expand("$USER") || split(getline(7))[3] != strftime("%F") | call ModifyTitle() | endif
-" Exposed functions defined in lib.vim
-au FileType cpp,c,go command!  -nargs=0 -bang Run call CompileAndRun()
-au FileType cpp,c,go nmap <silent> run :exec 'Run'<CR>
-
+" {{{ Zoom / Restore window
 " http://stackoverflow.com/questions/13194428/is-better-way-to-zoom-windows-in-vim-than-zoomwin
-" Zoom / Restore window.
 function! s:ZoomToggle() abort
     if exists('t:zoomed') && t:zoomed
         execute t:zoom_winrestcmd
@@ -169,3 +163,10 @@ function! s:ZoomToggle() abort
 endfunction
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <Leader>z :ZoomToggle<CR>
+" }}}
+
+autocmd BufNewFile *.go,*.sh,*.py,*.c,*.cpp,*.h,*.hpp,*.hxx,*.hh exec ":call SetTitle()"
+" autocmd BufWrite *.sh,*py if getline(6) != "# Modify Author: ".expand("$USER") || split(getline(7))[3] != strftime("%F") | call ModifyTitle() | endif
+" Exposed functions defined in lib.vim
+au FileType cpp,c,go command!  -nargs=0 -bang Run call CompileAndRun()
+au FileType cpp,c,go nmap <silent> run :exec 'Run'<CR>
