@@ -82,11 +82,7 @@ set wildignore=*.o,*.obj,*~
 
 " {{{ colorscheme
 let g:palenight_terminal_italics=1
-if has('nvim')
-    set background=light
-else
-    set background=dark
-endif
+set background=dark
 colorscheme PaperColor " Also, I like monokai-bold PaperColor herald 256-jungle palenight
 " let g:airline_theme = "palenight"
 " }}}
