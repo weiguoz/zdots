@@ -194,15 +194,13 @@ function! RGOptFun(arg, fullscreen)
   let spec = {'options': ['--phony', '--query', query, '--bind', 'change:reload:'.reload_command]}
   call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
+noremap <silent>s :call RGOptFun(expand('<cword>'), 0)<CR>
 " Customized Rg, support options like:
 " :Rg -C2 -tgo os.remove<enter>
 " :Rg -C2 -tgo <enter>, then> os.remove
 " :Rg os.remove<enter>
-command! -nargs=* -bang RGOpt call RGOptFun(<q-args>, <bang>0)
-nnoremap <silent>s :Rg <C-R><C-W><CR>
-nnoremap <leader>s :RGOpt<CR>
-nnoremap <leader>t :exec 'GitFiles'<CR>
-" nnoremap <silent> <S-F> :Rg<CR>
+command! -nargs=* -bang Rg call RGOptFun(<q-args>, <bang>0)
+nnoremap <silent>t :exec 'GitFiles'<CR>
 " }}}
 
 "{{{ MattersGroeger/vim-bookmarks
