@@ -27,7 +27,8 @@ alias k='kubectl'
 #  Q: why not recursion, such as .9='.. && .8' ?
 #  A: have a look at 'cd -'
 alias ...='cd ../..'
-alias vi='nvim'
+alias n='nvim'
+alias v='vim'
 alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'
 
 # if [ -f ${DOTS}/z/z.sh ]; then
