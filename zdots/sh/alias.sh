@@ -28,7 +28,6 @@ alias k='kubectl'
 #  A: have a look at 'cd -'
 alias ...='cd ../..'
 alias n='nvim'
-alias v='vim'
 alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'
 
 # if [ -f ${DOTS}/z/z.sh ]; then
