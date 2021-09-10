@@ -31,13 +31,26 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'simnalamburt/vim-mundo'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
-Plug 'luochen1990/rainbow'
+if !has('nvim')
+    Plug 'luochen1990/rainbow'
+endif
 " }}}
 call plug#end()
 " }}}
 filetype plugin indent on
 
 call DirUndo()
+
+" {{{ colorscheme
+let g:palenight_terminal_italics=1
+if has('nvim')
+    set background=light
+else
+    set background=dark
+endif
+colorscheme PaperColor " Also, I like monokai-bold PaperColor herald 256-jungle palenight
+" let g:airline_theme = "palenight"
+" }}}
 
 " general settings {{{
 let mapleader = " "
@@ -78,13 +91,6 @@ set nolazyredraw " Don't redraw while executing macros
 set wildmenu
 set wildmode=longest,full " list
 set wildignore=*.o,*.obj,*~
-" }}}
-
-" {{{ colorscheme
-let g:palenight_terminal_italics=1
-set background=dark
-colorscheme PaperColor " Also, I like monokai-bold PaperColor herald 256-jungle palenight
-" let g:airline_theme = "palenight"
 " }}}
 
 " {{{ trailing whitespace, tail/end
