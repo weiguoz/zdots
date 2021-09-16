@@ -10,7 +10,7 @@
     pushf = push --force-with-lease
     # https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git/21890252#21890252
     squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
-    di = "!f(){ git diff --stat $(git merge-base HEAD ${1}); };f"
+    di = "!f(){ if [ $# -eq 0 ]; then b='origin/master'; else b=${1}; fi;  git diff --stat $(git merge-base HEAD ${b}); };f"
     undo = reset HEAD~1 --mixed
     st = status --short --branch
     ls = log --graph --abbrev-commit --decorate --stat # --all --author=
