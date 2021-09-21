@@ -19,7 +19,6 @@ zinit light-mode for \
     zinit-zsh/z-a-patch-dl \
     zinit-zsh/z-a-bin-gem-node
 # End of Zinit's installer chunk }}}
-
 # Copied from:
 # https://zhuanlan.zhihu.com/p/98450570
 # refers to
