@@ -44,5 +44,5 @@
     hunk-header-decoration-style = yellow box
 [rerere]
     enabled = true
-[includeIf "gitdir:~/codebase/huaxingsec/"]
-    path = ~/Documents/secrets/gitconfig-rinas
+[includeIf "gitdir:~/codebase/hx/"]
+    path = ~/Documents/secrets/gitconfig-hx
