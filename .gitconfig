@@ -44,5 +44,5 @@
     hunk-header-decoration-style = yellow box
 [rerere]
     enabled = true
-[includeIf "gitdir:~/codebase/hx/"]
-    path = ~/Documents/secrets/gitconfig-hx
+[includeIf "gitdir:~/codebase/cr/"]
+    path = ~/Documents/secrets/gitconfig-cr
