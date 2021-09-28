@@ -54,7 +54,7 @@ endfunction
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " {{{ coc-explorer
-nnoremap <leader>e :CocCommand explorer<CR>
+nnoremap e :CocCommand explorer<CR>
 " }}}
 " }}}
 
@@ -66,7 +66,7 @@ nmap <leader>a :AsyncRun<space>
 " }}}
 
 "{{{ liuchengxu/vista.vim
-noremap <leader>v :silent! Vista finder coc<CR>
+noremap t :silent! Vista finder coc<CR>
 let g:vista_default_executive = 'coc'
 let g:vista_fzf_preview = ['right:50%']
 "}}}
@@ -200,7 +200,6 @@ noremap <silent>s :call RGOptFun(expand('<cword>'), 0)<CR>
 " :Rg -C2 -tgo <enter>, then> os.remove
 " :Rg os.remove<enter>
 command! -nargs=* -bang Rg call RGOptFun(<q-args>, <bang>0)
-nnoremap <silent>t :exec 'GitFiles'<CR>
 " }}}
 
 "{{{ MattersGroeger/vim-bookmarks
