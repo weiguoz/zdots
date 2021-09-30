@@ -54,7 +54,7 @@ endfunction
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " {{{ coc-explorer
-nnoremap e :CocCommand explorer<CR>
+nnoremap <leader>e :CocCommand explorer<CR>
 " }}}
 " }}}
 
