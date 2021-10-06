@@ -26,7 +26,7 @@ iPATH=$iPATH:$GOPATH/bin
 iPATH=$iPATH:/opt/homebrew/bin
 
 ## only python3
-iPATH=$iPATH:/opt/homebrew/Cellar/python@3/bin # make a ln -s to python@3
+iPATH=$iPATH:/opt/homebrew/opt/python@3.10/bin # make a ln -s to python@3
 export PYTHONPATH=`uniq_csv "/opt/homebrew/lib/python3.10/site-packages:$PYTHONPATH"`
 
 ### exa(colorful ls) color
