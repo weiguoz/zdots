@@ -15,7 +15,7 @@ alias grep='grep --color=always' # -i -n -m(max=8)
 alias of='open -a Finder .'
 alias ff='find . -type f -iname'
 alias t='tmux'
-alias code='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code' # vscode
+alias e='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code' # vscode
 # alias fn='find . ! -wholename'
 
 alias mvnp='mvn clean package -Dmaven.test.skip'
