@@ -24,12 +24,14 @@ export GOPATH=/opt/go
 iPATH=$iPATH:$GOPATH/bin
 ## homebrew
 iPATH=$iPATH:/opt/homebrew/bin
-export PATH=`uniq_csv "$iPATH:$PATH"` # order is important
 
 ## only python3
-export PYTHONPATH=`uniq_csv "/opt/homebrew/lib/python3.9/site-packages:$PYTHONPATH"`
+iPATH=$iPATH:/opt/homebrew/Cellar/python@3/bin # make a ln -s to python@3
+export PYTHONPATH=`uniq_csv "/opt/homebrew/lib/python3.10/site-packages:$PYTHONPATH"`
 
 ### exa(colorful ls) color
 ### export CLICOLOR=1
 ### export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 export EXA_COLORS="${EXA_COLORS}:da=1;30:di=1;36" # :ln=1;34:"
+
+export PATH=`uniq_csv "$iPATH:$PATH"` # order is important
