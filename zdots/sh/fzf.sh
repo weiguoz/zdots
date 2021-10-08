@@ -48,7 +48,7 @@ s() {
 	command_fmt="rg --files-with-matches --smart-case --multiline --no-ignore" # --no-ignore: all files as `fd -I` does
 	echo "$(
 		FZF_DEFAULT_COMMAND="$command_fmt '$1'" \
-			fzf --sort --preview="[[ ! -z {} ]] && rg --pretty --context 10 {q} {}" \
+			fzf --sort --preview="[[ ! -z {} ]] && rg --pretty --smart-case --multiline --context 10 {q} {}" \
 				--phony -q "$1" \
 				--bind "change:reload:$command_fmt {q}" \
 				--preview-window="70%:wrap"
