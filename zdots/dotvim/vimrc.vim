@@ -31,6 +31,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'simnalamburt/vim-mundo'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
+Plug 'APZelos/blamer.nvim'
 if !has('nvim')
     Plug 'luochen1990/rainbow'
 endif
@@ -78,7 +79,7 @@ set smartindent
 set ts=4 sw=4 ai et
 
 set nu
-set mouse=a " enable mouse, or mouse-=a
+set mouse-=r " enable mouse, or mouse=a
 set linebreak " 不在单词中间折行
 set foldmethod=marker " marker 这个容易操控. /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
 set encoding=utf-8 fileencodings=utf-8,gbk,gb2312,gb18030 termencoding=utf-8 " 编码控制
