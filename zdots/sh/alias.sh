@@ -23,6 +23,7 @@ alias antlr4='java -jar /usr/local/lib/antlr-4.5.3-complete.jar'
 alias b='sh ${DOTS}/sh/search_on_terminal.sh'
 alias h='sh ${DOTS}/sh/search_on_terminal.sh -g'
 alias k='kubectl'
+alias g='git'
 # alias cd.
 #  Q: why not recursion, such as .9='.. && .8' ?
 #  A: have a look at 'cd -'
