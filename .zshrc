@@ -63,8 +63,28 @@ zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
 # }}}
 
+# {{{ w7u, preview configuration for ohmyzsh
+source ${HOME}/zdots/sh/entrance.sh
+limit coredumpsize 0
+setopt AUTO_LIST
+setopt AUTO_MENU
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+HIST_STAMPS="yyyy-mm-dd"
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_DUPS
+
+# https://unix.stackexchange.com/a/37182
+setopt autocd
+
+# specify the ruby version https://github.com/rbenv/rbenv/issues/939#issuecomment-253940228
+# eval "$(rbenv init -)"
+# }}}
+
 # {{{ theme
-: ${THEME:=p10k}
+: ${THEME:=starship}
 case $THEME in
     pure)
         PROMPT=$'\n%F{cyan}❯ %f'
@@ -84,25 +104,8 @@ case $THEME in
         fi
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
         ;;
+    starship)
+        eval "$(starship init zsh)"
+        ;;
 esac
-# }}}
-
-# {{{ w7u, preview configuration for ohmyzsh
-source ${HOME}/zdots/sh/entrance.sh
-limit coredumpsize 0
-setopt AUTO_LIST
-setopt AUTO_MENU
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="yyyy-mm-dd"
-setopt SHARE_HISTORY
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_DUPS
-
-# https://unix.stackexchange.com/a/37182
-setopt autocd
-
-# specify the ruby version https://github.com/rbenv/rbenv/issues/939#issuecomment-253940228
-# eval "$(rbenv init -)"
 # }}}
