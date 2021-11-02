@@ -75,7 +75,7 @@ style = "bold green"
 
 [time]
 time_format = "%T"
-format = "🕙 $time($style) "
+format = "$time($style) "
 style = "bright-white"
 disabled = false
 

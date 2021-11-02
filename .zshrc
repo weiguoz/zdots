@@ -84,7 +84,7 @@ setopt autocd
 # }}}
 
 # {{{ theme
-: ${THEME:=starship}
+: ${THEME:=p10k}
 case $THEME in
     pure)
         PROMPT=$'\n%F{cyan}❯ %f'
