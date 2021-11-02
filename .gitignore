@@ -30,6 +30,7 @@
 !zdots/dotvim/vim/*
 
 !.config/
+!.config/starship.toml
 !.config/bat/
 !.config/bat/config
 !.config/pip/
