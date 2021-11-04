@@ -34,11 +34,11 @@ disabled = false
 error_symbol = "[✖](bold red) "
 
 [docker_context]
-disabled = true
+disabled = false
 
 [cmd_duration]
 min_time = 10_000  # Show command duration over 10,000 milliseconds (=10 sec)
-format = " underwent [$duration]($style)"
+format = "🕙 [$duration]($style)"
 
 [directory]
 truncation_length = 8
@@ -80,8 +80,12 @@ disabled = true
 disabled = true
 
 [python]
-format = "[$symbol$version]($style) "
+format = '[${symbol}${pyenv_prefix}${version}( \($virtualenv\))]($style) '
 style = "bold green"
+python_binary = ["python3"]
+
+[golang]
+symbol = '🅶 '
 
 [time]
 time_format = "%T"
