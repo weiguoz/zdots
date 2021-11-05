@@ -243,4 +243,9 @@ let g:blamer_show_in_visual_modes = 1
 let g:blamer_show_in_insert_modes = 0
 " }}}
 
+" {{{ vim-tmux-navigator
+let g:tmux_navigator_save_on_switch = 2
+let g:tmux_navigator_disable_when_zoomed = 1
+" }}}
+
 let g:rainbow_active = 1
