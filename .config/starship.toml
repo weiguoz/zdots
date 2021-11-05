@@ -1,11 +1,10 @@
 format = """
 $all\
 $fill\
-$git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
+$docker_context\
+$golang\
+$python\
+$cmake\
 $line_break\
 $character
 """
