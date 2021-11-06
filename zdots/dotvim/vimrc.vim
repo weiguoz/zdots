@@ -32,7 +32,7 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
 Plug 'APZelos/blamer.nvim'
-if has('nvim')
+if !has('nvim')
     Plug 'luochen1990/rainbow'
 endif
 " }}}
@@ -45,9 +45,9 @@ call DirUndo()
 " {{{ colorscheme
 let g:palenight_terminal_italics=1
 if has('nvim')
-    set background=dark
-else
     set background=light
+else
+    set background=dark
 endif
 colorscheme PaperColor " Also, I like monokai-bold PaperColor herald 256-jungle palenight
 " let g:airline_theme = "palenight"
@@ -145,6 +145,7 @@ inoremap <c-l> <Right>
 inoremap <c-w> <S-Right>
 inoremap <c-b> <S-Left>
 inoremap <c-o> <Esc>o
+inoremap ;; <Esc>
 " buffer
 " nnoremap <silent>   <tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 " nnoremap <silent> <s-tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>

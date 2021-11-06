@@ -1,3 +1,5 @@
+# ref: https://github.com/starship/starship/tree/master/docs/zh-CN/config
+
 format = """
 $all\
 $fill\
@@ -14,6 +16,9 @@ right_format = "$time"
 [fill]
 symbol = " "
 
+[character]
+error_symbol = "[✖](bold red) "
+
 [battery]
 full_symbol = "🔋"
 charging_symbol = "🔌"
@@ -27,12 +32,6 @@ style = "bold red"
 format = "$symbol[${ram}( | ${swap})]($style) "
 style = "bold dimmed white"
 threshold = 70
-disabled = false
-
-[character]
-error_symbol = "[✖](bold red) "
-
-[docker_context]
 disabled = false
 
 [cmd_duration]
@@ -75,8 +74,20 @@ trim_at = "-"
 style = "bold dimmed white"
 disabled = true
 
+[username]
+show_always = false
+
+[time]
+time_format = "%T"
+style = "bold bright-black"
+format = "[$time]($style)"
+disabled = false
+
 [package]
 disabled = true
+
+[docker_context]
+disabled = false
 
 [python]
 format = '[${symbol}${pyenv_prefix}${version}( \($virtualenv\))]($style) '
@@ -86,11 +97,5 @@ python_binary = ["python3"]
 [golang]
 symbol = '🅶 '
 
-[time]
-time_format = "%T"
-style = "bold bright-black"
-format = "[$time]($style)"
-disabled = false
-
-[username]
-show_always = false
+[nodejs]
+format = "via [🤖 $version](bold green) "
