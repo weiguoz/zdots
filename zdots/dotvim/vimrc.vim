@@ -145,6 +145,7 @@ inoremap <c-l> <Right>
 inoremap <c-w> <S-Right>
 inoremap <c-b> <S-Left>
 inoremap <c-o> <Esc>o
+inoremap kj <Esc>l
 inoremap jk <Esc>l
 " buffer
 " nnoremap <silent>   <tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
