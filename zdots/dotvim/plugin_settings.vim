@@ -9,6 +9,7 @@ let g:coc_global_extensions = [
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap E <Plug>(coc-diagnostic-prev)
 nmap e <Plug>(coc-diagnostic-next)
+nmap <leader>f :Files<CR>
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
