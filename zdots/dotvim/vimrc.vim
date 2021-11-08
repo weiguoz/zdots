@@ -31,7 +31,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'simnalamburt/vim-mundo'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
-Plug 'APZelos/blamer.nvim'
+" Plug 'APZelos/blamer.nvim'
 if !has('nvim')
     Plug 'luochen1990/rainbow'
 endif
@@ -145,7 +145,7 @@ inoremap <c-l> <Right>
 inoremap <c-w> <S-Right>
 inoremap <c-b> <S-Left>
 inoremap <c-o> <Esc>o
-inoremap ;; <Esc>l
+inoremap jk <Esc>l
 " buffer
 " nnoremap <silent>   <tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 " nnoremap <silent> <s-tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>
