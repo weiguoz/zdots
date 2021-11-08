@@ -45,4 +45,4 @@
 [rerere]
 	enabled = true
 [includeIf "gitdir:~/codebase/cr/"]
-    path = ~/Documents/secrets/gitconfig-cr
+    path = ~/codebase/cr/gitconfig
