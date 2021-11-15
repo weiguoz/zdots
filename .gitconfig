@@ -43,6 +43,6 @@
     file-decoration-style = none
     hunk-header-decoration-style = yellow box
 [rerere]
-	enabled = true
+    enabled = true
 [includeIf "gitdir:~/codebase/cr/"]
-    path = ~/codebase/cr/gitconfig
+    path = ~/codebase/cr/.gitconfig
