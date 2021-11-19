@@ -31,10 +31,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'simnalamburt/vim-mundo'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
-" Plug 'APZelos/blamer.nvim'
-if !has('nvim')
-    Plug 'luochen1990/rainbow'
-endif
+Plug 'APZelos/blamer.nvim'
+Plug 'andymass/vim-matchup'
 " }}}
 call plug#end()
 " }}}
