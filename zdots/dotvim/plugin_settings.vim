@@ -254,4 +254,14 @@ let g:tmux_navigator_disable_when_zoomed = 1
 nnoremap <leader>p :<c-u>MatchupWhereAmI?<cr>
 " }}}
 
+" {{{lfv89/vim-interestingwords
+let g:interestingWordsRandomiseColors = 1
+nnoremap <silent> <leader>k :call InterestingWords('n')<cr>
+vnoremap <silent> <leader>k :call InterestingWords('v')<cr>
+nnoremap <silent> <leader>K :call UncolorAllWords()<cr>
+
+nnoremap <silent> n :call WordNavigation(1)<cr>
+nnoremap <silent> N :call WordNavigation(0)<cr>
+" }}}
+
 let g:rainbow_active = 1

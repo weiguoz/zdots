@@ -33,6 +33,7 @@ Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
 Plug 'APZelos/blamer.nvim'
 Plug 'andymass/vim-matchup'
+Plug 'lfv89/vim-interestingwords'
 " }}}
 call plug#end()
 " }}}
@@ -103,15 +104,15 @@ nnoremap <silent> <c-u> :call MoveRatioOfWindow('up', 33)<CR>
 nnoremap <silent> <c-d> :call MoveRatioOfWindow('down', 33)<CR>
 
 " 在正常模式和插入模式快速跳到行首行尾
-" nmap <silent>ge :call cursor(0, len(getline('.'))/2)<CR>
 nnoremap <c-a> 0
 nnoremap <c-e> $
+" nnoremap <c-m> :call cursor(0, len(getline('.'))/2)<CR>
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
 nmap <leader>w :exec 'w'<CR>
 nmap zz :exec 'q'<CR>
 nmap <leader>o :only<CR>
-nmap <silent> <leader>k * ``
+"nmap <silent> <leader>k * ``
 map  <c-n> :tabnew<CR>
 
 " quickfix ++
