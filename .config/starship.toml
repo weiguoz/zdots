@@ -17,7 +17,7 @@ right_format = "$time"
 symbol = " "
 
 [character]
-error_symbol = "[✖](bold red) "
+error_symbol = "[✖](bold red)"
 
 [battery]
 full_symbol = "🔋"
