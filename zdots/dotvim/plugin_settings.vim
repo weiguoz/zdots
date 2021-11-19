@@ -249,4 +249,9 @@ let g:tmux_navigator_save_on_switch = 2
 let g:tmux_navigator_disable_when_zoomed = 1
 " }}}
 
+" {{{ andymass/vim-matchup
+" display parents
+nnoremap <leader>p :<c-u>MatchupWhereAmI?<cr>
+" }}}
+
 let g:rainbow_active = 1
