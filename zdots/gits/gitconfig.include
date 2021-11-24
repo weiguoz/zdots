@@ -4,7 +4,7 @@
 [alias]
     ci = commit -v
     co = checkout
-    bv = branch -va
+    br = branch -va
     info = config --list
     push2origin = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
     pushf = push --force-with-lease
