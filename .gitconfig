@@ -46,5 +46,3 @@
     enabled = true
 [includeIf "gitdir:~/codebase/cr/"]
     path = ~/codebase/cr/.gitconfig
-[url "git@gitlab.huaxingsec.com:rinas"]
-	insteadOf = https://gitlab.huaxingsec.com
