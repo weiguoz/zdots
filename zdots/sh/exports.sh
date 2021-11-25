@@ -26,8 +26,8 @@ iPATH=$iPATH:$GOPATH/bin
 iPATH=$iPATH:/opt/homebrew/bin
 
 ## only python3
-### iPATH=$iPATH:/opt/homebrew/opt/python@3.10/bin # make a soft link('ln -s') from /opt/homebrew/Cellar/python@3.10/3.10.0_1
-export PYTHONPATH=`uniq_csv "/opt/homebrew/lib/python3.9/site-packages:$PYTHONPATH"`
+iPATH=$iPATH:/opt/homebrew/opt/python@3.10/bin # make a soft link('ln -s') from /opt/homebrew/Cellar/python@3.10/3.10.0_2
+export PYTHONPATH=`uniq_csv "/opt/homebrew/lib/python3.10/site-packages:$PYTHONPATH"`
 
 ### exa(colorful ls) color
 ### export CLICOLOR=1
