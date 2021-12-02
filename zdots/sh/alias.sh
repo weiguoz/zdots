@@ -37,7 +37,7 @@ alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'
 # fi
 
 # package name: osascript -e 'id of app "Finder"'
-# du -d 1 | sort -nr | head -3
+# du -d 1 -h | sort -nr | head -3
 # Enhance shell by cheat.sh & navi
 alias che='cht.sh --shell'
 # eval "$(navi widget zsh)" # c-g call navi
