@@ -25,8 +25,12 @@ iPATH=$iPATH:$GOPATH/bin
 ## homebrew
 iPATH=$iPATH:/opt/homebrew/bin
 
+## pkgconfig
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
+
 ## only python3
 iPATH=$iPATH:/opt/homebrew/opt/python@3.10/bin # make a soft link('ln -s') from /opt/homebrew/Cellar/python@3.10/3.10.0_2
+iPATH=$iPATH:/opt/homebrew/opt/python@3.10/Frameworks/Python.framework/Versions/Current/bin
 export PYTHONPATH=`uniq_csv "/opt/homebrew/lib/python3.10/site-packages:$PYTHONPATH"`
 
 ### exa(colorful ls) color

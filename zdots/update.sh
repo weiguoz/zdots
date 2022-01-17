@@ -1,8 +1,14 @@
+#!/bin/bash
+
 cd "$(brew --repo)" || return
 # echo "[0] git brew" #  git prune, called by git gc
 # git pull origin master --depth 1
 printf "[1] brew update && brew upgrade && brew cleanup\n"
 brew update && brew upgrade && brew cleanup
+ret=$?
+if [ ${ret} -ne 0 ]; then
+    exit ${ret}
+fi
 
 printf "[2] update zinit plugins\n"
 printf "Run \"zinit self-update && zinit update && zinit delete --clean\" manually\n"

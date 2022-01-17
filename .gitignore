@@ -1,5 +1,6 @@
+# https://www.atlassian.com/git/tutorials/saving-changes/gitignore
 *
-.vim_bookmarks
+*.vim_bookmarks
 !.gitignore
 !.gitconfig
 !.ideavimrc
@@ -9,7 +10,6 @@
 !.tmux.conf
 !.tmux.conf.local
 
-!zdots/
 !zdots/INSTALL.md
 !zdots/*.sh
 !zdots/*.exp

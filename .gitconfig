@@ -3,6 +3,7 @@
     email = wg.z@qq.com
 [include]
     path = ~/zdots/gits/gitconfig.include
+    path = ~/codebase/gitconfig.include # we don't use `insteadOf` under `includeIf` due to some bugs of go mod download
 [core]
     excludesfile = ~/.gitignore_global
     quotepath = false
@@ -44,5 +45,3 @@
     hunk-header-decoration-style = yellow box
 [rerere]
     enabled = true
-[includeIf "gitdir:~/codebase/cr/"]
-    path = ~/codebase/cr/.gitconfig
