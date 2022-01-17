@@ -16,17 +16,19 @@ alias of='open -a Finder .'
 alias ff='find . -type f -iname'
 alias t='tmux'
 alias e='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code' # vscode
+alias vim='nvim +'
+alias vi='nvim'
 # alias fn='find . ! -wholename'
 
 alias mvnp='mvn clean package -Dmaven.test.skip'
-alias antlr4='java -jar /usr/local/lib/antlr-4.5.3-complete.jar'
-alias b='sh ${DOTS}/sh/search_on_terminal.sh'
-alias g='sh ${DOTS}/sh/search_on_terminal.sh -g'
+# alias antlr4='java -jar /usr/local/lib/antlr-4.5.3-complete.jar'
+alias h='sh ${DOTS}/sh/search_on_terminal.sh -g'
 alias k='kubectl'
 # alias cd.
 #  Q: why not recursion, such as .9='.. && .8' ?
 #  A: have a look at 'cd -'
 alias ...='cd ../..'
+
 alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'
 
 # if [ -f ${DOTS}/z/z.sh ]; then

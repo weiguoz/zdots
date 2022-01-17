@@ -9,6 +9,7 @@
         "json",
         "proto",
         "python",
+        "sql",
         "thrift"
     ],
     "languageserver": {
@@ -46,6 +47,18 @@
                 "sh"
             ],
             "ignoredRootPaths": []
+        },
+        "sql": {
+            "command": "sql-language-server",
+            "args": [
+                "up",
+                "--method",
+                "stdio"
+            ],
+            "filetypes": [
+                "sql",
+                "mysql"
+            ]
         }
     },
     "suggest.autoTrigger": "always",

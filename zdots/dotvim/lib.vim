@@ -46,11 +46,11 @@ endfunction
 func! CompileAndRun()
     let opt = "-DDBG -Wall -Wextra -Werror -Wshadow -g" " -Wconversion
     if (&filetype == "c")
-        exec "!clear && clang ".opt." -o %< % && (./%< ; rm -rf %< %<.dSYM)"
+        exec "!clang ".opt." -o %< % && (./%< ; rm -rf %< %<.dSYM)"
     elseif (&filetype == "cpp")
-        exec "!clear && clang++ ".opt." -std=c++20 -o %< % && (./%< ; rm -rf %< %<.dSYM)"
+        silent exec "!clang++ ".opt." -std=c++20 -o %< % && (./%< ; rm -rf %< %<.dSYM)"
     elseif (&filetype == "go")
-        exec "!clear && go run %"
+        exec "!go run %"
     else
         echohl WarningMsg | echo &filetype" is not a kind of runnable filetype" | echohl None
     endif

@@ -4,7 +4,8 @@
 filetype off " 必须先关闭文件类型检查
 " {{{ vim-plug, turn vundle/bundle to vim-plugin at 2019.11.18
 call plug#begin('~/.vim/plugged')
-Plug 'NLKNguyen/papercolor-theme'
+" https://github.com/rockerBOO/awesome-neovim#tree-sitter-supported-colorscheme
+Plug 'sainnhe/sonokai'
 Plug 'liuchengxu/vista.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-rooter'
@@ -42,14 +43,19 @@ filetype plugin indent on
 call DirUndo()
 
 " {{{ colorscheme
-let g:palenight_terminal_italics=1
-if has('nvim')
-    set background=light
-else
-    set background=dark
-endif
-colorscheme PaperColor " Also, I like monokai-bold PaperColor herald 256-jungle palenight
-" let g:airline_theme = "palenight"
+" let g:palenight_terminal_italics=1
+" if has('nvim')
+"     set background=dark
+" else
+"     set background=light
+" endif
+" {{{ sonokai https://github.com/sainnhe/sonokai/blob/c4dfd15a2202eeeabefc13028af652c8322f2c49/doc/sonokai.txt#L118-L123
+let g:sonokai_style = 'maia'
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 1
+colorscheme sonokai " Also, I like monokai-bold PaperColor herald 256-jungle palenight
+let g:airline_theme = "sonokai"
+" }}}
 " }}}
 
 " general settings {{{
@@ -110,7 +116,7 @@ nnoremap <c-e> $
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
 nmap <leader>w :exec 'w'<CR>
-nmap zz :exec 'q'<CR>
+nmap qq :exec 'q'<CR>
 nmap <leader>o :only<CR>
 "nmap <silent> <leader>k * ``
 map  <c-n> :tabnew<CR>

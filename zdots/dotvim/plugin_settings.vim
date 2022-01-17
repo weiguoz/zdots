@@ -233,11 +233,12 @@ nmap <leader>l :RangerCurrentFileExistingOrNewTab<CR>
 
 "{{{ honza/vim-snippets
 let g:snips_author=$USER
-let g:coc_snippet_next = '<c-n>'
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
 "}}}
 
 " {{{ APZelos/blamer.nvim
-let g:blamer_enabled = 0
+let g:blamer_enabled = 1
 nmap <leader>b :BlamerToggle<CR>
 let g:blamer_delay = 500
 let g:blamer_relative_time = 1
