@@ -181,5 +181,7 @@ nnoremap <silent> <Leader>z :ZoomToggle<CR>
 autocmd BufNewFile *.go,*.sh,*.py,*.c,*.cpp,*.h,*.hpp,*.hxx,*.hh exec ":call SetTitle()"
 " autocmd BufWrite *.sh,*py if getline(6) != "# Modify Author: ".expand("$USER") || split(getline(7))[3] != strftime("%F") | call ModifyTitle() | endif
 " Exposed functions defined in lib.vim
-au FileType cpp,c,go command!  -nargs=0 -bang Run call CompileAndRun()
-au FileType cpp,c,go nmap <silent> run :exec 'Run'<CR>
+if !has('nvim')
+    au FileType cpp,c,go command!  -nargs=0 -bang Run call CompileAndRun()
+    au FileType cpp,c,go nmap <silent> run :exec 'Run'<CR>
+endif

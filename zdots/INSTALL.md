@@ -76,7 +76,7 @@ class fzf_rg(Command):
 
 Let's remove ohmyzsh and turn to zinit due to the speed is too slow.
 
-1. [zinit](https://github.com/zdharma-continuum/zinit) is a plugin manager for zsh. install: sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma-continuum/zinit/master/doc/install.sh)"
+1. [zinit](https://github.com/zdharma-continuum/zinit) is a plugin manager for zsh: [manual-installation](https://github.com/zdharma-continuum/zinit#manual-installation)
 1. [starship](https://github.com/starship/starship), install: `brew install starship`, config: [ref](https://github.com/starship/starship/tree/master/docs/zh-CN/config)
 1. [cheat.sh](https://github.com/chubin/cheat.sh#installation) 独立安装，或[+zinit](https://github.com/zdharma/zinit/issues/369)
     ```bash
