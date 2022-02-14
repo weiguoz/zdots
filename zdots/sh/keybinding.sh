@@ -18,7 +18,8 @@ zle -N edit-command-line
 bindkey '\C-v' edit-command-line
 
 backward-kill-dir () {
-    local WORDCHARS=${WORDCHARS/\/}
+    # https://stackoverflow.com/a/11200998/479812
+    local WORDCHARS= #${WORDCHARS/\/}
     zle backward-kill-word
 }
 zle -N backward-kill-dir
