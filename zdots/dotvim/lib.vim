@@ -42,24 +42,6 @@ function! GotoJump()
 endfunction
 " }}}
 
-" {{{ complie a single cpp/c file & run
-func! CompileAndRun()
-    let opt = "-DDBG -Wall -Wextra -Werror -Wshadow -g" " -Wconversion
-    if (&filetype == "c")
-        exec "!clang ".opt." -o %< % && (./%< ; rm -rf %< %<.dSYM)"
-    elseif (&filetype == "cpp")
-        silent exec "!clang++ ".opt." -std=c++20 -o %< % && (./%< ; rm -rf %< %<.dSYM)"
-    elseif (&filetype == "go")
-        exec "!go run %"
-    else
-        echohl WarningMsg | echo &filetype" is not a kind of runnable filetype" | echohl None
-    endif
-    " if !v:shell_error
-    "   ...
-    " endif
-endfunc
-" }}}
-
 " {{{ self define statusline replaced by : vim-airline/vim-airline
 function! SetStatusLine()
     set cmdheight=1

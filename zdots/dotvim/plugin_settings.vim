@@ -59,7 +59,40 @@ nnoremap <leader>e :CocCommand explorer<CR>
 " }}}
 " }}}
 
+" {{{ AsyncRun
 nmap <leader>a :AsyncRun<space>
+" open quickfix window automatically when AsyncRun is executed
+" set the quickfix window 6 lines height.
+let g:asyncrun_open = 6
+" ring the bell to notify you job finished
+" let g:asyncrun_bell = 1
+" nnoremap <leader>r :call asyncrun#quickfix_toggle(6)<cr>
+" {{{ complie a single cpp/c file & run
+" func! CompileAndRun()
+"     let opt = "-DDBG -Wall -Wextra -Werror -Wshadow -g" " -Wconversion
+"     if (&filetype == "c")
+"         exec "!clang ".opt." -o %< % && (./%< ; rm -rf %< %<.dSYM)"
+"     elseif (&filetype == "cpp")
+"         silent exec "!clang++ ".opt." -std=c++20 -o %< % && (./%< ; rm -rf %< %<.dSYM)"
+"     elseif (&filetype == "go")
+"         exec "!go run %"
+"     else
+"         echohl WarningMsg | echo &filetype" is not a kind of runnable filetype" | echohl None
+"     endif
+"     " if !v:shell_error
+"     "   ...
+"     " endif
+" endfunc
+"
+" if !has('nvim') " placed in .vimrc
+"     au FileType cpp,c,go command! -nargs=0 -bang Run call CompileAndRun()
+"     au FileType cpp,c,go nnoremap <silent> run :exec 'Run'<CR>
+" endif
+" }}}
+au FileType cpp nnoremap <silent> run :AsyncRun clang++ -DDBG -Wall -Wextra -Werror -Wshadow -g -std=c++20 -o %< % && (./%< ; rm -rf %< %<.dSYM)<cr>
+au FileType c nnoremap <silent> run :AsyncRun clang -DDBG -Wall -Wextra -Werror -Wshadow -g -o %< % && (./%< ; rm -rf %< %<.dSYM)<cr>
+au FileType go nnoremap <silent> run :AsyncRun go run %<cr>
+" }}}
 
 " {{{ disabled <dstein64/vim-win>
 " map cc <plug>WinWin
