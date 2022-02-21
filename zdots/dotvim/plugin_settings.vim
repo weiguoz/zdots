@@ -62,8 +62,7 @@ nnoremap <leader>e :CocCommand explorer<CR>
 " {{{ AsyncRun
 nmap <leader>a :AsyncRun<space>
 " open quickfix window automatically when AsyncRun is executed
-" set the quickfix window 6 lines height.
-let g:asyncrun_open = 6
+let g:asyncrun_open = 1 " we don't need set the quickfix window height due to AdjustWindowHeight does
 " ring the bell to notify you job finished
 " let g:asyncrun_bell = 1
 " nnoremap <leader>r :call asyncrun#quickfix_toggle(6)<cr>
