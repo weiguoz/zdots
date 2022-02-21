@@ -2,18 +2,21 @@
 # [include]
 #    path = /path/to/me
 [alias]
+    br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
     ci = commit -v
+    clear = clean -dfx
     co = checkout
-    br = branch
-    info = config --list
-    push2origin = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
-    pushf = push --force-with-lease
-    # https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git/21890252#21890252
-    squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
     df = "!f(){ if [ $# -eq 0 ]; then b='origin/master'; else b=${1}; fi;  git diff --stat $(git merge-base HEAD ${b}); };f"
-    undo = reset HEAD~1 --mixed
-    st = status --short --branch
-    ls = "!tig" # log --graph --abbrev-commit --decorate --stat # --all --author=
+    del = branch -D
+    info = config --list
     ll = log --graph --all --topo-order --decorate --date=short --oneline --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]"
     logf = log --stat --follow -p -M
+    ls = "!tig" # log --graph --abbrev-commit --decorate --stat # --all --author=
+    push2origin = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
+    pushf = push --force-with-lease
     repos =  !"find . -name .git -type d -prune"
+    save = !git add -A && git commit -m 'chore: commit save point'
+    # https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git/21890252#21890252
+    squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
+    st = status --short --branch
+    undo = reset HEAD~1 --mixed

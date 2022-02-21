@@ -115,17 +115,17 @@ nnoremap <c-e> $
 " nnoremap <c-m> :call cursor(0, len(getline('.'))/2)<CR>
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
+inoremap jj <Esc>
 nmap <leader>w :exec 'w'<CR>
-nmap qq :exec 'q'<CR>
+nmap <leader>q :exec 'q'<CR>
 nmap <leader>o :only<CR>
 "nmap <silent> <leader>k * ``
 map  <c-n> :tabnew<CR>
 
 " quickfix ++
-nmap <leader>q :cclose<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 " Automatically fitting a quickfix window height
-au FileType qf call AdjustWindowHeight(3, 10)
+au FileType qf call AdjustWindowHeight(5, 13)
 function! AdjustWindowHeight(minheight, maxheight)
     let l = 1
     let n_lines = 0
@@ -150,8 +150,6 @@ inoremap <c-l> <Right>
 inoremap <c-w> <S-Right>
 inoremap <c-b> <S-Left>
 inoremap <c-o> <Esc>o
-inoremap kj <Esc>l
-inoremap jk <Esc>l
 " buffer
 " nnoremap <silent>   <tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 " nnoremap <silent> <s-tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>
