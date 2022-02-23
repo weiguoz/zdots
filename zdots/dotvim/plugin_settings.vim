@@ -1,6 +1,7 @@
 " {{{ coc
 let g:coc_global_extensions = [
             \ 'coc-json',
+            \ 'coc-word',
             \ 'coc-explorer',
             \ 'coc-pyright',
             \ 'coc-snippets']
