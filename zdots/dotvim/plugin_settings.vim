@@ -286,7 +286,7 @@ let g:tmux_navigator_disable_when_zoomed = 1
 
 " {{{ andymass/vim-matchup
 " display parents
-nnoremap <leader>p :<c-u>MatchupWhereAmI?<cr>
+" nnoremap <leader>p :<c-u>MatchupWhereAmI?<cr>
 " }}}
 
 " {{{ lfv89/vim-interestingwords

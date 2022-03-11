@@ -18,6 +18,7 @@ Plug 'easymotion/vim-easymotion'
 " {{{ git plugins
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
+Plug 'APZelos/blamer.nvim'
 Plug 'rhysd/git-messenger.vim'
 " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
 " }}}
@@ -32,9 +33,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'simnalamburt/vim-mundo'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
-Plug 'APZelos/blamer.nvim'
-Plug 'andymass/vim-matchup'
+" Plug 'andymass/vim-matchup' 不需要
 Plug 'lfv89/vim-interestingwords'
+Plug 'github/copilot.vim'
 " }}}
 call plug#end()
 " }}}
