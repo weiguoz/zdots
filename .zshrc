@@ -64,7 +64,7 @@ setopt AUTO_MENU
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 export HISTFILE="$HOME/.cache/zsh_history"
-setopt SHARE_HISTORY
+# setopt SHARE_HISTORY  在多个会话中共享历史命令行
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_DUPS
 

@@ -117,6 +117,7 @@ nnoremap <c-e> $
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
 inoremap jj <Esc>
+nmap zz :exec 'wq'<CR>
 nmap <leader>w :exec 'w'<CR>
 nmap <leader>q :exec 'q'<CR>
 nmap <leader>o :only<CR>
