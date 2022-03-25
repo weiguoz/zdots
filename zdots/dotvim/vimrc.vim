@@ -158,7 +158,7 @@ inoremap <c-o> <Esc>o
 """ movement }}}
 
 " 保存一个本该 sudo 打开的文件
-cnoreabbrev w!! w !sudo tee >/dev/null %
+" cnoreabbrev w!! w !sudo tee >/dev/null %
 " }}}
 
 " {{{ Zoom/Restore window
