@@ -105,6 +105,8 @@ let g:vista_default_executive = 'coc'
 let g:vista_fzf_preview = ['right:50%']
 "}}}
 
+nmap <c-w> :Windows<CR>
+
 " {{{ easymotion
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
