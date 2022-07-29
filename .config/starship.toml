@@ -31,7 +31,7 @@ style = "bold red"
 [memory_usage]
 format = "$symbol[${ram}( | ${swap})]($style) "
 style = "bold dimmed white"
-threshold = 70
+threshold = 80
 disabled = false
 
 [cmd_duration]

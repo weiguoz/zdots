@@ -12,7 +12,7 @@
     ll = log --graph --all --topo-order --decorate --date=short --oneline --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]"
     logf = log --stat --follow -p -M
     ls = "!tig" # log --graph --abbrev-commit --decorate --stat # --all --author=
-    push2origin = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
+    push0 = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
     pushf = push --force-with-lease
     repos =  !"find . -name .git -type d -prune"
     save = !git add -A && git commit -m 'chore: commit save point'

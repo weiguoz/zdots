@@ -58,15 +58,17 @@ zinit light zsh-users/zsh-completions
 # {{{ w7u, preview configuration for ohmyzsh
 source ${HOME}/zdots/sh/entrance.sh
 limit coredumpsize 0
-setopt AUTO_LIST
-setopt AUTO_MENU
+setopt auto_list
+setopt auto_menu
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-export HISTFILE="$HOME/.cache/zsh_history"
-# setopt SHARE_HISTORY  在多个会话中共享历史命令行
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_DUPS
+export HISTSIZE=10000000
+export SAVEHIST=$HISTSIZE
+setopt share_history # 在多个会话中共享历史命令行
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_ignore_space
 
 # https://unix.stackexchange.com/a/37182
 setopt autocd

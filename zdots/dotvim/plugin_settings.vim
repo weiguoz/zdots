@@ -4,13 +4,15 @@ let g:coc_global_extensions = [
             \ 'coc-word',
             \ 'coc-explorer',
             \ 'coc-pyright',
-            \ 'coc-snippets']
+            \ 'coc-snippets',
+            \ 'coc-tabnine']
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap E <Plug>(coc-diagnostic-prev)
 nmap e <Plug>(coc-diagnostic-next)
 nmap <leader>f :Files<CR>
+nmap <leader>b :Buffers<CR>
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
@@ -274,7 +276,7 @@ let g:coc_snippet_prev = '<c-k>'
 
 " {{{ APZelos/blamer.nvim
 let g:blamer_enabled = 1
-nmap <leader>b :BlamerToggle<CR>
+" nmap <leader>b :BlamerToggle<CR>
 let g:blamer_delay = 500
 let g:blamer_relative_time = 1
 let g:blamer_show_in_visual_modes = 1

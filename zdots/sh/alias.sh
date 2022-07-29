@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # DOTS defined in entrance.sh
 # sourced by ~/.bashrc normally
 # here we go
@@ -16,9 +18,8 @@ alias grep='grep --color=always' # -i -n -m(max=8)
 alias of='open -a Finder .'
 alias ff='ffhelper(){if [ -n "$1" ]; then find . -type f -iname "$1"; else find . -type f -iname "*"; fi}; ffhelper'
 alias t='tmux'
-alias e='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code' # vscode
-alias vim='nvim +'
-alias vi='nvim'
+alias vs='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code' # vscode
+alias vim='nvim'
 # alias fn='find . ! -wholename'
 
 alias mvnp='mvn clean package -Dmaven.test.skip'
