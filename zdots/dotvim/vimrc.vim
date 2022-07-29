@@ -24,18 +24,18 @@ Plug 'rhysd/git-messenger.vim'
 " }}}
 Plug 'vim-scripts/FencView.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'mhinz/vim-startify'
 Plug 'pechorin/any-jump.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'honza/vim-snippets' " coc-snippets works with vim-snippets
 Plug 'christoomey/vim-tmux-navigator'
+" Plug 'github/copilot.vim' replaced by tabnine
+Plug 'lfv89/vim-interestingwords'
 " {{{ 试用期
+Plug 'mhinz/vim-startify'
 Plug 'simnalamburt/vim-mundo'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
 " Plug 'andymass/vim-matchup' 不需要
-Plug 'lfv89/vim-interestingwords'
-Plug 'github/copilot.vim'
 " }}}
 call plug#end()
 " }}}
@@ -85,7 +85,7 @@ set smartindent
 set ts=4 sw=4 ai et
 
 set nu
-set mouse-=r " enable mouse, or mouse=a
+set mouse-=r " disable mouse. or set mouse=a to enable mouse
 set linebreak " 不在单词中间折行
 set foldmethod=marker " marker 这个容易操控. /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
 set encoding=utf-8 fileencodings=utf-8,gbk,gb2312,gb18030 termencoding=utf-8 " 编码控制
@@ -116,7 +116,7 @@ nnoremap <c-e> $
 " nnoremap <c-m> :call cursor(0, len(getline('.'))/2)<CR>
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
-inoremap jj <Esc>
+inoremap jj <Esc>l
 nmap zz :exec 'wq'<CR>
 nmap <leader>w :exec 'w'<CR>
 nmap <leader>q :exec 'q'<CR>
