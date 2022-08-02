@@ -9,6 +9,7 @@
 !.vimrc
 !.tmux.conf
 !.tmux.conf.local
+!.npmrc
 
 !zdots/INSTALL.md
 !zdots/*.sh
