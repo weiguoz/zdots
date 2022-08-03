@@ -28,6 +28,9 @@ iPATH=$iPATH:/opt/homebrew/bin
 ## pkgconfig
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
 
+## node: copilot only fits node v16 or v17, but not the latest v18 (on 202283)
+iPATH=$iPATH:/opt/homebrew/opt/node@16/bin
+
 ## only python3
 iPATH=$iPATH:/opt/homebrew/opt/python@3.10/bin # make a soft link('ln -s') from /opt/homebrew/Cellar/python@3.10/3.10.0_2
 iPATH=$iPATH:/opt/homebrew/opt/python@3.10/Frameworks/Python.framework/Versions/Current/bin
