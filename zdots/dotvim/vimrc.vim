@@ -28,7 +28,7 @@ Plug 'pechorin/any-jump.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'honza/vim-snippets' " coc-snippets works with vim-snippets
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'github/copilot.vim' replaced by tabnine
+Plug 'github/copilot.vim'
 Plug 'lfv89/vim-interestingwords'
 " {{{ 试用期
 Plug 'mhinz/vim-startify'
