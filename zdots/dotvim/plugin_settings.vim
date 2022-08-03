@@ -13,31 +13,37 @@ nmap e <Plug>(coc-diagnostic-next)
 nmap <leader>f :Files<CR>
 nmap <leader>b :Buffers<CR>
 
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-    inoremap <silent><expr> <c-space> coc#refresh()
-else
-    inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
+""" {{{ copied from https://github.com/neoclide/coc.nvim README.md
+set updatetime=300
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-function! s:check_back_space() abort
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+" }}}
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
@@ -49,13 +55,13 @@ nmap <silent> rn <Plug>(coc-rename)
 " Use h to show documentation in preview window.
 nnoremap <leader>h :call <SID>show_documentation()<CR>
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+        call CocActionAsync('doHover')
+    else
+        execute '!' . &keywordprg . " " . expand('<cword>')
+    endif
 endfunction
 
 " provide custom statusline: lightline.vim, vim-airline.
@@ -161,20 +167,20 @@ let g:any_jump_window_top_offset   = 4
 let g:any_jump_colors = { "help": "Comment" }
 " Or override all default colors
 let g:any_jump_colors = {
-      \"plain_text":         "Comment",
-      \"preview":            "Comment",
-      \"preview_keyword":    "Operator",
-      \"heading_text":       "Function",
-      \"heading_keyword":    "Identifier",
-      \"group_text":         "Comment",
-      \"group_name":         "Function",
-      \"more_button":        "Operator",
-      \"more_explain":       "Comment",
-      \"result_line_number": "Comment",
-      \"result_text":        "Statement",
-      \"result_path":        "String",
-      \"help":               "Comment"
-      \}
+            \"plain_text":         "Comment",
+            \"preview":            "Comment",
+            \"preview_keyword":    "Operator",
+            \"heading_text":       "Function",
+            \"heading_keyword":    "Identifier",
+            \"group_text":         "Comment",
+            \"group_name":         "Function",
+            \"more_button":        "Operator",
+            \"more_explain":       "Comment",
+            \"result_line_number": "Comment",
+            \"result_text":        "Statement",
+            \"result_path":        "String",
+            \"help":               "Comment"
+            \}
 " Disable default any-jump keybindings (default: 0)
 let g:any_jump_disable_default_keybindings = 1
 " Remove comments line from search results (default: 1)
@@ -209,31 +215,31 @@ let g:fzf_buffers_jump = 1
 let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
 
 function! s:list_buffers()
-  redir => list
-  silent ls
-  redir END
-  return split(list, "\n")
+    redir => list
+    silent ls
+    redir END
+    return split(list, "\n")
 endfunction
 
 function! s:delete_buffers(lines)
-  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+    execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
 endfunction
 
 command! Buffersdel call fzf#run(fzf#wrap({
-  \ 'source': s:list_buffers(),
-  \ 'sink*': { lines -> s:delete_buffers(lines) },
-  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept' }))
+            \ 'source': s:list_buffers(),
+            \ 'sink*': { lines -> s:delete_buffers(lines) },
+            \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept' }))
 
 function! RGOptFun(arg, fullscreen)
-  let tokens  = split(a:arg)
-  let opts = join(filter(copy(tokens), 'v:val =~ "^-"'))
-  let query = join(filter(copy(tokens), 'v:val !~ "^-"'))
+    let tokens  = split(a:arg)
+    let opts = join(filter(copy(tokens), 'v:val =~ "^-"'))
+    let query = join(filter(copy(tokens), 'v:val !~ "^-"'))
 
-  let command_fmt = 'rg --column --no-heading --color=always --smart-case '.opts.' -- %s || true'
-  let initial_command = printf(command_fmt, shellescape(query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+    let command_fmt = 'rg --column --no-heading --color=always --smart-case '.opts.' -- %s || true'
+    let initial_command = printf(command_fmt, shellescape(query))
+    let reload_command = printf(command_fmt, '{q}')
+    let spec = {'options': ['--phony', '--query', query, '--bind', 'change:reload:'.reload_command]}
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 noremap <silent>s :call RGOptFun(expand('<cword>'), 0)<CR>
 " Customized Rg, support options like:
