@@ -112,6 +112,7 @@ au FileType go nnoremap <silent> run :AsyncRun go run %<cr>
 
 "{{{ liuchengxu/vista.vim
 noremap t :silent! Vista finder coc<CR>
+noremap <silent> <leader>t :Vista!!<CR>
 let g:vista_default_executive = 'coc'
 let g:vista_fzf_preview = ['right:50%']
 "}}}
