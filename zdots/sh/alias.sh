@@ -38,6 +38,8 @@ alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'
 #     }
 #     alias z='z_then_ls'
 # fi
+# git
+alias gitp='git pull -p'
 
 # package name: osascript -e 'id of app "Finder"'
 # du -d 1 -h | sort -nr | head -3
