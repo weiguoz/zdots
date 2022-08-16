@@ -63,6 +63,6 @@ export FZF_COMPLETION_TRIGGER='@@'
 export FZF_COMPLETION_OPTS='--border --info=inline'
 ## fzf examples: https://github.com/junegunn/fzf/wiki/examples
 export FZF_DEFAULT_OPTS='--height 60% --layout reverse --bind ctrl-f:page-down,ctrl-b:page-up' # --border
-export FZF_CTRL_T_OPTS='--preview "(highlight -O ansi -l {} 2> /dev/null || bat {} --color=always --theme=Dracula --style=numbers,changes --italic-text=always || tree -C {}) 2> /dev/null | head -200"'
+export FZF_CTRL_T_OPTS='--preview "(highlight -O ansi -l {} 2> /dev/null || bat {} --color=always --theme=Dracula --style=numbers,changes --italic-text=always || tree -C {}) 2> /dev/null"'
 export FZF_DEFAULT_COMMAND='fd -I --type f --follow --hidden --exclude .git --exclude node_modules'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
