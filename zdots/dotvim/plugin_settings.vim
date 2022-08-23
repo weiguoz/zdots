@@ -316,7 +316,7 @@ nnoremap <silent> N :call WordNavigation(0)<cr>
 
 " {{{ copilot.vim
 " https://github.com/github/copilot.vim/blob/release/doc/copilot.txt#L80-L89
-imap <silent><script><expr> <C-E> copilot#Accept("\<CR>")
+imap <silent><script><expr> <C-S> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
 " }}}
 
