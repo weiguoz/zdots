@@ -112,11 +112,11 @@ nnoremap <silent> <c-d> :call MoveRatioOfWindow('down', 33)<CR>
 
 " 在正常模式和插入模式快速跳到行首行尾
 nnoremap <c-a> 0
-nnoremap <c-s> $
+nnoremap <c-e> $
 " nnoremap <c-m> :call cursor(0, len(getline('.'))/2)<CR>
 inoremap <c-a> <esc>I
-inoremap <c-s> <esc>A
-inoremap jj <Esc>l
+inoremap <c-e> <esc>A
+" inoremap jj <Esc>l
 nmap zz :exec 'wq'<CR>
 nmap <leader>w :exec 'w'<CR>
 nmap <leader>q :exec 'q'<CR>
