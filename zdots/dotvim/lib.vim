@@ -120,3 +120,9 @@ func SetTitle()
     endif
 endfunc
 " }}}
+
+" {{{ https://stackoverflow.com/a/12739441/479812
+function Rand()
+    return str2nr(matchstr(reltimestr(reltime()), '\v\.@<=\d+')[1:])
+endfunction
+" }}}
