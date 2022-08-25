@@ -13,6 +13,7 @@
 1. [ranger](https://github.com/ranger/ranger) is a console file manager with VI key bindings. `brew install ranger`
     You can manually use `ranger --copy-config=all` to generate the configuration(under `~/.config/ranger/`) after installation.
     1. [icons for ranger](https://github.com/alexanderjeurissen/ranger_devicons#install-instructions)
+    1. Set nvim as the default editor in: .config/ranger/rifle.conf
     1. [ranger+fzf](https://github.com/ranger/ranger/wiki/Custom-Commands#fzf-integration), Add the following code to `commands.py`
         ```python
 class fzf_fd(Command):
