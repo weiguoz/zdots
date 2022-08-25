@@ -5,7 +5,7 @@ filetype off " 必须先关闭文件类型检查
 " {{{ vim-plug, turn vundle/bundle to vim-plugin at 2019.11.18
 call plug#begin('~/.vim/plugged')
 " https://github.com/rockerBOO/awesome-neovim#tree-sitter-supported-colorscheme
-Plug 'NLKNguyen/papercolor-theme' " 'sainnhe/sonokai'
+Plug 'sainnhe/edge' " 'sainnhe/sonokai'
 Plug 'liuchengxu/vista.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-rooter'
@@ -35,6 +35,7 @@ Plug 'mhinz/vim-startify'
 Plug 'simnalamburt/vim-mundo'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
+" improt
 " Plug 'andymass/vim-matchup' 不需要
 " }}}
 call plug#end()
@@ -44,8 +45,12 @@ filetype plugin indent on
 call DirUndo()
 
 " {{{ colorscheme
-set background=light
-colorscheme PaperColor
+if Rand() % 2 == 0
+    set background=light
+else
+    set background=dark
+endif
+colorscheme edge
 " {{{ sonokai https://github.com/sainnhe/sonokai/blob/c4dfd15a2202eeeabefc13028af652c8322f2c49/doc/sonokai.txt#L118-L123
 " let g:sonokai_style = 'maia'
 " let g:sonokai_enable_italic = 1
@@ -149,8 +154,8 @@ inoremap <c-w> <S-Right>
 inoremap <c-b> <S-Left>
 inoremap <c-o> <Esc>o
 " buffer
-" nnoremap <silent>   <tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
-" nnoremap <silent> <s-tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>
+nnoremap <silent>   <tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
+nnoremap <silent> <s-tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>
 """ movement }}}
 
 " 保存一个本该 sudo 打开的文件
