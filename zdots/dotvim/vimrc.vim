@@ -35,7 +35,6 @@ Plug 'mhinz/vim-startify'
 Plug 'simnalamburt/vim-mundo'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
-" improt
 " Plug 'andymass/vim-matchup' 不需要
 " }}}
 call plug#end()

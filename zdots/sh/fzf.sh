@@ -48,13 +48,17 @@ gig() {
 s() {
 	command_base="rg --smart-case --multiline"
 	command_fmt="${command_base} --files-with-matches --no-ignore" # --no-ignore: all files as `fd -I` does
-	echo "$(
+    local file
+    file="$(
 		FZF_DEFAULT_COMMAND="$command_fmt '$1'" \
             fzf --sort --preview="[[ ! -z {} ]] && ${command_base} --pretty --context 10 {q} {}" \
 				--phony -q "$1" \
 				--bind "change:reload:$command_fmt {q}" \
 				--preview-window="70%:wrap"
-	)"
+	)" && \
+        if [ -f "$file" ]; then
+            vim "$file"
+        fi
 }
 
 ## Use ~~ as the trigger sequence instead of the default **
@@ -62,7 +66,7 @@ export FZF_COMPLETION_TRIGGER='@@'
 ## Options to fzf command
 export FZF_COMPLETION_OPTS='--border --info=inline'
 ## fzf examples: https://github.com/junegunn/fzf/wiki/examples
-export FZF_DEFAULT_OPTS='--height 60% --layout reverse --bind ctrl-f:page-down,ctrl-b:page-up' # --border
+export FZF_DEFAULT_OPTS='--height 80% --layout reverse --bind ctrl-f:page-down,ctrl-b:page-up' # --border
 export FZF_CTRL_T_OPTS='--preview "(highlight -O ansi -l {} 2> /dev/null || bat {} --color=always --theme=Dracula --style=numbers,changes --italic-text=always || tree -C {}) 2> /dev/null"'
 export FZF_DEFAULT_COMMAND='fd -I --type f --follow --hidden --exclude .git --exclude node_modules'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
