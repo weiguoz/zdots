@@ -45,11 +45,10 @@ gig() {
 }
 
 # also, rg does not supply fuzzy search: https://github.com/BurntSushi/ripgrep/issues/1053
-s() {
+my_fzf_rg() {
 	command_base="rg --smart-case --multiline"
 	command_fmt="${command_base} --files-with-matches --no-ignore" # --no-ignore: all files as `fd -I` does
-    local file
-    file="$(
+    local file="$(
 		FZF_DEFAULT_COMMAND="$command_fmt '$1'" \
             fzf --sort --preview="[[ ! -z {} ]] && ${command_base} --pretty --context 10 {q} {}" \
 				--phony -q "$1" \
@@ -60,6 +59,8 @@ s() {
             vim "$file"
         fi
 }
+# inspired by https://jdhao.github.io/2019/06/13/zsh_bind_keys/
+bindkey -s '^o' 'my_fzf_rg^M'
 
 ## Use ~~ as the trigger sequence instead of the default **
 export FZF_COMPLETION_TRIGGER='@@'
