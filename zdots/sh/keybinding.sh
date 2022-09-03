@@ -25,3 +25,7 @@ backward-kill-dir () {
 }
 zle -N backward-kill-dir
 bindkey "^w" backward-kill-dir
+
+# bindkey -s '^o' 'vim $(fzf)^M' replace by ranger
+# inspired by https://jdhao.github.io/2019/06/13/zsh_bind_keys/
+bindkey -s '^o' 'my_fzf_rg^M'
