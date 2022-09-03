@@ -59,8 +59,6 @@ my_fzf_rg() {
             vim "$file"
         fi
 }
-# inspired by https://jdhao.github.io/2019/06/13/zsh_bind_keys/
-bindkey -s '^o' 'my_fzf_rg^M'
 
 ## Use ~~ as the trigger sequence instead of the default **
 export FZF_COMPLETION_TRIGGER='@@'
