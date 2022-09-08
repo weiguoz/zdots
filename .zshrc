@@ -54,6 +54,7 @@ zinit snippet "$ZINIT_HOME/plugins/junegunn---fzf/shell/key-bindings.zsh"
 zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
 zinit light b4b4r07/enhancd
+zinit snippet "$ZINIT_HOME/plugins/b4b4r07---enhancd/init.sh"
 # }}}
 
 # {{{ w7u, preview configuration for ohmyzsh
