@@ -107,8 +107,8 @@ command! -range=% TrimWhitespace :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>
 " }}}
 
 " {{{ shortcut, movements & jumps
-nnoremap <silent> <c-u> :call MoveRatioOfWindow('up', 33)<CR>
-nnoremap <silent> <c-d> :call MoveRatioOfWindow('down', 33)<CR>
+" nnoremap <silent> <c-b> :call MoveRatioOfWindow('up', 33)<CR>
+" nnoremap <silent> <c-f> :call MoveRatioOfWindow('down', 33)<CR>
 
 " 在正常模式和插入模式快速跳到行首行尾
 nnoremap <c-a> 0
