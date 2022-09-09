@@ -10,7 +10,7 @@ export FZF_DEFAULT_COMMAND='fd -I --type f --follow --hidden --exclude .git --ex
 export FZF_DEFAULT_OPTS='
   --color fg:255,bg:236,hl:84,fg+:255,bg+:236,hl+:215
   --color info:141,prompt:84,spinner:212,pointer:212,marker:212
-  -m --height 80% --layout reverse --inline-info --bind ctrl-d:page-down,ctrl-u:page-up' # --border
+  -m --height 80% --layout reverse --inline-info --bind ctrl-f:page-down,ctrl-b:page-up' # --border
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--preview "(highlight -O ansi -l {} 2> /dev/null || bat {} --color=always --theme=Dracula --style=numbers,changes --italic-text=always || tree -C {}) 2> /dev/null"'
 
