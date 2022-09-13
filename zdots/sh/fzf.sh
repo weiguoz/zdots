@@ -12,7 +12,7 @@ export FZF_DEFAULT_OPTS='
   --color info:141,prompt:84,spinner:212,pointer:212,marker:212
   -m --height 80% --layout reverse --inline-info --bind ctrl-f:page-down,ctrl-b:page-up' # --border
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS='--preview "(highlight -O ansi -l {} 2> /dev/null || bat {} --color=always --theme=Dracula --style=numbers,changes --italic-text=always || tree -C {}) 2> /dev/null"'
+export FZF_CTRL_T_OPTS='--preview "(bat {} --color=always --theme=Dracula --style=numbers,changes --italic-text=always || highlight -O ansi -l {} 2> /dev/null || tree -C {}) 2> /dev/null"'
 
 # git log show with fzf
 gig() {
@@ -46,9 +46,9 @@ gig() {
 
 # also, rg does not supply fuzzy search: https://github.com/BurntSushi/ripgrep/issues/1053
 my_fzf_rg() {
-	rgcmd="rg --smart-case --multiline"
+	rgcmd='rg --smart-case --multiline --colors "path:fg:190,220,255" --colors "line:fg:128,128,128"'
     local res=$(
-        fzf --sort --preview="[[ ! -z {} ]] && ${rgcmd} --pretty --context 10 {q} {}" \
+        fzf --sort --preview="[[ ! -z {} ]] && ${rgcmd} --pretty --context 9 --field-context-separator '  ' --field-match-separator '  ' {q} {}" \
 			--phony -q "$1" \
 			--bind "change:reload:${rgcmd} --files-with-matches --no-ignore {q}" \
 			--preview-window="80%:wrap"
