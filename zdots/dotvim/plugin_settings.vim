@@ -318,6 +318,8 @@ nnoremap <silent> N :call WordNavigation(0)<cr>
 " https://github.com/github/copilot.vim/blob/release/doc/copilot.txt#L80-L89
 imap <silent><script><expr> <C-S> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
+" tpope [workaround] https://github.com/community/community/discussions/16298#discussioncomment-2848831
+let g:copilot_node_command = "/opt/homebrew/Cellar/node@16/16.17.0_1/bin/node"
 " }}}
 
 let g:rainbow_active = 1
