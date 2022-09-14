@@ -6,7 +6,7 @@
 
 export FZF_COMPLETION_TRIGGER='@@'
 ## fzf examples: https://github.com/junegunn/fzf/wiki/examples
-export FZF_DEFAULT_COMMAND='fd -I --type f --type d --follow --hidden --exclude .git --exclude node_modules --max-results=3141 --size=-500m'
+export FZF_DEFAULT_COMMAND='fd -I --type f --type d --follow --hidden --exclude .git --exclude node_modules --max-results=827 --size=-500m'
 export FZF_DEFAULT_OPTS='
   --color fg:255,bg:236,hl:84,fg+:255,bg+:236,hl+:215
   --color info:141,prompt:84,spinner:212,pointer:212,marker:212
