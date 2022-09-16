@@ -239,7 +239,7 @@ function! RGOptFun(arg, fullscreen)
     let command_fmt = 'rg --column --no-heading --color=always --smart-case '.opts.' -- %s || true'
     let initial_command = printf(command_fmt, shellescape(query))
     let reload_command = printf(command_fmt, '{q}')
-    let spec = {'options': ['--phony', '--query', query, '--bind', 'change:reload:'.reload_command]}
+    let spec = {'options': ['--phony', '--query', query, '--bind', 'change:reload:'.reload_command, '--preview-window=right:70%']}
     call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 noremap <silent>s :call RGOptFun(expand('<cword>'), 0)<CR>
