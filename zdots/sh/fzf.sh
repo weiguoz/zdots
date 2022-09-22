@@ -44,13 +44,45 @@ gig() {
     $gitlog | $res # piping them
 }
 
-# also, rg does not supply fuzzy search: https://github.com/BurntSushi/ripgrep/issues/1053
-my_fzf_rg() {
-	rgcmd='rg --smart-case --multiline --colors "path:fg:190,220,255" --colors "line:fg:128,128,128"'
-    local res=$(
-        fzf --sort --preview="[[ ! -z {} ]] && ${rgcmd} --pretty --context 9 --field-context-separator '  ' --field-match-separator '  ' {q} {}" \
-			--phony -q "$1" \
-			--bind "change:reload:${rgcmd} --files-with-matches --no-ignore {q}" \
-			--preview-window="80%:wrap"
-	) && [ -f "$res" ] && vim "$res"
+pods() {
+  FZF_DEFAULT_COMMAND="kubectl get pods --all-namespaces" \
+    fzf --info=inline --layout=reverse --header-lines=1 \
+        --prompt "$(kubectl config current-context | sed 's/-context$//')> " \
+        --header $'╱ Enter (kubectl exec) ╱ CTRL-O (open log in editor) ╱ CTRL-R (reload) ╱\n\n' \
+        --bind 'ctrl-/:change-preview-window(80%,border-bottom|hidden|)' \
+        --bind 'enter:execute:kubectl exec -it --namespace {1} {2} -- bash > /dev/tty' \
+        --bind 'ctrl-o:execute:${EDITOR:-vim} <(kubectl logs --all-containers --namespace {1} {2}) > /dev/tty' \
+        --bind 'ctrl-r:reload:$FZF_DEFAULT_COMMAND' \
+        --preview-window up:follow \
+        --preview 'kubectl logs --follow --all-containers --tail=10000 --namespace {1} {2}' "$@"
 }
+
+# also, rg does not supply fuzzy search: https://github.com/BurntSushi/ripgrep/issues/1053
+# refer: https://github.com/junegunn/fzf/blob/master/ADVANCED.md#switching-to-fzf-only-search-mode
+my_fzf_rg() {
+	rgcmd='rg --column --line-number --multiline --no-heading --color=always --smart-case --colors "path:fg:190,220,255" --colors "line:fg:128,128,128"'
+    INITIAL_QUERY="${*:-}"
+    local selected=$(
+        fzf --ansi --sort --phony \
+            --disabled --query "$INITIAL_QUERY" \
+			--bind "change:reload:sleep 0.1; ${rgcmd} {q} || true" \
+            --delimiter : \
+            --preview-window down,50%:wrap,border-top,+{2}+3/3,~3 \
+            --preview="[[ ! -z {q} ]] && [[ ! -z {1} ]] && bat {1} --color=always --theme='Monokai Extended Bright' --style=numbers,changes --italic-text=always --highlight-line={2}"
+	)
+    # split to an array method1: local a=("${(@s/:/)selected}") && [ -f "${a[1]}" ] && vim "${a[1]}" "+${a[2]}"
+    IFS=':' read -r fn le others <<<"$selected"
+    [ -f "$fn" ] && vim "$fn" "+$le"
+}
+
+# my_fzf_rg_old() {
+#	rgcmd='rg --smart-case --multiline --colors "path:fg:190,220,255" --colors "line:fg:128,128,128"'
+#     local selected=$(
+#         fzf --ansi --sort --phony \
+#             --query "$1" \
+#			--bind "change:reload:sleep 0.1; ${rgcmd} --files-with-matches --no-ignore {q} || true" \
+#             --delimiter : \
+#			--preview-window="80%:wrap" \
+#             --preview="[[ ! -z {} ]] && ${rgcmd} --pretty --context 9 --field-context-separator '  ' --field-match-separator '  ' {q} {}"
+#	) && [ -f "${selected}" ] && vim "${selected}"
+# }
