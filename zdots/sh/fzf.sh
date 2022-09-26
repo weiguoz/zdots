@@ -60,14 +60,19 @@ pods() {
 # also, rg does not supply fuzzy search: https://github.com/BurntSushi/ripgrep/issues/1053
 # refer: https://github.com/junegunn/fzf/blob/master/ADVANCED.md#switching-to-fzf-only-search-mode
 my_fzf_rg() {
-	rgcmd='rg --column --line-number --multiline --no-heading --color=always --smart-case --colors "path:fg:190,220,255" --colors "line:fg:128,128,128"'
     INITIAL_QUERY="${*:-}"
+	rgcmd='rg --column --line-number --multiline --no-heading --color=always --smart-case --colors "path:fg:190,220,255" --colors "line:fg:128,128,128"'
     local selected=$(
         fzf --ansi --sort --phony \
+            --color "hl:-1:underline,hl+:-1:underline:reverse" \
             --disabled --query "$INITIAL_QUERY" \
 			--bind "change:reload:sleep 0.1; ${rgcmd} {q} || true" \
+            --bind "ctrl-b:unbind(change,ctrl-b)+change-prompt(2. fzf> )+enable-search+clear-query+rebind(ctrl-a)" \
+            --bind "ctrl-a:unbind(ctrl-a)+change-prompt(1. rg> )+disable-search+reload($RG_PREFIX {q} || true)+rebind(change,ctrl-b)" \
+            --prompt '1. rg> ' \
             --delimiter : \
-            --preview-window down,50%:wrap,border-top,+{2}+3/3,~3 \
+            --header '╱ CTRL-a (rg mode, precision content) ╱ CTRL-b (fzf mode, fuzzy title) ╱' \
+            --preview-window up:follow \
             --preview="[[ ! -z {q} ]] && [[ ! -z {1} ]] && bat {1} --color=always --theme='Monokai Extended Bright' --style=numbers,changes --italic-text=always --highlight-line={2}"
 	)
     # split to an array method1: local a=("${(@s/:/)selected}") && [ -f "${a[1]}" ] && vim "${a[1]}" "+${a[2]}"
