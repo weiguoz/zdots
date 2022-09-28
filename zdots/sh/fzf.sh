@@ -48,10 +48,10 @@ pods() {
   FZF_DEFAULT_COMMAND="kubectl get pods --all-namespaces" \
     fzf --info=inline --layout=reverse --header-lines=1 \
         --prompt "$(kubectl config current-context | sed 's/-context$//')> " \
-        --header $'╱ Enter (kubectl exec) ╱ CTRL-O (open log in editor) ╱ CTRL-R (reload) ╱\n\n' \
+        --header $'Enter (kubectl exec) ╱ ctrl-v (open log in editor) ╱ ctrl-r (reload) \n\n' \
         --bind 'ctrl-/:change-preview-window(80%,border-bottom|hidden|)' \
         --bind 'enter:execute:kubectl exec -it --namespace {1} {2} -- bash > /dev/tty' \
-        --bind 'ctrl-o:execute:${EDITOR:-vim} <(kubectl logs --all-containers --namespace {1} {2}) > /dev/tty' \
+        --bind 'ctrl-v:execute:${EDITOR:-vim} <(kubectl logs --all-containers --namespace {1} {2}) > /dev/tty' \
         --bind 'ctrl-r:reload:$FZF_DEFAULT_COMMAND' \
         --preview-window up:follow \
         --preview 'kubectl logs --follow --all-containers --tail=10000 --namespace {1} {2}' "$@"
@@ -67,11 +67,11 @@ my_fzf_rg() {
             --color "hl:-1:underline,hl+:-1:underline:reverse" \
             --disabled --query "$INITIAL_QUERY" \
 			--bind "change:reload:sleep 0.1; ${rgcmd} {q} || true" \
-            --bind "ctrl-b:unbind(change,ctrl-b)+change-prompt(2. fzf> )+enable-search+clear-query+rebind(ctrl-a)" \
-            --bind "ctrl-a:unbind(ctrl-a)+change-prompt(1. rg> )+disable-search+reload($RG_PREFIX {q} || true)+rebind(change,ctrl-b)" \
+            --bind "ctrl-b:unbind(change,ctrl-b)+change-prompt(2. fzf> )+enable-search+clear-query+rebind(ctrl-o)" \
+            --bind "ctrl-o:unbind(ctrl-o)+change-prompt(1. rg> )+disable-search+reload($RG_PREFIX {q} || true)+rebind(change,ctrl-b)" \
             --prompt '1. rg> ' \
             --delimiter : \
-            --header '╱ CTRL-a (rg mode, precision content) ╱ CTRL-b (fzf mode, fuzzy title) ╱' \
+            --header '╱ ctrl-o (rg mode, precision content) ╱ ctrl-b (fzf mode, fuzzy title) ╱' \
             --preview-window up:follow \
             --preview="[[ ! -z {q} ]] && [[ ! -z {1} ]] && bat {1} --color=always --theme='Monokai Extended Bright' --style=numbers,changes --italic-text=always --highlight-line={2}"
 	)
