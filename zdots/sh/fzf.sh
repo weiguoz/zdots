@@ -71,7 +71,7 @@ my_fzf_rg() {
             --bind "ctrl-o:unbind(ctrl-o)+change-prompt(1. rg> )+disable-search+reload($RG_PREFIX {q} || true)+rebind(change,ctrl-b)" \
             --prompt '1. rg> ' \
             --delimiter : \
-            --header '╱ ctrl-o (rg mode, precision content) ╱ ctrl-b (fzf mode, fuzzy title) ╱' \
+            --header 'ctrl-o (rg mode, precision content) | ctrl-b (fzf mode, fuzzy title)' \
             --preview-window up:follow \
             --preview="[[ ! -z {q} ]] && [[ ! -z {1} ]] && bat {1} --color=always --theme='Monokai Extended Bright' --style=numbers,changes --italic-text=always --highlight-line={2}"
 	)
