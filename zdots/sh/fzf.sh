@@ -61,7 +61,7 @@ pods() {
 # refer: https://github.com/junegunn/fzf/blob/master/ADVANCED.md#switching-to-fzf-only-search-mode
 my_fzf_rg() {
     INITIAL_QUERY="${*:-}"
-	RG_PREFIX='rg --column --line-number --multiline --no-heading --color=always --smart-case --colors "path:fg:190,220,255" --colors "line:fg:128,128,128"'
+	RG_PREFIX='rg --column --line-number --hidden --multiline --no-heading --color=always --smart-case --colors "path:fg:190,220,255" --colors "line:fg:128,128,128"'
     local selected=$(
         fzf --ansi --sort --phony \
             --color "hl:-1:underline,hl+:-1:underline:reverse" \
