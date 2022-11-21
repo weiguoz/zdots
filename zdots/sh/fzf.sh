@@ -72,7 +72,7 @@ my_fzf_rg() {
             --prompt '1. rg> ' \
             --delimiter : \
             --header 'ctrl-o (rg mode, precision content) | ctrl-b (fzf mode, fuzzy title)' \
-            --preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
+            --preview-window 'up,60%,border-bottom,+{2}+3/3,~2' \
             --preview="[[ ! -z {q} ]] && [[ ! -z {1} ]] && bat {1} --color=always --theme='Monokai Extended Bright' --style=numbers,changes --italic-text=always --highlight-line={2}"
 	)
     # split to an array method1: local a=("${(@s/:/)selected}") && [ -f "${a[1]}" ] && vim "${a[1]}" "+${a[2]}"
