@@ -11,19 +11,19 @@
 ### export LC_CTYPE="C"
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+## homebrew
+iPATH="/opt/homebrew/bin:/opt/homebrew/sbin"
 
 ## Java
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk/Contents/Home
 export JAVA_HOME=/opt/homebrew/opt/openjdk/libexec/openjdk.jdk/Contents/Home # brew info java
-iPATH=$JAVA_HOME/bin
+iPATH=$iPATH:"$JAVA_HOME/bin"
 export CLASSPATH=".:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
 # export M2_HOME=/usr/local/share/maven
 # iPATH=$iPATH:$M2_HOME/bin
 ## go
 export GOPATH=/opt/go
-iPATH=$iPATH:$GOPATH/bin
-## homebrew
-iPATH=$iPATH:/opt/homebrew/bin
+iPATH=$iPATH:"$GOPATH/bin"
 
 ## pkgconfig
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
