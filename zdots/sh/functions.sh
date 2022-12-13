@@ -79,6 +79,15 @@ uniq_csv() {
     echo "$1" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }'
 }
 
+## used as alias
+ff() {
+    if [ -n "$1" ]; then
+        find . -type f -iname "$1"
+    else
+        find . -type f -iname "*"
+    fi
+}
+
 ## proxy
 proxy() {
     export https_proxy="http://127.0.0.1:7890" http_proxy="http://127.0.0.1:7890" all_proxy="socks5://127.0.0.1:7890"

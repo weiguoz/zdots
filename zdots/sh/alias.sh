@@ -16,7 +16,6 @@ alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort
 alias sah='xargs grep -HLi'
 alias grep='grep --color=always' # -i -n -m(max=8)
 alias of='open -a Finder .'
-alias ff='ffhelper(){if [ -n "$1" ]; then find . -type f -iname "$1"; else find . -type f -iname "*"; fi}; ffhelper'
 alias t='tmux'
 alias vs='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code' # vscode
 alias vim='nvim'
