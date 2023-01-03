@@ -14,8 +14,10 @@
     You can manually use `ranger --copy-config=all` to generate the configuration(under `~/.config/ranger/`) after installation.
     1. [icons for ranger](https://github.com/alexanderjeurissen/ranger_devicons#install-instructions)
     1. Set nvim as the default editor in: .config/ranger/rifle.conf
-    1. [ranger+fzf](https://github.com/ranger/ranger/wiki/Custom-Commands#fzf-integration), Add the following code to `commands.py`
-        ```python
+    1. [ranger+fzf](https://github.com/ranger/ranger/wiki/Custom-Commands#fzf-integration) - Add the following code to `commands.py`
+1. [enhancd](https://github.com/b4b4r07/enhancd) - A next-generation cd command with an interactive filter 
+
+```python
 class fzf_fd(Command):
     """
     :fzf_select
@@ -70,8 +72,8 @@ class fzf_rg(Command):
         if fzf.returncode == 0:
             fzf_file = os.path.abspath(stdout.rstrip('\n'))
             self.fm.execute_file(File(fzf_file))
-        ```
-        Then, we could use `fzf` command inside the `ranger` by `:fzf_fd`. In addition, for convenience, `map <c-t> fzf_fd`, `map s console fzf_rg%space` can be added to `rc.Conf` as a shortcut. Or entry the console with `:` or add a mapping by `map f console fzf_`
+```
+Then, we could use `fzf` command inside the `ranger` by `:fzf_fd`. In addition, for convenience, `map <c-t> fzf_fd`, `map s console fzf_rg%space` can be added to `rc.Conf` as a shortcut. Or entry the console with `:` or add a mapping by `map f console fzf_`
 
 ## zsh
 
