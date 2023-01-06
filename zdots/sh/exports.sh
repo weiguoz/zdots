@@ -1,3 +1,5 @@
+#!/bin/sh
+
 ## git
 ### export GIT_PS1_SHOWDIRTYSTATE=true
 ### export GIT_PS1_SHOWUNTRACKEDFILES=true
@@ -26,15 +28,11 @@ export GOPATH=/opt/go
 iPATH=$iPATH:"$GOPATH/bin"
 
 ## pkgconfig
-export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@1.1/lib/pkgconfig"
-
-## node: copilot only fits node v16 or v17, but not the latest v18 (on 202283)
-iPATH=$iPATH:/opt/homebrew/opt/node@16/bin
+export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl/lib/pkgconfig"
 
 ## only python3
-iPATH=$iPATH:/opt/homebrew/opt/python@3.10/bin # make a soft link('ln -s') from /opt/homebrew/Cellar/python@3.10/3.10.0_2
-iPATH=$iPATH:/opt/homebrew/opt/python@3.10/Frameworks/Python.framework/Versions/Current/bin
-export PYTHONPATH=`uniq_csv "/opt/homebrew/lib/python3.10/site-packages:$PYTHONPATH"`
+iPATH=$iPATH:/opt/homebrew/opt/python@3.11/bin # make soft links('ln -s') python3 & pip3 from the specific version
+export PYTHONPATH=`uniq_csv "/opt/homebrew/lib/python3.11/site-packages:$PYTHONPATH"`
 
 ### exa(colorful ls) color
 ### export CLICOLOR=1

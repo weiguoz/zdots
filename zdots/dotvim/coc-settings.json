@@ -108,5 +108,6 @@
     "explorer.buffer.showHiddenBuffers": false,
     "explorer.keyMappings.global": {
         "v": "open:vsplit"
-    }
+    },
+    "snippets.ultisnips.pythonPrompt": false
 }
