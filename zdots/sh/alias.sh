@@ -40,6 +40,7 @@ alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'
 
 # package name: osascript -e 'id of app "Finder"'
 # du -d 1 -h | sort -nr | head -3
+alias du='dua' # cargo install dua-cli
 # Enhance shell by cheat.sh & navi
 alias che='cht.sh --shell'
 # eval "$(navi widget zsh)" # c-g call navi
