@@ -15,15 +15,18 @@ alias lh='exa -ld .?*' # ls hidden files
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
 alias sah='xargs grep -HLi'
 alias grep='grep --color=always' # -i -n -m(max=8)
-alias of='open -a Finder .'
 alias t='tmux'
 alias vs='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code' # vscode
 alias vim='nvim'
 # alias fn='find . ! -wholename'
+# open
+alias o='sh ${DOTS}/sh/search_on_terminal.sh'
+alias ob='o -b'
+alias og='o -g'
+alias of='open -a Finder .'
 
 alias mvnp='mvn clean package -Dmaven.test.skip'
 # alias antlr4='java -jar /usr/local/lib/antlr-4.5.3-complete.jar'
-alias h='sh ${DOTS}/sh/search_on_terminal.sh -g'
 # alias cd. replaced by https://github.com/b4b4r07/enhancd
 #  Q: why not recursion, such as .9='.. && .8' ?
 #  A: have a look at 'cd -'
