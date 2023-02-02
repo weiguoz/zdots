@@ -6,13 +6,12 @@
 ########################################################################################
 
 if [ $# == 0 ]; then
-    open "http:"
-    exit
+    open -n -a "Google Chrome" && exit 0
 fi
 
 case $1 in
     -h)
-        echo "specify search engine with: -h/b/g/npm"
+        echo "specify search engine with: [-b|-g] {query}"
         exit
         ;;
     -b)
@@ -22,9 +21,6 @@ case $1 in
         source ~/Documents/secrets/sensitive-env.sh
         web=${GitHomeSeachURL}
         ;;
-    -npm)
-        web="https://www.npmjs.com/search?q="
-        ;;
     *)
         web="https://www.google.com/search?q="
         ;;
@@ -32,7 +28,7 @@ esac
 
 for item in $*
 do
-    if [[ "$item" != "-h" && "$item" != "-b" && "$item" != "-g" && "$item" != "-npm" ]]; then
+    if [[ "$item" != "-h" && "$item" != "-b" && "$item" != "-g" ]]; then
         if [ "$searchWord" == "" ];then
             searchWord="$item"
         else
