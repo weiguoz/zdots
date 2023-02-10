@@ -268,7 +268,9 @@ function! g:BMWorkDirFileLocation()
         return getcwd().'/.'.filename
     endif
 endfunction
-let g:bookmark_sign='♥'
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+let g:bookmark_sign = '♥'
+let g:bookmark_highlight_lines = 1
 let g:bookmark_auto_save_file=BMWorkDirFileLocation()
 "}}}
 
