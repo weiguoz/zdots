@@ -286,11 +286,11 @@ tmux_conf_copy_to_os_clipboard=true
 
 # replace C-b by C-m instead of using both prefixes
 ## w7u +++
-set -gu prefix2
-unbind C-x
-unbind C-b
-set -g prefix C-x
-bind C-x send-prefix
+# set -gu prefix2
+# unbind C-x
+# unbind C-b
+# set -g prefix C-x
+# bind C-x send-prefix
 ## w7u ---
 
 # move status line to top
