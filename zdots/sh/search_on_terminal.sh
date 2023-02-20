@@ -14,9 +14,6 @@ case $1 in
         echo "specify search engine with: [-b|-g] {query}"
         exit
         ;;
-    -b)
-        web="https://www.baidu.com/s?wd="
-        ;;
     -g)
         source ~/Documents/secrets/sensitive-env.sh
         web=${GitHomeSeachURL}
