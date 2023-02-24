@@ -2,16 +2,7 @@
     "codeLens.enable": true,
     "coc.source.around.enable": true,
     "coc.preferences.enableFloatHighlight": true,
-    "coc.preferences.formatOnSaveFiletypes": [
-        "go",
-        "c",
-        "cpp",
-        "json",
-        "proto",
-        "python",
-        "sql",
-        "thrift"
-    ],
+    "coc.preferences.formatOnSave": true,
     "languageserver": {
         "golang": {
             "command": "$GOPATH/bin/gopls",
@@ -21,6 +12,24 @@
             "filetypes": [
                 "go"
             ]
+        },
+        "golangci-lint-languageserver": {
+            "command": "golangci-lint-langserver",
+            "filetypes": [
+                "go"
+            ],
+            "initializationOptions": {
+                "command": [
+                    "golangci-lint",
+                    "run",
+                    "--enable-all",
+                    "--disable",
+                    "lll",
+                    "--out-format",
+                    "json",
+                    "--issues-exit-code=1"
+                ]
+            }
         },
         "clangd": {
             "command": "/Library/Developer/CommandLineTools/usr/bin/clangd",
