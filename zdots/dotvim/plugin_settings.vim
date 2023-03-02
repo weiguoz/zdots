@@ -64,8 +64,6 @@ function! s:show_documentation()
     endif
 endfunction
 
-" provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " {{{ coc-explorer
 nnoremap <leader>e :CocCommand explorer<CR>
 " }}}
@@ -115,6 +113,9 @@ noremap t :silent! Vista finder coc<CR>
 noremap <silent> <leader>t :Vista!!<CR>
 let g:vista_default_executive = 'coc'
 let g:vista_fzf_preview = ['right:50%']
+" It's a little bit weird that thers is connection between vista and statusline(vim-airline)
+" https://github.com/liuchengxu/vista.vim#show-the-nearest-methodfunction-in-the-statusline
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 "}}}
 
 nmap <c-w> :Windows<CR>
