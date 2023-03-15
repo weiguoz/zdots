@@ -44,7 +44,7 @@ filetype plugin indent on
 call DirUndo()
 
 " {{{ colorscheme
-if Rand() % 3 == 0
+if Rand() % 4 == 0
     set background=dark
 else
     set background=light
