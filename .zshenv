@@ -6,5 +6,5 @@ import() {
     fi
 }
 
-# 为了能够在vim中使用alias，所以把alias放置在env中
+# 为了能够在vim 中使用 alias，把 alias 放置在 env 中
 import ${HOME}/zdots/sh/functions.sh

@@ -12,6 +12,8 @@ nmap E <Plug>(coc-diagnostic-prev)
 nmap e <Plug>(coc-diagnostic-next)
 nmap <leader>f :Files<CR>
 nmap <leader>b :Buffers<CR>
+nmap <c-w> :Windows<CR>
+noremap t :BTags<CR>
 
 """ {{{ copied from https://github.com/neoclide/coc.nvim README.md
 set updatetime=300
@@ -109,16 +111,14 @@ au FileType go nnoremap <silent> run :AsyncRun go run %<cr>
 " }}}
 
 "{{{ liuchengxu/vista.vim
-noremap t :silent! Vista finder coc<CR>
+" noremap t :silent! Vista finder coc<CR> " already mapping BTags to T in the
+" same function
 noremap <silent> <leader>t :Vista!!<CR>
-let g:vista_default_executive = 'coc'
 let g:vista_fzf_preview = ['right:50%']
 " It's a little bit weird that thers is connection between vista and statusline(vim-airline)
 " https://github.com/liuchengxu/vista.vim#show-the-nearest-methodfunction-in-the-statusline
 autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 "}}}
-
-nmap <c-w> :Windows<CR>
 
 " {{{ easymotion
 " Turn on case-insensitive feature
