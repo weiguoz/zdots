@@ -25,8 +25,6 @@ autoload -Uz _zinit
 ## refers to
 ## https://github.com/Aloxaf/dotfiles/blob/master/zsh/.config/zsh/zshrc.zsh
 
-zinit ice lucid wait='0'
-zinit light skywind3000/z.lua
 zinit ice lucid wait='0' atinit='zpcompinit'
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit ice lucid wait="0" atload='_zsh_autosuggest_start'
@@ -46,6 +44,11 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # zinit light jeffreytse/zsh-vi-mode
 # tasted not so good.
 
+## zinit ice lucid wait='0'
+## zinit light skywind3000/z.lua
+zinit light b4b4r07/enhancd
+zinit snippet "$ZINIT_HOME/plugins/b4b4r07---enhancd/init.sh"
+
 # {{{ 加载补全
 zinit ice mv="*.zsh -> _fzf" as="completion"
 zinit light junegunn/fzf # so as to snippet key-bindings.zsh
@@ -53,9 +56,7 @@ zinit snippet "$ZINIT_HOME/plugins/junegunn---fzf/shell/completion.zsh"
 zinit snippet "$ZINIT_HOME/plugins/junegunn---fzf/shell/key-bindings.zsh"
 zinit ice lucid wait='0'
 zinit light zsh-users/zsh-completions
-zinit light b4b4r07/enhancd
-zinit snippet "$ZINIT_HOME/plugins/b4b4r07---enhancd/init.sh"
-# }}}
+##  # }}}
 
 # {{{ w7u, preview configuration for ohmyzsh
 source ${HOME}/zdots/sh/entrance.sh
