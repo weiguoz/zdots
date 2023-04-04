@@ -294,7 +294,7 @@ tmux_conf_copy_to_os_clipboard=true
 ## w7u ---
 
 # move status line to top
-#set -g status-position top
+set -g status-position top
 set -g display-panes-time 8000
 
 # @w7u: change screen-256color to xterm, so as to enable **italic** in tmux
