@@ -29,7 +29,8 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'honza/vim-snippets' " coc-snippets works with vim-snippets
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'github/copilot.vim'
-Plug 'lfv89/vim-interestingwords'
+Plug 'inkarkat/vim-mark'
+Plug 'inkarkat/vim-ingo-library' " required by vim-mark
 " {{{ 试用期
 Plug 'mhinz/vim-startify'
 Plug 'simnalamburt/vim-mundo'
