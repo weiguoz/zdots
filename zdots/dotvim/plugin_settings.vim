@@ -306,17 +306,6 @@ let g:tmux_navigator_disable_when_zoomed = 1
 " nnoremap <leader>p :<c-u>MatchupWhereAmI?<cr>
 " }}}
 
-" {{{ lfv89/vim-interestingwords
-let g:interestingWordsRandomiseColors = 1
-let g:interestingWordsCycleColors = 1
-nnoremap <silent> <leader>k :call InterestingWords('n')<cr>
-vnoremap <silent> <leader>k :call InterestingWords('v')<cr>
-nnoremap <silent> <leader>K :call UncolorAllWords()<cr>
-
-nnoremap <silent> n :call WordNavigation(1)<cr>
-nnoremap <silent> N :call WordNavigation(0)<cr>
-" }}}
-
 " {{{ copilot.vim
 " https://github.com/github/copilot.vim/blob/release/doc/copilot.txt#L80-L89
 imap <silent><script><expr> <C-S> copilot#Accept("\<CR>")
