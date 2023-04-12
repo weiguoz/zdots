@@ -16,7 +16,8 @@ alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort
 alias sah='xargs grep -HLi'
 alias grep='grep --color=always' # -i -n -m(max=8)
 alias vs='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code' # vscode
-alias vim='nvim'
+alias vi='nvim'
+alias vim='nvim +'
 # alias fn='find . ! -wholename'
 # open
 alias o='sh ${DOTS}/sh/search_on_terminal.sh'
