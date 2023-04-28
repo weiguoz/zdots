@@ -19,8 +19,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'APZelos/blamer.nvim'
-Plug 'rhysd/git-messenger.vim'
-" :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
+Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
 " }}}
 Plug 'vim-scripts/FencView.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -45,7 +44,7 @@ filetype plugin indent on
 call DirUndo()
 
 " {{{ colorscheme
-if Rand() % 4 == 0
+if Rand() % 5 == 0
     set background=dark
 else
     set background=light
