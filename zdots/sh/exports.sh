@@ -31,7 +31,7 @@ iPATH=$iPATH:"$GOPATH/bin"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl/lib/pkgconfig"
 
 ## only python3
-iPATH=$iPATH:/opt/homebrew/opt/python@3.11/bin # make soft links('ln -s') python3 & pip3 from the specific version
+iPATH=$iPATH:"/opt/homebrew/opt/python@3.11/bin" # make soft links('ln -s') python3 & pip3 from the specific version
 export PYTHONPATH=`uniq_csv "/opt/homebrew/lib/python3.11/site-packages:$PYTHONPATH"`
 
 ### exa(colorful ls) color
@@ -40,3 +40,4 @@ export PYTHONPATH=`uniq_csv "/opt/homebrew/lib/python3.11/site-packages:$PYTHONP
 export EXA_COLORS="${EXA_COLORS}:da=1;30:di=1;36" # :ln=1;34:"
 
 export PATH=`uniq_csv "$iPATH:$PATH"` # order is important
+unset iPATH

@@ -32,7 +32,7 @@
             }
         },
         "clangd": {
-            "command": "/Library/Developer/CommandLineTools/usr/bin/clangd",
+            "command": "clangd",
             "rootPatterns": [
                 "compile_commands.json",
                 "compile_flags.txt",
