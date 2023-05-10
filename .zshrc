@@ -49,6 +49,8 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 zinit light b4b4r07/enhancd
 zinit snippet "$ZINIT_HOME/plugins/b4b4r07---enhancd/init.sh"
 
+# }}}
+
 # {{{ 加载补全
 zinit ice mv="*.zsh -> _fzf" as="completion"
 zinit light junegunn/fzf # so as to snippet key-bindings.zsh
@@ -106,4 +108,3 @@ case $THEME in
         ;;
 esac
 # }}}
-
