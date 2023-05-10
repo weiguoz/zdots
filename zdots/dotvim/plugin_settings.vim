@@ -111,13 +111,14 @@ au FileType go nnoremap <silent> run :AsyncRun go run %<cr>
 " }}}
 
 "{{{ liuchengxu/vista.vim
-" noremap t :silent! Vista finder coc<CR> " already mapping BTags to T in the
-" same function
-noremap <silent> <leader>t :Vista!!<CR>
-let g:vista_fzf_preview = ['right:50%']
-" It's a little bit weird that thers is connection between vista and statusline(vim-airline)
-" https://github.com/liuchengxu/vista.vim#show-the-nearest-methodfunction-in-the-statusline
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+"""" 注释之：它依赖的 ctags 不能支持 go: [vista.vim] ctags: Warning: Unsupported kind: 'w' for --go-kinds option 
+"""" noremap t :silent! Vista finder coc<CR> " already mapping BTags to T in the
+"""" same function
+"""noremap <silent> <leader>t :Vista!!<CR>
+"""let g:vista_fzf_preview = ['right:50%']
+"""" It's a little bit weird that thers is connection between vista and statusline(vim-airline)
+"""" https://github.com/liuchengxu/vista.vim#show-the-nearest-methodfunction-in-the-statusline
+"""autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 "}}}
 
 " {{{ easymotion
