@@ -6,12 +6,12 @@
     ci = commit -v
     clear = clean -dfx
     co = checkout
-    df = "!f(){ if [ $# -eq 0 ]; then b='origin/master'; else b=${1}; fi;  git diff --stat $(git merge-base HEAD ${b}); };f"
+    df = "!f(){ if [ $# -eq 0 ]; then b='origin/HEAD'; else b=${1}; fi;  git diff --stat $(git merge-base HEAD ${b}); };f"
     del = branch -D
     info = config --list
+    ls = "!tig" # log --graph --abbrev-commit --decorate --stat # --all --author=
     ll = log --graph --all --topo-order --decorate --date=short --oneline --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]"
     logf = log --stat --follow -p -M
-    ls = "!tig" # log --graph --abbrev-commit --decorate --stat # --all --author=
     push0 = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
     pushf = push --force-with-lease
     repos =  !"find . -name .git -type d -prune"
