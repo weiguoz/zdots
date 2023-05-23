@@ -25,18 +25,29 @@ zinit light-mode for \
 ## refers to
 ## https://github.com/Aloxaf/dotfiles/blob/master/zsh/.config/zsh/zshrc.zsh
 
+
+## zinit ice lucid wait='0'
+## zinit light skywind3000/z.lua
+zinit light b4b4r07/enhancd
+zinit snippet "$ZINIT_HOME/plugins/b4b4r07---enhancd/init.sh"
+
 zinit ice lucid wait='0' atinit='zpcompinit'
 zinit light zdharma-continuum/fast-syntax-highlighting
 zinit ice lucid wait="0" atload='_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
+
 ## https://github.com/Aloxaf/fzf-tab#configure
 zinit light Aloxaf/fzf-tab
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # https://superuser.com/a/1092328 cd case-insensitive matching
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --icons --group-directories-first --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
 
 # Since the plugin(jeffreytse/zsh-vi-mode) will overwrite the previous key bindings,
 # this causes the key bindings of other plugins ( such as fzf ) to fail.
@@ -44,10 +55,6 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
 # zinit light jeffreytse/zsh-vi-mode
 # tasted not so good.
 
-## zinit ice lucid wait='0'
-## zinit light skywind3000/z.lua
-zinit light b4b4r07/enhancd
-zinit snippet "$ZINIT_HOME/plugins/b4b4r07---enhancd/init.sh"
 
 # }}}
 
@@ -65,8 +72,6 @@ source ${HOME}/zdots/sh/entrance.sh
 limit coredumpsize 0
 setopt auto_list
 setopt auto_menu
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 export HISTSIZE=10000000
 export SAVEHIST=$HISTSIZE
