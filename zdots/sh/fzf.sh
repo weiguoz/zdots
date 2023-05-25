@@ -67,11 +67,11 @@ my_fzf_rg() {
             --color "hl:-1:underline,hl+:-1:underline:reverse" \
             --disabled --query "$INITIAL_QUERY" \
 			--bind "change:reload:sleep 0.1; $RG_PREFIX {q} || true" \
-            --bind "ctrl-m:unbind(change,ctrl-m)+change-prompt(2. fzf> )+enable-search+clear-query+rebind(ctrl-o)" \
-            --bind "ctrl-o:unbind(ctrl-o)+change-prompt(1. rg> )+disable-search+reload($RG_PREFIX {q} || true)+rebind(change,ctrl-m)" \
+            --bind "ctrl-l:unbind(change,ctrl-l)+change-prompt(2. fzf> )+enable-search+clear-query+rebind(ctrl-o)" \
+            --bind "ctrl-o:unbind(ctrl-o)+change-prompt(1. rg> )+disable-search+reload($RG_PREFIX {q} || true)+rebind(change,ctrl-l)" \
             --prompt '1. rg> ' \
             --delimiter : \
-            --header 'ctrl-o (rg mode, precision content) | ctrl-m (fzf mode, fuzzy title)' \
+            --header 'ctrl-o (rg mode, precision content) | ctrl-l (fzf mode, fuzzy title)' \
             --preview-window 'up,60%,border-bottom,+{2}+3/3,~2' \
             --preview="[[ ! -z {q} ]] && [[ ! -z {1} ]] && bat {1} --color=always --theme='Monokai Extended Bright' --style=numbers,changes --italic-text=always --highlight-line={2}"
 	)
