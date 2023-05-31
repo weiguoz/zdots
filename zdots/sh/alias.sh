@@ -21,7 +21,7 @@ alias vim='nvim +'
 # alias fn='find . ! -wholename'
 # open
 alias o='sh ${DOTS}/sh/search_on_terminal.sh'
-alias h='o -g'
+alias oh='o -g'
 alias f='open -a Finder .'
 
 alias mvnp='mvn clean package -Dmaven.test.skip'
@@ -35,6 +35,7 @@ alias mvnp='mvn clean package -Dmaven.test.skip'
 # 1) 直接将 z 定向到 enhancd
 # 2) 将cd 由__enhancd::cd重新恢复为 builtin-cd
 alias z='__enhancd::cd'
+alias zh='pwd | tr -d "\r\n" | __enhancd::cd' # help creating ~/.enhancd/enhancd.log
 alias cd='builtin cd'
 
 alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'

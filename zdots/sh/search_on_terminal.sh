@@ -11,26 +11,26 @@ fi
 
 case $1 in
     -h)
-        echo "specify search engine with: [-b|-g] {query}"
+        echo "specify search engine with: [-g] {query}"
         exit
         ;;
     -g)
         source ~/Documents/secrets/sensitive-env.sh
-        web=${GitHomeSeachURL}
+        url=${GitHomeSeachURL}
         ;;
     *)
-        web="https://www.google.com/search?q="
+        url="https://www.google.com/search?q="
         ;;
 esac
 
-for item in $*
+for w in $*
 do
-    if [[ "$item" != "-h" && "$item" != "-b" && "$item" != "-g" ]]; then
-        if [ "$searchWord" == "" ];then
-            searchWord="$item"
+    if [[ "$w" != "-h" && "$w" != "-g" ]]; then
+        if [ "$searchWords" == "" ];then
+            searchWords="$w"
         else
-            searchWord="$searchWord $item"
+            searchWords="$searchWords $w"
         fi
     fi
 done;
-open "${web}${searchWord}"
+open "${url}${searchWords}"
