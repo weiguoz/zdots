@@ -28,15 +28,16 @@ alias mvnp='mvn clean package -Dmaven.test.skip'
 # alias antlr4='java -jar /usr/local/lib/antlr-4.5.3-complete.jar'
 
 # alias cd
-# https://github.com/b4b4r07/enhancd
-# 在 macOS 13.3 (22E252) a.k.a Ventura 中，enhancd 和补全有冲突，导致enhancd无法正常工作: https://github.com/b4b4r07/enhancd/issues/206
-# 我考虑到 enhancd 完全可以替代 zlua( https://github.com/skywind3000/z.lua )，所以:
-# 0) 删除 zlua
-# 1) 直接将 z 定向到 enhancd
-# 2) 将cd 由__enhancd::cd重新恢复为 builtin-cd
-alias z='__enhancd::cd'
-alias zh='pwd | tr -d "\r\n" | __enhancd::cd' # help creating ~/.enhancd/enhancd.log
-alias cd='builtin cd'
+### 我把 zdharma-continuum/fast-syntax-highlighting 移到enhancd之前，问题解决了，但又会有新的补全问题
+### https://github.com/b4b4r07/enhancd
+### 在 macOS 13.3 (22E252) a.k.a Ventura 中，enhancd 和补全有冲突，导致enhancd无法正常工作: https://github.com/b4b4r07/enhancd/issues/206
+### 我考虑到 enhancd 完全可以替代 zlua( https://github.com/skywind3000/z.lua )，所以:
+### 0) 删除 zlua
+### 1) 直接将 z 定向到 enhancd
+### 2) 将cd 由__enhancd::cd重新恢复为 builtin-cd
+##alias z='__enhancd::cd'
+##alias zh='pwd | tr -d "\r\n" | __enhancd::cd' # help creating ~/.enhancd/enhancd.log
+##alias cd='builtin cd'
 
 alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'
 
