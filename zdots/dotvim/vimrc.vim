@@ -6,7 +6,7 @@ filetype off " 必须先关闭文件类型检查
 call plug#begin('~/.vim/plugged')
 " https://github.com/rockerBOO/awesome-neovim#tree-sitter-supported-colorscheme
 Plug 'sainnhe/edge' " 'sainnhe/sonokai'
-" Plug 'liuchengxu/vista.vim' " 它依赖的 ctags 不能支持 go: [vista.vim] ctags: Warning: Unsupported kind: 'w' for --go-kinds option 
+" Plug 'liuchengxu/vista.vim' " 它依赖的 ctags 不能支持 go: [vista.vim] ctags: Warning: Unsupported kind: 'w' for --go-kinds option
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -18,6 +18,7 @@ Plug 'easymotion/vim-easymotion'
 " {{{ git plugins
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-commentary'
 Plug 'APZelos/blamer.nvim'
 Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
 " }}}

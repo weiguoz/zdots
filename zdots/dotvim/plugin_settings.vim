@@ -316,4 +316,10 @@ let g:copilot_no_tab_map = v:true
 " it seems that the above is not needed anymore since 2023-01-06
 " }}}
 
+" {{{ vim-commentary
+noremap <c-_> :Commentary<cr>
+vnoremap <c-_> :Commentary<cr>
+inoremap <c-_> <Esc>:Commentary<cr>0
+" }}}
+
 let g:rainbow_active = 1
