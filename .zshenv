@@ -14,13 +14,20 @@ source ${HOME}/zdots/sh/entrance.sh
 limit coredumpsize 0
 setopt auto_list
 setopt auto_menu
+
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-export HISTSIZE=10000000
-export SAVEHIST=$HISTSIZE
-setopt share_history # 在多个会话中共享历史命令行
-setopt hist_ignore_all_dups
-setopt hist_ignore_dups
-setopt hist_ignore_space
+
+
+
+export HISTFILE=~/.zsh_history
+export HISTSIZE=10000 # set history size
+export SAVEHIST=10000 # save history after logout
+setopt share_history
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt EXTENDED_HISTORY #add timestamp for each entry
 
 # https://unix.stackexchange.com/a/37182
 setopt autocd
