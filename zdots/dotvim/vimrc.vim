@@ -18,10 +18,10 @@ Plug 'easymotion/vim-easymotion'
 " {{{ git plugins
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-commentary'
 Plug 'APZelos/blamer.nvim'
 Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
 " }}}
+Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/FencView.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pechorin/any-jump.vim'

@@ -30,6 +30,9 @@ iPATH=$iPATH:"$GOPATH/bin"
 ## pkgconfig
 export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl/lib/pkgconfig"
 
+## docker
+iPATH=$iPATH:"/Applications/Docker.app/Contents/Resources/bin"
+
 ## only python3
 iPATH=$iPATH:"/opt/homebrew/opt/python@3.11/bin" # make soft links('ln -s') python3 & pip3 from the specific version
 export PYTHONPATH=`uniq_csv "/opt/homebrew/lib/python3.11/site-packages:$PYTHONPATH"`
