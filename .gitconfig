@@ -44,4 +44,5 @@
     file-decoration-style = none
     hunk-header-decoration-style = yellow box
 [rerere]
-    enabled = true
+	enabled = 1
+	autoupdate = true

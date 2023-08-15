@@ -39,7 +39,10 @@ alias mvnp='mvn clean package -Dmaven.test.skip'
 ##alias zh='pwd | tr -d "\r\n" | __enhancd::cd' # help creating ~/.enhancd/enhancd.log
 ##alias cd='builtin cd'
 
-alias bat='bat --theme=Dracula --style=numbers,changes --italic-text=always'
+alias cat='bat --style=numbers,changes --italic-text=always' # --theme=Dracula
+help() {
+    "$@" --help 2>&1 | bat --plain --language=help
+}
 
 # if [ -f ${DOTS}/z/z.sh ]; then
 #     z_then_ls() {
