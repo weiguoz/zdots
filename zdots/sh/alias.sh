@@ -39,9 +39,14 @@ alias mvnp='mvn clean package -Dmaven.test.skip'
 ##alias zh='pwd | tr -d "\r\n" | __enhancd::cd' # help creating ~/.enhancd/enhancd.log
 ##alias cd='builtin cd'
 
+# https://github.com/sharkdp/bat
 alias cat='bat --style=numbers,changes --italic-text=always' # --theme=Dracula
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 help() {
     "$@" --help 2>&1 | bat --plain --language=help
+}
+gitdiff() {
+    git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
 
 # if [ -f ${DOTS}/z/z.sh ]; then
