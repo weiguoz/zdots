@@ -6,7 +6,8 @@
     ci = commit -v
     clear = clean -dfx
     co = checkout
-    df = "!f(){ if [ $# -eq 0 ]; then b='origin/HEAD'; else b=${1}; fi;  git diff --stat $(git merge-base HEAD ${b}); };f"
+    dif0 = "!f(){ if [ $# -eq 0 ]; then b='origin/HEAD'; else b=${1}; fi;  git diff --stat $(git merge-base HEAD ${b}); };f"
+    dif = "!f(){ git diff --name-only --relative --diff-filter=d | xargs bat --diff; };f"
     del = branch -D
     info = config --list
     ls = "!tig" # log --graph --abbrev-commit --decorate --stat # --all --author=
