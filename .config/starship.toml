@@ -1,5 +1,8 @@
 # ref: https://github.com/starship/starship/tree/master/docs/zh-CN/config
 
+# https://github.com/starship/starship/discussions/4181#discussioncomment-3170845
+command_timeout = 1000
+
 format = """
 $all\
 $fill\
