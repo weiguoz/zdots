@@ -6,7 +6,7 @@
 ########################################################################################
 
 if [ $# == 0 ]; then
-    open -n -a "Google Chrome" && exit 0
+    open -n -a "Google Chrome Beta" && exit 0
 fi
 
 case $1 in

@@ -13,7 +13,6 @@ import "${DOTS}/sh/keybinding.sh"
 import "${DOTS}/sh/init.sh"
 import "${DOTS}/sh/alias.sh"
 import "${DOTS}/sh/fzf.sh"
-import "${HOME}/.cargo/env"
 # import ${DOTS}/sh/proxy.sh
 # import /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
 # export PS1='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%~ %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'

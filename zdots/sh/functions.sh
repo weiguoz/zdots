@@ -74,7 +74,7 @@ ve() {
     fi
 }
 
-## used in export.sh. The order of elements should be kept
+## used in export.sh. The order must be kept
 uniq_csv() {
     echo "$1" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }'
 }
@@ -82,9 +82,9 @@ uniq_csv() {
 ## used as alias
 ff() {
     if [ -n "$1" ]; then
-        find . -type f -iname "$1"
+        find . -type f -iname "$1" 2>/dev/null
     else
-        find . -type f -iname "*"
+        find . -type f -iname "*" 2>/dev/null
     fi
 }
 

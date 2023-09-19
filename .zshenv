@@ -16,9 +16,6 @@ setopt auto_list
 setopt auto_menu
 
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-
-
-
 export HISTFILE=~/.zsh_history
 export HISTSIZE=10000 # set history size
 export SAVEHIST=10000 # save history after logout
@@ -34,3 +31,4 @@ setopt autocd
 
 # specify the ruby version https://github.com/rbenv/rbenv/issues/939#issuecomment-253940228
 # eval "$(rbenv init -)"
+. "$HOME/.cargo/env"
