@@ -1,20 +1,14 @@
-my_prx() {
+#!/bin/bash
+
+proxy() {
     if [ $# -eq 0 ]; then
         echo "Bad command, specific {on,off} {server_tag_to_find_the_right_port}"
     elif [ $1 = "on" ]; then
-        server_tag=$2
-        proxy=$(lsof -i -n -P | grep LISTEN | grep ${server_tag} | tr -s ' ' | cut -d' ' -f 9)
-        if ([ -z "$proxy" ]); then
-            echo "Can't find a proxy server"
-        else
-            export http_proxy="$proxy"
-            export https_proxy="$proxy"
-            echo "Terminal proxy is: $proxy"
-        fi
+        export https_proxy="http://127.0.0.1:7890" http_proxy="http://127.0.0.1:7890" all_proxy="socks5://127.0.0.1:7890"
+        echo "HTTP Proxy on"
     elif [ $1 = "off" ]; then
-        unset http_proxy
-        unset https_proxy
-        echo 'Shutdown proxy on terminal'
+        unset https_proxy http_proxy all_proxy
+        echo "HTTP Proxy off"
     else
         echo "Bad command, specific {on,off} {server_tag_to_find_the_right_port}"
     fi
