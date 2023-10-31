@@ -4,7 +4,7 @@
 
 tellme() {
     ## brew install terminal-notifier
-    msg="NULL"
+    local msg="NULL"
     if [ $# -ne 0 ]; then
         msg=$1
     fi
@@ -13,7 +13,7 @@ tellme() {
 
 ## funny for my kids
 wgg() {
-    LOOP=1
+    local LOOP=1
     if [ $# -gt 0 ]; then
         LOOP=$1
     fi
@@ -81,9 +81,12 @@ uniq_csv() {
 
 ## used as alias
 ff() {
-    if [ -n "$1" ]; then
-        find . -type f -iname "$1" 2>/dev/null
-    else
+    if [ $# -eq 0 ]; then
         find . -type f -iname "*" 2>/dev/null
+    else
+        for i in "$@"; do
+            find . -type f -iname "$i" 2>/dev/null
+        done
+        unset i
     fi
 }
