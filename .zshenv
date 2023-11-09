@@ -10,7 +10,7 @@ import() {
 import ${HOME}/zdots/sh/functions.sh
 
 # preview configuration for ohmyzsh(@w7u)
-source ${HOME}/zdots/sh/entrance.sh
+source ${HOME}/zdots/sh/_.sh
 limit coredumpsize 0
 setopt auto_list
 setopt auto_menu
