@@ -1,6 +1,5 @@
 #!/bin/sh
 
-# DOTS defined in entrance.sh
 # sourced by ~/.bashrc normally
 # here we go
 alias md5sum='md5 -r'
@@ -20,8 +19,6 @@ alias vi='nvim'
 alias vim='nvim +'
 # alias fn='find . ! -wholename'
 # open
-alias o='sh ${DOTS}/sh/search_on_terminal.sh'
-alias oh='o -g'
 alias f='open -a Finder .'
 
 alias mvnp='mvn clean package -Dmaven.test.skip'
@@ -48,13 +45,6 @@ help() {
 gitdiff() {
     git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
-
-# if [ -f ${DOTS}/z/z.sh ]; then
-#     z_then_ls() {
-#         z "$1" && l
-#     }
-#     alias z='z_then_ls'
-# fi
 
 # package name: osascript -e 'id of app "Finder"'
 # du -d 1 -h | sort -nr | head -3
