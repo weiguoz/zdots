@@ -1,4 +1,4 @@
-#! /bin/sh sh
+#!/bin/bash
 
 ########################################################################################
 # based on:                                                                            #
@@ -7,7 +7,8 @@
 
 o() {
     if [ $# -eq 0 ]; then
-        open -n -a "Google Chrome Beta" && exit 0
+        open -n -a "Arc" && exit 0
+        # open -n -a "Google Chrome Beta" && exit 0
     fi
 
     case $1 in
