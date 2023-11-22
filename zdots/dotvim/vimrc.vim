@@ -36,6 +36,7 @@ Plug 'mhinz/vim-startify'
 Plug 'simnalamburt/vim-mundo'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
+Plug 'farmergreg/vim-lastplace' " intelligently reopens files at your last edit position
 " Plug 'andymass/vim-matchup' 不需要
 " }}}
 call plug#end()
