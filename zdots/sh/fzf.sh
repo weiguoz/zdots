@@ -12,7 +12,7 @@ export FZF_DEFAULT_OPTS='
   --color info:141,prompt:84,spinner:212,pointer:212,marker:212
   -m --height 80% --layout reverse --inline-info --bind ctrl-f:page-down,ctrl-b:page-up' # --border
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS='--preview "(bat {} --color=always --theme=Dracula --style=numbers,changes --italic-text=always || highlight -O ansi -l {} 2> /dev/null || tree -C {}) 2> /dev/null"'
+export FZF_CTRL_T_OPTS='--preview "(bat {} --color=always --theme=Dracula --style=numbers,changes || highlight -O ansi -l {} 2> /dev/null || tree -C {}) 2> /dev/null"'
 
 # git log show with fzf
 gig() {
