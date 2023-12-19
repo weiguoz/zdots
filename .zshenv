@@ -17,8 +17,8 @@ setopt auto_menu
 
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 export HISTFILE=~/.zsh_history
-export HISTSIZE=10000 # set history size
-export SAVEHIST=10000 # save history after logout
+export HISTSIZE=100000 # set history size
+export SAVEHIST=100000 # save history after logout
 setopt share_history
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS

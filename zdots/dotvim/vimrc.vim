@@ -37,7 +37,6 @@ Plug 'simnalamburt/vim-mundo'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
 Plug 'farmergreg/vim-lastplace' " intelligently reopens files at your last edit position
-" Plug 'andymass/vim-matchup' 不需要
 " }}}
 call plug#end()
 " }}}
@@ -90,7 +89,7 @@ set nu
 set mouse-=r " disable mouse. or set mouse=a to enable mouse
 set linebreak " 不在单词中间折行
 set foldmethod=marker " marker 这个容易操控. /indent 根据缩进自动折行。zm zr来增减折行层次,za打开关闭
-set encoding=utf-8 fileencodings=utf-8,gbk,gb2312,gb18030 termencoding=utf-8 " 编码控制
+set encoding=utf-8 fileencodings=utf-8,ucs-bom,cp936,gbk,gb2312,gb18030 " 编码控制 http://liwuzhi.art/?p=541
 
 set ignorecase
 set smartcase
@@ -146,7 +145,7 @@ endfunction
 
 """ {{{ movement
 " movements in the insert mode
-" conflict key with snippets expands, so i disable such keys
+" conflict key with snippets expands, so I disable such keys
 inoremap <c-h> <Left>
 inoremap <c-j> <Down>
 inoremap <c-k> <Up>
