@@ -5,7 +5,8 @@ filetype off " 必须先关闭文件类型检查
 " {{{ vim-plug, turn vundle/bundle to vim-plugin at 2019.11.18
 call plug#begin('~/.vim/plugged')
 " https://github.com/rockerBOO/awesome-neovim#tree-sitter-supported-colorscheme
-Plug 'sainnhe/edge' " 'sainnhe/sonokai'
+Plug 'sainnhe/edge' " 'sainnhe/sonokai' 'sainnhe/edge'
+Plug 'charlespascoe/vim-go-syntax' " for gopher: Fast, 'tree-sitter'-like Vim Syntax Highlighting for Go
 " Plug 'liuchengxu/vista.vim' " 它依赖的 ctags 不能支持 go: [vista.vim] ctags: Warning: Unsupported kind: 'w' for --go-kinds option
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-rooter'
@@ -45,7 +46,7 @@ filetype plugin indent on
 call DirUndo()
 
 " {{{ colorscheme
-if Rand() % 5 == 0
+if Rand() % 10 == 0 " lucky
     set background=dark
 else
     set background=light
