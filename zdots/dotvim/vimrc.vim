@@ -46,10 +46,10 @@ filetype plugin indent on
 call DirUndo()
 
 " {{{ colorscheme
-if Rand() % 10 == 0 " lucky
+if Rand() % 100 < 95
     set background=dark
 else
-    set background=light
+    set background=light " lucky
 endif
 colorscheme edge
 " {{{ sonokai https://github.com/sainnhe/sonokai/blob/c4dfd15a2202eeeabefc13028af652c8322f2c49/doc/sonokai.txt#L118-L123
