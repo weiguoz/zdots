@@ -36,7 +36,7 @@ alias mvnp='mvn clean package -Dmaven.test.skip'
 ##alias cd='builtin cd'
 
 # https://github.com/sharkdp/bat
-alias bat='bat --style=numbers,changes --italic-text=always --theme=Dracula'
+# alias bat='bat --style=numbers,changes --italic-text=always --theme=Dracula' --  别这么做，可以在 ~/.config/bat/config 中定义
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 help() {
     "$@" --help 2>&1 | bat --plain --language=help
