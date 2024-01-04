@@ -7,21 +7,17 @@
 
 o() {
     if [ $# -eq 0 ]; then
-        open -n -a "Arc" && exit 0
-        # open -n -a "Google Chrome Beta" && exit 0
+        open -a "Arc" # open -n -a "Google Chrome Beta" && exit 0
+        return
     fi
 
     case $1 in
         -h)
-            echo "specify search engine with: [-g] {query}"
-            exit
-            ;;
+            echo "specify search engine with: [-g] {query}" ; return ;;
         -g)
-            url=${GitHomeSeachURL}
-            ;;
+            url=${GitHomeSeachURL} ;;
         *)
-            url="https://www.google.com/search?q="
-            ;;
+            url="https://www.google.com/search?q=" ;;
     esac
 
     for w in "$@"
