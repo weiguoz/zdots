@@ -12,7 +12,7 @@ export FZF_DEFAULT_OPTS='
   --color info:141,prompt:84,spinner:212,pointer:212,marker:212
   -m --height 80% --layout reverse --inline-info --bind ctrl-f:page-down,ctrl-b:page-up' # --border
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_CTRL_T_OPTS='--preview "(bat {} --color=always --theme=Dracula --style=numbers,changes || highlight -O ansi -l {} 2> /dev/null || tree -C {}) 2> /dev/null"'
+export FZF_CTRL_T_OPTS='--preview "(bat {} --color=always || highlight -O ansi -l {} 2> /dev/null || tree -C {}) 2> /dev/null"'
 
 # git log show with fzf
 gig() {
@@ -72,21 +72,9 @@ my_fzf_rg() {
             --delimiter : \
             --header 'ctrl-o (rg mode, precision content) | ctrl-l (fzf mode, fuzzy title)' \
             --preview-window 'up,60%,border-bottom,+{2}+3/3,~2' \
-            --preview="[[ ! -z {q} ]] && [[ ! -z {1} ]] && bat {1} --color=always --theme='Monokai Extended Bright' --style=numbers,changes --italic-text=always --highlight-line={2}"
+            --preview="[[ ! -z {q} ]] && [[ ! -z {1} ]] && bat --color=always {1} -H {2} --theme='Dracula'"
 	)
     # split to an array method1: local a=("${(@s/:/)selected}") && [ -f "${a[1]}" ] && vim "${a[1]}" "+${a[2]}"
     IFS=':' read -r fn le others <<<"$selected"
     [ -f "$fn" ] && vim "$fn" "+$le"
 }
-
-# my_fzf_rg_old() {
-#	rgcmd='rg --smart-case --multiline --colors "path:fg:190,220,255" --colors "line:fg:128,128,128"'
-#     local selected=$(
-#         fzf --ansi --sort --phony \
-#             --query "$1" \
-#			--bind "change:reload:sleep 0.1; ${rgcmd} --files-with-matches --no-ignore {q} || true" \
-#             --delimiter : \
-#			--preview-window="80%:wrap" \
-#             --preview="[[ ! -z {} ]] && ${rgcmd} --pretty --context 9 --field-context-separator '  ' --field-match-separator '  ' {q} {}"
-#	) && [ -f "${selected}" ] && vim "${selected}"
-# }
