@@ -8,6 +8,18 @@
 ## https://zhuanlan.zhihu.com/p/98450570
 ## refers to
 ## https://github.com/Aloxaf/dotfiles/blob/master/zsh/.config/zsh/zshrc.zsh
+# {{{ HISTORY settings. 放在 .zshenv 中不生效，不知在哪里被覆盖了。
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+export HISTFILE=~/.zsh_history
+export SAVEHIST=20000 # save history after logout
+export HISTSIZE=40000 # set history size
+setopt SHARE_HISTORY
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt EXTENDED_HISTORY #add timestamp for each entry
+# }}}
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit"
 skip_global_compinit="1"
@@ -84,3 +96,4 @@ case $THEME in
         ;;
 esac
 # }}}
+
