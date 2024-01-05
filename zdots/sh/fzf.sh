@@ -71,9 +71,9 @@ my_fzf_rg() {
             --delimiter : \
             --header 'ctrl-o (rg mode, precision content) | ctrl-l (fzf mode, fuzzy title)' \
             --preview-window 'up,60%,border-bottom,+{2}+3/3,~2' \
-            --preview="[[ ! -z {1} ]] && (([[ -z {q} ]] && bat --color=always {1}) || bat --color=always {1} -H {2} --theme='Dracula')"
+            --preview="[[ ! -z {1} ]] && (([[ -z {2} ]] && bat --color=always {1}) || bat --color=always {1} -H {2} --theme='Dracula')"
 	)
     # split to an array method1: local a=("${(@s/:/)selected}") && [ -f "${a[1]}" ] && vim "${a[1]}" "+${a[2]}"
-    IFS=':' read -r fn le others <<<"$selected"
+    IFS=':' read -r fn le _ <<<"$selected"
     [ -f "$fn" ] && vim "$fn" "+$le"
 }
