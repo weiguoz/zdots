@@ -71,7 +71,7 @@ zinit snippet "$ZINIT_HOME/plugins/junegunn---fzf/shell/key-bindings.zsh"
 zinit ice lucid wait='0'
 
 # {{{ theme
-: ${THEME:=starship}
+: ${THEME:=p10k}
 case $THEME in
     pure)
         PROMPT=$'\n%F{cyan}❯ %f'
