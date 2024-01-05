@@ -15,17 +15,6 @@ limit coredumpsize 0
 setopt auto_list
 setopt auto_menu
 
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-export HISTFILE=~/.zsh_history
-export HISTSIZE=100000 # set history size
-export SAVEHIST=100000 # save history after logout
-setopt share_history
-setopt INC_APPEND_HISTORY
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt EXTENDED_HISTORY #add timestamp for each entry
-
 # https://unix.stackexchange.com/a/37182
 setopt autocd
 
