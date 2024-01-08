@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
 " https://github.com/rockerBOO/awesome-neovim#tree-sitter-supported-colorscheme
 Plug 'sainnhe/edge' " 'sainnhe/sonokai' 'sainnhe/edge'
 Plug 'charlespascoe/vim-go-syntax' " for gopher: Fast, 'tree-sitter'-like Vim Syntax Highlighting for Go
-" Plug 'liuchengxu/vista.vim' " 它依赖的 ctags 不能支持 go: [vista.vim] ctags: Warning: Unsupported kind: 'w' for --go-kinds option
+Plug 'liuchengxu/vista.vim' "  曾经：它依赖的 ctags 不能支持 go: [vista.vim] ctags: Warning: Unsupported kind: 'w' for --go-kinds option
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
