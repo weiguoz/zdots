@@ -289,8 +289,6 @@ tmux_conf_copy_to_os_clipboard=true
 # set -gu prefix2
 # unbind C-x
 # unbind C-b
-# set -g prefix C-x
-# bind C-x send-prefix
 set -g status-position bottom # top/bottom
 ## w7u ---
 set -g display-panes-time 8000

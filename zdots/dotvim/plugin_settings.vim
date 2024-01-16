@@ -307,7 +307,7 @@ let g:tmux_navigator_disable_when_zoomed = 1
 " }}}
 
 " {{{ copilot.vim
-" https://github.com/github/copilot.vim/blob/release/doc/copilot.txt#L80-L89
+" https://github.com/github/copilot.vim/blob/1a55183ef9347d6f420406a3746474b6b9fb9ef5/doc/copilot.txt#L104
 imap <silent><script><expr> <C-S> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
 " tpope [workaround] https://github.com/community/community/discussions/16800#discussioncomment-2848953
@@ -320,5 +320,3 @@ noremap <c-_> :Commentary<cr>
 vnoremap <c-_> :Commentary<cr>
 inoremap <c-_> <Esc>:Commentary<cr>0
 " }}}
-
-let g:rainbow_active = 1
