@@ -6,7 +6,8 @@
 # for a list of all available themes
 # `bat --list-themes` list all themes.
 # 注意：仅 TwoDark 对 vim background=dark/light 同时友好
---theme="Coldark-Dark" # TwoDark
+--theme="Coldark-Dark"
+# --theme="TwoDark"
 
 # Enable this to use italic text on the terminal. This is not supported on all
 # terminal emulators (like tmux, by default):
