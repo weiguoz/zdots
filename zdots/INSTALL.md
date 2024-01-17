@@ -34,7 +34,7 @@ Let's remove lagged ohmyzsh and turn to zinit.
     1. [ranger+fzf](https://github.com/ranger/ranger/wiki/Custom-Commands#fzf-integration) - Add the following code to `commands.py`
 1. [enhancd](https://github.com/b4b4r07/enhancd) - A next-generation cd command with an interactive filter 
 
-### fzf
+## fzf
 
 ```python
 class fzf_fd(Command):
@@ -97,3 +97,18 @@ Then, we could use `fzf` command inside the `ranger` by `:fzf_fd`. In addition, 
 ## fonts
 
 [nerdfonts/downloads](https://www.nerdfonts.com/font-downloads)
+
+## tmux
+
+我想在重启电脑后继续上一个`session`，于是我安装了`tmux-resurrect`。而安装后者依赖插件管理器[tpm](https://github.com/tmux-plugins/tpm/blob/master/README.md)。所以我进行了如下操作：
+
+1. 手动安装`tmp`
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+```
+2. 在`.tmux.conf`中添加插件
+```
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+run '~/.tmux/plugins/tpm/tpm'
+```
+3. 进入`tmux`并安装插件`Prefix + C-I`
