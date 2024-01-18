@@ -3,7 +3,7 @@
     email = wg.z@qq.com
 [include]
     path = ~/zdots/gits/gitconfig.include
-    path = ~/codebase/gitconfig.include # we don't use `insteadOf` under `includeIf` due to some bugs of go mod download
+    path = ~/codebase/gitconfig.include # do not use `insteadOf` under `includeIf` due to some bugs of go mod download
 [core]
     excludesfile = ~/.gitignore_global
     quotepath = false
@@ -44,5 +44,5 @@
     file-decoration-style = none
     hunk-header-decoration-style = yellow box
 [rerere]
-	enabled = 1
-	autoupdate = true
+    enabled = 1
+    autoupdate = true
