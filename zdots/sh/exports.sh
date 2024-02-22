@@ -34,8 +34,8 @@ export PKG_CONFIG_PATH="$BREWHOME/opt/openssl/lib/pkgconfig"
 ## docker
 iPATH=$iPATH:"/Applications/Docker.app/Contents/Resources/bin"
 
-## only python3
-iPATH=$iPATH:"$BREWHOME/opt/python@3.12/bin" # make soft links('ln -s') python3 & pip3 from the specific version
+## python3: required by glances, icdiff, pre-commit, ranger and virtualenv
+iPATH=$iPATH:"$BREWHOME/opt/python3/bin" # make soft links('ln -s') python3 & pip3 from the specific version
 export PYTHONPATH=`uniq_csv "$BREWHOME/lib/python3.12/site-packages:$PYTHONPATH"`
 
 ### exa(colorful ls) color
