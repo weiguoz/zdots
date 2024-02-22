@@ -291,7 +291,8 @@ let g:coc_snippet_prev = '<c-k>'
 let g:blamer_enabled = 1
 " nmap <leader>b :BlamerToggle<CR>
 let g:blamer_delay = 500
-let g:blamer_relative_time = 1
+" let g:blamer_relative_time = 1
+let g:blamer_date_format = '%Y.%m.%d'
 let g:blamer_show_in_visual_modes = 1
 let g:blamer_show_in_insert_modes = 0
 " }}}
