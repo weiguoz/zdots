@@ -118,13 +118,13 @@ nnoremap <c-e> $
 " nnoremap <c-m> :call cursor(0, len(getline('.'))/2)<CR>
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
-" inoremap jj <Esc>l
+inoremap jk <Esc>l
 nmap zz :exec 'wq'<CR>
 nmap <leader>w :exec 'w'<CR>
 nmap <leader>q :exec 'q'<CR>
 nmap <leader>o :only<CR>
-"nmap <silent> <leader>k * ``
-map <c-n> :tabnew<CR>
+" nmap <silent> <leader>k * ``
+" map <c-n> :tabNext<CR>  gt gT for tabnext is good enough
 
 " quickfix ++
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
