@@ -62,7 +62,7 @@ class my_edit(Command):
         return self._tab_directory_content()
 
 
-class fzf_fd(Command):
+class customized_fd(Command):
     """
     :fzf_select
     Find a file using fzf.
@@ -90,7 +90,7 @@ class fzf_fd(Command):
               self.fm.select_file(fzf_file)
 
 
-class fzf_rg(Command):
+class customized_rg(Command):
     """
     :fzf_rga_search_documents
     Search in PDFs, E-Books and Office documents in current directory.
@@ -117,3 +117,17 @@ class fzf_rg(Command):
             fzf_file = os.path.abspath(stdout.rstrip('\n'))
             self.fm.execute_file(File(fzf_file))
 
+
+class tmux_open(Command):
+    """
+    :tmux_open
+
+    Open selected file in a new tmux pane
+    """
+
+    def execute(self):
+        import os
+        selected_file = self.fm.thisfile.path
+        # tmux_command = "tmux split-window -h 'vim {}'".format(selected_file)
+        tmux_command = "tmux neww 'vim {}'".format(selected_file)
+        os.system(tmux_command)
