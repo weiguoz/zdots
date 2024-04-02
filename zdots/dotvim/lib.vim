@@ -153,3 +153,27 @@ function! ZoomToggle() abort
 endfunction
 " }}}
 
+" {{{ Used by quickfix
+function! AdjustWindowHeight(minheight, maxheight)
+    let n_lines = 0
+
+    let l = 1
+    let w_width = winwidth(0)
+    while l <= line('$')
+        let l_len = strlen(getline(l)) + 0.0 " convert to float for division
+        let line_width = l_len/w_width
+        let n_lines += float2nr(ceil(line_width))
+        let l += 1
+    endw
+    exe max([min([n_lines, a:maxheight]), a:minheight]) . "wincmd _"
+endfunction
+" }}}
+
+" {{{ \TODO function
+function! AddTodoWithUsername(commentTag)
+    let username = system("echo $USER")
+    let username = substitute(username, '\n\+$', '', '') " 去除返回结果中的换行符
+    execute "normal! O" .a:commentTag. " TODO (" . username . "): "
+    normal! a
+endfunction
+" }}}
