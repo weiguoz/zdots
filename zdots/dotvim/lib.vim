@@ -121,9 +121,35 @@ func SetTitle()
 endfunc
 " }}}
 
-" {{{ https://stackoverflow.com/a/12739441/479812
+" {{{ Rand() https://stackoverflow.com/a/12739441/479812
 function Rand()
     return str2nr(matchstr(reltimestr(reltime()), '\v\.@<=\d+')[1:])
+endfunction
+" }}}
+
+" {{{ background toggle
+function! ToggleBackground()
+    if &background == "dark"
+        set background=light
+    else
+        set background=dark
+    endif
+    set syntax=on
+endfunction
+" }}}
+
+" {{{ Zoom/Restore window
+" http://stackoverflow.com/questions/13194428/is-better-way-to-zoom-windows-in-vim-than-zoomwin
+function! ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+        execute t:zoom_winrestcmd
+        let t:zoomed = 0
+    else
+        let t:zoom_winrestcmd = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
 endfunction
 " }}}
 

@@ -129,6 +129,9 @@ class tmux_open(Command):
         if self.fm.thisfile.is_directory:
             tmux_command = f"tmux new-window -c {self.fm.thisfile.path}"
         else:
-            tmux_command = f"tmux new-window -c {self.fm.thisdir.path} vim {self.fm.thisfile.path}"
+            # will close tmux window if quit vim
+            tmux_command = f"tmux new-window -c {self.fm.thisdir.path} nvim {self.fm.thisfile.path}"
+            # keep tmux window stay if quit vim
+            # tmux_command = f"tmux new-window -c {self.fm.thisdir.path} \\; send-keys 'nvim \"{self.fm.thisfile.path}\"; clear' C-m"
         self.fm.execute_command(tmux_command, flags='f')
 
