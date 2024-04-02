@@ -51,6 +51,7 @@ if Rand() % 100 < 50
 else
     set background=light
 endif
+nnoremap <silent> <c-g> :call ToggleBackground()<CR>
 colorscheme edge
 " {{{ sonokai https://github.com/sainnhe/sonokai/blob/c4dfd15a2202eeeabefc13028af652c8322f2c49/doc/sonokai.txt#L118-L123
 " let g:sonokai_style = 'maia'
@@ -163,22 +164,7 @@ nnoremap <silent> <s-tab> :if &modifiable && !&readonly && &modified <CR> :write
 " cnoreabbrev w!! w !sudo tee >/dev/null %
 " }}}
 
-" {{{ Zoom/Restore window
-" http://stackoverflow.com/questions/13194428/is-better-way-to-zoom-windows-in-vim-than-zoomwin
-function! s:ZoomToggle() abort
-    if exists('t:zoomed') && t:zoomed
-        execute t:zoom_winrestcmd
-        let t:zoomed = 0
-    else
-        let t:zoom_winrestcmd = winrestcmd()
-        resize
-        vertical resize
-        let t:zoomed = 1
-    endif
-endfunction
-command! ZoomToggle call s:ZoomToggle()
-nnoremap <silent> <Leader>z :ZoomToggle<CR>
-" }}}
+nnoremap <silent> <Leader>z :call ZoomToggle()<CR>
 
 autocmd BufNewFile *.go,*.sh,*.py,*.c,*.cpp,*.h,*.hpp,*.hxx,*.hh exec ":call SetTitle()"
 " autocmd BufWrite *.sh,*py if getline(6) != "# Modify Author: ".expand("$USER") || split(getline(7))[3] != strftime("%F") | call ModifyTitle() | endif
