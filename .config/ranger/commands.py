@@ -118,20 +118,17 @@ class customized_rg(Command):
             self.fm.execute_file(File(fzf_file))
 
 
-class tmux_cd_or_vim(Command):
+class tmux_open(Command):
     """
-    :open_with_vim_or_cd
+    :tmux_open
 
-    Open a file with vim, or change the directory if it's a folder
+    Open a file with vim in a new tmux window if it's a file,
+    or change directory in a new tmux window if it's a directory.
     """
     def execute(self):
-        if self.fm.thisfile.is_directory:  # 如果当前选中的是目录
-            directory = self.fm.thisdir  # 获取当前目录
-            command = f"tmux new-window -c {directory}"
-            self.fm.execute_command(command, flags='f')
+        if self.fm.thisfile.is_directory:
+            tmux_command = f"tmux new-window -c {self.fm.thisfile.path}"
         else:
-            # self.fm.execute_file([self.fm.thisfile], app='vim')  # 用vim打开选中的文件
-            selected_file = self.fm.thisfile.path
-            # tmux_command = "tmux split-window -h 'vim {}'".format(selected_file)
-            tmux_command = "tmux neww 'vim {}'".format(selected_file)
-            os.system(tmux_command)
+            tmux_command = f"tmux new-window -c {self.fm.thisdir.path} vim {self.fm.thisfile.path}"
+        self.fm.execute_command(tmux_command, flags='f')
+
