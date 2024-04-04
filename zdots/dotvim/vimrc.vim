@@ -130,10 +130,6 @@ nmap <leader>o :only<CR>
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 au FileType qf call AdjustWindowHeight(5, 13) " Automatically fitting a quickfix window height
 
-" \TODO
-au FileType go,cpp,c,rust nnoremap <buffer> <leader>d :call AddTodoWithUsername('//')<CR>
-au FileType python nnoremap <buffer> <leader>d :call AddTodoWithUsername('#')<CR>
-
 """ {{{ movement
 " movements in the insert mode
 " conflict key with snippets expands, so I disable such keys
