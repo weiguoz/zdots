@@ -176,4 +176,7 @@ function! AddTodoWithUsername(commentTag)
     execute "normal! O" .a:commentTag. " TODO (" . username . "): "
     normal! a
 endfunction
+" 暂时不使用了，最近我开始用 coc-snippets 中的 TODO，体验更丝滑
+" au FileType go,cpp,c,rust nnoremap <buffer> <leader>d :call AddTodoWithUsername('//')<CR>
+" au FileType python nnoremap <buffer> <leader>d :call AddTodoWithUsername('#')<CR>
 " }}}
