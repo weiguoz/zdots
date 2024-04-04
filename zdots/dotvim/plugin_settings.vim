@@ -301,7 +301,7 @@ let g:blamer_show_in_insert_modes = 0
 let g:tmux_navigator_save_on_switch = 2
 let g:tmux_navigator_disable_when_zoomed = 1
 " }}}
-nnoremap <leader>" :silent !tmux split-window -c %:p:h<CR> " 与外部执行命令的区别是打开的目录不同
+" nnoremap <leader>" :silent !tmux split-window -c %:p:h<CR> " 与外部执行命令的区别是打开的目录不同，这个是当前文件所在目录
 
 " {{{ andymass/vim-matchup
 " display parents
