@@ -12,7 +12,7 @@ nmap E <Plug>(coc-diagnostic-prev)
 nmap e <Plug>(coc-diagnostic-next)
 nmap <leader>f :Files<CR>
 nmap <leader>b :Buffers<CR>
-nmap <c-w> :Windows<CR>
+nmap <leader>w :Windows<CR>
 noremap t :BTags<CR>
 
 """ {{{ copied from https://github.com/neoclide/coc.nvim README.md

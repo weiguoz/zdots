@@ -121,8 +121,8 @@ inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
 inoremap jk <Esc>l
 nmap zz :exec 'wq'<CR>
-nmap <leader>w :exec 'w'<CR>
-nmap <leader>q :exec 'q'<CR>
+nmap <c-s> :exec 'w'<CR>
+nmap <c-q> :exec 'q'<CR>
 nmap <leader>o :only<CR>
 " nmap <silent> <leader>k * ``
 " map <c-n> :tabNext<CR>  gt gT for tabnext is good enough
