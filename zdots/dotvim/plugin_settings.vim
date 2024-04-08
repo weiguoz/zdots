@@ -12,7 +12,7 @@ nmap E <Plug>(coc-diagnostic-prev)
 nmap e <Plug>(coc-diagnostic-next)
 nmap <leader>f :Files<CR>
 nmap <leader>b :Buffers<CR>
-nmap <leader>w :Windows<CR>
+" nmap <leader>w :Windows<CR>
 noremap t :BTags<CR>
 
 """ {{{ copied from https://github.com/neoclide/coc.nvim README.md
@@ -310,8 +310,9 @@ let g:tmux_navigator_disable_when_zoomed = 1
 
 " {{{ copilot.vim
 " https://github.com/github/copilot.vim/blob/1a55183ef9347d6f420406a3746474b6b9fb9ef5/doc/copilot.txt#L104
-imap <silent><script><expr> <C-S> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
+" imap <silent><script><expr> <c-s> copilot#Accept("\<CR>")
+" let g:copilot_no_tab_map = v:true
+"
 " tpope [workaround] https://github.com/community/community/discussions/16800#discussioncomment-2848953
 " let g:copilot_node_command = "/opt/homebrew/opt/node@16/bin/node"
 " it seems that the above is not needed anymore since 2023-01-06
