@@ -120,12 +120,14 @@ nnoremap <c-e> $
 inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
 inoremap jk <Esc>l
+inoremap kj <Esc>l
 nmap zz :exec 'wq'<CR>
 nmap <c-s> :exec 'w'<CR>
+inoremap <c-s> <esc>:w<CR>
 nmap <c-q> :exec 'q'<CR>
 nmap <leader>o :only<CR>
 " nmap <silent> <leader>k * ``
-" map <c-n> :tabNext<CR>  gt gT for tabnext is good enough
+" map <c-n> :tabNext<CR>  gt gT for tabnext is good enough, but tab is not good for me
 
 autocmd FileType qf nnoremap <buffer> <CR> <CR>:cclose<CR>
 au FileType qf call AdjustWindowHeight(5, 13) " Automatically fitting a quickfix window height
@@ -141,6 +143,8 @@ inoremap <c-w> <S-Right>
 inoremap <c-b> <S-Left>
 inoremap <c-o> <Esc>o
 " buffer
+nmap b[ :bp<CR>
+nmap b] :bn<CR>
 nnoremap <silent>   <tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap <silent> <s-tab> :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprev<CR>
 """ movement }}}
