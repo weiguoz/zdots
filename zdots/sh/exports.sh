@@ -15,7 +15,7 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 ## homebrew
 BREWHOME="/opt/homebrew"
-iPATH="$BREWHOME/bin:/opt/homebrew/sbin"
+iPATH="$BREWHOME/bin:$BREWHOME/sbin"
 
 ## Java
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk/Contents/Home
@@ -37,6 +37,16 @@ iPATH=$iPATH:"/Applications/Docker.app/Contents/Resources/bin"
 ## python3: required by glances, icdiff, pre-commit, ranger and virtualenv
 iPATH=$iPATH:"$BREWHOME/opt/python3/bin" # make soft links('ln -s') python3 & pip3 from the specific version
 export PYTHONPATH=`uniq_csv "$BREWHOME/lib/python3.12/site-packages:$PYTHONPATH"`
+
+# {{{ mysql-clien
+iPATH=$iPATH:"$BREWHOME/opt/mysql-client/bin"
+#For compilers to find mysql-client you may need to set:
+#  export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"
+#  export CPPFLAGS="-I/opt/homebrew/opt/mysql-client/include"
+#
+#For pkg-config to find mysql-client you may need to set:
+#  export PKG_CONFIG_PATH="/opt/homebrew/opt/mysql-client/lib/pkgconfig"
+# }}}
 
 ### exa(colorful ls) color
 ### export CLICOLOR=1
