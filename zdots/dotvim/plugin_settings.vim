@@ -310,7 +310,7 @@ let g:tmux_navigator_disable_when_zoomed = 1
 
 " {{{ copilot.vim
 " https://github.com/github/copilot.vim/blob/1a55183ef9347d6f420406a3746474b6b9fb9ef5/doc/copilot.txt#L104
-imap <silent><script><expr> <c-n> copilot#Accept("\<CR>")
+imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
 let g:copilot_no_tab_map = v:true
 
 "
