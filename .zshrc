@@ -96,4 +96,3 @@ case $THEME in
         ;;
 esac
 # }}}
-
