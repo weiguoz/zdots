@@ -77,7 +77,7 @@ nmap <leader>a :AsyncRun<space>
 let g:asyncrun_open = 1 " we don't need set the quickfix window height due to AdjustWindowHeight does
 " ring the bell to notify you job finished
 " let g:asyncrun_bell = 1
-" nnoremap <leader>r :call asyncrun#quickfix_toggle(6)<cr>
+nnoremap <leader>q :call asyncrun#quickfix_toggle(6)<cr>
 " {{{ complie a single cpp/c file & run
 " func! CompileAndRun()
 "     let opt = "-DDBG -Wall -Wextra -Werror -Wshadow -g" " -Wconversion
