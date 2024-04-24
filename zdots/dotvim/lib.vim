@@ -179,4 +179,6 @@ endfunction
 " 该函数暂时不用，最近我开始用 coc-snippets 中的 TODO，体验更丝滑
 " au FileType go,cpp,c,rust nnoremap <buffer> <leader>d :call AddTodoWithUsername('//')<CR>
 " au FileType python nnoremap <buffer> <leader>d :call AddTodoWithUsername('#')<CR>
+"
+" <c-j> goto next placeholder
 " }}}
