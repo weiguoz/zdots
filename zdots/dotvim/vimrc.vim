@@ -20,7 +20,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
 Plug 'APZelos/blamer.nvim'
-Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <Leader>gm <Plug>(git-messenger)
+Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <leader>gm <Plug>(git-messenger)
 " }}}
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/FencView.vim'
@@ -153,7 +153,7 @@ nnoremap <silent> <s-tab> :if &modifiable && !&readonly && &modified <CR> :write
 " cnoreabbrev w!! w !sudo tee >/dev/null %
 " }}}
 
-nnoremap <silent> <Leader>z :call ZoomToggle()<CR>
+nnoremap <silent> <leader>z :call ZoomToggle()<CR>
 
 autocmd BufNewFile *.go,*.sh,*.py,*.c,*.cpp,*.h,*.hpp,*.hxx,*.hh exec ":call SetTitle()"
 " autocmd BufWrite *.sh,*py if getline(6) != "# Modify Author: ".expand("$USER") || split(getline(7))[3] != strftime("%F") | call ModifyTitle() | endif

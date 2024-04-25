@@ -84,7 +84,7 @@
     "diagnostic.checkCurrentLine": true,
     "diagnostic.virtualText": false,
     "explorer.previewAction.onHover": "content",
-    "explorer.quitOnOpen": false,
+    "explorer.quitOnOpen": true,
     "explorer.file.column.indent.indentLine": true,
     "explorer.file.showHiddenFiles": false,
     "explorer.icon.enableNerdfont": true,
