@@ -46,7 +46,7 @@ filetype plugin indent on
 call DirUndo()
 
 " {{{ colorscheme
-if Rand() % 100 < 50
+if Rand() % 100 < 70
     set background=dark
 else
     set background=light
