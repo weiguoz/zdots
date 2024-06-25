@@ -10,7 +10,7 @@
 	export TMUX_POWERLINE_PATCHED_FONT_IN_USE="true"
 
 	# The theme to use.
-	export TMUX_POWERLINE_THEME="my-theme"
+	export TMUX_POWERLINE_THEME="my_theme"
 	# Overlay directory to look for themes. There you can put your own themes outside the repo. Fallback will still be the "themes" directory in the repo.
 	export TMUX_POWERLINE_DIR_USER_THEMES="${XDG_CONFIG_HOME:-$HOME/.config}/tmux-powerline/themes"
 	# Overlay directory to look for segments. There you can put your own segments outside the repo. Fallback will still be the "segments" directory in the repo.
@@ -177,7 +177,7 @@
 
 # pwd.sh {
 	# Maximum length of output.
-	export TMUX_POWERLINE_SEG_PWD_MAX_LEN="40"
+	export TMUX_POWERLINE_SEG_PWD_MAX_LEN="32"
 # }
 
 # time.sh {
@@ -216,13 +216,13 @@
 	# What unit to use. Can be any of {c,f,k}.
 	export TMUX_POWERLINE_SEG_WEATHER_UNIT="c"
 	# How often to update the weather in seconds.
-	export TMUX_POWERLINE_SEG_WEATHER_UPDATE_PERIOD="600"
+	export TMUX_POWERLINE_SEG_WEATHER_UPDATE_PERIOD="3600"
 	# Name of GNU grep binary if in PATH, or path to it.
 	export TMUX_POWERLINE_SEG_WEATHER_GREP="grep"
 	# Location of the JSON parser, jq
 	export TMUX_POWERLINE_SEG_WEATHER_JSON="jq"
 	# Your location
 	# Latitude and Longtitude for use with yr.no
-	TMUX_POWERLINE_SEG_WEATHER_LAT=""
-	TMUX_POWERLINE_SEG_WEATHER_LON=""
+    export TMUX_POWERLINE_SEG_WEATHER_LAT="30.2741"
+    export TMUX_POWERLINE_SEG_WEATHER_LON="120.1551"
 # }
