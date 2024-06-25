@@ -44,3 +44,4 @@
 !.config/tmux-powerline
 !.config/tmux-powerline/*
 !.config/tmux-powerline/themes/*
+!.config/tmux-powerline/segments/*
