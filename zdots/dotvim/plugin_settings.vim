@@ -71,6 +71,10 @@ nnoremap <leader>e :CocCommand explorer<CR>
 " }}}
 " }}}
 
+" {{{ coc-fzf https://github.com/antoinemadec/coc-fzf?tab=readme-ov-file#vimrc-example
+nnoremap <silent> <leader>o :CocFzfList<CR>
+" }}}
+
 " {{{ AsyncRun
 nmap <leader>a :AsyncRun<space>
 " open quickfix window automatically when AsyncRun is executed

@@ -12,6 +12,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf', {'branch': 'release'} " https://github.com/neoclide/coc.nvim/issues/1586#issuecomment-591856683
 Plug 'MattesGroeger/vim-bookmarks'
 " such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 Plug 'skywind3000/asyncrun.vim'
@@ -24,7 +26,6 @@ Plug 'rhysd/git-messenger.vim' " :GitMessenger, nmap <leader>gm <Plug>(git-messe
 " }}}
 Plug 'tpope/vim-commentary'
 Plug 'vim-scripts/FencView.vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'pechorin/any-jump.vim'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'honza/vim-snippets' " coc-snippets works with vim-snippets
@@ -32,9 +33,9 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'github/copilot.vim'
 Plug 'inkarkat/vim-mark'
 Plug 'inkarkat/vim-ingo-library' " required by vim-mark
+Plug 'simnalamburt/vim-mundo'
 " {{{ 试用期
 Plug 'mhinz/vim-startify'
-Plug 'simnalamburt/vim-mundo'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
 Plug 'farmergreg/vim-lastplace' " intelligently reopens files at your last edit position
@@ -46,7 +47,7 @@ filetype plugin indent on
 call DirUndo()
 
 " {{{ colorscheme
-if Rand() % 100 < 70
+if Rand() % 100 < 95
     set background=dark
 else
     set background=light
@@ -125,7 +126,6 @@ nmap zz :exec 'q'<CR>
 nmap <c-s> :exec 'w'<CR>
 inoremap <c-s> <esc>:w<CR>
 " nmap <c-q> :exec 'q'<CR>
-" nmap <leader>o :only<CR>
 " nmap <silent> <leader>k * ``
 " map <c-n> :tabNext<CR>  gt gT for tabnext is good enough, but tab is not good for me
 
