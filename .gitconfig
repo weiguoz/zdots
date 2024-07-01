@@ -43,6 +43,6 @@
     file-style = bold yellow ul
     file-decoration-style = none
     hunk-header-decoration-style = yellow box
-[rerere]
-    enabled = 1
-    autoupdate = true
+# [rerere]
+#     enabled = 1
+#     autoupdate = true
