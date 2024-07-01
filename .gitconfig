@@ -1,0 +1,48 @@
+[user]
+    name = weiguoz
+    email = wg.z@qq.com
+[include]
+    path = ~/zdots/gits/gitconfig.include
+    path = ~/codebase/gitconfig.include # do not use `insteadOf` under `includeIf` due to some bugs of go mod download
+[core]
+    excludesfile = ~/.gitignore_global
+    quotepath = false
+    # editor = nvim
+    whitespace = trailing-space,space-before-tab,-cr-at-eol,indent-with-non-tab,-tab-in-indent,tabwidth=4
+    pager = delta
+[credential]
+    helper = store
+[filter "spacify"]
+    clean = expand --tabs=4 --initial
+[filter "lfs"]
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
+[pull]
+    ff = only
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    features = unobtrusive-line-numbers decorations
+    whitespace-error-style = 22 reverse
+    side-by-side = true
+    syntax-theme = Monokai Extended
+    navigate = true
+[delta "unobtrusive-line-numbers"]
+    line-numbers = true
+    line-numbers-minus-style = "#444444"
+    line-numbers-zero-style = "#444444"
+    line-numbers-plus-style = "#444444"
+    line-numbers-left-format = "{nm:>4}┊"
+    line-numbers-right-format = "{np:>4}│"
+    line-numbers-left-style = blue
+    line-numbers-right-style = blue
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = yellow box
+# [rerere]
+#     enabled = 1
+#     autoupdate = true
