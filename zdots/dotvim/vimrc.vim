@@ -34,7 +34,7 @@ Plug 'github/copilot.vim'
 Plug 'inkarkat/vim-mark'
 Plug 'inkarkat/vim-ingo-library' " required by vim-mark
 Plug 'simnalamburt/vim-mundo'
-" {{{ 试用期
+" {{{ observing
 Plug 'mhinz/vim-startify'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'

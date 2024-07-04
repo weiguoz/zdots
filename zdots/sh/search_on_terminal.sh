@@ -11,6 +11,7 @@ o() {
         return
     fi
 
+    local url w searchWords
     case $1 in
         -h)
             echo "specify search engine with: [-g] {query}" ; return ;;
@@ -23,7 +24,7 @@ o() {
     for w in "$@"
     do
         if [[ "$w" != "-h" && "$w" != "-g" ]]; then
-            if [ "$searchWords" -eq "" ];then
+            if [ "$searchWords" = "" ];then
                 searchWords="$w"
             else
                 searchWords="$searchWords $w"

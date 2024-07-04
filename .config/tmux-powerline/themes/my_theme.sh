@@ -10,7 +10,6 @@
 
 # background for macchiato catppuccin terminal theme
 thm_bg="#24273A"
-
 thm_fg="#c6d0f5"
 thm_cyan="#99d1db"
 thm_black="#292c3c"
@@ -51,9 +50,10 @@ spotify_green="#1db954"
 spotify_black="#191414"
 
 
-TMUX_POWERLINE_SEPARATOR_LEFT_BOLD=""
+#    
+TMUX_POWERLINE_SEPARATOR_LEFT_BOLD=""
 TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
-TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
+TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
 TMUX_POWERLINE_SEPARATOR_RIGHT_THIN=""
 TMUX_POWERLINE_SEPARATOR_THIN=" "
 
@@ -68,14 +68,10 @@ TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SE
 
 if [ -z $TMUX_POWERLINE_WINDOW_STATUS_CURRENT ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_CURRENT=(
-		"#[$(format regular)]" \
-		"$TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR" \
 		"#[$(format inverse)]" \
-		" #I#F" \
+		"  #I#F" \
 		"$TMUX_POWERLINE_SEPARATOR_THIN" \
-		"#W " \
-		"#[$(format regular)]" \
-		"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR"
+		"#W  "
 	)
 fi
 
@@ -90,7 +86,7 @@ if [ -z $TMUX_POWERLINE_WINDOW_STATUS_FORMAT ]; then
 		"#[$(format regular)]" \
 		"  #I#{?window_flags,#F,}" \
 		"$TMUX_POWERLINE_SEPARATOR_THIN" \
-		"#W "
+		"#W  "
 	)
 fi
 
@@ -130,12 +126,13 @@ if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
 		# "ifstat_sys 30 255" \
 		# lan_ip $sky_blue $thm_bg ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
 		# "wan_ip $sky_blue $thm_bg" \
-        "pwd 16 135" \
-		"vcs_branch 17 135" \
-		"vcs_compare 60 255" \
-		"vcs_staged 64 255" \
-		"vcs_modified 9 255" \
-		"vcs_others 245 0"
+		# "vcs_branch 17 135" \
+		# "vcs_compare 60 255" \
+		# "vcs_staged 64 255" \
+		# "vcs_modified 9 255" \
+		# "battery $blue $thm_bg" \
+		# "vcs_others 245 0"
+        "pwd 16 135"
 	)
 fi
 
@@ -147,14 +144,13 @@ if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
 		# "now_playing $spotify_green $spotify_black" \
 		# "cpu 240 136" \
 		# "load 237 167" \
-		# "tmux_mem_cpu_load 234 136" \
-		# "battery $blue $thm_bg" \
 		# "rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}" \
-		# "xkb_layout 125 117" \
 		# "date $teal $thm_bg ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 		# "time $teal $thm_bg ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 		# "utc_time 235 136"
-		"my_time $teal $thm_bg" \
+		# "tmux_mem_cpu_load 234 136" \
+		# "xkb_layout 125 117" \
+		"my_time $pink $base" \
 		"weather 37 255"
 	)
 fi
