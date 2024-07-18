@@ -6,11 +6,11 @@ alias md5sum='md5 -r'
 alias top0='glances' # https://github.com/nicolargo/glances
 alias diff='icdiff'
 alias cp='cp -i'
-alias ls='exa'
-alias ll='exa -l'
+alias ls='eza'
+alias ll='eza -l'
 alias l='ranger' # disable the bultin command `r` by the way
-alias lst='exa --long --tree'
-alias lh='exa -ld .?*' # ls hidden files
+alias lst='eza --long --tree'
+alias lh='eza -ld .?*' # ls hidden files
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
 alias sah='xargs grep -HLi'
 alias grep='grep --color=always' # -i -n -m(max=8)

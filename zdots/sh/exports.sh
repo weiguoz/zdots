@@ -51,10 +51,10 @@ iPATH=$iPATH:"$BREWHOME/opt/mysql-client/bin"
 ### exa(colorful ls) color
 ### export CLICOLOR=1
 ### export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
-export EXA_COLORS="${EXA_COLORS}:da=1;30:di=1;36" # :ln=1;34:"
+export EZA_COLORS="${EZA_COLORS}:da=1;30:di=1;36" # :ln=1;34:"
 
 ### enhancd https://github.com/b4b4r07/enhancd#using-package-manager
-export ENHANCD_FILTER='fzf --preview "exa -al --tree --level 1 --group-directories-first --git-ignore --header --git --no-user --no-time --no-filesize --no-permissions {}" --preview-window right,50% --height 35% --reverse --ansi'
+export ENHANCD_FILTER='fzf --preview "eza -al --tree --level 1 --group-directories-first --git-ignore --header --git --no-user --no-time --no-filesize --no-permissions {}" --preview-window right,50% --height 35% --reverse --ansi'
 
 export PATH=`uniq_csv "$iPATH:$PATH"` # order is important
 unset iPATH BREWHOME
