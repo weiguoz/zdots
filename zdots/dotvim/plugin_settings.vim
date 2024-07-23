@@ -283,6 +283,10 @@ let g:bookmark_highlight_lines = 1
 let g:bookmark_auto_save_file=BMWorkDirFileLocation()
 "}}}
 
+" {{{ vim-mark
+nnoremap <leader>M :MarkClear<CR> " 与外部执行命令的区别是打开的目录不同，这个是当前文件所在目录
+" }}}
+
 " {{{ francoiscabrol/ranger.vim
 let g:ranger_map_keys = 0
 let g:ranger_open_new_tab = 1
