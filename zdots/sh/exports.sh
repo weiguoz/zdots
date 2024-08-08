@@ -25,7 +25,7 @@ export CLASSPATH=".:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar"
 # export M2_HOME=/usr/local/share/maven
 # iPATH=$iPATH:$M2_HOME/bin
 ## go
-export GOPATH=/opt/go
+export GOPATH=/opt/gopath
 iPATH=$iPATH:"$GOPATH/bin"
 
 ## pkgconfig
