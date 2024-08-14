@@ -13,7 +13,7 @@
 export HISTFILE=~/.zsh_history
 export SAVEHIST=20000 # save history after logout
 export HISTSIZE=40000 # set history size
-setopt SHARE_HISTORY
+# setopt SHARE_HISTORY
 setopt INC_APPEND_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_IGNORE_ALL_DUPS
