@@ -51,17 +51,22 @@ zinit cdreplay -q
 
 zinit snippet "$ZINIT_HOME/plugins/b4b4r07---enhancd/init.sh"
 
-## https://github.com/Aloxaf/fzf-tab#configure
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
 # set list-colors to enable filename colorizing
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+zstyle ':completion:*' menu no
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 # https://superuser.com/a/1092328 cd case-insensitive matching
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-# preview directory's content with exa when completing cd
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --icons --group-directories-first --color=always $realpath'
-# switch group using `,` and `.`
-zstyle ':fzf-tab:*' switch-group ',' '.'
+# 限定 ssh 主机补全
+zstyle ':completion:*:ssh:*' hosts $(awk '/^Host / {print $2}' ~/.ssh/config)
+zstyle ':completion:*:*:ssh:*' tag-order 'hosts'
+# switch group using `<` and `>`
+# zstyle ':fzf-tab:*' switch-group '<' '>'
+
 
 # 补全
 zinit ice mv="*.zsh -> _fzf" as="completion"
