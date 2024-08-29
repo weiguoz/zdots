@@ -27,15 +27,17 @@ source "${ZINIT_HOME}/zinit.git/zinit.zsh"
 
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
+# Turbo-enabled CompDefs
+autoload -Uz compinit && compinit
 
 # Load a few important annexes, without Turbo
 # (this is currently required for annexes)
 zinit light-mode for \
+    Aloxaf/fzf-tab \
     zdharma-continuum/zinit-annex-as-monitor \
     zdharma-continuum/zinit-annex-bin-gem-node \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust \
-    Aloxaf/fzf-tab \
     junegunn/fzf \
     b4b4r07/enhancd \
     atinit"zicompinit; zicdreplay" \
@@ -45,11 +47,6 @@ zinit light-mode for \
     blockf atpull'zinit creinstall -q .' \
         zsh-users/zsh-completions
 
-# Turbo-enabled CompDefs
-autoload -Uz compinit && compinit
-zinit cdreplay -q
-
-zinit snippet "$ZINIT_HOME/plugins/b4b4r07---enhancd/init.sh"
 
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
@@ -59,14 +56,17 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu no
 # preview directory's content with eza when completing cd
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+
+# 如果是 'm:{a-zA-Z}={A-Za-z}'，则 ls/vim 等操作不自动补全。比如某文件只有e f 两个文本文件
+# 这里 follow vim 的按键方案，不区分大小写，然而当输入大写字母，则为大小写敏感了
 # https://superuser.com/a/1092328 cd case-insensitive matching
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+
 # 限定 ssh 主机补全
 zstyle ':completion:*:ssh:*' hosts $(awk '/^Host / {print $2}' ~/.ssh/config)
 zstyle ':completion:*:*:ssh:*' tag-order 'hosts'
 # switch group using `<` and `>`
-# zstyle ':fzf-tab:*' switch-group '<' '>'
-
+zstyle ':fzf-tab:*' switch-group '<' '>'
 
 # 补全
 zinit ice mv="*.zsh -> _fzf" as="completion"
