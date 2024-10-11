@@ -36,7 +36,7 @@ iPATH=$iPATH:"/Applications/Docker.app/Contents/Resources/bin"
 
 ## python3: required by glances, icdiff, pre-commit, ranger and virtualenv
 iPATH=$iPATH:"$BREWHOME/opt/python3/bin" # make soft links('ln -s') python3 & pip3 from the specific version
-export PYTHONPATH=`uniq_csv "$BREWHOME/lib/python3.12/site-packages:$PYTHONPATH"`
+export PYTHONPATH=`uniq_csv "$BREWHOME/lib/python3.13/site-packages:$PYTHONPATH"`
 
 # {{{ mysql-clien
 iPATH=$iPATH:"$BREWHOME/opt/mysql-client/bin"
