@@ -11,6 +11,7 @@ let g:coc_global_extensions = [
 nmap E <Plug>(coc-diagnostic-prev)
 nmap e <Plug>(coc-diagnostic-next)
 nmap <leader>f :Files<CR>
+nmap <leader>s :BLines<CR>
 nmap <leader>b :Buffers<CR>
 " nmap <leader>w :Windows<CR>
 noremap t :BTags<CR>
@@ -127,13 +128,11 @@ autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 " {{{ easymotion
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
-" Turn on case-insensitive feature
-" nmap , <Plug>(easymotion-prefix)
-map s <Plug>(easymotion-sn)
-omap s <Plug>(easymotion-tn)
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 nmap , <Plug>(easymotion-bd-jk)
-nmap ; <Plug>(easymotion-lineanywhere)
-" nmap ' <Plug>(easymotion-jumptoanywhere)
+" nmap ; <Plug>(easymotion-lineanywhere)
+" <Plug>(easymotion-jumptoanywhere)
 " }}}
 
 " {{{ git-messenger
