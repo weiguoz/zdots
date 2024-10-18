@@ -77,6 +77,7 @@ ve() {
 ## used in export.sh. The order must be kept
 uniq_csv() {
     echo "$1" | awk -v RS=':' '!a[$1]++ { if (NR > 1) printf RS; printf $1 }'
+    # awk '!seen[$0]++' # deduplicate lines and keep the order
 }
 
 ## used as alias

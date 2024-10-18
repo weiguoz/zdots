@@ -91,8 +91,8 @@
     "explorer.quitOnOpen": true,
     "explorer.file.column.indent.indentLine": true,
     "explorer.file.showHiddenFiles": false,
-    "explorer.icon.enableNerdfont": true,
     "explorer.buffer.showHiddenBuffers": false,
+    "explorer.file.reveal.auto": true,
     "explorer.keyMappings.global": {
         "v": "open:vsplit"
     },
