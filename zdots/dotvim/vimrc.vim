@@ -17,7 +17,6 @@ Plug 'antoinemadec/coc-fzf', {'branch': 'release'} " https://github.com/neoclide
 Plug 'MattesGroeger/vim-bookmarks'
 " such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 Plug 'skywind3000/asyncrun.vim'
-Plug 'easymotion/vim-easymotion'
 " {{{ git plugins
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-fugitive'
@@ -35,6 +34,8 @@ Plug 'inkarkat/vim-mark'
 Plug 'inkarkat/vim-ingo-library' " required by vim-mark
 Plug 'simnalamburt/vim-mundo'
 " {{{ observing
+" Plug 'easymotion/vim-easymotion' search paste is broken so I disable it
+Plug 'justinmk/vim-sneak'
 Plug 'mhinz/vim-startify'
 Plug 'solarnz/thrift.vim'
 Plug 'mattn/vim-goimports'
@@ -47,7 +48,7 @@ filetype plugin indent on
 call DirUndo()
 
 " {{{ UI
-if Rand() % 100 < 95
+if Rand() % 100 < 50
     set background=dark
 else
     set background=light

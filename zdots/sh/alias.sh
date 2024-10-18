@@ -12,8 +12,8 @@ alias l='ranger' # disable the bultin command `r` by the way
 alias lst='eza --long --tree'
 alias lh='eza -ld .?*' # ls hidden files
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
-alias sah='xargs grep -HLi'
-alias grep='grep --color=always' # -i -n -m(max=8)
+alias hasnot='xargs grep -HLi'
+# alias grep='grep --color=always' # -i -n -m(max=8)
 alias vs='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code' # vscode
 alias vim='nvim'
 # alias fn='find . ! -wholename'

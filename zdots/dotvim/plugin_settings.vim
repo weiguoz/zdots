@@ -125,14 +125,17 @@ let g:vista_fzf_preview = ['right:50%']
 autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 "}}}
 
-" {{{ easymotion
-" Turn on case-insensitive feature
-let g:EasyMotion_smartcase = 1
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-nmap , <Plug>(easymotion-bd-jk)
-" nmap ; <Plug>(easymotion-lineanywhere)
-" <Plug>(easymotion-jumptoanywhere)
+" {{{ easymotion -> justinmk/vim-sneak
+""" " Search paste is broken, so I removed the plugin.
+""" " More details https://github.com/easymotion/vim-easymotion/issues/408
+""" let g:EasyMotion_smartcase = 1 " Turn on case-insensitive feature
+""" map  / <Plug>(easymotion-sn)
+""" omap / <Plug>(easymotion-tn)
+""" nmap , <Plug>(easymotion-bd-jk)
+""" " nmap ; <Plug>(easymotion-lineanywhere)
+""" " <Plug>(easymotion-jumptoanywhere)
+map f <Plug>Sneak_f
+map F <Plug>Sneak_s
 " }}}
 
 " {{{ git-messenger
