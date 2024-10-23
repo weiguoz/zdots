@@ -69,6 +69,9 @@ endfunction
 
 " {{{ coc-explorer
 nnoremap <leader>e :CocCommand explorer<CR>
+" " always open
+" au VimEnter * CocCommand explorer
+" au User CocExplorerOpenPre wincmd p " keep focus on file but not explorer
 " }}}
 " }}}
 

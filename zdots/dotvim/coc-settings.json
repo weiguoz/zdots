@@ -92,9 +92,12 @@
     "explorer.file.column.indent.indentLine": true,
     "explorer.file.showHiddenFiles": false,
     "explorer.buffer.showHiddenBuffers": false,
-    "explorer.file.reveal.auto": true,
     "explorer.keyMappings.global": {
-        "v": "open:vsplit"
+        "v": "open:vsplit",
+        "rn": "rename",
+        "de": "delete",
+        "af": "addFile",
+        "ad": "addDirectory"
     },
     "snippets.ultisnips.pythonPrompt": false
 }
