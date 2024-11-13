@@ -15,34 +15,35 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--preview "(bat {} --color=always || highlight -O ansi -l {} 2> /dev/null || tree -C {}) 2> /dev/null"'
 
 # git log show with fzf
-gig() {
-    # param validation
-    if [[ ! `git log -n 1 "$@" | head -n 1` ]]; then
-        return
-    fi
-
-    # filter by file string
-    local filter
-    # param existed, git log for file if existed
-    if [ -n "$@" ] && [ -f "$@" ]; then
-        filter="-- $@"
-    fi
-
-    # https://devhints.io/git-log-format
-    local gitlog=(
-        git log --graph --color=always --abbrev=7 --pretty=format:"%d %Cgreen%h%Creset %ar %Cred%an%Creset %s"
-        $@
-    )
-
-    local res=(
-        fzf --ansi --no-sort --reverse --tiebreak=index \
-            --preview "localf() { set -- \$(echo -- \$@ | grep -o '[a-f0-9]\{7\}'); [ \$# -eq 0 ] || git show --color=always \$1 $filter; }; localf {}" \
-            --bind "ctrl-q:abort,ctrl-m:execute: (grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git show --color=always % $filter | less -R') << 'FZF-EOF' {} FZF-EOF" \
-            --preview-window=right:64% \
-            --height 89%
-    )
-    $gitlog | $res # piping them
-}
+# Replaced by: https://github.com/bigH/git-fuzzy
+# gig() {
+#     # param validation
+#     if [[ ! `git log -n 1 "$@" | head -n 1` ]]; then
+#         return
+#     fi
+#
+#     # filter by file string
+#     local filter
+#     # param existed, git log for file if existed
+#     if [ -n "$@" ] && [ -f "$@" ]; then
+#         filter="-- $@"
+#     fi
+#
+#     # https://devhints.io/git-log-format
+#     local gitlog=(
+#         git log --graph --color=always --abbrev=7 --pretty=format:"%d %Cgreen%h%Creset %ar %Cred%an%Creset %s"
+#         $@
+#     )
+#
+#     local res=(
+#         fzf --ansi --no-sort --reverse --tiebreak=index \
+#             --preview "localf() { set -- \$(echo -- \$@ | grep -o '[a-f0-9]\{7\}'); [ \$# -eq 0 ] || git show --color=always \$1 $filter; }; localf {}" \
+#             --bind "ctrl-q:abort,ctrl-m:execute: (grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git show --color=always % $filter | less -R') << 'FZF-EOF' {} FZF-EOF" \
+#             --preview-window=right:64% \
+#             --height 89%
+#     )
+#     $gitlog | $res # piping them
+# }
 
 pods() {
   FZF_DEFAULT_COMMAND="kubectl get pods --all-namespaces" \

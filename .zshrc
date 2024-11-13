@@ -75,6 +75,10 @@ zinit snippet "$ZINIT_HOME/plugins/junegunn---fzf/shell/completion.zsh"
 zinit snippet "$ZINIT_HOME/plugins/junegunn---fzf/shell/key-bindings.zsh"
 zinit ice lucid wait='0'
 
+# https://github.com/bigH/git-fuzzy
+zinit ice as"program" pick"bin/git-fuzzy"
+zinit light bigH/git-fuzzy
+
 # {{{ theme
 : ${THEME:=p10k}
 case $THEME in
