@@ -36,7 +36,7 @@ gig() {
 
     local res=(
         fzf --ansi --no-sort --reverse --tiebreak=index \
-            --preview "f() { set -- \$(echo -- \$@ | grep -o '[a-f0-9]\{7\}'); [ \$# -eq 0 ] || git show --color=always \$1 $filter; }; f {}" \
+            --preview "localf() { set -- \$(echo -- \$@ | grep -o '[a-f0-9]\{7\}'); [ \$# -eq 0 ] || git show --color=always \$1 $filter; }; localf {}" \
             --bind "ctrl-q:abort,ctrl-m:execute: (grep -o '[a-f0-9]\{7\}' | head -1 | xargs -I % sh -c 'git show --color=always % $filter | less -R') << 'FZF-EOF' {} FZF-EOF" \
             --preview-window=right:64% \
             --height 89%
