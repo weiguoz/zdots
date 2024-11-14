@@ -113,11 +113,6 @@ au FileType c nnoremap <silent> run :AsyncRun clang -DDBG -Wall -Wextra -Werror 
 au FileType go nnoremap <silent> run :AsyncRun go run %<cr>
 " }}}
 
-" {{{ disabled <dstein64/vim-win>
-" map cc <plug>WinWin
-" let g:win_ext_command_map = {"\<cr>": 'Win#exit'}
-" }}}
-
 "{{{ liuchengxu/vista.vim
 noremap t :silent! Vista finder coc<CR>
 " same function
@@ -265,27 +260,32 @@ command! -nargs=* -bang Rg call RGOptFun(<q-args>, <bang>0)
 " }}}
 
 "{{{ MattersGroeger/vim-bookmarks
-" Finds the Git super-project directory.
-function! g:BMWorkDirFileLocation()
-    let filename = 'vim_bookmarks'
-    let location = ''
-    if isdirectory('.git')
-        " Current work dir is git's work tree
-        let location = getcwd().'/.git'
-    else
-        " Look upwards (at parents) for a directory named '.git'
-        let location = finddir('.git', '.;')
-    endif
-    if len(location) > 0
-        return location.'/'.filename
-    else
-        return getcwd().'/.'.filename
-    endif
-endfunction
-highlight BookmarkLine ctermbg=194 ctermfg=NONE
-let g:bookmark_sign = '♥'
-let g:bookmark_highlight_lines = 1
-let g:bookmark_auto_save_file=BMWorkDirFileLocation()
+""" Finds the Git super-project directory.
+"" function! g:BMWorkDirFileLocation()
+""     let filename = 'vim_bookmarks'
+""     let location = ''
+""     if isdirectory('.git')
+""         " Current work dir is git's work tree
+""         let location = getcwd().'/.git'
+""     else
+""         " Look upwards (at parents) for a directory named '.git'
+""         let location = finddir('.git', '.;')
+""     endif
+""     if len(location) > 0
+""         return location.'/'.filename
+""     else
+""         return getcwd().'/.'.filename
+""     endif
+"" endfunction
+"" highlight BookmarkLine ctermbg=194 ctermfg=NONE
+"" let g:bookmark_sign = '♥'
+"" let g:bookmark_highlight_lines = 1
+"" let g:bookmark_auto_save_file=BMWorkDirFileLocation()
+""" Plug 'LintaoAmons/bookmarks.nvim' " need telescope.nvim
+nmap <silent>mm :BookmarksMark<cr>
+nmap <silent>mo :BookmarksGoto<cr>
+nmap <silent>ma :BookmarksCommands<cr>
+nmap <silent>mg :BookmarksGotoRecent<cr>
 "}}}
 
 " {{{ vim-mark

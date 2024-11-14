@@ -10,11 +10,18 @@ Plug 'charlespascoe/vim-go-syntax' " for gopher: Fast, 'tree-sitter'-like Vim Sy
 Plug 'liuchengxu/vista.vim' "  曾经：它依赖的 ctags 不能支持 go: [vista.vim] ctags: Warning: Unsupported kind: 'w' for --go-kinds option
 Plug 'vim-airline/vim-airline'
 Plug 'airblade/vim-rooter'
+
+" fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" telescope (only for nvim)
+Plug 'nvim-telescope/telescope.nvim' " needs plenty.nvim
+Plug 'nvim-lua/plenary.nvim'
+" 'MattesGroeger/vim-bookmarks' was replaced by 'LintaoAmons/bookmarks.nvim'
+Plug 'LintaoAmons/bookmarks.nvim' " needs telescope.nvim
+
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'} " https://github.com/neoclide/coc.nvim/issues/1586#issuecomment-591856683
-Plug 'MattesGroeger/vim-bookmarks'
 " such as: AsyncRun tmux send-keys -t2 \"go test\" enter
 Plug 'skywind3000/asyncrun.vim'
 " {{{ git plugins
