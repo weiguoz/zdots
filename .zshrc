@@ -78,6 +78,7 @@ zinit ice lucid wait='0'
 # https://github.com/bigH/git-fuzzy
 zinit ice as"program" pick"bin/git-fuzzy"
 zinit light bigH/git-fuzzy
+export GF_HORIZONTAL_PREVIEW_PERCENT_CALCULATION='max(50, min(80, 100 - (7000 / __WIDTH__)))'
 
 # {{{ theme
 : ${THEME:=p10k}

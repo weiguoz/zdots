@@ -2,21 +2,24 @@
 # [include]
 #    path = /path/to/me
 [alias]
-    br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+    # br = branch --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) %(color:green)(%(committerdate:relative)) [%(authorname)]' --sort=-committerdate
+    br = fuzzy branch
     ci = commit -v
     clear = clean -dfx
     co = checkout
     # dif0 = "!f(){ git diff --name-only --relative --diff-filter=d | xargs bat --diff; };f"
+    di = fuzzy diff
     del = branch -D
     info = config --list
-    # ls = "!tig" # log --graph --abbrev-commit --decorate --stat # --all --author=
-    # ll = log --graph --all --topo-order --decorate --date=short --oneline --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]"
+    lo = fuzzy log
     logf = log --stat --follow -p -M
+    # ll = log --graph --all --topo-order --decorate --date=short --oneline --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]"
     push0 = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
     pushf = push --force-with-lease
     repos =  !"find . -name .git -type d -prune"
     save = !git add -A && git commit -m 'chore: commit save point'
     # https://stackoverflow.com/questions/5189560/squash-my-last-x-commits-together-using-git/21890252#21890252
     squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
-    st = "!f(){ if [ $# -eq 0 ]; then b='origin/HEAD'; else b=${1}; fi;  git diff --stat $(git merge-base HEAD ${b}); };f"
+    # st = "!f(){ if [ $# -eq 0 ]; then b='origin/HEAD'; else b=${1}; fi;  git diff --stat $(git merge-base HEAD ${b}); };f"
+    st = fuzzy status
     undo = reset HEAD~1 --mixed
