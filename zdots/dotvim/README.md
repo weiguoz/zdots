@@ -5,6 +5,7 @@ autocmd! bufwritepost .vimrc source %
 
 ## Usage
 
+vim 使用 (而非 nvim 需要)
 ```sh
 echo "source ~/zdots/dotvim/functions.vim
 source ~/zdots/dotvim/vimrc.vim
@@ -37,4 +38,4 @@ YCM在随着Mac系统更新时，出的问题太多了，放弃使用并转向`c
 ## nvim
 
 1. `brew install nvim`
-2. `cd ~/.config/nvim && ln -s ~/zdots/dotvim/coc-settings.json . && ln -s ~/.vimrc init.vim`
+2. `cd ~/.config/nvim && ln -s ~/zdots/dotvim/coc-settings.json .` ~~&& ln -s ~/.vimrc init.vim~~ `正在转向 init.lua`
