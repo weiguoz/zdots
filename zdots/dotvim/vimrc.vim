@@ -74,7 +74,7 @@ inoremap <c-a> <esc>I
 inoremap <c-e> <esc>A
 inoremap jk <Esc>l
 inoremap kj <Esc>l
-nmap zz :exec 'q'<CR>
+nmap zz :exec 'q!'<CR>
 nmap <c-s> :exec 'w'<CR>
 inoremap <c-s> <esc>:w<CR>
 " nmap <c-q> :exec 'q'<CR>

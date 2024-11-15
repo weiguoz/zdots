@@ -16,12 +16,8 @@ return require("lazy").setup({
   { 'airblade/vim-rooter' },
 
   -- fzf
-  { 'junegunn/fzf',
-      build = function()
-        vim.fn['fzf#install']()
-      end,
-  },
-  { 'junegunn/fzf.vim' },
+  { "junegunn/fzf", build = "./install --all" },
+  { "junegunn/fzf.vim", dependencies = { "junegunn/fzf" } },
 
   { 'neoclide/coc.nvim', branch = 'release', build = 'npm ci' },
   { 'antoinemadec/coc-fzf', branch = 'release' }, -- https://github.com/neoclide/coc.nvim/issues/1586#issuecomment-591856683

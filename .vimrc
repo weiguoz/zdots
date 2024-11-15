@@ -1,2 +1,1 @@
-set nu
 set hlsearch
