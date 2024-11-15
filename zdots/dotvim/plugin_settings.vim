@@ -281,11 +281,6 @@ command! -nargs=* -bang Rg call RGOptFun(<q-args>, <bang>0)
 "" let g:bookmark_sign = '♥'
 "" let g:bookmark_highlight_lines = 1
 "" let g:bookmark_auto_save_file=BMWorkDirFileLocation()
-""" Plug 'LintaoAmons/bookmarks.nvim' " need telescope.nvim
-nmap <silent>mm :BookmarksMark<cr>
-nmap <silent>mo :BookmarksGoto<cr>
-nmap <silent>ma :BookmarksCommands<cr>
-nmap <silent>mg :BookmarksGotoRecent<cr>
 "}}}
 
 " {{{ vim-mark

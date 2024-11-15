@@ -1,9 +1,5 @@
 """ Events:
 """ - 2005 created this file by Guanjun Zhang's helping
-
-" filetype off " 必须先关闭文件类型检查
-" filetype plugin indent on
-
 call DirUndo()
 
 " {{{ UI
@@ -25,11 +21,6 @@ colorscheme edge
 " }}}
 
 " general settings {{{
-let mapleader = " "
-let g:mapleader = " "
-let maplocalleader = " "
-let g:maplocalleader = " "
-nnoremap <SPACE> <Nop>
 " 让vim的补全行为与一般ide一致
 " set completeopt=popup "https://github.com/neovim/neovim/issues/10996 support popup for version.vim >= 8.1.1880
 " set completeopt=longest,menu
