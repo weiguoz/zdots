@@ -106,3 +106,5 @@ case $THEME in
         ;;
 esac
 # }}}
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
