@@ -14,7 +14,7 @@ export FZF_DEFAULT_OPTS='
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--preview "(bat {} --color=always || highlight -O ansi -l {} 2> /dev/null || tree -C {}) 2> /dev/null"'
 
-# git log show with fzf
+# git log show with fzf.
 # Replaced by: https://github.com/bigH/git-fuzzy
 # gig() {
 #     # param validation
@@ -49,10 +49,10 @@ pods() {
   FZF_DEFAULT_COMMAND="kubectl get pods --all-namespaces" \
     fzf --info=inline --layout=reverse --header-lines=1 \
         --prompt "$(kubectl config current-context | sed 's/-context$//')> " \
-        --header $'Enter (kubectl exec) | CTRL-O (open log in editor) | CTRL-V (describe) \n' \
+        --header $'↩︎: enter)\t\t\t^-o: logs\t\t\t^-v: describe' \
         --bind 'enter:execute:kubectl exec -it --namespace {1} {2} -- sh > /dev/tty' \
-        --bind 'ctrl-o:execute:${EDITOR:-vim} <(kubectl logs --all-containers --namespace {1} {2}) > /dev/tty' \
-        --bind 'ctrl-v:execute:${EDITOR:-vim} <(kubectl describe pods --namespace {1} {2}) > /dev/tty' \
+        --bind 'ctrl-o:execute:sh -c "kubectl logs --since=4h --all-containers --namespace {1} {2} | nvim - +" > /dev/tty' \
+        --bind 'ctrl-v:execute:sh -c "kubectl describe pods --namespace {1} {2} | nvim - +" > /dev/tty' \
         --preview-window up:follow \
         --preview 'kubectl logs --follow --all-containers --tail=10000 --namespace {1} {2}' "$@"
 }
@@ -61,7 +61,7 @@ pods() {
 # refer: https://github.com/junegunn/fzf/blob/master/ADVANCED.md#switching-to-fzf-only-search-mode
 my_fzf_rg() {
     INITIAL_QUERY="${*:-}"
-	RG_PREFIX='rg --column --line-number --hidden --multiline --no-heading --color=always --smart-case --colors "path:fg:190,220,255" --colors "line:fg:128,128,128"'
+    RG_PREFIX='rg --column --line-number --hidden --multiline --no-heading --color=always --smart-case --colors "path:fg:190,220,255" --colors "line:fg:128,128,128"'
     local selected=$(
         fzf --ansi --sort --phony --disabled --query "$INITIAL_QUERY" \
             --color "hl:-1:underline,hl+:-1:underline:reverse" \

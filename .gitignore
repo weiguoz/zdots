@@ -12,6 +12,7 @@
 !.tmux.conf.local
 !.npmrc
 
+!zdots/
 !zdots/INSTALL.md
 !zdots/*.sh
 !zdots/*.exp
@@ -47,7 +48,12 @@
 !.config/nvim/
 !.config/nvim/init.lua
 !.config/nvim/lua/
+!.config/nvim/lua/*
 !.config/nvim/lua/config/
 !.config/nvim/lua/config/*
+!.config/nvim/lua/config/func
+!.config/nvim/lua/config/func/*
 !.config/nvim/lua/plugins/
 !.config/nvim/lua/plugins/*
+!.config/nvim/lua/util/
+!.config/nvim/lua/util/*
