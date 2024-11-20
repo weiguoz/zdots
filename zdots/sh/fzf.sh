@@ -49,10 +49,11 @@ pods() {
   FZF_DEFAULT_COMMAND="kubectl get pods --all-namespaces" \
     fzf --info=inline --layout=reverse --header-lines=1 \
         --prompt "$(kubectl config current-context | sed 's/-context$//')> " \
-        --header $'↩︎: enter)\t\t\t^-o: logs\t\t\t^-v: describe' \
-        --bind 'enter:execute:kubectl exec -it --namespace {1} {2} -- sh > /dev/tty' \
-        --bind 'ctrl-o:execute:sh -c "kubectl logs --since=4h --all-containers --namespace {1} {2} | nvim - +" > /dev/tty' \
-        --bind 'ctrl-v:execute:sh -c "kubectl describe pods --namespace {1} {2} | nvim - +" > /dev/tty' \
+        --header $'↩︎: [tail log]    ^-f: [logs]    ^-i: [describe]    ^-o[login]' \
+        --bind 'enter:execute:sh -c "kubectl logs --follow --all-containers --tail=10000 --namespace {1} {2}" > /dev/tty' \
+        --bind 'ctrl-f:execute:sh -c "kubectl logs --since=4h --all-containers --namespace {1} {2} | nvim - +" > /dev/tty' \
+        --bind 'ctrl-i:execute:sh -c "kubectl describe pods --namespace {1} {2} | nvim" > /dev/tty' \
+        --bind 'ctrl-o:execute:kubectl exec -it --namespace {1} {2} -- sh > /dev/tty' \
         --preview-window up:follow \
         --preview 'kubectl logs --follow --all-containers --tail=10000 --namespace {1} {2}' "$@"
 }
