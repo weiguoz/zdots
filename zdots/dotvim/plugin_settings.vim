@@ -295,8 +295,8 @@ nmap <leader>l :RangerCurrentFileExistingOrNewTab<CR>
 
 "{{{ honza/vim-snippets
 let g:snips_author=$USER
-let g:coc_snippet_next = '<c-j>'
-let g:coc_snippet_prev = '<c-k>'
+let g:coc_snippet_next = '<c-n>'
+let g:coc_snippet_prev = '<c-p>'
 "}}}
 
 " {{{ APZelos/blamer.nvim

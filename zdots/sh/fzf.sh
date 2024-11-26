@@ -7,10 +7,11 @@
 export FZF_COMPLETION_TRIGGER='@@'
 ## fzf examples: https://github.com/junegunn/fzf/wiki/examples
 export FZF_DEFAULT_COMMAND='fd -I --type f --type d --follow --hidden --exclude .git --exclude node_modules --max-results=827 --size=-500m'
-export FZF_DEFAULT_OPTS='
+export FZF_DEFAULT_OPTS="
   --color fg:255,bg:236,hl:84,fg+:255,bg+:236,hl+:215
   --color info:141,prompt:84,spinner:212,pointer:212,marker:212
-  -m --height 80% --layout reverse --inline-info --bind ctrl-f:page-down,ctrl-b:page-up' # --border
+  -m --height 80% --layout reverse --inline-info
+  --bind 'ctrl-f:half-page-down,ctrl-b:half-page-up,ctrl-j:ignore,ctrl-k:ignore'" # --border
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--preview "(bat {} --color=always || highlight -O ansi -l {} 2> /dev/null || tree -C {}) 2> /dev/null"'
 
@@ -49,7 +50,7 @@ pods() {
   FZF_DEFAULT_COMMAND="kubectl get pods --all-namespaces" \
     fzf --info=inline --layout=reverse --header-lines=1 \
         --prompt "$(kubectl config current-context | sed 's/-context$//')> " \
-        --header $'↩︎: [tail log]    ^-f: [logs]    ^-i: [describe]    ^-o[login]' \
+        --header $'↩︎: [tail log]    ^-f: [logs]    ^-i: [describe]    ^-o[aboard]' \
         --bind 'enter:execute:sh -c "kubectl logs --follow --all-containers --tail=10000 --namespace {1} {2}" > /dev/tty' \
         --bind 'ctrl-f:execute:sh -c "kubectl logs --since=4h --all-containers --namespace {1} {2} | nvim - +" > /dev/tty' \
         --bind 'ctrl-i:execute:sh -c "kubectl describe pods --namespace {1} {2} | nvim" > /dev/tty' \
