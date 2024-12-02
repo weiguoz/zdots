@@ -1,6 +1,6 @@
 return {
-  -- 'MattesGroeger/vim-bookmarks' was replaced by 'LintaoAmons/bookmarks.nvim'
-  "LintaoAmons/bookmarks.nvim",
+  "LintaoAmons/bookmarks.nvim", -- replace 'MattesGroeger/vim-bookmarks'
+  tag = "v1.4.2",
   dependencies = {
     { "nvim-telescope/telescope.nvim" },
     { "stevearc/dressing.nvim" },        -- optional
