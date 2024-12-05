@@ -82,7 +82,7 @@ nnoremap <silent> <leader>o :CocFzfList<CR>
 " {{{ AsyncRun
 nmap <leader>a :AsyncRun<space>
 " open quickfix window automatically when AsyncRun is executed
-let g:asyncrun_open = 1 " we don't need set the quickfix window height due to AdjustWindowHeight does
+let g:asyncrun_open = 8
 " ring the bell to notify you job finished
 " let g:asyncrun_bell = 1
 nnoremap <leader>q :call asyncrun#quickfix_toggle(6)<cr>
