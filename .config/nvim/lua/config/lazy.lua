@@ -6,8 +6,7 @@ return require("lazy").setup(
     -- colorschema " 'sainnhe/sonokai'
     { 'sainnhe/edge' },
 
-    -- " for gopher: Fast, 'tree-sitter'-like Vim Syntax Highlighting for Go
-    { 'charlespascoe/vim-go-syntax' },
+    { 'charlespascoe/vim-go-syntax' }, -- " for gopher: Fast, 'tree-sitter'-like Vim Syntax Highlighting for Go
 
     -- "  曾经：它依赖的 ctags 不能支持 go: [vista.vim] ctags: Warning: Unsupported kind: 'w' for --go-kinds option
     { 'liuchengxu/vista.vim' },
@@ -29,7 +28,6 @@ return require("lazy").setup(
     { 'mhinz/vim-signify' },
     { 'tpope/vim-fugitive' },
     { 'APZelos/blamer.nvim' },
-    -- :GitMessenger, nmap <leader>gm <Plug>(git-messenger)
     { 'rhysd/git-messenger.vim' },
     -- }}}
 
