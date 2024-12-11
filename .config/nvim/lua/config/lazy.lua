@@ -27,8 +27,8 @@ return require("lazy").setup(
     -- {{{ git plugins
     { 'mhinz/vim-signify' },
     { 'tpope/vim-fugitive' },
-    { 'APZelos/blamer.nvim' },
-    { 'rhysd/git-messenger.vim' },
+    { import = "plugins.git-blame" },
+    -- { 'rhysd/git-messenger.vim' },
     -- }}}
 
     { 'tpope/vim-commentary' },
@@ -39,11 +39,7 @@ return require("lazy").setup(
     { 'honza/vim-snippets' },
     { 'christoomey/vim-tmux-navigator' },
     { 'github/copilot.vim' },
-    { 'inkarkat/vim-mark',
-      dependencies = {
-        { 'inkarkat/vim-ingo-library'}
-      }
-    },
+    { 'inkarkat/vim-mark', dependencies = { 'inkarkat/vim-ingo-library' } },
     { 'simnalamburt/vim-mundo' },
 
     -- {{{ observing

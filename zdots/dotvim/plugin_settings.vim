@@ -133,7 +133,7 @@ autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 """ " nmap ; <Plug>(easymotion-lineanywhere)
 """ " <Plug>(easymotion-jumptoanywhere)
 map f <Plug>Sneak_f
-map F <Plug>Sneak_s
+map F <Plug>Sneak_F
 " }}}
 
 " {{{ git-messenger
@@ -298,16 +298,6 @@ let g:snips_author=$USER
 let g:coc_snippet_next = '<c-n>'
 let g:coc_snippet_prev = '<c-p>'
 "}}}
-
-" {{{ APZelos/blamer.nvim
-let g:blamer_enabled = 1
-" nmap <leader>b :BlamerToggle<CR>
-let g:blamer_delay = 500
-" let g:blamer_relative_time = 1
-let g:blamer_date_format = '%Y.%m.%d'
-let g:blamer_show_in_visual_modes = 1
-let g:blamer_show_in_insert_modes = 0
-" }}}
 
 " {{{ vim-tmux-navigator
 let g:tmux_navigator_save_on_switch = 2
