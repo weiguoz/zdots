@@ -299,16 +299,6 @@ let g:coc_snippet_next = '<c-n>'
 let g:coc_snippet_prev = '<c-p>'
 "}}}
 
-" {{{ APZelos/blamer.nvim
-let g:blamer_enabled = 1
-" nmap <leader>b :BlamerToggle<CR>
-let g:blamer_delay = 500
-" let g:blamer_relative_time = 1
-let g:blamer_date_format = '%Y.%m.%d'
-let g:blamer_show_in_visual_modes = 1
-let g:blamer_show_in_insert_modes = 0
-" }}}
-
 " {{{ vim-tmux-navigator
 let g:tmux_navigator_save_on_switch = 2
 let g:tmux_navigator_disable_when_zoomed = 1
