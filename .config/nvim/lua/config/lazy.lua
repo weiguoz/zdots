@@ -25,10 +25,9 @@ return require("lazy").setup(
     { 'skywind3000/asyncrun.vim' },
 
     -- {{{ git plugins
-    { 'mhinz/vim-signify' },
     { 'tpope/vim-fugitive' },
-    { import = "plugins.git-blame" },
     -- { 'rhysd/git-messenger.vim' },
+    { import = "plugins.gitsigns" }, -- integrates f-person/git-blame.nvim and mhinz/vim-signify
     -- }}}
 
     { 'tpope/vim-commentary' },
