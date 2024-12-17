@@ -20,6 +20,7 @@ return require("lazy").setup(
 
     { 'neoclide/coc.nvim', branch = 'release', build = 'npm ci' },
     { 'antoinemadec/coc-fzf', branch = 'release' }, -- https://github.com/neoclide/coc.nvim/issues/1586#issuecomment-591856683
+    { 'honza/vim-snippets' }, -- coc-snippets works with vim-snippets
 
     --" such as: AsyncRun tmux send-keys -t2 \"go test\" enter
     { 'skywind3000/asyncrun.vim' },
@@ -28,17 +29,16 @@ return require("lazy").setup(
     { 'tpope/vim-fugitive' },
     -- { 'rhysd/git-messenger.vim' },
     { import = "plugins.gitsigns" }, -- integrates f-person/git-blame.nvim and mhinz/vim-signify
+    { import = "plugins.git-messenger" },
     -- }}}
 
     { 'tpope/vim-commentary' },
     { 'vim-scripts/FencView.vim' },
     { 'pechorin/any-jump.vim' },
     { 'francoiscabrol/ranger.vim' },
-    -- coc-snippets works with vim-snippets
-    { 'honza/vim-snippets' },
     { 'christoomey/vim-tmux-navigator' },
     { 'github/copilot.vim' },
-    { 'inkarkat/vim-mark', dependencies = { 'inkarkat/vim-ingo-library' } },
+    { 'weiguoz/vim-mark', dependencies = { 'inkarkat/vim-ingo-library' } },
     { 'simnalamburt/vim-mundo' },
 
     -- {{{ observing

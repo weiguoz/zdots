@@ -1,5 +1,3 @@
-require("config.func")
-
 -- 显示与界面设置
 vim.cmd("colorscheme edge")
 vim.o.background = (os.clock() * 1e6 % 100 < 50) and "dark" or "light"

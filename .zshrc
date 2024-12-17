@@ -38,7 +38,6 @@ zinit light-mode for \
     zdharma-continuum/zinit-annex-bin-gem-node \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust \
-    junegunn/fzf \
     b4b4r07/enhancd \
     atinit"zicompinit; zicdreplay" \
         zdharma-continuum/fast-syntax-highlighting \
@@ -106,3 +105,6 @@ case $THEME in
         ;;
 esac
 # }}}
+
+# automatic added by vim plugin fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

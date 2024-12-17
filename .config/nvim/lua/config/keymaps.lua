@@ -1,6 +1,6 @@
 require("config.func")
 -- switch the background color
-vim.keymap.set("n", "<C-g>", ":lua ToggleBackground()<CR>", { silent = true, desc = "Toggle Background" })
+vim.keymap.set("n", "<C-g>", ":lua toggle_background()<CR>", { silent = true, desc = "toggle background" })
 
 -- 窗口内快速移动
 vim.keymap.set("n", "<C-u>", ":call MoveRatioOfWindow('up', 33)<CR>", { silent = true })
@@ -39,9 +39,3 @@ vim.keymap.set("i", "<C-o>", "<Esc>o")
 
 -- 放大缩小当前窗口
 vim.keymap.set("n", "<leader>z", ":call ZoomToggle()<CR>", { silent = true })
-
--- bookmark 快捷键。https://github.com/LintaoAmons/bookmarks.nvim?tab=readme-ov-file#keymap
-vim.keymap.set({ "n", "v" }, "mm", "<cmd>BookmarksMark<cr>", { desc = "Mark current line into active BookmarkList." })
-vim.keymap.set({ "n", "v" }, "mo", "<cmd>BookmarksGoto<cr>", { desc = "Go to bookmark at current active BookmarkList" })
-vim.keymap.set({ "n", "v" }, "ma", "<cmd>BookmarksCommands<cr>", { desc = "Find and trigger a bookmark command." })
-vim.keymap.set({ "n", "v" }, "mg", "<cmd>BookmarksGotoRecent<cr>", { desc = "Go to latest visited/created Bookmark" })

@@ -24,27 +24,6 @@ function! GotoJump()
 endfunction
 " }}}
 
-" {{{ self define statusline replaced by : vim-airline/vim-airline
-function! SetStatusLine()
-    set cmdheight=1
-    set report=0
-    set laststatus=2
-    set statusline=buf[%n,\ %{&encoding}]:%F " Buf:\ %2*%-3.3n%0*\ buffer number%n  file name%F/f
-    set statusline+=%{strlen(&ft)?&ft:'none'}, " filetype
-    set statusline+=%{&fileformat}]\   " file format
-    set statusline+=%=          " right align
-    set statusline+=\ \ [%03v\:0x%-4B\ %03l\/%L\=%p%%]
-    set statusline+=\ \ %h%1*%m%r%w%0*  " flag
-    set statusline+=\ %{strftime(\"%H:%M\")}
-    " set statusline+=\ %#warningmsg#
-    " set statusline+=\ %{SyntasticStatuslineFlag()}
-    " set statusline+=\ %*
-    au InsertEnter * hi statusline guibg=Purple ctermfg=4 guifg=Black ctermbg=13
-    au InsertLeave * hi statusline guibg=Purple ctermfg=2 guifg=Black ctermbg=18
-    hi statusline guibg=Purple ctermfg=2 guifg=Black ctermbg=18
-endf
-" }}}
-
 " {{{ CleanEmptyBuffers
 " https://stackoverflow.com/a/10102604
 function! CleanEmptyBuffers()
@@ -117,16 +96,4 @@ function! ZoomToggle() abort
         let t:zoomed = 1
     endif
 endfunction
-" }}}
-
-" {{{ \TODO function
-" function! AddTodoWithUsername(commentTag)
-"     let username = system("echo $USER")
-"     let username = substitute(username, '\n\+$', '', '') " 去除返回结果中的换行符
-"     execute "normal! O" .a:commentTag. " TODO (" . username . "): "
-"     normal! a
-" endfunction
-" 该函数暂时不用，最近我开始用 coc-snippets 中的 TODO，体验更丝滑
-" au FileType go,cpp,c,rust nnoremap <buffer> <leader>d :call AddTodoWithUsername('//')<CR>
-" au FileType python nnoremap <buffer> <leader>d :call AddTodoWithUsername('#')<CR>
 " }}}
