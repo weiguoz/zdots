@@ -5,6 +5,11 @@ return {
     require('telescope').setup {
       defaults = {
         file_ignore_patterns = { "node_modules", ".git" },
+        mappings = {
+          -- close on single escape or double escape
+          i = { ['<Esc>'] = require('telescope.actions').close },
+          -- n = { ['<Esc>'] = require('telescope.actions').close },
+        },
       },
     }
 

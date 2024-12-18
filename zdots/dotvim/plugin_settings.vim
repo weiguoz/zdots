@@ -1,84 +1,8 @@
-" {{{ coc
 nmap <leader>f :Files<CR>
 nmap <leader>s :BLines<CR>
 nmap <leader>b :Buffers<CR>
 " nmap <leader>w :Windows<CR>
 " noremap t :BTags<CR>
-
-" 'coc-explorer',
-let g:coc_global_extensions = [
-            \ 'coc-json',
-            \ 'coc-word',
-            \ 'coc-pyright',
-            \ 'coc-snippets']
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap E <Plug>(coc-diagnostic-prev)
-nmap e <Plug>(coc-diagnostic-next)
-
-""" {{{ copied from https://github.com/neoclide/coc.nvim README.md
-set updatetime=300
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-            \ coc#pum#visible() ? coc#pum#next(1):
-            \ CheckBackspace() ? "\<Tab>" :
-            \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-function! CheckBackspace() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-    inoremap <silent><expr> <c-space> coc#refresh()
-else
-    inoremap <silent><expr> <c-@> coc#refresh()
-endif
-" }}}
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> rn <Plug>(coc-rename)
-
-" Use h to show documentation in preview window.
-nnoremap <leader>h :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    elseif (coc#rpc#ready())
-        call CocActionAsync('doHover')
-    else
-        execute '!' . &keywordprg . " " . expand('<cword>')
-    endif
-endfunction
-
-" {{{ coc-explorer
-" nnoremap <leader>e :CocCommand explorer<CR>
-" " always open
-" au VimEnter * CocCommand explorer
-" au User CocExplorerOpenPre wincmd p " keep focus on file but not explorer
-" }}}
-" }}}
-
-" {{{ coc-fzf https://github.com/antoinemadec/coc-fzf?tab=readme-ov-file#vimrc-example
-nnoremap <silent> <leader>o :CocFzfList<CR>
-" }}}
 
 " {{{ AsyncRun
 nmap <leader>a :AsyncRun<space>
@@ -283,12 +207,6 @@ let g:ranger_map_keys = 0
 let g:ranger_open_new_tab = 1
 nmap <leader>l :RangerCurrentFileExistingOrNewTab<CR>
 " }}}
-
-"{{{ honza/vim-snippets
-let g:snips_author=$USER
-let g:coc_snippet_next = '<c-n>'
-let g:coc_snippet_prev = '<c-p>'
-"}}}
 
 " {{{ vim-tmux-navigator
 let g:tmux_navigator_save_on_switch = 2

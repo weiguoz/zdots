@@ -85,7 +85,7 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
   end,
 })
 
-local function initUndo(undo_dir)
+local function init_undo(undo_dir)
     local d = vim.fn.expand(undo_dir)
     if vim.fn.isdirectory(d) == 0 then
         vim.fn.system({ "mkdir", "-p", d })
@@ -96,4 +96,4 @@ local function initUndo(undo_dir)
     vim.opt.undofile = true
     vim.opt.colorcolumn = "+1"
 end
-initUndo("~/.local/share/nvim/undo")
+init_undo("~/.local/share/nvim/undo")

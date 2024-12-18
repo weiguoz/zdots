@@ -14,8 +14,14 @@
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 ## homebrew
-BREWHOME="/opt/homebrew"
-iPATH="$BREWHOME/bin:$BREWHOME/sbin"
+local BREWHOME="/opt/homebrew"
+local iPATH="$BREWHOME/bin:$BREWHOME/sbin"
+
+## llvm
+### local LLVM_HOME="$BREWHOME/opt/llvm"
+### iPATH=$iPATH:"$LLVM_HOME/bin"
+### export LDFLAGS="-L$LLVM_HOME/lib"
+### export CPPFLAGS="-I$LLVM_HOME/include/c++/v1"
 
 ## Java
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk/Contents/Home
@@ -57,4 +63,4 @@ export EZA_COLORS="${EZA_COLORS}:da=1;30:di=1;36" # :ln=1;34:"
 export ENHANCD_FILTER='fzf --preview "eza -al --tree --level 1 --group-directories-first --git-ignore --header --git --no-user --no-time --no-filesize --no-permissions {}" --preview-window right,50% --height 35% --reverse --ansi'
 
 export PATH=`uniq_csv "$iPATH:$PATH"` # order is important
-unset iPATH BREWHOME
+# unset BREWHOME
