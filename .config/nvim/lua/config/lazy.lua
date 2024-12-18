@@ -9,7 +9,7 @@ return require("lazy").setup(
     { 'charlespascoe/vim-go-syntax' }, -- " for gopher: Fast, 'tree-sitter'-like Vim Syntax Highlighting for Go
 
     -- "  曾经：它依赖的 ctags 不能支持 go: [vista.vim] ctags: Warning: Unsupported kind: 'w' for --go-kinds option
-    { 'liuchengxu/vista.vim' },
+    -- { 'liuchengxu/vista.vim' },
 
     { 'vim-airline/vim-airline' },
     { 'airblade/vim-rooter' },
@@ -18,9 +18,15 @@ return require("lazy").setup(
     { "junegunn/fzf", build = "./install --all" },
     { "junegunn/fzf.vim", dependencies = { "junegunn/fzf" } },
 
+    -- coc
     { 'neoclide/coc.nvim', branch = 'release', build = 'npm ci' },
     { 'antoinemadec/coc-fzf', branch = 'release' }, -- https://github.com/neoclide/coc.nvim/issues/1586#issuecomment-591856683
     { 'honza/vim-snippets' }, -- coc-snippets works with vim-snippets
+    -- eoc
+    { import = "plugins.nvim-tree" },
+
+    -- telescope
+    { import = "plugins.telescope" },
 
     --" such as: AsyncRun tmux send-keys -t2 \"go test\" enter
     { 'skywind3000/asyncrun.vim' },

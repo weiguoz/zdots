@@ -3,12 +3,12 @@ nmap <leader>f :Files<CR>
 nmap <leader>s :BLines<CR>
 nmap <leader>b :Buffers<CR>
 " nmap <leader>w :Windows<CR>
-noremap t :BTags<CR>
+" noremap t :BTags<CR>
 
+" 'coc-explorer',
 let g:coc_global_extensions = [
             \ 'coc-json',
             \ 'coc-word',
-            \ 'coc-explorer',
             \ 'coc-pyright',
             \ 'coc-snippets']
 
@@ -69,7 +69,7 @@ function! s:show_documentation()
 endfunction
 
 " {{{ coc-explorer
-nnoremap <leader>e :CocCommand explorer<CR>
+" nnoremap <leader>e :CocCommand explorer<CR>
 " " always open
 " au VimEnter * CocCommand explorer
 " au User CocExplorerOpenPre wincmd p " keep focus on file but not explorer
@@ -113,16 +113,6 @@ au FileType cpp nnoremap <silent> run :AsyncRun clang++ -DDBG -Wall -Wextra -Wer
 au FileType c nnoremap <silent> run :AsyncRun clang -DDBG -Wall -Wextra -Werror -Wshadow -g -o %< % && (./%< ; rm -rf %< %<.dSYM)<cr>
 au FileType go nnoremap <silent> run :AsyncRun go run %<cr>
 " }}}
-
-"{{{ liuchengxu/vista.vim
-noremap t :silent! Vista finder coc<CR>
-" same function
-noremap <silent> <leader>t :Vista!!<CR>
-let g:vista_fzf_preview = ['right:50%']
-" It's a little bit weird that thers is connection between vista and statusline(vim-airline)
-" https://github.com/liuchengxu/vista.vim#show-the-nearest-methodfunction-in-the-statusline
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
-"}}}
 
 " {{{ easymotion -> justinmk/vim-sneak
 """ " Search paste is broken, so I removed the plugin.

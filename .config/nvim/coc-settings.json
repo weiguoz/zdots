@@ -84,20 +84,20 @@
     "diagnostic.refreshOnInsertMode": false,
     "diagnostic.checkCurrentLine": true,
     "diagnostic.virtualText": false,
-    "explorer.width": 30,
-    "explorer.previewAction.onHover": false, // "content",
-    "explorer.icon.enableVimDevicons": true,
-    "explorer.icon.enableNerdfont": true,
-    "explorer.quitOnOpen": false,
-    "explorer.file.column.indent.indentLine": true,
-    "explorer.file.showHiddenFiles": true,
-    "explorer.buffer.showHiddenBuffers": false,
-    "explorer.keyMappings.global": {
-        "v": "open:vsplit",
-        "rn": "rename",
-        "de": "delete",
-        "af": "addFile",
-        "ad": "addDirectory"
-    },
+    // "explorer.width": 30,
+    // "explorer.previewAction.onHover": false, // "content",
+    // "explorer.icon.enableVimDevicons": true,
+    // "explorer.icon.enableNerdfont": true,
+    // "explorer.quitOnOpen": false,
+    // "explorer.file.column.indent.indentLine": true,
+    // "explorer.file.showHiddenFiles": true,
+    // "explorer.buffer.showHiddenBuffers": false,
+    // "explorer.keyMappings.global": {
+    //     "v": "open:vsplit",
+    //     "rn": "rename",
+    //     "de": "delete",
+    //     "af": "addFile",
+    //     "ad": "addDirectory"
+    // },
     "snippets.ultisnips.pythonPrompt": false
 }
