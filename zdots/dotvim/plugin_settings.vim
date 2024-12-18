@@ -1,4 +1,10 @@
 " {{{ coc
+nmap <leader>f :Files<CR>
+nmap <leader>s :BLines<CR>
+nmap <leader>b :Buffers<CR>
+" nmap <leader>w :Windows<CR>
+noremap t :BTags<CR>
+
 let g:coc_global_extensions = [
             \ 'coc-json',
             \ 'coc-word',
@@ -10,11 +16,6 @@ let g:coc_global_extensions = [
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap E <Plug>(coc-diagnostic-prev)
 nmap e <Plug>(coc-diagnostic-next)
-nmap <leader>f :Files<CR>
-nmap <leader>s :BLines<CR>
-nmap <leader>b :Buffers<CR>
-" nmap <leader>w :Windows<CR>
-noremap t :BTags<CR>
 
 """ {{{ copied from https://github.com/neoclide/coc.nvim README.md
 set updatetime=300
