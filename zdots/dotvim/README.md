@@ -3,13 +3,13 @@
 ## VIM
 
 自动加载修改中的`.vimrc`文件,  在文件拆分之后用起来不方便了。这儿记录一下
-```vim
+```Vim
 autocmd! bufwritepost .vimrc source %
 ```
 
 ### Usage
 
-vim 使用 (而非 nvim 需要)
+Vim 使用 (而非 nvim 需要)
 ```sh
 echo "source ~/zdots/dotvim/functions.vim
 source ~/zdots/dotvim/vimrc.vim
@@ -39,7 +39,7 @@ YCM在随着Mac系统更新时，出的问题太多了，放弃使用并转向`c
 
 [language-servers](https://github.com/neoclide/coc.nvim/wiki/Language-servers)以及coc配置在`coc-settings.json`.
 
-## nvim
+## Nvim
 
 1. `brew install nvim`
 
@@ -47,7 +47,7 @@ YCM在随着Mac系统更新时，出的问题太多了，放弃使用并转向`c
 
 ### 补全
 
-个人不喜欢node，所以从coc弃坑转向 nvim-cmp。发现体验更好，补全更丝滑。   
+个人不喜欢node，所以舍 coc 转向 nvim-cmp。使用一段时间后，个人更喜欢。   
 注：目前 copilot.vim 还在使用 node。
 
 ### lsp

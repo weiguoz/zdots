@@ -37,7 +37,6 @@ return {
 
     lspconfig.gopls.setup({
       on_attach = common_attach,
-      cmd = { "gopls" },
       filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
       root_dir = lspconfig.util.root_pattern("go.mod", ".git", "go.work"),
       settings = {
@@ -54,6 +53,24 @@ return {
     lspconfig.clangd.setup({
       on_attach = common_attach,
       cmd = { "/opt/homebrew/opt/llvm/bin/clangd", "--background-index" },
+    })
+
+    lspconfig.bashls.setup({
+      on_attach = common_attach,
+      cmd = { "bash-language-server", "start" },
+      filetypes = { "sh", "bash" },
+      root_dir = require('lspconfig').util.root_pattern(".git", ".bashrc", ".bash_profile"),
+      settings = {
+        bash = {
+            diagnostics = { enable = true },
+        },
+      },
+    })
+
+    lspconfig.thriftls.setup({
+      on_attach = common_attach,
+      -- cmd = { "thriftls" }, build thriftls from source
+      -- git clone https://github.com/joyme123/thrift-ls && go build -o $GOPATH/bin/thriftls
     })
 
   end

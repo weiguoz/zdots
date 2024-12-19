@@ -1,9 +1,3 @@
-nmap <leader>f :Files<CR>
-nmap <leader>s :BLines<CR>
-nmap <leader>b :Buffers<CR>
-" nmap <leader>w :Windows<CR>
-" noremap t :BTags<CR>
-
 " {{{ AsyncRun
 nmap <leader>a :AsyncRun<space>
 " open quickfix window automatically when AsyncRun is executed
@@ -49,12 +43,6 @@ au FileType go nnoremap <silent> run :AsyncRun go run %<cr>
 """ " <Plug>(easymotion-jumptoanywhere)
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
-" }}}
-
-" {{{ git-messenger
-nmap <silent>gh <Plug>(git-messenger)
-let g:git_messenger_always_into_popup=v:true
-let g:git_messenger_include_diff="current"
 " }}}
 
 " {{{ vim-rooter
@@ -174,30 +162,6 @@ noremap <silent>s :call RGOptFun(expand('<cword>'), 0)<CR>
 command! -nargs=* -bang Rg call RGOptFun(<q-args>, <bang>0)
 " }}}
 
-"{{{ MattersGroeger/vim-bookmarks
-""" Finds the Git super-project directory.
-"" function! g:BMWorkDirFileLocation()
-""     let filename = 'vim_bookmarks'
-""     let location = ''
-""     if isdirectory('.git')
-""         " Current work dir is git's work tree
-""         let location = getcwd().'/.git'
-""     else
-""         " Look upwards (at parents) for a directory named '.git'
-""         let location = finddir('.git', '.;')
-""     endif
-""     if len(location) > 0
-""         return location.'/'.filename
-""     else
-""         return getcwd().'/.'.filename
-""     endif
-"" endfunction
-"" highlight BookmarkLine ctermbg=194 ctermfg=NONE
-"" let g:bookmark_sign = '♥'
-"" let g:bookmark_highlight_lines = 1
-"" let g:bookmark_auto_save_file=BMWorkDirFileLocation()
-"}}}
-
 " {{{ vim-mark
 nnoremap <leader>M :MarkClear<CR> " 与外部执行命令的区别是打开的目录不同，这个是当前文件所在目录
 " }}}
@@ -213,11 +177,6 @@ let g:tmux_navigator_save_on_switch = 2
 let g:tmux_navigator_disable_when_zoomed = 1
 " }}}
 " nnoremap <leader>" :silent !tmux split-window -c %:p:h<CR> " 与外部执行命令的区别是打开的目录不同，这个是当前文件所在目录
-
-" {{{ andymass/vim-matchup
-" display parents
-" nnoremap <leader>p :<c-u>MatchupWhereAmI?<cr>
-" }}}
 
 " {{{ copilot.vim
 " https://github.com/github/copilot.vim/blob/1a55183ef9347d6f420406a3746474b6b9fb9ef5/doc/copilot.txt#L104
