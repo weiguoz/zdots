@@ -2,16 +2,16 @@ return {
   'neovim/nvim-lspconfig',
   config = function()
     local lspconfig = require('lspconfig')
-    local telescope = require('telescope.builtin')
+    -- local telescope = require('telescope.builtin')
 
     -- common attach function
-    local common_attach = function(client, bufnr)
+    local common_attach = function(_, bufnr)
         local bufopts = { noremap=true, silent=true, buffer=bufnr }
 
         -- lsp
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
         vim.keymap.set('n', 'rn', vim.lsp.buf.rename, bufopts)
-        vim.keymap.set('n', 'rc', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', 'gc', vim.lsp.buf.code_action, bufopts)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
         -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { noremap = true, silent = true })
         -- vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, { noremap = true, silent = true })
@@ -22,17 +22,20 @@ return {
         vim.keymap.set("n", "gy", "<cmd>Telescope lsp_type_definitions<cr>", bufopts)
 
         -- diagnostic
-        vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, opts)
-        vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, opts)
-        vim.keymap.set('n', '<leader>di', vim.diagnostic.open_float, opts)
-        vim.keymap.set('n', '<leader>dl', function()
-          require('telescope.builtin').diagnostics({ severity_sort = true }) -- sort by severity
-        end, opts)
+        vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, bufopts)
+        vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, bufopts)
+        vim.keymap.set('n', '<leader>di', vim.diagnostic.open_float, bufopts)
+        vim.keymap.set('n', '<leader>dl', "<cmd>Telescope diagnostics<cr>", bufopts)
+        -- dl implementation 1
+        -- vim.keymap.set('n', '<leader>dl', function()
+        --   require('telescope.builtin').diagnostics({ severity_sort = true }) -- sort by severity
+        -- end, bufopts)
+        -- dl implementation 2
         -- add agnostic to loclist then export to telescope is a good idea, but the loclist popup is not good
         -- vim.keymap.set('n', '<leader>dl', function()
         --   vim.diagnostic.setloclist() -- add diagnostic to loclist
         --   telescope.loclist() -- open loclist with telescope
-        -- end, opts)
+        -- end, bufopts)
     end
 
     lspconfig.gopls.setup({
@@ -67,11 +70,19 @@ return {
       },
     })
 
-    lspconfig.thriftls.setup({
-      on_attach = common_attach,
-      -- cmd = { "thriftls" }, build thriftls from source
-      -- git clone https://github.com/joyme123/thrift-ls && go build -o $GOPATH/bin/thriftls
-    })
+    -- cmd = { "thriftls" }, build thriftls from source
+    -- git clone https://github.com/joyme123/thrift-ls && go build -o $GOPATH/bin/thriftls
+    lspconfig.thriftls.setup({ on_attach = common_attach })
 
+    lspconfig.rust_analyzer.setup({ on_attach = common_attach })
+    lspconfig.pyright.setup({ on_attach = common_attach })
+    lspconfig.lua_ls.setup({
+      on_attach = common_attach,
+      settings = {
+        Lua = {
+          diagnostics = { globals = { 'vim' } },
+        },
+      },
+    })
   end
 }
