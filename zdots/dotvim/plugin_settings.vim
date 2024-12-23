@@ -1,85 +1,3 @@
-" {{{ coc
-nmap <leader>f :Files<CR>
-nmap <leader>s :BLines<CR>
-nmap <leader>b :Buffers<CR>
-" nmap <leader>w :Windows<CR>
-noremap t :BTags<CR>
-
-let g:coc_global_extensions = [
-            \ 'coc-json',
-            \ 'coc-word',
-            \ 'coc-explorer',
-            \ 'coc-pyright',
-            \ 'coc-snippets']
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
-nmap E <Plug>(coc-diagnostic-prev)
-nmap e <Plug>(coc-diagnostic-next)
-
-""" {{{ copied from https://github.com/neoclide/coc.nvim README.md
-set updatetime=300
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-set signcolumn=yes
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-            \ coc#pum#visible() ? coc#pum#next(1):
-            \ CheckBackspace() ? "\<Tab>" :
-            \ coc#refresh()
-inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-            \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-function! CheckBackspace() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-    inoremap <silent><expr> <c-space> coc#refresh()
-else
-    inoremap <silent><expr> <c-@> coc#refresh()
-endif
-" }}}
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> rn <Plug>(coc-rename)
-
-" Use h to show documentation in preview window.
-nnoremap <leader>h :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    elseif (coc#rpc#ready())
-        call CocActionAsync('doHover')
-    else
-        execute '!' . &keywordprg . " " . expand('<cword>')
-    endif
-endfunction
-
-" {{{ coc-explorer
-nnoremap <leader>e :CocCommand explorer<CR>
-" " always open
-" au VimEnter * CocCommand explorer
-" au User CocExplorerOpenPre wincmd p " keep focus on file but not explorer
-" }}}
-" }}}
-
-" {{{ coc-fzf https://github.com/antoinemadec/coc-fzf?tab=readme-ov-file#vimrc-example
-nnoremap <silent> <leader>o :CocFzfList<CR>
-" }}}
-
 " {{{ AsyncRun
 nmap <leader>a :AsyncRun<space>
 " open quickfix window automatically when AsyncRun is executed
@@ -114,16 +32,6 @@ au FileType c nnoremap <silent> run :AsyncRun clang -DDBG -Wall -Wextra -Werror 
 au FileType go nnoremap <silent> run :AsyncRun go run %<cr>
 " }}}
 
-"{{{ liuchengxu/vista.vim
-noremap t :silent! Vista finder coc<CR>
-" same function
-noremap <silent> <leader>t :Vista!!<CR>
-let g:vista_fzf_preview = ['right:50%']
-" It's a little bit weird that thers is connection between vista and statusline(vim-airline)
-" https://github.com/liuchengxu/vista.vim#show-the-nearest-methodfunction-in-the-statusline
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
-"}}}
-
 " {{{ easymotion -> justinmk/vim-sneak
 """ " Search paste is broken, so I removed the plugin.
 """ " More details https://github.com/easymotion/vim-easymotion/issues/408
@@ -135,12 +43,6 @@ autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 """ " <Plug>(easymotion-jumptoanywhere)
 map f <Plug>Sneak_f
 map F <Plug>Sneak_F
-" }}}
-
-" {{{ git-messenger
-nmap <silent>gh <Plug>(git-messenger)
-let g:git_messenger_always_into_popup=v:true
-let g:git_messenger_include_diff="current"
 " }}}
 
 " {{{ vim-rooter
@@ -260,30 +162,6 @@ noremap <silent>s :call RGOptFun(expand('<cword>'), 0)<CR>
 command! -nargs=* -bang Rg call RGOptFun(<q-args>, <bang>0)
 " }}}
 
-"{{{ MattersGroeger/vim-bookmarks
-""" Finds the Git super-project directory.
-"" function! g:BMWorkDirFileLocation()
-""     let filename = 'vim_bookmarks'
-""     let location = ''
-""     if isdirectory('.git')
-""         " Current work dir is git's work tree
-""         let location = getcwd().'/.git'
-""     else
-""         " Look upwards (at parents) for a directory named '.git'
-""         let location = finddir('.git', '.;')
-""     endif
-""     if len(location) > 0
-""         return location.'/'.filename
-""     else
-""         return getcwd().'/.'.filename
-""     endif
-"" endfunction
-"" highlight BookmarkLine ctermbg=194 ctermfg=NONE
-"" let g:bookmark_sign = '♥'
-"" let g:bookmark_highlight_lines = 1
-"" let g:bookmark_auto_save_file=BMWorkDirFileLocation()
-"}}}
-
 " {{{ vim-mark
 nnoremap <leader>M :MarkClear<CR> " 与外部执行命令的区别是打开的目录不同，这个是当前文件所在目录
 " }}}
@@ -294,22 +172,11 @@ let g:ranger_open_new_tab = 1
 nmap <leader>l :RangerCurrentFileExistingOrNewTab<CR>
 " }}}
 
-"{{{ honza/vim-snippets
-let g:snips_author=$USER
-let g:coc_snippet_next = '<c-n>'
-let g:coc_snippet_prev = '<c-p>'
-"}}}
-
 " {{{ vim-tmux-navigator
 let g:tmux_navigator_save_on_switch = 2
 let g:tmux_navigator_disable_when_zoomed = 1
 " }}}
 " nnoremap <leader>" :silent !tmux split-window -c %:p:h<CR> " 与外部执行命令的区别是打开的目录不同，这个是当前文件所在目录
-
-" {{{ andymass/vim-matchup
-" display parents
-" nnoremap <leader>p :<c-u>MatchupWhereAmI?<cr>
-" }}}
 
 " {{{ copilot.vim
 " https://github.com/github/copilot.vim/blob/1a55183ef9347d6f420406a3746474b6b9fb9ef5/doc/copilot.txt#L104

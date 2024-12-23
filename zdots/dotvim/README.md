@@ -1,11 +1,15 @@
+# VIM to NVIM
+
+## VIM
+
 自动加载修改中的`.vimrc`文件,  在文件拆分之后用起来不方便了。这儿记录一下
-```vim
+```Vim
 autocmd! bufwritepost .vimrc source %
 ```
 
-## Usage
+### Usage
 
-vim 使用 (而非 nvim 需要)
+Vim 使用 (而非 nvim 需要)
 ```sh
 echo "source ~/zdots/dotvim/functions.vim
 source ~/zdots/dotvim/vimrc.vim
@@ -14,13 +18,13 @@ source ~/zdots/dotvim/plugin_settings.vim" > ~/.vimrc
 ln -s ~/zdots/dotvim/coc-settings.json ~/.vim/
 ```
 
-## Plugins
+### Plugins
 
-### 插件管理器
+#### 插件管理器 vim-plug
 
 安装[vim-plug](https://github.com/junegunn/vim-plug#vim)
 
-### 补全 coc
+#### 补全 coc
 
 YCM在随着Mac系统更新时，出的问题太多了，放弃使用并转向`coc.nvim`。使用`coc`时，需要:
 1. 按[quick-start](https://github.com/neoclide/coc.nvim#quick-start)进行安装
@@ -35,7 +39,17 @@ YCM在随着Mac系统更新时，出的问题太多了，放弃使用并转向`c
 
 [language-servers](https://github.com/neoclide/coc.nvim/wiki/Language-servers)以及coc配置在`coc-settings.json`.
 
-## nvim
+## Nvim
 
 1. `brew install nvim`
-2. `cd ~/.config/nvim && ln -s ~/zdots/dotvim/coc-settings.json .` ~~&& ln -s ~/.vimrc init.vim~~ `正在转向 init.lua`
+
+### 插件管理器 Lazy
+
+### 补全
+
+个人不喜欢node，所以舍 coc 转向 nvim-cmp。使用一段时间后，个人更喜欢。   
+注：目前 copilot.vim 还在使用 node。
+
+### lsp
+
+nvim-lspconfig
