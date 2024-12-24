@@ -11,50 +11,50 @@
 # background for macchiato catppuccin terminal theme
 thm_bg="#24273A"
 thm_fg="#c6d0f5"
-thm_cyan="#99d1db"
-thm_black="#292c3c"
-thm_gray="#414559"
-thm_magenta="#ca9ee6"
-thm_pink="#f4b8e4"
-thm_blue="#8caaee"
-thm_black4="#626880"
-rosewater="#f2d5cf"
-flamingo="#eebebe"
+# thm_cyan="#99d1db"
+# thm_black="#292c3c"
+# thm_gray="#414559"
+# thm_magenta="#ca9ee6"
+# thm_pink="#f4b8e4"
+# thm_blue="#8caaee"
+# thm_black4="#626880"
+# rosewater="#f2d5cf"
+# flamingo="#eebebe"
 pink="#f4b8e4"
-mauve="#ca9ee6"
-red="#e78284"
-maroon="#ea999c"
-peach="#ef9f76"
-yellow="#e5c890"
-green="#a6d189"
-teal="#81c8be"
-sky="#99d1db"
-sapphire="#85c1dc"
-blue="#8caaee"
-lavender="#babbf1"
-text="#c6d0f5"
-subtext1="#b5bfe2"
-subtext0="#a5adce"
-overlay2="#949cbb"
-overlay1="#838ba7"
-overlay0="#737994"
-surface2="#626880"
-surface1="#51576d"
-surface0="#414559"
+# mauve="#ca9ee6"
+# red="#e78284"
+# maroon="#ea999c"
+# peach="#ef9f76"
+# yellow="#e5c890"
+# green="#a6d189"
+# teal="#81c8be"
+# sky="#99d1db"
+# sapphire="#85c1dc"
+# blue="#8caaee"
+# lavender="#babbf1"
+# text="#c6d0f5"
+# subtext1="#b5bfe2"
+# subtext0="#a5adce"
+# overlay2="#949cbb"
+# overlay1="#838ba7"
+# overlay0="#737994"
+# surface2="#626880"
+# surface1="#51576d"
+# surface0="#414559"
 base="#303446"
-mantle="#292c3c"
-crust="#232634"
-eggplant="#e889d2"
-sky_blue="#a7c7e7"
-spotify_green="#1db954"
-spotify_black="#191414"
+# mantle="#292c3c"
+# crust="#232634"
+# eggplant="#e889d2"
+# sky_blue="#a7c7e7"
+# spotify_green="#1db954"
+# spotify_black="#191414"
 
 
 #    
 TMUX_POWERLINE_SEPARATOR_LEFT_BOLD=""
-TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
+# TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
 TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
-TMUX_POWERLINE_SEPARATOR_RIGHT_THIN=""
+# TMUX_POWERLINE_SEPARATOR_RIGHT_THIN=""
 TMUX_POWERLINE_SEPARATOR_THIN=" "
 
 TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR=${TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR:-$thm_bg}
@@ -66,7 +66,7 @@ TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SE
 # See man tmux.conf for additional formatting options for the status line.
 # The `format regular` and `format inverse` functions are provided as conveinences
 
-if [ -z $TMUX_POWERLINE_WINDOW_STATUS_CURRENT ]; then
+if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_CURRENT" ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_CURRENT=(
 		"#[$(format inverse)]" \
 		"  #I#F" \
@@ -75,13 +75,13 @@ if [ -z $TMUX_POWERLINE_WINDOW_STATUS_CURRENT ]; then
 	)
 fi
 
-if [ -z $TMUX_POWERLINE_WINDOW_STATUS_STYLE ]; then
+if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_STYLE" ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_STYLE=(
 		"$(format regular)"
 	)
 fi
 
-if [ -z $TMUX_POWERLINE_WINDOW_STATUS_FORMAT ]; then
+if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_FORMAT" ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_FORMAT=(
 		"#[$(format regular)]" \
 		"  #I#{?window_flags,#F,}" \
@@ -119,37 +119,37 @@ fi
 
 if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-		# "tmux_session_info $blue $thm_bg" \
         # "pwd $mauve $surface0" \
 		# "hostname $eggplant $thm_bg" \
 		# "ifstat 30 255" \
 		# "ifstat_sys 30 255" \
 		# lan_ip $sky_blue $thm_bg ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
-		# "wan_ip $sky_blue $thm_bg" \
 		# "vcs_branch 17 135" \
 		# "vcs_compare 60 255" \
 		# "vcs_staged 64 255" \
 		# "vcs_modified 9 255" \
 		# "battery $blue $thm_bg" \
 		# "vcs_others 245 0"
+		# "tmux_session_info $blue $thm_bg" \
+		# "wan_ip $sky_blue $thm_bg" \
         "pwd 16 135"
 	)
 fi
 
 if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
-		# "earthquake 3 0" \
 		# "macos_notification_count 29 255" \
 		# "mailcount 9 255" \
 		# "now_playing $spotify_green $spotify_black" \
 		# "cpu 240 136" \
 		# "load 237 167" \
-		# "rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}" \
 		# "date $teal $thm_bg ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 		# "time $teal $thm_bg ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 		# "utc_time 235 136"
 		# "tmux_mem_cpu_load 234 136" \
 		# "xkb_layout 125 117" \
+		# "rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}" \
+		"earthquake 3 0" \
 		"my_time $pink $base" \
 		"weather 37 255"
 	)
