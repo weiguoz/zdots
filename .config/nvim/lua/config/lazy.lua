@@ -50,6 +50,7 @@ return require("lazy").setup(
     { 'mattn/vim-goimports' },
     -- intelligently reopens files at your last edit position
     { 'farmergreg/vim-lastplace' },
+    -- }}}
   },
   { checker = { enabled = true, frequency = 86400 } }
 )

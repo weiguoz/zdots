@@ -3,7 +3,7 @@
 # sourced by ~/.bashrc normally
 # here we go
 alias md5sum='md5 -r'
-alias top0='glances' # https://github.com/nicolargo/glances
+# alias top0='glances' # https://github.com/nicolargo/glances
 alias diff='icdiff'
 alias cp='cp -i'
 alias ls='eza'
