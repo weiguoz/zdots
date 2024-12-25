@@ -30,7 +30,6 @@ return require("lazy").setup(
     -- git plugins
     { 'tpope/vim-fugitive' },
     { import = "plugins.gitsigns" }, -- integrates f-person/git-blame.nvim and mhinz/vim-signify
-    { import = "plugins.git-messenger" },
 
     { import = "plugins.bookmarks" },
     { 'tpope/vim-commentary' },
