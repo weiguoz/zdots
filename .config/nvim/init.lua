@@ -9,10 +9,10 @@ require('config.settings')
 require('config.keymaps')
 require('config.commands')
 
-local init_vims = { "functions.vim", "plugin_settings.vim" }
+local init_vims = { "plugin_settings.vim" }
 for _, f in ipairs(init_vims) do
-    local init_vim_path = string.format("%s/zdots/dotvim/%s", os.getenv("HOME"), f)
-    if vim.fn.filereadable(init_vim_path) then
-        vim.cmd('source ' .. init_vim_path)
+    local fp = string.format("%s/zdots/dotvim/%s", os.getenv("HOME"), f)
+    if vim.fn.filereadable(fp) then
+        vim.cmd('source ' .. fp)
     end
 end

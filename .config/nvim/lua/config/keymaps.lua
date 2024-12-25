@@ -3,8 +3,8 @@ require("config.func")
 vim.keymap.set("n", "<C-g>", ":lua ToggleBackground()<CR>", { silent = true, desc = "toggle background" })
 
 -- 窗口内快速移动
-vim.keymap.set("n", "<C-u>", ":call MoveRatioOfWindow('up', 33)<CR>", { silent = true })
-vim.keymap.set("n", "<C-d>", ":call MoveRatioOfWindow('down', 33)<CR>", { silent = true })
+vim.keymap.set("n", "<C-u>", ":lua MoveRatioOfWindow('up', 33)<CR>", { silent = true })
+vim.keymap.set("n", "<C-d>", ":lua MoveRatioOfWindow('down', 33)<CR>", { silent = true })
 -- nnoremap <c-m> :call cursor(0, len(getline('.'))/2)<CR>
 
 -- 行首行尾快捷键
@@ -37,5 +37,4 @@ vim.keymap.set("i", "<C-o>", "<Esc>o")
 -- vim.keymap.set("n", "<Tab>", [[ :if &modifiable && !&readonly && &modified <Bar> :write <Bar> endif <Bar> :bprev<CR> ]], { silent = true })
 -- vim.keymap.set("n", "<S-Tab>", [[ :if &modifiable && !&readonly && &modified <Bar> :write <Bar> endif <Bar> :bnext<CR> ]], { silent = true })
 
--- 放大缩小当前窗口
-vim.keymap.set("n", "<leader>z", ":call ZoomToggle()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>z", ":lua ZoomWinToggle()<CR>", { silent = true })
