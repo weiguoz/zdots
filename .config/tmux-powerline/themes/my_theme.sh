@@ -124,15 +124,15 @@ if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
 		# "ifstat 30 255" \
 		# "ifstat_sys 30 255" \
 		# lan_ip $sky_blue $thm_bg ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
-		# "vcs_branch 17 135" \
-		# "vcs_compare 60 255" \
-		# "vcs_staged 64 255" \
-		# "vcs_modified 9 255" \
 		# "battery $blue $thm_bg" \
-		# "vcs_others 245 0"
 		# "tmux_session_info $blue $thm_bg" \
 		# "wan_ip $sky_blue $thm_bg" \
-        "pwd 16 135"
+		# "vcs_branch 17 135" \
+        "pwd 16 135" \
+		"vcs_compare 60 255" \
+		"vcs_staged 64 255" \
+		"vcs_modified 9 255" \
+		"vcs_others 245 0"
 	)
 fi
 

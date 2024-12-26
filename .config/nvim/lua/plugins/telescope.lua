@@ -1,3 +1,24 @@
+function GitBcommitsOnCursor()
+  local file = vim.fn.expand('%')
+  local line = vim.api.nvim_win_get_cursor(0)[1]
+  require('telescope.builtin').git_bcommits_range({
+    from = line,
+    to = line,
+    file = file,
+    previewer = true,
+    shorten_path = true,
+    attach_mappings = function(prompt_bufnr, map)
+      -- disable enter key to step into commit
+      local actions = require('telescope.actions')
+      map('i', '<CR>', actions.close)
+      map('n', '<CR>', actions.close)
+      return true
+    end,
+  })
+end
+
+vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>lua GitBcommitsOnCursor()<CR>', { noremap = true, silent = true })
+
 return {
   'nvim-telescope/telescope.nvim',
   dependencies = { 'nvim-lua/plenary.nvim' },
