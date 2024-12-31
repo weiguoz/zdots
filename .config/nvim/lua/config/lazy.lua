@@ -23,6 +23,7 @@ return require("lazy").setup(
     { import = "plugins.nvim-tree" },
     { import = "plugins.nvim-lspconfig" },
     { import = "plugins.nvim-cmp" },
+    { import = "plugins.luasnip" },
 
     --" such as: AsyncRun tmux send-keys -t2 \"go test\" enter
     { 'skywind3000/asyncrun.vim' },

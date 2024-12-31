@@ -30,6 +30,7 @@ vim.keymap.set("i", "<C-l>", "<Right>")
 vim.keymap.set("i", "<C-w>", "<S-Right>")
 vim.keymap.set("i", "<C-b>", "<S-Left>")
 vim.keymap.set("i", "<C-o>", "<Esc>o")
+vim.keymap.set("i", "<C-d>", "<Esc>dd")
 
 -- 缓冲区切换
 -- vim.keymap.set("n", "<C-[>", ":bp<CR>")
