@@ -34,7 +34,11 @@ return {
       },
     }
 
-    vim.keymap.set('n', 't', '<cmd>Telescope<cr>', { noremap = true, silent = true })
-    vim.keymap.set('n', 'c', '<cmd>Telescope commands<cr>', { noremap = true, silent = true })
+    local opt = { noremap = true, silent = true }
+    vim.keymap.set('n', 't', '<cmd>Telescope<cr>', opt)
+    vim.keymap.set('n', 'c', '<cmd>Telescope commands<cr>', opt)
+    vim.keymap.set("n", "<leader>l", function()
+      vim.fn.feedkeys(":Telescope lsp_document_symbols symbols=function,method,variable", "nt")
+    end, { desc = "Feed Telescope command" })
   end,
 }
