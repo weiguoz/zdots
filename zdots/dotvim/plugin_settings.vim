@@ -167,9 +167,9 @@ nnoremap <leader>M :MarkClear<CR> " 与外部执行命令的区别是打开的�
 " }}}
 
 " {{{ francoiscabrol/ranger.vim
-let g:ranger_map_keys = 0
-let g:ranger_open_new_tab = 1
-nmap <leader>l :RangerCurrentFileExistingOrNewTab<CR>
+" let g:ranger_map_keys = 0
+" let g:ranger_open_new_tab = 1
+" nmap <leader>l :RangerCurrentFileExistingOrNewTab<CR>
 " }}}
 
 " {{{ vim-tmux-navigator

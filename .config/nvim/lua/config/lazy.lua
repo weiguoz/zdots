@@ -2,8 +2,8 @@
 return require("lazy").setup(
   {
     -- https://github.com/rockerBOO/awesome-neovim#tree-sitter-supported-colorscheme
-    -- colorschema " 'sainnhe/sonokai'
-    { 'sainnhe/edge' },
+    -- colorschema " 'sainnhe/sonokai', 'sainnhe/edge'
+    { 'sainnhe/everforest' },
 
     { 'charlespascoe/vim-go-syntax' }, -- " for gopher: Fast, 'tree-sitter'-like Vim Syntax Highlighting for Go
 
@@ -35,8 +35,6 @@ return require("lazy").setup(
     { import = "plugins.bookmarks" },
     { 'tpope/vim-commentary' },
     { 'vim-scripts/FencView.vim' },
-    { 'pechorin/any-jump.vim' },
-    { 'francoiscabrol/ranger.vim' },
     { 'christoomey/vim-tmux-navigator' },
     { 'github/copilot.vim' },
     { 'weiguoz/vim-mark', dependencies = { 'inkarkat/vim-ingo-library' } },
@@ -50,6 +48,8 @@ return require("lazy").setup(
     { 'mattn/vim-goimports' },
     -- intelligently reopens files at your last edit position
     { 'farmergreg/vim-lastplace' },
+    -- { 'pechorin/any-jump.vim' },
+    -- { 'francoiscabrol/ranger.vim' },
     -- }}}
   },
   { checker = { enabled = true, frequency = 86400 } }

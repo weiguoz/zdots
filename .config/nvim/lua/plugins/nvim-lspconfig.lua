@@ -22,8 +22,8 @@ return {
         vim.keymap.set("n", "gy", "<cmd>Telescope lsp_type_definitions<cr>", bufopts)
 
         -- diagnostic
-        vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next, bufopts)
-        vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev, bufopts)
+        vim.keymap.set('n', 'e', vim.diagnostic.goto_next, bufopts)
+        vim.keymap.set('n', 'E', vim.diagnostic.goto_prev, bufopts)
         vim.keymap.set('n', '<leader>di', vim.diagnostic.open_float, bufopts)
         vim.keymap.set('n', '<leader>dl', "<cmd>Telescope diagnostics<cr>", bufopts)
         -- dl implementation 1

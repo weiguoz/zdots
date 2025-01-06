@@ -19,6 +19,6 @@ return {
     vim.api.nvim_set_keymap('n', 'mm', ':BookmarksMark<CR>', { noremap = true, silent = true })
     vim.api.nvim_set_keymap('n', 'ml', ':BookmarksGoto<CR>', { noremap = true, silent = true })
     vim.api.nvim_set_keymap('n', 'mo', ':BookmarksCommands<CR>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', 'mr', ':BookmarksGotoRecent<CR>', { noremap = true, silent = true })
+    vim.api.nvim_set_keymap('n', 'mr', ':BookmarksGotoPrevInList<CR>', { noremap = true, silent = true })
   end,
 }

@@ -1,5 +1,5 @@
 -- 显示与界面设置
-vim.cmd("colorscheme edge")
+vim.cmd("colorscheme everforest")
 vim.o.background = (os.clock() * 1e7 % 100 < 50) and "dark" or "light"
 vim.opt.syntax = "enable"
 -- vim.opt.termguicolors = true  -- 256色支持，不需要
