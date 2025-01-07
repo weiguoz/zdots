@@ -7,7 +7,7 @@ function GitBcommitsOnCursor()
     file = file,
     previewer = true,
     shorten_path = true,
-    attach_mappings = function(prompt_bufnr, map)
+    attach_mappings = function(_, map) -- _ = prompt_bufnr
       -- disable enter key to step into commit
       local actions = require('telescope.actions')
       map('i', '<CR>', actions.close)
@@ -17,7 +17,7 @@ function GitBcommitsOnCursor()
   })
 end
 
-vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>lua GitBcommitsOnCursor()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>lua pcall(GitBcommitsOnCursor)<CR>', { noremap = true, silent = true })
 
 return {
   'nvim-telescope/telescope.nvim',
@@ -29,6 +29,7 @@ return {
         mappings = {
           -- close on single escape or double escape
           i = { ['<Esc>'] = require('telescope.actions').close },
+
           -- n = { ['<Esc>'] = require('telescope.actions').close },
         },
       },
@@ -36,7 +37,10 @@ return {
 
     local opt = { noremap = true, silent = true }
     vim.keymap.set('n', 't', '<cmd>Telescope<cr>', opt)
-    vim.keymap.set('n', 'c', '<cmd>Telescope commands<cr>', opt)
+    vim.keymap.set('n', '<leader>c', '<cmd>Telescope commands<cr>', opt)
+    vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>', opt)
+    vim.keymap.set('n', '<leader>s', '<cmd>Telescope live_grep<cr>', opt)
+    vim.keymap.set('n', '<leader>f', '<cmd>Telescope find_files<cr>', opt)
     vim.keymap.set("n", "<leader>l", function()
       vim.fn.feedkeys(":Telescope lsp_document_symbols symbols=function,method,variable", "nt")
     end, { desc = "Feed Telescope command" })
