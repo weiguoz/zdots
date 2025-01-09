@@ -37,7 +37,7 @@ return {
 
     local opt = { noremap = true, silent = true }
     vim.keymap.set('n', 't', '<cmd>Telescope<cr>', opt)
-    vim.keymap.set('n', '<leader>c', '<cmd>Telescope commands<cr>', opt)
+    vim.keymap.set('n', 'c', '<cmd>Telescope commands<cr>', opt)
     vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>', opt)
     vim.keymap.set('n', '<leader>s', '<cmd>Telescope live_grep<cr>', opt)
     vim.keymap.set('n', '<leader>f', '<cmd>Telescope find_files<cr>', opt)

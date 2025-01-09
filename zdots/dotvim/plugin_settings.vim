@@ -190,7 +190,7 @@ let g:copilot_no_tab_map = v:true
 " }}}
 
 " {{{ vim-commentary
-noremap <c-_> :Commentary<cr>
+noremap <c-_> :Commentary<cr>j
 vnoremap <c-_> :Commentary<cr>
 inoremap <c-_> <Esc>:Commentary<cr>0
 " }}}

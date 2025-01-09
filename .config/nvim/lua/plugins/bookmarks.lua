@@ -11,8 +11,7 @@ return {
       -- json_db_path = vim.fn.stdpath("config") .. "/bookmarks.db.json",
       signs = {
         mark = { icon = "📌", color = "red", line_bg = "#572626" } -- 󰃁
-      },
-      picker = { sort_by = "last_visited", sorting_strategy = "descending" }, -- NOTE: looks like it's not working
+      }
     })
 
     -- migrated from keymaps.lua vim.keymap.set({ "n", "v" }, "mm", "<cmd>BookmarksMark<cr>", { desc = "Mark current line into active BookmarkList." })
