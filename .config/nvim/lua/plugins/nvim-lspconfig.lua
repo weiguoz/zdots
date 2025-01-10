@@ -38,6 +38,7 @@ return {
         -- end, bufopts)
     end
 
+    -- lsp: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
     lspconfig.gopls.setup({
       on_attach = common_attach,
       filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
@@ -74,8 +75,16 @@ return {
     -- git clone https://github.com/joyme123/thrift-ls && go build -o $GOPATH/bin/thriftls
     lspconfig.thriftls.setup({ on_attach = common_attach })
 
+    -- go install github.com/sqls-server/sqls@latest
+    lspconfig.sqls.setup({ on_attach = common_attach })
+
+    -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#jsonnet_ls
+    lspconfig.jsonnet_ls.setup({ on_attach = common_attach })
+
     lspconfig.rust_analyzer.setup({ on_attach = common_attach })
+
     lspconfig.pyright.setup({ on_attach = common_attach })
+
     lspconfig.lua_ls.setup({
       on_attach = common_attach,
       settings = {
