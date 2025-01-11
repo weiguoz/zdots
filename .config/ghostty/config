@@ -1,0 +1,13 @@
+# cc from https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
+
+# keybind
+# keybind = ctrl+z=close_surface
+# keybind = ctrl+d=new_split:right
+
+# font
+font-family = "JetBrains Mono"
+font-size = 13
+
+# cursor
+cursor-color = D20F39
+adjust-cursor-thickness = 1

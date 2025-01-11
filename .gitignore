@@ -36,6 +36,8 @@
 !.config/starship.toml
 !.config/bat/
 !.config/bat/config
+!.config/ghostty/
+!.config/ghostty/config
 !.config/pip/
 !.config/pip/pip.conf
 !.config/ranger/
