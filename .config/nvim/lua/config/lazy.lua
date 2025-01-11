@@ -2,8 +2,8 @@
 return require("lazy").setup(
   {
     -- https://github.com/rockerBOO/awesome-neovim#tree-sitter-supported-colorscheme
-    -- colorschema " 'sainnhe/sonokai', 'sainnhe/edge'
-    { 'sainnhe/everforest' },
+    -- colorschema " 'sainnhe/sonokai', 'sainnhe/edge', 'sainnhe/everforest'
+    { 'sainnhe/edge' },
 
     { 'charlespascoe/vim-go-syntax' }, -- " for gopher: Fast, 'tree-sitter'-like Vim Syntax Highlighting for Go
 

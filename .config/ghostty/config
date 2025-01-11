@@ -1,4 +1,5 @@
-# cc from https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
+# 1. brew install --cask ghostty
+# 2. cc from https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
 
 # keybind
 # keybind = ctrl+z=close_surface
