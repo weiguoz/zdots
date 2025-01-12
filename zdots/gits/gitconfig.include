@@ -1,4 +1,4 @@
-# set include in .gitconfig
+# included in .gitconfig
 # [include]
 #    path = /path/to/me
 [alias]
