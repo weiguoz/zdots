@@ -6,18 +6,19 @@ return {
     { "nvim-telescope/telescope.nvim" },
     { "stevearc/dressing.nvim" },        -- optional
   },
-  config = function()
+  config = function() -- bookmarks/config.lua::default_config
     require("bookmarks").setup({
-      -- json_db_path = vim.fn.stdpath("config") .. "/bookmarks.db.json",
       signs = {
-        mark = { icon = "📌", color = "red", line_bg = "#572626" } -- 󰃁
-      }
+        mark = { icon = "📌" } -- 󰃁
+      },
+      backup = { enable = false }
     })
 
     -- migrated from keymaps.lua vim.keymap.set({ "n", "v" }, "mm", "<cmd>BookmarksMark<cr>", { desc = "Mark current line into active BookmarkList." })
-    vim.api.nvim_set_keymap('n', 'mm', ':BookmarksMark<CR>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', 'ml', ':BookmarksGoto<CR>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', 'mo', ':BookmarksCommands<CR>', { noremap = true, silent = true })
-    vim.api.nvim_set_keymap('n', 'mr', ':BookmarksGotoPrevInList<CR>', { noremap = true, silent = true })
+    local opts = { noremap = true, silent = true }
+    vim.api.nvim_set_keymap('n', 'mm', ':BookmarksMark<CR>', opts)
+    vim.api.nvim_set_keymap('n', 'ml', ':BookmarksGoto<CR>', opts)
+    vim.api.nvim_set_keymap('n', 'mo', ':BookmarksCommands<CR>', opts)
+    vim.api.nvim_set_keymap('n', 'mr', ':BookmarksGotoPrevInList<CR>', opts)
   end,
 }
