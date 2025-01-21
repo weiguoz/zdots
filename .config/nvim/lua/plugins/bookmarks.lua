@@ -1,6 +1,6 @@
 return {
   "LintaoAmons/bookmarks.nvim", -- replace 'MattesGroeger/vim-bookmarks'
-  tag = "v2.4.0",
+  tag = "v2.6.1",
   dependencies = {
     { "kkharji/sqlite.lua" },
     { "nvim-telescope/telescope.nvim" },
