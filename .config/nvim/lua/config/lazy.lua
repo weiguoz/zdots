@@ -49,6 +49,8 @@ return require("lazy").setup(
     { 'mattn/vim-goimports' },
     -- intelligently reopens files at your last edit position
     { 'farmergreg/vim-lastplace' },
+    { import = "plugins.file-browser" },
+    { 'LintaoAmons/cd-project.nvim' }, -- db = ~/.config/nvim/cd-project.nvim.json
     -- { 'pechorin/any-jump.vim' },
     -- { 'francoiscabrol/ranger.vim' },
     -- }}}

@@ -40,7 +40,7 @@ return {
     vim.keymap.set('n', 'c', '<cmd>Telescope commands<cr>', opt)
     vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>', opt)
     vim.keymap.set('n', '<leader>s', '<cmd>Telescope live_grep<cr>', opt)
-    vim.keymap.set('n', '<leader>f', '<cmd>Telescope find_files<cr>', opt)
+    -- vim.keymap.set('n', '<leader>f', '<cmd>Telescope find_files<cr>', opt) -- instead by 'nvim-telescope/telescope-file-browser.nvim'
     vim.keymap.set("n", "<leader>l", function()
       vim.fn.feedkeys(":Telescope lsp_document_symbols symbols=function,method,variable", "nt")
     end, { desc = "Feed Telescope command" })

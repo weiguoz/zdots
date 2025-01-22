@@ -9,6 +9,6 @@ return {
       },
     }
 
-    vim.keymap.set('n', '<leader>e', ':NvimTreeFindFile<cr>', { noremap = true, silent = true })
+    vim.keymap.set('n', '<leader>t', ':NvimTreeFindFile<cr>', { noremap = true, silent = true })
   end,
 }
