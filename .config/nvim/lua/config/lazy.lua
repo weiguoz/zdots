@@ -36,13 +36,14 @@ return require("lazy").setup(
     { 'tpope/vim-commentary' },
     { 'vim-scripts/FencView.vim' },
     { 'christoomey/vim-tmux-navigator' },
-    { 'github/copilot.vim' },
-    { 'weiguoz/vim-mark', dependencies = { 'inkarkat/vim-ingo-library' } },
+    { import = "plugins.copilot" },
+    { import = "plugins.vim-mark" },
     { 'simnalamburt/vim-mundo' },
 
     -- {{{ observing
     -- Plug 'easymotion/vim-easymotion' search paste is broken so I disable it
-    { 'justinmk/vim-sneak' },
+    { import = "plugins.vim-sneak" },
+    -- { 'justinmk/vim-sneak' },
     { 'mhinz/vim-startify' },
     { 'solarnz/thrift.vim' },
     { 'mattn/vim-goimports' },

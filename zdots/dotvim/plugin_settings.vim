@@ -41,8 +41,6 @@ au FileType go nnoremap <silent> run :AsyncRun go run %<cr>
 """ nmap , <Plug>(easymotion-bd-jk)
 """ " nmap ; <Plug>(easymotion-lineanywhere)
 """ " <Plug>(easymotion-jumptoanywhere)
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
 " }}}
 
 " {{{ vim-rooter
@@ -162,32 +160,11 @@ noremap <silent>s :call RGOptFun(expand('<cword>'), 0)<CR>
 command! -nargs=* -bang Rg call RGOptFun(<q-args>, <bang>0)
 " }}}
 
-" {{{ vim-mark
-nnoremap <leader>M :MarkClear<CR> " 与外部执行命令的区别是打开的目录不同，这个是当前文件所在目录
-" }}}
-
-" {{{ francoiscabrol/ranger.vim
-" let g:ranger_map_keys = 0
-" let g:ranger_open_new_tab = 1
-" nmap <leader>l :RangerCurrentFileExistingOrNewTab<CR>
-" }}}
-
 " {{{ vim-tmux-navigator
 let g:tmux_navigator_save_on_switch = 2
 let g:tmux_navigator_disable_when_zoomed = 1
 " }}}
 " nnoremap <leader>" :silent !tmux split-window -c %:p:h<CR> " 与外部执行命令的区别是打开的目录不同，这个是当前文件所在目录
-
-" {{{ copilot.vim
-" https://github.com/github/copilot.vim/blob/1a55183ef9347d6f420406a3746474b6b9fb9ef5/doc/copilot.txt#L104
-imap <silent><script><expr> <c-f> copilot#Accept("\<CR>")
-let g:copilot_no_tab_map = v:true
-
-"
-" tpope [workaround] https://github.com/community/community/discussions/16800#discussioncomment-2848953
-" let g:copilot_node_command = "/opt/homebrew/opt/node@16/bin/node"
-" it seems that the above is not needed anymore since 2023-01-06
-" }}}
 
 " {{{ vim-commentary
 noremap <c-_> :Commentary<cr>
