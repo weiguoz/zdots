@@ -20,7 +20,7 @@ return require("lazy").setup(
     -- telescope
     { import = "plugins.telescope" },
 
-    { import = "plugins.nvim-tree" },
+    { import = "plugins.tree" },
     { import = "plugins.nvim-lspconfig" },
     { import = "plugins.nvim-cmp" },
     { import = "plugins.luasnip" },
@@ -49,8 +49,9 @@ return require("lazy").setup(
     { 'mattn/vim-goimports' },
     -- intelligently reopens files at your last edit position
     { 'farmergreg/vim-lastplace' },
-    { import = "plugins.file-browser" },
+    { import = 'plugins.file-browser' },
     { 'LintaoAmons/cd-project.nvim' }, -- db = ~/.config/nvim/cd-project.nvim.json
+    { import = 'plugins.autopairs' },
     -- { 'pechorin/any-jump.vim' },
     -- { 'francoiscabrol/ranger.vim' },
     -- }}}

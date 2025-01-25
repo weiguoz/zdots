@@ -39,7 +39,7 @@ return {
           jump_next = "]]",
           accept = "<CR>",
           refresh = "gr",
-          open = "<C-CR>"
+          open = "<M-CR>"
         },
       },
     })
