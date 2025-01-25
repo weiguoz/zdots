@@ -1,5 +1,5 @@
 vim.cmd("colorscheme edge")
-vim.o.background = (os.clock() * 1e7 % 100 < 50) and "dark" or "light"
+vim.o.background = (os.clock() * 1e7 % 100 < 90) and "dark" or "light"
 vim.opt.syntax = "enable"
 vim.opt.termguicolors = true
 vim.opt.ruler = true

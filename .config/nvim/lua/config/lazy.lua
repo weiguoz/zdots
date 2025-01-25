@@ -52,6 +52,7 @@ return require("lazy").setup(
     { import = 'plugins.file-browser' },
     { 'LintaoAmons/cd-project.nvim' }, -- db = ~/.config/nvim/cd-project.nvim.json
     { import = 'plugins.autopairs' },
+    { import = 'plugins.treesitter' },
     -- { 'pechorin/any-jump.vim' },
     -- { 'francoiscabrol/ranger.vim' },
     -- }}}
