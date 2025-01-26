@@ -5,24 +5,19 @@ return require("lazy").setup(
     -- colorschema " 'sainnhe/sonokai', 'sainnhe/edge', 'sainnhe/everforest'
     { 'sainnhe/edge' },
 
-    { 'charlespascoe/vim-go-syntax' }, -- " for gopher: Fast, 'tree-sitter'-like Vim Syntax Highlighting for Go
-
-    -- 曾经：它依赖的 ctags 不能支持 go: [vista.vim] ctags: Warning: Unsupported kind: 'w' for --go-kinds option
-    -- { 'liuchengxu/vista.vim' },
-
+    { import = "plugins.telescope" },
+    { import = 'plugins.treesitter' },
+    { import = 'plugins.noice' },
     { 'vim-airline/vim-airline' },
     { 'airblade/vim-rooter' },
 
-    -- fzf
-    { "junegunn/fzf", build = "./install --all" },
+    -- { "junegunn/fzf", build = "./install --all" },
     { "junegunn/fzf.vim", dependencies = { "junegunn/fzf" } },
 
-    -- telescope
-    { import = "plugins.telescope" },
-
-    { import = "plugins.tree" },
-    { import = "plugins.nvim-lspconfig" },
     { import = "plugins.nvim-cmp" },
+    { import = "plugins.nvim-lspconfig" },
+    { import = "plugins.copilot" }, -- ai
+    { import = "plugins.tree" },
     { import = "plugins.luasnip" },
 
     --" such as: AsyncRun tmux send-keys -t2 \"go test\" enter
@@ -36,7 +31,6 @@ return require("lazy").setup(
     { 'tpope/vim-commentary' },
     { 'vim-scripts/FencView.vim' },
     { 'christoomey/vim-tmux-navigator' },
-    { import = "plugins.copilot" },
     { import = "plugins.vim-mark" },
     { 'simnalamburt/vim-mundo' },
 
@@ -52,7 +46,6 @@ return require("lazy").setup(
     { import = 'plugins.file-browser' },
     { 'LintaoAmons/cd-project.nvim' }, -- db = ~/.config/nvim/cd-project.nvim.json
     { import = 'plugins.autopairs' },
-    { import = 'plugins.treesitter' },
     -- { 'pechorin/any-jump.vim' },
     -- { 'francoiscabrol/ranger.vim' },
     -- }}}
