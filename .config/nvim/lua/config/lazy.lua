@@ -8,7 +8,7 @@ return require("lazy").setup(
     { import = "plugins.telescope" },
     { import = 'plugins.treesitter' },
     { import = 'plugins.noice' },
-    { 'vim-airline/vim-airline' },
+    { import = 'plugins.statusbar' },
     { 'airblade/vim-rooter' },
 
     -- { "junegunn/fzf", build = "./install --all" },

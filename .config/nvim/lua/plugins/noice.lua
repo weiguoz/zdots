@@ -26,12 +26,12 @@ return {
         long_message_to_split = true,
       },
       views = {
-          cmdline_popup = {
-            position = { row = "50%", col = "50%" },
-            size = { width = 60 }, -- "auto"
-            border = { style = "rounded", padding = { 1, 2 } },
-            win_options = { winblend = 13, winhighlight = "Normal:Normal,FloatBorder:FloatBorder" },
-          },
+        cmdline_popup = {
+          position = { row = "50%", col = "50%" },
+          size = { width = 60 }, -- "auto"
+          border = { style = "rounded", padding = { 1, 2 } },
+          win_options = { winblend = 13, winhighlight = "Normal:Normal,FloatBorder:FloatBorder" },
         },
+      },
     })
 }
