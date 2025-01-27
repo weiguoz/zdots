@@ -28,9 +28,9 @@ return {
       views = {
         cmdline_popup = {
           position = { row = "50%", col = "50%" },
-          size = { width = 60 }, -- "auto"
+          size = { width = "60%", height = "auto" },
           border = { style = "rounded", padding = { 1, 2 } },
-          win_options = { winblend = 13, winhighlight = "Normal:Normal,FloatBorder:FloatBorder" },
+          win_options = { winblend = 11, winhighlight = "Normal:Normal,FloatBorder:FloatBorder" },
         },
       },
     })

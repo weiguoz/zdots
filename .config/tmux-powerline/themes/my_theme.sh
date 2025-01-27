@@ -122,12 +122,11 @@ if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
         # "pwd $mauve $surface0" \
 		# "hostname $eggplant $thm_bg" \
 		# "ifstat 30 255" \
-		# "ifstat_sys 30 255" \
 		# lan_ip $sky_blue $thm_bg ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
-		# "battery $blue $thm_bg" \
 		# "tmux_session_info $blue $thm_bg" \
 		# "wan_ip $sky_blue $thm_bg" \
 		# "vcs_branch 17 135" \
+		# "ifstat_sys 30 255" \
         "pwd 16 135" \
 		"vcs_compare 60 255" \
 		"vcs_staged 64 255" \
@@ -147,8 +146,9 @@ if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
 		# "time $teal $thm_bg ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
 		# "utc_time 235 136"
 		# "tmux_mem_cpu_load 234 136" \
-		# "xkb_layout 125 117" \
 		# "rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}" \
+		# "xkb_layout 125 117" \
+		"battery $blue $thm_bg" \
 		"earthquake 3 0" \
 		"my_time $pink $base" \
 		"weather 37 255"

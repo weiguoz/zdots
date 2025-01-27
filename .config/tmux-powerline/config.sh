@@ -221,7 +221,7 @@
 	export TMUX_POWERLINE_SEG_WEATHER_GREP="grep"
 	# Location of the JSON parser, jq
 	export TMUX_POWERLINE_SEG_WEATHER_JSON="jq"
-	# Your location
+	# Your location w7u
 	# Latitude and Longtitude for use with yr.no
     export TMUX_POWERLINE_SEG_WEATHER_LAT="30.2741"
     export TMUX_POWERLINE_SEG_WEATHER_LON="120.1551"
