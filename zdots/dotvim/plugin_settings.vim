@@ -152,7 +152,7 @@ function! RGOptFun(arg, fullscreen)
     let spec = {'options': ['--phony', '--query', query, '--bind', 'change:reload:'.reload_command, '--preview-window=right:70%']}
     call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
-noremap <silent>s :call RGOptFun(expand('<cword>'), 0)<CR>
+noremap <silent><leader>s :call RGOptFun(expand('<cword>'), 0)<CR>
 " Customized Rg, support options like:
 " :Rg -C2 -tgo os.remove<enter>
 " :Rg -C2 -tgo <enter>, then> os.remove

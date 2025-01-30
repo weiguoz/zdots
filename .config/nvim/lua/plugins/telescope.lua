@@ -39,8 +39,12 @@ return {
     vim.keymap.set('n', 't', '<cmd>Telescope<cr>', opt)
     vim.keymap.set('n', 'c', '<cmd>Telescope commands<cr>', opt)
     vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>', opt)
-    vim.keymap.set('n', '<leader>s', '<cmd>Telescope live_grep<cr>', opt)
     -- vim.keymap.set('n', '<leader>f', '<cmd>Telescope find_files<cr>', opt) -- instead by 'nvim-telescope/telescope-file-browser.nvim'
+    vim.keymap.set("n", "s", function()
+      local word = vim.fn.expand("<cword>")
+      vim.cmd("Telescope live_grep default_text=" .. word)
+    end, opt)
+
     vim.keymap.set("n", "<leader>t", function()
       vim.fn.feedkeys(":Telescope lsp_document_symbols symbols=function,method,variable", "nt")
     end, { desc = "Feed Telescope command" })
