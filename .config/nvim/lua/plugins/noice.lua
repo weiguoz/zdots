@@ -6,6 +6,7 @@ return {
       "rcarriga/nvim-notify",
       "nvim-treesitter/nvim-treesitter",
     },
+
     require("noice").setup({
       cmdline = {
         view = "cmdline_popup",

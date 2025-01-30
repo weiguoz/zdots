@@ -1,6 +1,6 @@
 require("config.func")
 -- switch the background color
-vim.keymap.set("n", "<C-g>", ":lua ToggleBackground()<CR>", { silent = true, desc = "toggle background" })
+-- vim.keymap.set("n", "<C-g>", ":lua ToggleBackground()<CR>", { silent = true, desc = "toggle background" })
 
 -- move quickly
 vim.keymap.set("n", "<C-u>", ":lua MoveRatioOfWindow('up', 33)<CR>", { silent = true })
