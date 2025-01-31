@@ -50,3 +50,48 @@ return {
     end, { desc = "Feed Telescope command" })
   end,
 }
+
+-- fzf's replacement is telescope
+-- " {{{ fzf buffers <- so I remove the buftabline from my plugins
+-- " fzf quicks
+-- let g:fzf_buffers_jump = 1
+-- let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
+-- 
+-- function! s:list_buffers()
+--     redir => list
+--     silent ls
+--     redir END
+--     return split(list, "\n")
+-- endfunction
+-- 
+-- function! s:delete_buffers(lines)
+--     execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+-- endfunction
+-- 
+-- command! BD call fzf#run(fzf#wrap({
+--             \ 'source': s:list_buffers(),
+--             \ 'sink*': { lines -> s:delete_buffers(lines) },
+--             \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept' }))
+-- 
+-- let g:fzf_action = {
+--   \ 'ctrl-t': 'tab split',
+--   \ 'ctrl-v': 'vsplit' }
+-- 
+-- function! RGOptFun(arg, fullscreen)
+--     let tokens  = split(a:arg)
+--     let opts = join(filter(copy(tokens), 'v:val =~ "^-"'))
+--     let query = join(filter(copy(tokens), 'v:val !~ "^-"'))
+-- 
+--     let command_fmt = 'rg --column --no-heading --color=always --smart-case '.opts.' -- %s || true'
+--     let initial_command = printf(command_fmt, shellescape(query))
+--     let reload_command = printf(command_fmt, '{q}')
+--     let spec = {'options': ['--phony', '--query', query, '--bind', 'change:reload:'.reload_command, '--preview-window=right:70%']}
+--     call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+-- endfunction
+-- noremap <silent><leader>s :call RGOptFun(expand('<cword>'), 0)<CR>
+-- " Customized Rg, support options like:
+-- " :Rg -C2 -tgo os.remove<enter>
+-- " :Rg -C2 -tgo <enter>, then> os.remove
+-- " :Rg os.remove<enter>
+-- command! -nargs=* -bang Rg call RGOptFun(<q-args>, <bang>0)
+-- " }}}
