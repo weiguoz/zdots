@@ -22,10 +22,10 @@ return require('lazy').setup(
     { import = 'plugins.gitsigns' }, -- integrates f-person/git-blame.nvim and mhinz/vim-signify
 
     { import = 'plugins.bookmarks' },
-    { import = 'plugins.commentary' },
+    { 'tpope/vim-commentary' },
     { 'vim-scripts/FencView.vim' },
     { 'christoomey/vim-tmux-navigator' },
-    { import = 'plugins.vim-mark' },
+    { import = 'plugins.mark' },
     { 'simnalamburt/vim-mundo' },
 
     -- {{{ observing

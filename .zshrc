@@ -66,6 +66,7 @@ zstyle ':completion:*:ssh:*' hosts $(awk '/^Host / {print $2}' ~/.ssh/config)
 zstyle ':completion:*:*:ssh:*' tag-order 'hosts'
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
+zstyle ':fzf-tab:*' fzf-bindings 'ctrl-f:page-down' 'ctrl-b:page-up' 'ctrl-j:ignore' 'ctrl-k:ignore' # FZF_DEFAULT_OPTS not works for fzf-tab
 
 # 补全
 zinit ice mv="*.zsh -> _fzf" as="completion"

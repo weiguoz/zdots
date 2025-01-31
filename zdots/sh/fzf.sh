@@ -11,7 +11,7 @@ export FZF_DEFAULT_OPTS="
   --color fg:255,bg:236,hl:84,fg+:255,bg+:236,hl+:215
   --color info:141,prompt:84,spinner:212,pointer:212,marker:212
   -m --height 80% --layout reverse --inline-info
-  --bind 'ctrl-f:half-page-down,ctrl-b:half-page-up,ctrl-j:ignore,ctrl-k:ignore'" # --border
+  --bind 'ctrl-f:page-down,ctrl-b:page-up,ctrl-j:ignore,ctrl-k:ignore'" # --border maybe config in .zshrd works
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--preview "(bat {} --color=always || highlight -O ansi -l {} 2> /dev/null || tree -C {}) 2> /dev/null"'
 

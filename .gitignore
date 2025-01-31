@@ -27,11 +27,6 @@
 !zdots/rime/*.yaml
 !zdots/rime/*.md
 
-!zdots/dotvim/
-!zdots/dotvim/*
-!zdots/dotvim/vim/
-!zdots/dotvim/vim/*
-
 !.config/
 !.config/starship.toml
 !.config/bat/
