@@ -25,27 +25,18 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit"
 skip_global_compinit="1"
 source "${ZINIT_HOME}/zinit.git/zinit.zsh"
 
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-# Turbo-enabled CompDefs
-autoload -Uz compinit && compinit
-
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
 zinit light-mode for \
     Aloxaf/fzf-tab \
-    zdharma-continuum/zinit-annex-as-monitor \
-    zdharma-continuum/zinit-annex-bin-gem-node \
+    b4b4r07/enhancd \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust \
-    b4b4r07/enhancd \
     atinit"zicompinit; zicdreplay" \
         zdharma-continuum/fast-syntax-highlighting \
-    atload"_zsh_autosuggest_start" \
-        zsh-users/zsh-autosuggestions \
-    blockf atpull'zinit creinstall -q .' \
-        zsh-users/zsh-completions
+    zsh-users/zsh-autosuggestions \
+    atpull'zinit creinstall -q .' zsh-users/zsh-completions 
 
+autoload -Uz compinit
+compinit -d
 
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
@@ -69,11 +60,10 @@ zstyle ':fzf-tab:*' switch-group '<' '>'
 zstyle ':fzf-tab:*' fzf-bindings 'ctrl-f:page-down' 'ctrl-b:page-up' 'ctrl-j:ignore' 'ctrl-k:ignore' # FZF_DEFAULT_OPTS not works for fzf-tab
 
 # 补全
-zinit ice mv="*.zsh -> _fzf" as="completion"
+# zinit ice mv="*.zsh -> _fzf" as="completion"
 # need junegunn/fzf so as to snippet key-bindings.zsh
-zinit snippet "$ZINIT_HOME/plugins/junegunn---fzf/shell/completion.zsh"
-zinit snippet "$ZINIT_HOME/plugins/junegunn---fzf/shell/key-bindings.zsh"
-zinit ice lucid wait='0'
+# zinit snippet "$ZINIT_HOME/plugins/junegunn---fzf/shell/completion.zsh"
+# zinit snippet "$ZINIT_HOME/plugins/junegunn---fzf/shell/key-bindings.zsh"
 
 # https://github.com/bigH/git-fuzzy
 zinit ice as"program" pick"bin/git-fuzzy"

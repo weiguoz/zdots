@@ -6,26 +6,26 @@ return {
 
     -- common attach function
     local common_attach = function(_, bufnr)
-        local bufopts = { noremap=true, silent=true, buffer=bufnr }
+        local opts = { noremap=true, silent=true, buffer=bufnr }
 
         -- lsp
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-        vim.keymap.set('n', 'rn', vim.lsp.buf.rename, bufopts)
-        vim.keymap.set('n', 'gc', vim.lsp.buf.code_action, bufopts)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', 'rn', vim.lsp.buf.rename, opts)
+        vim.keymap.set('n', 'gc', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
         -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { noremap = true, silent = true })
         -- vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, { noremap = true, silent = true })
         -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
         -- https://github.com/lopi-py/nvim-config/blob/a9c2c73dbea6472adb068eb2cd9a8810322d973a/lua/lsp.lua#L23
-        vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", bufopts)
-        vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", bufopts)
-        vim.keymap.set("n", "gy", "<cmd>Telescope lsp_type_definitions<cr>", bufopts)
+        vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
+        vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
+        vim.keymap.set("n", "gy", "<cmd>Telescope lsp_type_definitions<cr>", opts)
 
         -- diagnostic
-        vim.keymap.set('n', 'e', vim.diagnostic.goto_next, bufopts)
-        vim.keymap.set('n', 'E', vim.diagnostic.goto_prev, bufopts)
-        vim.keymap.set('n', '<leader>di', vim.diagnostic.open_float, bufopts)
-        vim.keymap.set('n', '<leader>dl', "<cmd>Telescope diagnostics<cr>", bufopts)
+        vim.keymap.set('n', 'e', vim.diagnostic.goto_next, opts)
+        vim.keymap.set('n', 'E', vim.diagnostic.goto_prev, opts)
+        vim.keymap.set('n', '<leader>di', vim.diagnostic.open_float, opts)
+        vim.keymap.set('n', '<leader>dl', "<cmd>Telescope diagnostics<cr>", opts)
         -- dl implementation 1
         -- vim.keymap.set('n', '<leader>dl', function()
         --   require('telescope.builtin').diagnostics({ severity_sort = true }) -- sort by severity
@@ -45,10 +45,7 @@ return {
       root_dir = lspconfig.util.root_pattern("go.mod", ".git", "go.work"),
       settings = {
         gopls = {
-          analyses = {
-            unreachable_code = true,
-            unused_params = true,
-          },
+          analyses = { unreachable_code = true, unused_params = true, },
           staticcheck = true,
         },
       },
@@ -74,9 +71,7 @@ return {
       filetypes = { "sh", "bash" },
       root_dir = require('lspconfig').util.root_pattern(".git", ".bashrc", ".bash_profile"),
       settings = {
-        bash = {
-            diagnostics = { enable = true },
-        },
+        bash = { diagnostics = { enable = true }, },
       },
     })
 
@@ -97,9 +92,7 @@ return {
     lspconfig.lua_ls.setup({
       on_attach = common_attach,
       settings = {
-        Lua = {
-          diagnostics = { globals = { 'vim' } },
-        },
+        Lua = { diagnostics = { globals = { 'vim' } }, },
       },
     })
   end
