@@ -10,6 +10,12 @@ return {
       -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function ()
-        vim.cmd([[nnoremap \ :Neotree toggle reveal<cr>]])
-    end
+      vim.cmd([[nnoremap \ :Neotree toggle reveal<cr>]])
+    end,
+
+    window = {
+      mappings = {
+        ["P"] = { "toggle_preview" },
+      }
+    },
 }

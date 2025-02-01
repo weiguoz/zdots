@@ -1,10 +1,13 @@
 #!/bin/bash
 
 import() {
-    if [ $# -le 1 -a -f $1 ]; then
-        . $1
+    local file="$1"
+    if [ -n "$file" ] && [ -f "$file" ]; then
+        # shellcheck source="$file"
+        . "$file"
     fi
 }
+
 
 import "${HOME}/Documents/secrets/sh/_.sh"
 
