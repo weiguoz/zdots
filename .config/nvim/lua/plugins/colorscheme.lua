@@ -31,7 +31,7 @@ end
 local colorscheme_store = vim.fn.stdpath('data') .. '/colorscheme_current.txt'
 
 local function switch_to_next_theme()
-  local colorschemes = { 'edge', 'Dayfox', 'sonokai', 'Duskfox', 'onedark', 'everforest', 'nightfox', 'Dawnfox', 'Nordfox' } -- list of colorschemes
+  local colorschemes = { 'edge', 'Dayfox', 'sonokai', 'Duskfox', 'onedark', 'everforest', 'nightfox', 'Dawnfox', 'Nordfox', 'caret', 'embark' } -- list of colorschemes
 
   local selected = select_next_theme(colorschemes, colorscheme_store)
   vim.cmd('colorscheme ' .. selected)
@@ -46,6 +46,8 @@ return {
      'sainnhe/everforest',
      'olimorris/onedarkpro.nvim',
      'EdenEast/nightfox.nvim',
+     'projekt0n/caret.nvim',
+     'embark-theme/vim',
    },
 
   priority = 1000,
