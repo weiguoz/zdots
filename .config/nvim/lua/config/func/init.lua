@@ -1,8 +1,14 @@
+-- switch the background color
+-- vim.keymap.set("n", "<C-g>", ":lua ToggleBackground()<CR>", { silent = true, desc = "toggle background" })
 function ToggleBackground()
     vim.o.background = vim.o.background == "dark" and "light" or "dark"
     vim.cmd("syntax on")
 end
 
+-- move quickly
+-- nnoremap <c-m> :call cursor(0, len(getline('.'))/2)<CR>
+-- vim.keymap.set("n", "<C-k>", ":lua MoveRatioOfWindow('up', 33)<CR>", { silent = true })
+-- vim.keymap.set("n", "<C-j>", ":lua MoveRatioOfWindow('down', 33)<CR>", { silent = true })
 function MoveRatioOfWindow(move, ratio)
     if ratio < 0 or ratio > 100 then
         print("Invalid ratio, must be between 0 and 100")
