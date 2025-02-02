@@ -9,7 +9,8 @@ return require('lazy').setup(
     { import = 'plugins.statusbar' },
 
     { import = 'plugins.cmp' },
-    { import = 'plugins.lspconfig' },
+    { import = 'plugins.lsp' },
+    { import = 'plugins.dap' },
     { import = 'plugins.copilot' }, -- ai
     { import = 'plugins.tree' },
     { import = 'plugins.luasnip' },
@@ -31,7 +32,7 @@ return require('lazy').setup(
     -- Plug 'easymotion/vim-easymotion' search paste is broken so I disable it
     { import = 'plugins.sneak' },
     { import = 'plugins.whichkey' },
-    -- { import = 'plugins.mark' },
+    { import = 'plugins.mark' },
     { 'mhinz/vim-startify' },
     { 'solarnz/thrift.vim' },
     { 'mattn/vim-goimports' },

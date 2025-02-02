@@ -34,5 +34,14 @@ return {
           win_options = { winblend = 17, winhighlight = "Normal:Normal,FloatBorder:FloatBorder" },
         },
       },
-    })
+    }),
+
+    config = function()
+      vim.keymap.set({ "n", "s" }, "<Esc>", function()
+        local noice = require("noice")
+        if noice.api.status.message.has() then
+          noice.cmd("dismiss")
+        end
+      end, { silent = true, noremap = true, desc = "Dismiss Noice message" })
+    end,
 }
