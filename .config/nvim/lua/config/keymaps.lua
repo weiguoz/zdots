@@ -16,10 +16,14 @@ vim.keymap.set("n", "<C-s>", ":w<CR>", { silent = true })
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", { silent = true })
 
 -- move in the insert mode
-vim.keymap.set("i", "<C-w>", "<S-Right>")
-vim.keymap.set("i", "<C-b>", "<S-Left>")
-vim.keymap.set("i", "<C-o>", "<Esc>o")
-vim.keymap.set("i", "<C-d>", "<Esc>dd")
+vim.keymap.set("i", "<M-j>", "<Down>")
+vim.keymap.set("i", "<M-k>", "<Up>")
+vim.keymap.set("i", "<M-h>", "<Left>")
+vim.keymap.set("i", "<M-l>", "<Right>")
+vim.keymap.set("i", "<M-w>", "<S-Right>")
+vim.keymap.set("i", "<M-b>", "<S-Left>")
+vim.keymap.set("i", "<M-d>", "<Esc>dd")
+vim.keymap.set("i", "<M-o>", "<Esc>o")
 
 -- split current window
 vim.keymap.set("n", "gv", ":vsplit<CR>", { silent = true })

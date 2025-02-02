@@ -24,7 +24,7 @@ return require('lazy').setup(
     { import = 'plugins.bookmarks' },
     { 'tpope/vim-commentary' },
     { 'vim-scripts/FencView.vim' },
-    { 'christoomey/vim-tmux-navigator' },
+    -- { 'christoomey/vim-tmux-navigator' },
     { import = 'plugins.mark' },
     { 'simnalamburt/vim-mundo' },
 

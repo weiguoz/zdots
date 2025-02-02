@@ -29,7 +29,6 @@ return {
         mappings = {
           -- close on single escape or double escape
           i = { ['<Esc>'] = require('telescope.actions').close },
-
           -- n = { ['<Esc>'] = require('telescope.actions').close },
         },
       },
