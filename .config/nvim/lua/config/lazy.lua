@@ -22,6 +22,7 @@ return require('lazy').setup(
     { 'tpope/vim-fugitive' },
     { import = 'plugins.gitsigns' }, -- integrates f-person/git-blame.nvim and mhinz/vim-signify
 
+    { import = 'plugins.highlighter' },
     { import = 'plugins.bookmarks' },
     { 'tpope/vim-commentary' },
     { 'vim-scripts/FencView.vim' },
@@ -32,7 +33,6 @@ return require('lazy').setup(
     -- Plug 'easymotion/vim-easymotion' search paste is broken so I disable it
     { import = 'plugins.sneak' },
     { import = 'plugins.whichkey' },
-    { import = 'plugins.mark' },
     { 'mhinz/vim-startify' },
     { 'solarnz/thrift.vim' },
     { 'mattn/vim-goimports' },
