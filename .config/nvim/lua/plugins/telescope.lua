@@ -49,6 +49,10 @@ return {
     end, { desc = "Feed Telescope command" })
   end,
 }
+-- NOTE，在prompt窗口中，
+-- c-w 删除前一个单词
+-- c-h 删除前一个字符
+-- c-d/u preview 窗口翻半页 
 
 -- fzf's replacement is telescope
 -- " {{{ fzf buffers <- so I remove the buftabline from my plugins

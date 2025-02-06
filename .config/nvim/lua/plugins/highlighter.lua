@@ -2,7 +2,7 @@
 return {
     'azabiong/vim-highlighter',
     dependencies = { -- fake dependencies
-        'RRethy/vim-illuminate',
+        'RRethy/vim-illuminate', -- automatically highlighting the word under the cursor
     },
     config = function()
         vim.g.HiKeywords = vim.fn.stdpath('data') .. '/highlighter_keywords' -- dir
@@ -20,5 +20,7 @@ return {
         local opts = { noremap = true, silent = true }
         vim.keymap.del('n', 't<CR>')
         vim.keymap.set('n', '<leader>m', '<Cmd>Hi/+%<CR>', opts)
+
+        require'illuminate'.configure({ delay = 500 })
     end,
 }
