@@ -6,9 +6,6 @@ vim.opt.showcmd = true
 vim.opt.showmatch = true
 vim.opt.showmode = true
 
--- {} () [] MatchParen
-vim.cmd([[highlight MatchParen guibg=red]]) -- #8fe47b
-
 -- autochdir = true takes very bad side-effect. "The file has been changed since reading it!!!" always pops up.
 --- vim.opt.autochdir = true
 
@@ -38,6 +35,19 @@ vim.opt.wildignore = { "*.o", "*.obj", "*~" }
 --vim.opt.lazyredraw = false -- 执行宏时不重绘屏幕
 --vim.opt.wildmenu = true -- 启用命令补全菜单
 --vim.opt.wildmode = { "longest", "full" } -- 补全模式设置
+
+-- {} () [] MatchParen
+vim.cmd([[highlight MatchParen guibg=grey]])
+vim.api.nvim_create_autocmd("ModeChanged", {
+    pattern = "*",
+    callback = function()
+        if vim.fn.mode() == "n" then
+            vim.cmd([[highlight MatchParen guibg=grey]])
+        else
+            vim.cmd([[highlight MatchParen guibg=NONE]])
+        end
+    end,
+})
 
 -- 针对特定文件禁用备份
 vim.api.nvim_create_autocmd("BufWrite", {

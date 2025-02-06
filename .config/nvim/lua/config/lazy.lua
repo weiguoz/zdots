@@ -6,6 +6,7 @@ return require('lazy').setup(
     { import = 'plugins.treesitter' },
     { import = 'plugins.noice' },
     { import = 'plugins.statusbar' },
+    { import = 'plugins.cursor' },
     { import = 'plugins.whichkey' },
     { import = 'plugins.telescope' },
 
