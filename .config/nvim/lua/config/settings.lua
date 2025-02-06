@@ -6,6 +6,9 @@ vim.opt.showcmd = true
 vim.opt.showmatch = true
 vim.opt.showmode = true
 
+-- {} () [] MatchParen
+vim.cmd([[highlight MatchParen guibg=red]]) -- #8fe47b
+
 -- autochdir = true takes very bad side-effect. "The file has been changed since reading it!!!" always pops up.
 --- vim.opt.autochdir = true
 
@@ -47,7 +50,7 @@ vim.api.nvim_create_autocmd("BufWrite", {
 
 -- 针对特定文件类型设置代码列限制
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "c", "cpp", "go", "python" },
+  pattern = { "c", "cpp", "go", "python", "lua", "rust", "sh" },
   callback = function()
     vim.opt.colorcolumn = "81"
   end,
@@ -67,13 +70,13 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_set_hl(0, "extraWhitespace", { ctermbg = "red" })
 vim.api.nvim_create_autocmd("BufWinEnter", {
   pattern = "*",
   callback = function()
     vim.fn.matchadd("extraWhitespace", [[\s\+$\| \+\ze\t\+\|\t\+\zs \+]])
   end,
 })
+vim.api.nvim_set_hl(0, "extraWhitespace", { ctermbg = "red" })
 
 local function init_undo(undo_dir)
     local d = vim.fn.expand(undo_dir)
