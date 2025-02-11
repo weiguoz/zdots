@@ -5,5 +5,7 @@ vim.opt.guicursor = {
 
 return {
     "sphamba/smear-cursor.nvim",
+
+    -- never delete opts, event it's empty
     opts = {},
 }
