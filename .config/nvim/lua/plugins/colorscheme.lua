@@ -1,11 +1,11 @@
-local function read_last_theme(store)
+local function read_theme(store)
+  local te = 'desert'
   local f = io.open(store, 'r')
   if f then
-    local last_theme = f:read('*l')
+    te = f:read('*l')
     f:close()
-    return last_theme
   end
-  return nil
+  return te
 end
 
 local function write_theme(theme, store)
@@ -16,26 +16,37 @@ local function write_theme(theme, store)
   end
 end
 
-local function select_next_theme(themes, store)
-  local last_theme = read_last_theme(store)
-  local next_index = 1
+local function pick_theme(themes, last_theme, direction)
   for i, theme in ipairs(themes) do
-    if theme == last_theme then
-      next_index = (i % #themes) + 1
-      break
+    if string.lower(theme) == last_theme then
+      if direction > 0 then
+        return themes[(i % #themes) + 1]
+      else
+        return i == 1 and themes[#themes] or themes[i - 1]
+      end
     end
   end
-  return themes[next_index]
+  return 'desert'
 end
 
 local colorscheme_store = vim.fn.stdpath('data') .. '/colorscheme_current.txt'
 
-local function switch_to_next_theme()
+local function switch_theme(direction)
   local colorschemes = { 'edge', 'Dayfox', 'sonokai', 'Duskfox', 'onedark', 'everforest', 'nightfox', 'Dawnfox', 'Nordfox', 'caret', 'embark' } -- list of colorschemes
-
-  local selected = select_next_theme(colorschemes, colorscheme_store)
+  local current_color = string.lower(vim.g.colors_name)
+  local selected = pick_theme(colorschemes, current_color, direction)
   vim.cmd('colorscheme ' .. selected)
   write_theme(selected, colorscheme_store)
+end
+
+local function next_theme()
+    switch_theme(1)
+    print(vim.g.colors_name)
+end
+
+local function prev_theme()
+    switch_theme(-1)
+    print(vim.g.colors_name)
 end
 
 return {
@@ -53,9 +64,9 @@ return {
   priority = 1000,
   config = function()
     -- https://github.com/rockerBOO/awesome-neovim#tree-sitter-supported-colorscheme
-    local last_theme = read_last_theme(colorscheme_store)
-    vim.cmd('colorscheme ' .. last_theme)
-    vim.keymap.set('n', '<c-g>', switch_to_next_theme, { noremap = true, silent = true })
+    vim.cmd('colorscheme ' .. read_theme(colorscheme_store))
+    vim.keymap.set('n', '<M-n>', next_theme, { noremap = true, silent = true })
+    vim.keymap.set('n', '<M-p>', prev_theme, { noremap = true, silent = true })
 
     -- local rd = math.floor((os.clock() * 1e7) % #colorschemes) + 1
     -- vim.cmd('colorscheme ' .. colorschemes[rd])
