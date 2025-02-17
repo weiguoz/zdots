@@ -38,6 +38,7 @@
 !.config/ranger/
 !.config/ranger/rc.conf
 !.config/ranger/commands.py
+!.config/ranger/README.md
 !.config/tmux-powerline
 !.config/tmux-powerline/*
 !.config/tmux-powerline/themes/*

@@ -18,10 +18,10 @@ from ranger.api.commands import Command
 
 # Any class that is a subclass of "Command" will be integrated into ranger as a
 # command.  Try typing ":my_edit<ENTER>" in ranger!
-class my_edit(Command):
+class customized_edit(Command):
     # The so-called doc-string of the class will be visible in the built-in
     # help that is accessible by typing "?c" inside ranger.
-    """:my_edit <filename>
+    """:customized_edit <filename>
 
     A sample command for demonstration purposes that opens a file in an editor.
     """
@@ -62,37 +62,38 @@ class my_edit(Command):
         return self._tab_directory_content()
 
 
-class customized_fd(Command):
-    """
-    :fzf_select
-    Find a file using fzf.
-    With a prefix argument select only directories.
-    See: https://github.com/junegunn/fzf
-    """
-    def execute(self):
-      import subprocess
-      import os.path
-      if self.quantifier:
-          # match only directories
-          command = 'fd -I --type d --hidden --follow -E ".git" -E "node_modules" . | fzf +m'
-      else:
-          # match files and directories
-          command = 'fd -I --hidden --follow -E ".git" -E "node_modules" . | fzf +m'
-      fzf = self.fm.execute_command(command,
-                                    universal_newlines=True,
-                                    stdout=subprocess.PIPE)
-      stdout, stderr = fzf.communicate()
-      if fzf.returncode == 0:
-          fzf_file = os.path.abspath(stdout.rstrip('\n'))
-          if os.path.isdir(fzf_file):
-              self.fm.cd(fzf_file)
-          else:
-              self.fm.select_file(fzf_file)
+# replaced by https://github.com/MuXiu1997/ranger-fzf-filter
+# class customized_fd(Command):
+#     """
+#     :customized_fd
+#     Find a file using fzf.
+#     With a prefix argument select only directories.
+#     See: https://github.com/junegunn/fzf
+#     """
+#     def execute(self):
+#       import subprocess
+#       import os.path
+#       if self.quantifier:
+#           # match only directories
+#           command = 'fd -I --type d --hidden --follow -E ".git" -E "node_modules" . | fzf +m'
+#       else:
+#           # match files and directories
+#           command = 'fd -I --hidden --follow -E ".git" -E "node_modules" . | fzf +m'
+#       fzf = self.fm.execute_command(command,
+#                                     universal_newlines=True,
+#                                     stdout=subprocess.PIPE)
+#       stdout, stderr = fzf.communicate()
+#       if fzf.returncode == 0:
+#           fzf_file = os.path.abspath(stdout.rstrip('\n'))
+#           if os.path.isdir(fzf_file):
+#               self.fm.cd(fzf_file)
+#           else:
+#               self.fm.select_file(fzf_file)
 
 
 class customized_rg(Command):
     """
-    :fzf_rga_search_documents
+    :customized_rg
     Search in PDFs, E-Books and Office documents in current directory.
     Allowed extensions: .epub, .odt, .docx, .fb2, .ipynb, .pdf.
 
@@ -118,9 +119,9 @@ class customized_rg(Command):
             self.fm.execute_file(File(fzf_file))
 
 
-class tmux_open(Command):
+class customized_open_in_tmux(Command):
     """
-    :tmux_open
+    :customized_open_in_tmux
 
     Open a file with vim in a new tmux window if it's a file,
     or change directory in a new tmux window if it's a directory.
