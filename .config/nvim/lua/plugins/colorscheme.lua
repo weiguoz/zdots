@@ -32,7 +32,10 @@ end
 local colorscheme_store = vim.fn.stdpath('data') .. '/colorscheme_current.txt'
 
 local function switch_theme(direction)
-  local colorschemes = { 'edge', 'Dayfox', 'sonokai', 'Duskfox', 'onedark', 'everforest', 'nightfox', 'Dawnfox', 'Nordfox', 'caret', 'embark' } -- list of colorschemes
+  local colorschemes = { 'edge', 'sonokai', 'everforest', 'onedark', 'caret', 'embark',
+        'Dayfox', 'Dawnfox', 'Duskfox', 'nightfox', 'Nordfox',
+        'catppuccin-latte', 'catppuccin-frappe', 'catppuccin-macchiato', 'catppuccin-mocha',
+  } -- list of colorschemes
   local current_color = string.lower(vim.g.colors_name)
   local selected = pick_theme(colorschemes, current_color, direction)
   vim.cmd('colorscheme ' .. selected)
@@ -53,12 +56,13 @@ return {
   'sainnhe/edge',
 
    dependencies = { -- fake dependencies
-     'sainnhe/sonokai',
-     'sainnhe/everforest',
-     'olimorris/onedarkpro.nvim',
-     'EdenEast/nightfox.nvim',
-     'projekt0n/caret.nvim',
-     'embark-theme/vim',
+    'sainnhe/sonokai',
+    'sainnhe/everforest',
+    'olimorris/onedarkpro.nvim',
+    'projekt0n/caret.nvim',
+    'embark-theme/vim',
+    'EdenEast/nightfox.nvim',
+    'catppuccin/nvim',
    },
 
   priority = 1000,
