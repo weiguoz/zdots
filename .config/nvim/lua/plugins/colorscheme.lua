@@ -1,5 +1,13 @@
+local function split(input, sep)
+  local t = {}
+  for str in string.gmatch(input, "([^" .. sep .. "]+)") do
+      table.insert(t, str)
+  end
+  return t
+end
+
 local function read_theme(store)
-  local te = 'desert'
+  local te = 'desert:dark'
   local f = io.open(store, 'r')
   if f then
     te = f:read('*l')
@@ -8,7 +16,7 @@ local function read_theme(store)
   return te
 end
 
-local function write_theme(theme, store)
+local function write_theme(store, theme)
   local f = io.open(store, 'w')
   if f then
     f:write(theme)
@@ -17,8 +25,9 @@ local function write_theme(theme, store)
 end
 
 local function pick_theme(themes, last_theme, direction)
+  local target = string.lower(last_theme)
   for i, theme in ipairs(themes) do
-    if string.lower(theme) == last_theme then
+    if string.lower(theme) == target then
       if direction > 0 then
         return themes[(i % #themes) + 1]
       else
@@ -26,20 +35,25 @@ local function pick_theme(themes, last_theme, direction)
       end
     end
   end
-  return 'desert'
+  return 'desert:dark'
 end
 
-local colorscheme_store = vim.fn.stdpath('data') .. '/colorscheme_current.txt'
+local theme_store = vim.fn.stdpath('data') .. '/theme_current.txt'
 
 local function switch_theme(direction)
-  local colorschemes = { 'edge', 'sonokai', 'everforest', 'onedark', 'caret', 'embark',
-        'Dayfox', 'Dawnfox', 'Duskfox', 'nightfox', 'Nordfox',
-        'catppuccin-latte', 'catppuccin-frappe', 'catppuccin-macchiato', 'catppuccin-mocha',
+  local themes = { 'edge:dark', 'edge:light',
+        'caret:dark', 'caret:light',
+        'everforest:dark', 'everforest:light',
+        'Dayfox:light', 'Duskfox:dark', 'nightfox:dark', 'Nordfox:dark',
+        'catppuccin-latte:light', 'catppuccin-frappe:dark', 'catppuccin-macchiato:dark', 'catppuccin-mocha:dark',
+        'sonokai:dark', 'onedark:dark', 'embark:dark', 'newpaper:dark',
   } -- list of colorschemes
-  local current_color = string.lower(vim.g.colors_name)
-  local selected = pick_theme(colorschemes, current_color, direction)
-  vim.cmd('colorscheme ' .. selected)
-  write_theme(selected, colorscheme_store)
+  local current_theme = read_theme(theme_store)
+  local selected_theme = pick_theme(themes, current_theme, direction)
+  local cs_bg = split(selected_theme, ':')
+  vim.cmd('colorscheme ' .. cs_bg[1])
+  vim.o.background = cs_bg[2]
+  write_theme(theme_store, selected_theme)
 end
 
 local function next_theme()
@@ -56,19 +70,23 @@ return {
   'sainnhe/edge',
 
    dependencies = { -- fake dependencies
-    'sainnhe/sonokai',
-    'sainnhe/everforest',
-    'olimorris/onedarkpro.nvim',
     'projekt0n/caret.nvim',
-    'embark-theme/vim',
+    'sainnhe/everforest',
     'EdenEast/nightfox.nvim',
     'catppuccin/nvim',
+    'sainnhe/sonokai',
+    'olimorris/onedarkpro.nvim',
+    'embark-theme/vim',
+    'yorik1984/newpaper.nvim',
    },
 
   priority = 1000,
   config = function()
     -- https://github.com/rockerBOO/awesome-neovim#tree-sitter-supported-colorscheme
-    vim.cmd('colorscheme ' .. read_theme(colorscheme_store))
+    local cs_bg = split(read_theme(theme_store), ':')
+    vim.cmd('colorscheme ' .. cs_bg[1])
+    vim.o.background = cs_bg[2]
+
     vim.keymap.set('n', '<M-n>', next_theme, { noremap = true, silent = true })
     vim.keymap.set('n', '<M-p>', prev_theme, { noremap = true, silent = true })
 
