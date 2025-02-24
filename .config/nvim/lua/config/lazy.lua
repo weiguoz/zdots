@@ -14,7 +14,7 @@ return require('lazy').setup(
     { import = 'plugins.lsp' },
     { import = 'plugins.dap' },
     { import = 'plugins.copilot' }, -- ai
-    { import = 'plugins.tree' },
+    { import = 'plugins.filemanager' },
     { import = 'plugins.luasnip' },
 
     --' such as: AsyncRun tmux send-keys -t2 \'go test\' enter
@@ -33,7 +33,6 @@ return require('lazy').setup(
 
     -- {{{ observing
     { import = 'plugins.sneak' }, -- 'easymotion/vim-easymotion' search paste is broken so I disable it
-    { import = 'plugins.filebrowser' },
     { import = 'plugins.autopairs' },
     { 'mhinz/vim-startify' },
     { 'solarnz/thrift.vim' },
