@@ -7,7 +7,7 @@
 
 o() {
     if [ $# -eq 0 ]; then
-        open -a "Safari" # open -n -a "Google Chrome Beta" && exit 0
+        open -a "Google Chrome" # open -n -a "Safari" "Google Chrome Beta" && exit 0
         return
     fi
 

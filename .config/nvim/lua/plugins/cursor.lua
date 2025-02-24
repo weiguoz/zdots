@@ -7,5 +7,7 @@ return {
     "sphamba/smear-cursor.nvim",
 
     -- never delete opts, event it's empty
-    opts = {},
+    opts = {
+        cursor_color = "#d3cdc3",
+    },
 }
