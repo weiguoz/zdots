@@ -99,3 +99,4 @@ esac
 
 # automatic added by vim plugin fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+eval "$(zoxide init zsh)" # brew install zoxide

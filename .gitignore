@@ -39,6 +39,9 @@
 !.config/ranger/rc.conf
 !.config/ranger/commands.py
 !.config/ranger/README.md
+!.config/yazi/
+!.config/yazi/README.md
+!.config/yazi/theme.toml
 !.config/tmux-powerline
 !.config/tmux-powerline/*
 !.config/tmux-powerline/themes/*
