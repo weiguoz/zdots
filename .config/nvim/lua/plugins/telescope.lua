@@ -37,16 +37,31 @@ return {
     local opt = { noremap = true, silent = true }
     vim.keymap.set('n', 't', '<cmd>Telescope<cr>', opt)
     vim.keymap.set('n', 'c', '<cmd>Telescope commands<cr>', opt)
-    vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>', opt)
-    -- vim.keymap.set('n', '<leader>f', '<cmd>Telescope find_files<cr>', opt) -- instead by 'nvim-telescope/telescope-file-browser.nvim'
+
+    -- grep start 
     vim.keymap.set("n", "s", function()
       local word = vim.fn.expand("<cword>")
-      vim.cmd("Telescope live_grep default_text=" .. word)
-    end, opt)
+      vim.cmd("Telescope live_grep default_text=" .. word .. " grep_open_files=true")
+    end, {noremap = true, silent = true, desc = "Telescope: grep in buffers"})
 
-    vim.keymap.set("n", "<leader>t", function()
+    vim.keymap.set("n", "<leader>s", function()
+      local word = vim.fn.expand("<cword>")
+      vim.cmd("Telescope live_grep default_text=" .. word)
+    end, {noremap = true, silent = true, desc = "Telescope: grep"})
+
+    vim.keymap.set("n", "<leader>ts", function()
+      local word = vim.fn.expand("<cword>")
+      vim.cmd("Telescope current_buffer_fuzzy_find default_text=" .. word)
+    end, {noremap = true, silent = true, desc = "Telescope: grep fuzzy in buffers"})
+    -- grep end 
+
+    -- vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>', opt)
+    vim.keymap.set("n", "<leader>tb", function()
+      vim.cmd("Telescope buffers")
+    end, {noremap = true, silent = true, desc = "Telescope: buffers"})
+    vim.keymap.set("n", "<leader>tt", function()
       vim.fn.feedkeys(":Telescope lsp_document_symbols symbols=function,method,variable", "nt")
-    end, { desc = "Feed Telescope command" })
+    end, { desc = "Telescope: symbols" })
   end,
 }
 -- NOTE，在prompt窗口中，
