@@ -3,12 +3,12 @@ return require('lazy').setup(
   {
     { import = 'plugins.colorscheme' },
 
+    { import = 'plugins.telescope' },
     { import = 'plugins.treesitter' },
     { import = 'plugins.noice' },
     { import = 'plugins.statusbar' },
     { import = 'plugins.cursor' },
     { import = 'plugins.whichkey' },
-    { import = 'plugins.telescope' },
 
     { import = 'plugins.cmp' },
     { import = 'plugins.lsp' },

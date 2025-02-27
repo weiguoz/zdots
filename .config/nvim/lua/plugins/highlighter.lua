@@ -18,10 +18,16 @@ return {
         -- ['nn', 'HiSetSL', 't<CR>',  '+%'   ], add single word
         -- ['xn', 'HiSetSL', 't<CR>',  '+x%'  ],
         vim.g.HiSetToggle = 1 -- add is enough, remove is not necessary
-        -- local opts = { noremap = true, silent = true }
-        -- vim.keymap.set('n', '<leader>m', '<Cmd>Hi/+%<CR>', opts)
-        vim.keymap.del('n', 't<CR>')
+        vim.keymap.del('n', 'f<CR>')
         vim.keymap.del('n', 'f<BS>')
+        vim.keymap.del('n', 'f<C-L>')
+        vim.keymap.del('n', 'f<Tab>')
+        vim.keymap.del('n', 't<CR>')
+
+        vim.keymap.set('n', '<leader>ha', '<Cmd>Hi/+<CR>', {noremap = true, silent = true, desc = 'Highlight add, Hi/+<CR>'})
+        vim.keymap.set('n', '<leader>hc', '<Cmd>Hi clear<CR>', { noremap = true, silent = true, desc = 'Highlight clear'})
+        vim.keymap.set('n', '<leader>hs', '<Cmd>Hi/+%<CR>', { noremap = true, silent = true, desc = 'Highlight single word'})
+        vim.keymap.set('n', '<leader>hr', '<Cmd>Hi/-<CR>', {noremap = true, silent = true, desc = 'Highlight remove'})
 
         require'illuminate'.configure({ delay = 500 })
     end,

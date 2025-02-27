@@ -2,8 +2,8 @@ return {
   "skywind3000/asyncrun.vim",
   lazy = false,
   config = function()
-    vim.api.nvim_set_keymap("n", "<leader>a", ":AsyncRun<Space>", { noremap = true, silent = false })
-    vim.api.nvim_set_keymap("n", "<leader>q", ":call asyncrun#quickfix_toggle(6)<CR>", { noremap = true, silent = true })
+    vim.api.nvim_set_keymap("n", "<leader>ar", ":AsyncRun<Space>", { noremap = true, silent = false, desc="AsyncRun run" })
+    vim.api.nvim_set_keymap("n", "<leader>aq", ":call asyncrun#quickfix_toggle(6)<CR>", { noremap = true, silent = true, desc="AsyncRun quickfix" })
 
     vim.g.asyncrun_open = 8 -- open quickfix window automatically when AsyncRun is executed
 

@@ -17,7 +17,7 @@ function GitBcommitsOnCursor()
   })
 end
 
-vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>lua pcall(GitBcommitsOnCursor)<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>lua pcall(GitBcommitsOnCursor)<CR>', { noremap = true, silent = true, desc = "Git commits on cursor" })
 
 return {
   'nvim-telescope/telescope.nvim',
