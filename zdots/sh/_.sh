@@ -4,7 +4,7 @@ import() {
     local file="$1"
     if [ -n "$file" ] && [ -f "$file" ]; then
         # shellcheck source="$file"
-        . "$file"
+        source "$file"
     fi
 }
 
