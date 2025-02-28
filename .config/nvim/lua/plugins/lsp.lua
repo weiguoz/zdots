@@ -24,7 +24,7 @@ return {
         -- diagnostic
         vim.keymap.set('n', 'e', vim.diagnostic.goto_next, opts)
         vim.keymap.set('n', 'E', vim.diagnostic.goto_prev, opts)
-        vim.keymap.set('n', '<leader>di', vim.diagnostic.open_float, { noremap = true, silent = true, buffer=bufnr, desc = "Diagnostic: information" })
+        vim.keymap.set('n', '<leader>di', vim.diagnostic.open_float, { noremap = true, silent = true, desc = "Diagnostic: information" }) -- need buffer=bufnr?
         vim.keymap.set('n', '<leader>dl', "<cmd>Telescope diagnostics<cr>", {noremap = true, silent = true, buffer=bufnr, desc = "Diagnostic: list"})
         -- dl implementation 1
         -- vim.keymap.set('n', '<leader>dl', function()

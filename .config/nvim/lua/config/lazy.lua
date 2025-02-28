@@ -31,13 +31,11 @@ return require('lazy').setup(
     -- { 'christoomey/vim-tmux-navigator' },
     { 'simnalamburt/vim-mundo' },
 
-    -- {{{ observing
-    { import = 'plugins.sneak' }, -- 'easymotion/vim-easymotion' search paste is broken so I disable it
     { import = 'plugins.autopairs' },
-    { 'mhinz/vim-startify' },
-    { 'solarnz/thrift.vim' },
-    { 'mattn/vim-goimports' },
     { 'farmergreg/vim-lastplace' }, -- intelligently reopens files at your last edit position
+    { 'mattn/vim-goimports' },
+    -- {{{ observing
+    { 'mhinz/vim-startify' },
     { 'LintaoAmons/cd-project.nvim' }, -- db = ~/.config/nvim/cd-project.nvim.json
     -- }}}
   },

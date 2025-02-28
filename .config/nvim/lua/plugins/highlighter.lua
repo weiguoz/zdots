@@ -27,7 +27,7 @@ return {
         vim.keymap.set('n', '<leader>ha', '<Cmd>Hi/+<CR>', {noremap = true, silent = true, desc = 'Highlight add, Hi/+<CR>'})
         vim.keymap.set('n', '<leader>hc', '<Cmd>Hi clear<CR>', { noremap = true, silent = true, desc = 'Highlight clear'})
         vim.keymap.set('n', '<leader>hs', '<Cmd>Hi/+%<CR>', { noremap = true, silent = true, desc = 'Highlight single word'})
-        vim.keymap.set('n', '<leader>hr', '<Cmd>Hi/-<CR>', {noremap = true, silent = true, desc = 'Highlight remove'})
+        vim.keymap.set('n', '<leader>hx', '<Cmd>Hi/-<CR>', {noremap = true, silent = true, desc = 'Highlight remove'})
 
         require'illuminate'.configure({ delay = 500 })
     end,
