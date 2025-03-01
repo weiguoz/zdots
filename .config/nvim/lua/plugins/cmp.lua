@@ -6,6 +6,7 @@ return {
     'hrsh7th/cmp-path',
     'hrsh7th/cmp-cmdline',
     'onsails/lspkind-nvim', -- for icons
+    'xzbdmw/colorful-menu.nvim', -- for menu
     'L3MON4D3/LuaSnip',
   },
   config = function()
@@ -63,21 +64,33 @@ return {
 
       formatting = {
         -- cmp tag/icon denotes the source of the completion
-        format = require('lspkind').cmp_format({
-          with_text = true,
-          maxwidth = 50,
-          before = function(entry, vim_item)
-            vim_item.menu = ({
-              nvim_lsp = "| lsp",
-              buffer = "| buf",
-              path = "| Path",
-              luasnip = "| 片段",
-              cmdline = "| cmd",
-            })[entry.source.name]
-            return vim_item
+        format = function(entry, vim_item)
+          -- with lspkind: add prefix type for menu
+          vim_item = require('lspkind').cmp_format({
+            with_text = true,
+            maxwidth = 50,
+            before = function(new_entry, new_vim_item)
+              new_vim_item.menu = ({
+                nvim_lsp = "| lsp",
+                buffer = "| buf",
+                path = "| Path",
+                luasnip = "| 片段",
+                cmdline = "| cmd",
+              })[new_entry.source.name]
+              return new_vim_item
+            end
+          })(entry, vim_item)
+
+          -- with colorful-menu: add function args and return value for menu
+          -- https://github.com/xzbdmw/colorful-menu.nvim
+          local highlights_info = require("colorful-menu").cmp_highlights(entry)
+          if highlights_info ~= nil then
+            vim_item.abbr_hl_group = highlights_info.highlights
+            vim_item.abbr = highlights_info.text
           end
-        })
-      },
+          return vim_item
+        end
+      }
     })
 
     cmp.setup.cmdline(':', {
