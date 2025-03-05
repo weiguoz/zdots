@@ -37,17 +37,17 @@ vim.opt.wildignore = { "*.o", "*.obj", "*~" }
 --vim.opt.wildmode = { "longest", "full" } -- 补全模式设置
 
 -- {} () [] MatchParen
-vim.cmd([[highlight MatchParen guibg=#85C664]])
-vim.api.nvim_create_autocmd("ModeChanged", {
-    pattern = "*",
-    callback = function()
-        if vim.fn.mode() == "n" then
-            vim.cmd([[highlight MatchParen guibg=#85C664]])
-        else
-            vim.cmd([[highlight MatchParen guibg=NONE]])
-        end
-    end,
-})
+-- vim.cmd([[highlight MatchParen guibg=#85C664]])
+-- vim.api.nvim_create_autocmd("ModeChanged", {
+--     pattern = "*",
+--     callback = function()
+--         if vim.fn.mode() == "n" then
+--             vim.cmd([[highlight MatchParen guibg=#85C664]])
+--         else
+--             vim.cmd([[highlight MatchParen guibg=NONE]])
+--         end
+--     end,
+-- })
 
 -- 针对特定文件禁用备份
 vim.api.nvim_create_autocmd("BufWrite", {

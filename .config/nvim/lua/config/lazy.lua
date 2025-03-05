@@ -35,6 +35,7 @@ return require('lazy').setup(
     { 'farmergreg/vim-lastplace' }, -- intelligently reopens files at your last edit position
     { 'mattn/vim-goimports' },
     -- {{{ observing
+    { 'HiPhish/rainbow-delimiters.nvim' },
     { 'mhinz/vim-startify' },
     { 'LintaoAmons/cd-project.nvim' }, -- db = ~/.config/nvim/cd-project.nvim.json
     -- }}}
