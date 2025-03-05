@@ -26,7 +26,7 @@ return {
         auto_trigger = true,
         debounce = 75,
         keymap = {
-          accept = "<C-f>",
+          accept = "<C-l>",
           next = "<C-j>",
           prev = "<C-k>",
           dismiss = "<C-h>"

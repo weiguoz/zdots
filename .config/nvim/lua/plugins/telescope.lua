@@ -39,12 +39,12 @@ return {
     vim.keymap.set('n', 'c', '<cmd>Telescope commands<cr>', opt)
 
     -- grep start 
-    vim.keymap.set("n", "s", function()
+    vim.keymap.set("n", "<leader>s", function()
       local word = vim.fn.expand("<cword>")
       vim.cmd("Telescope live_grep default_text=" .. word .. " grep_open_files=true")
     end, {noremap = true, silent = true, desc = "Telescope: grep in buffers"})
 
-    vim.keymap.set("n", "<leader>s", function()
+    vim.keymap.set("n", "s", function()
       local word = vim.fn.expand("<cword>")
       vim.cmd("Telescope live_grep default_text=" .. word)
     end, {noremap = true, silent = true, desc = "Telescope: grep"})
