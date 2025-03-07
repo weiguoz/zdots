@@ -46,7 +46,7 @@ local function switch_theme(direction)
         'everforest:dark', 'everforest:light',
         'Dayfox:light', 'Duskfox:dark', 'nightfox:dark', 'Nordfox:dark',
         'catppuccin-latte:light', 'catppuccin-frappe:dark', 'catppuccin-macchiato:dark', 'catppuccin-mocha:dark',
-        'sonokai:dark', 'onedark:dark', 'embark:dark', 'newpaper:dark',
+        'sonokai:dark', 'onedark:dark', 'embark:dark', 'newpaper:light',
   } -- list of colorschemes
   local current_theme = read_theme(theme_store)
   local selected_theme = pick_theme(themes, current_theme, direction)
@@ -89,6 +89,11 @@ return {
 
     vim.keymap.set('n', '<M-n>', next_theme, { noremap = true, silent = true })
     vim.keymap.set('n', '<M-p>', prev_theme, { noremap = true, silent = true })
+
+    require("newpaper").setup({
+      style = "dark",
+      -- keywords = "bold,italic",
+    })
 
     -- local rd = math.floor((os.clock() * 1e7) % #colorschemes) + 1
     -- vim.cmd('colorscheme ' .. colorschemes[rd])

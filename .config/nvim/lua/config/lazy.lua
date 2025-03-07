@@ -34,12 +34,12 @@ return require('lazy').setup(
     { import = 'plugins.autopairs' },
     { 'dstein64/nvim-scrollview' },
     { 'farmergreg/vim-lastplace' }, -- intelligently reopens files at your last edit position
+    { import = 'plugins.indentscope' },
     { 'mattn/vim-goimports' },
     -- {{{ observing
     { 'HiPhish/rainbow-delimiters.nvim' },
     { 'mhinz/vim-startify' },
     { 'LintaoAmons/cd-project.nvim' }, -- db = ~/.config/nvim/cd-project.nvim.json
-    { import = 'plugins.biscuits' },
     -- }}}
   },
   { checker = { enabled = true, frequency = 10*86400 } } -- x*day

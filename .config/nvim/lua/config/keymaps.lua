@@ -7,6 +7,7 @@ vim.keymap.set("i", "<C-a>", "<Esc>I")
 vim.keymap.set("i", "<C-e>", "<Esc>A")
 
 -- quit insert
+vim.keymap.set("i", "jj", "<Esc>l")
 vim.keymap.set("i", "jk", "<Esc>l")
 vim.keymap.set("i", "kj", "<Esc>l")
 

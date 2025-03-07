@@ -81,13 +81,10 @@ uniq_csv() {
 }
 
 ## used as alias
-ff() {
+ff () {
     if [ $# -eq 0 ]; then
-        find . -type f -iname "*" 2>/dev/null
+        find . -type f 2> /dev/null
     else
-        for i in "$@"; do
-            find . -type f -iname "$i" 2>/dev/null
-        done
-        unset i
+        find . -type f \( $(printf '! -name %q -o ' "$@") -false \) 2> /dev/null
     fi
 }
