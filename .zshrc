@@ -25,18 +25,23 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit"
 skip_global_compinit="1"
 source "${ZINIT_HOME}/zinit.git/zinit.zsh"
 
+# 必须同步加载
 zinit light-mode for \
+    zsh-users/zsh-autosuggestions
+
+zinit wait lucid for \
     Aloxaf/fzf-tab \
     b4b4r07/enhancd \
     zdharma-continuum/zinit-annex-patch-dl \
     zdharma-continuum/zinit-annex-rust \
+    zdharma-continuum/fast-syntax-highlighting \
     atinit"zicompinit; zicdreplay" \
-        zdharma-continuum/fast-syntax-highlighting \
-    zsh-users/zsh-autosuggestions \
-    atpull'zinit creinstall -q .' zsh-users/zsh-completions 
+    atpull'zinit creinstall -q .' zsh-users/zsh-completions
 
 autoload -Uz compinit
-compinit -d
+_comp_path="${XDG_CACHE_HOME:-$HOME/.cache}/zcompdump"
+[[ -f "$_comp_path" ]] || compinit
+compinit -C
 
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
@@ -98,5 +103,5 @@ esac
 # }}}
 
 # automatic added by vim plugin fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(zoxide init zsh)" # brew install zoxide
+[[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/fzf.zsh" ]] && source "${XDG_CACHE_HOME:-$HOME/.cache}/fzf.zsh"
+[[ -o interactive ]] && eval "$(zoxide init zsh)" # brew install zoxide

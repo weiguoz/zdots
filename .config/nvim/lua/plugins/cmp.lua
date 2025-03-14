@@ -13,6 +13,7 @@ return {
     local cmp = require('cmp')
     local ls = require('luasnip')
 
+
     cmp.setup({
       snippet = {
         expand = function(args)
@@ -22,9 +23,9 @@ return {
       mapping = {
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<Enter>'] = cmp.mapping.confirm({ select = true }),
+        ['<CR>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }), -- '<Enter>'
         -- ['<C-Space>'] = cmp.mapping.complete(),
-        ["<Tab>"] = cmp.mapping(function(fallback)
+        ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
           elseif ls.expand_or_jumpable() then
@@ -32,9 +33,9 @@ return {
           else
             fallback()
           end
-        end, { "i", "s" }),
+        end, { 'i', 's' }),
 
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
+        ['<S-Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
           elseif ls.jumpable(-1) then
@@ -42,7 +43,7 @@ return {
           else
             fallback()
           end
-        end, { "i", "s" }),
+        end, { 'i', 's' }),
       },
 
       sources = {
@@ -71,11 +72,11 @@ return {
             maxwidth = 50,
             before = function(new_entry, new_vim_item)
               new_vim_item.menu = ({
-                nvim_lsp = "| lsp",
-                buffer = "| buf",
-                path = "| Path",
-                luasnip = "| 片段",
-                cmdline = "| cmd",
+                nvim_lsp = '| lsp',
+                buffer = '| buf',
+                path = '| Path',
+                luasnip = '| 片段',
+                cmdline = '| cmd',
               })[new_entry.source.name]
               return new_vim_item
             end
