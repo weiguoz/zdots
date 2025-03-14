@@ -23,7 +23,15 @@ return {
       mapping = {
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }), -- '<Enter>'
+        -- ['<Enter>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
+        ['<CR>'] = function(fallback)
+          if cmp.visible() then
+            cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert })
+          else
+            fallback() -- If you use vim-endwise, this fallback will behave the same as vim-endwise.
+          end
+        end,
+
         -- ['<C-Space>'] = cmp.mapping.complete(),
         ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
@@ -34,16 +42,13 @@ return {
             fallback()
           end
         end, { 'i', 's' }),
-
-        ['<S-Tab>'] = cmp.mapping(function(fallback)
+        ['<S-Tab>'] = function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif ls.jumpable(-1) then
-            ls.jump(-1)
           else
             fallback()
           end
-        end, { 'i', 's' }),
+        end,
       },
 
       sources = {
