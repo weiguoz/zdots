@@ -13,6 +13,7 @@ return {
     local cmp = require('cmp')
     local ls = require('luasnip')
 
+
     cmp.setup({
       snippet = {
         expand = function(args)
@@ -22,9 +23,17 @@ return {
       mapping = {
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<Enter>'] = cmp.mapping.confirm({ select = true }),
+        -- ['<Enter>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
+        ['<CR>'] = function(fallback)
+          if cmp.visible() then
+            cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert })
+          else
+            fallback() -- If you use vim-endwise, this fallback will behave the same as vim-endwise.
+          end
+        end,
+
         -- ['<C-Space>'] = cmp.mapping.complete(),
-        ["<Tab>"] = cmp.mapping(function(fallback)
+        ['<Tab>'] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
           elseif ls.expand_or_jumpable() then
@@ -32,17 +41,14 @@ return {
           else
             fallback()
           end
-        end, { "i", "s" }),
-
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
+        end, { 'i', 's' }),
+        ['<S-Tab>'] = function(fallback)
           if cmp.visible() then
             cmp.select_prev_item()
-          elseif ls.jumpable(-1) then
-            ls.jump(-1)
           else
             fallback()
           end
-        end, { "i", "s" }),
+        end,
       },
 
       sources = {
@@ -66,16 +72,18 @@ return {
         -- cmp tag/icon denotes the source of the completion
         format = function(entry, vim_item)
           -- with lspkind: add prefix type for menu
-          vim_item = require('lspkind').cmp_format({
+          local lspkind = require("lspkind")
+          -- local kind_icon = lspkind.symbolic(vim_item.kind, { with_text = false }) -- get the icon at first
+          vim_item = lspkind.cmp_format({
             with_text = true,
             maxwidth = 50,
             before = function(new_entry, new_vim_item)
               new_vim_item.menu = ({
-                nvim_lsp = "| lsp",
-                buffer = "| buf",
-                path = "| Path",
-                luasnip = "| 片段",
-                cmdline = "| cmd",
+                nvim_lsp = '| lsp',
+                buffer = '| buf',
+                path = '| Path',
+                luasnip = '| 片段',
+                cmdline = '| cmd',
               })[new_entry.source.name]
               return new_vim_item
             end
@@ -86,8 +94,10 @@ return {
           local highlights_info = require("colorful-menu").cmp_highlights(entry)
           if highlights_info ~= nil then
             vim_item.abbr_hl_group = highlights_info.highlights
+            -- vim_item.abbr = kind_icon .. "  " .. highlights_info.text
             vim_item.abbr = highlights_info.text
           end
+
           return vim_item
         end
       }
