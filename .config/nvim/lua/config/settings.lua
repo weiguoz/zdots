@@ -39,52 +39,52 @@ vim.opt.wildignore = { "*.o", "*.obj", "*~" }
 -- {} () [] MatchParen
 vim.cmd([[highlight MatchParen guibg=#5D478B]])
 vim.api.nvim_create_autocmd("ModeChanged", {
-  pattern = "*",
-  callback = function()
-    if vim.fn.mode() ~= "n" then
-      vim.cmd([[highlight MatchParen guibg=NONE]])
-    else
-      vim.cmd([[highlight MatchParen guibg=#551A8B]])
-    end
-  end,
+    pattern = "*",
+    callback = function()
+        if vim.fn.mode() ~= "n" then
+            vim.cmd([[highlight MatchParen guibg=NONE]])
+        else
+            vim.cmd([[highlight MatchParen guibg=#551A8B]])
+        end
+    end,
 })
 
 -- 针对特定文件禁用备份
 vim.api.nvim_create_autocmd("BufWrite", {
-  pattern = "/private/etc/pw.*",
-  callback = function()
-    vim.opt.writebackup = false
-    -- vim.opt.backup = false
-  end,
+    pattern = "/private/etc/pw.*",
+    callback = function()
+        vim.opt.writebackup = false
+        -- vim.opt.backup = false
+    end,
 })
 
 -- 针对特定文件类型设置代码列限制
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "c", "cpp", "go", "python", "lua", "rust", "sh" },
-  callback = function()
-    vim.opt.colorcolumn = "81"
-  end,
+    pattern = { "c", "cpp", "go", "python", "lua", "rust", "sh" },
+    callback = function()
+        vim.opt.colorcolumn = "81"
+    end,
 })
 
 vim.api.nvim_create_autocmd("BufNewFile", {
-  pattern = { "*.go", "*.sh", "*.py", "*.c", "*.cpp", "*.h", "*.hpp", "*.hxx", "*.hh" },
-  callback = function()
-    vim.cmd("lua SetTitle()")
-  end,
+    pattern = { "*.go", "*.sh", "*.py", "*.c", "*.cpp", "*.h", "*.hpp", "*.hxx", "*.hh" },
+    callback = function()
+        vim.cmd("lua SetTitle()")
+    end,
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "qf",
-  callback = function()
-    vim.keymap.set("n", "<CR>", "<CR>:cclose<CR>", { buffer = true, silent = true })
-  end,
+    pattern = "qf",
+    callback = function()
+        vim.keymap.set("n", "<CR>", "<CR>:cclose<CR>", { buffer = true, silent = true })
+    end,
 })
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
-  pattern = "*",
-  callback = function()
-    vim.fn.matchadd("extraWhitespace", [[\s\+$\| \+\ze\t\+\|\t\+\zs \+]])
-  end,
+    pattern = "*",
+    callback = function()
+        vim.fn.matchadd("extraWhitespace", [[\s\+$\| \+\ze\t\+\|\t\+\zs \+]])
+    end,
 })
 vim.api.nvim_set_hl(0, "extraWhitespace", { ctermbg = "red" })
 

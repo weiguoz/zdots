@@ -1,21 +1,21 @@
 return {
-  "skywind3000/asyncrun.vim",
-  lazy = false,
-  config = function()
-    vim.api.nvim_set_keymap("n", "<leader>ar", ":AsyncRun<Space>", { noremap = true, silent = false, desc="AsyncRun run" })
-    vim.api.nvim_set_keymap("n", "<leader>aq", ":call asyncrun#quickfix_toggle(6)<CR>", { noremap = true, silent = true, desc="AsyncRun quickfix" })
+    "skywind3000/asyncrun.vim",
+    lazy = false,
+    config = function()
+        vim.api.nvim_set_keymap("n", "<leader>ar", ":AsyncRun<Space>", { noremap = true, silent = false, desc="AsyncRun run" })
+        vim.api.nvim_set_keymap("n", "<leader>aq", ":call asyncrun#quickfix_toggle(6)<CR>", { noremap = true, silent = true, desc="AsyncRun quickfix" })
 
-    vim.g.asyncrun_open = 8 -- open quickfix window automatically when AsyncRun is executed
+        vim.g.asyncrun_open = 8 -- open quickfix window automatically when AsyncRun is executed
 
-    vim.cmd([[
+        vim.cmd([[
       augroup AsyncRunKeymap
-        autocmd!
-        autocmd FileType cpp nnoremap <silent> run :AsyncRun clang++ -DDBG -Wall -Wextra -Werror -Wshadow -g -std=c++20 -o %< % && (./%< ; rm -rf %< %<.dSYM)<CR>
-        autocmd FileType c nnoremap <silent> run :AsyncRun clang -DDBG -Wall -Wextra -Werror -Wshadow -g -o %< % && (./%< ; rm -rf %< %<.dSYM)<CR>
-        autocmd FileType go nnoremap <silent> run :AsyncRun go run %<CR>
+      autocmd!
+      autocmd FileType cpp nnoremap <silent> run :AsyncRun clang++ -DDBG -Wall -Wextra -Werror -Wshadow -g -std=c++20 -o %< % && (./%< ; rm -rf %< %<.dSYM)<CR>
+      autocmd FileType c nnoremap <silent> run :AsyncRun clang -DDBG -Wall -Wextra -Werror -Wshadow -g -o %< % && (./%< ; rm -rf %< %<.dSYM)<CR>
+      autocmd FileType go nnoremap <silent> run :AsyncRun go run %<CR>
       augroup END
-    ]])
-  end
+      ]])
+    end
 }
 
 -- {{{ just for reference

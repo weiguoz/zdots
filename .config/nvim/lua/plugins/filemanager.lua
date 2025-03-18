@@ -1,20 +1,20 @@
 -- I'm using yazi.nvim instead of telescope-file-browser.nvim and neo-tree.nvim
 return {
-  "mikavilpas/yazi.nvim", -- dependencies: brew install yazi zoxide
-  event = "VeryLazy",
-  keys = {
-    {
-      "\\",
-      "<cmd>Yazi toggle<cr>", -- Yazi, Yazi cw, Yazi toggle
-      desc = "Resume the last yazi session",
+    "mikavilpas/yazi.nvim", -- dependencies: brew install yazi zoxide
+    event = "VeryLazy",
+    keys = {
+        {
+            "\\",
+            "<cmd>Yazi toggle<cr>", -- Yazi, Yazi cw, Yazi toggle
+            desc = "Resume the last yazi session",
+        },
     },
-  },
-  opts = {
-    open_for_directories = false,
-    keymaps = {
-      show_help = "\\",
+    opts = {
+        open_for_directories = false,
+        keymaps = {
+            show_help = "\\",
+        },
     },
-  },
 }
 
 -- return {
