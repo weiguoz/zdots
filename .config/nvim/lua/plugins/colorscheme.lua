@@ -4,8 +4,9 @@ local all_themes = { 'edge:dark', 'edge:light',
   'everforest:dark', 'everforest:light',
   'Dayfox:light', 'Duskfox:dark', 'nightfox:dark', 'Nordfox:dark',
   'catppuccin-latte:light', 'catppuccin-frappe:dark', 'catppuccin-macchiato:dark', 'catppuccin-mocha:dark',
-  'onedark', 'onedark_vivid', 'onedark_dark', 'onelight',
-  'sonokai:dark', 'embark:dark', 'newpaper', 'cyberdream',
+  'sonokai:dark', 'embark:dark', 'newpaper',
+  'Emerald', 'Mariana', -- starry
+  'Parchment', -- acme
 }
 
 local function read_theme(store)
@@ -80,10 +81,10 @@ return {
     'EdenEast/nightfox.nvim',
     'catppuccin/nvim',
     'sainnhe/sonokai',
-    'olimorris/onedarkpro.nvim',
     'embark-theme/vim',
     'yorik1984/newpaper.nvim',
-    'scottmckendry/cyberdream.nvim',
+    'ray-x/starry.nvim',
+    'axgfn/parchment',
    },
 
   priority = 1000,
@@ -91,15 +92,12 @@ return {
     vim.keymap.set('n', '<M-n>', next_theme, { noremap = true, silent = true })
     vim.keymap.set('n', '<M-p>', prev_theme, { noremap = true, silent = true })
 
-    require('newpaper').setup({ style = 'dark', keywords = 'bold,italic' })
-    require('cyberdream').setup({ saturation = 0.7 })
+    require('newpaper').setup({ style = 'light', keywords = 'bold,italic' })
+    require('starry').setup({ italics={keywords=true}, })
 
     -- local rd = math.floor((os.clock() * 1e7) % #colorschemes) + 1
     -- vim.cmd('colorscheme ' .. colorschemes[rd])
     -- vim.o.background = (os.clock() * 1e7 % 100 < 50) and 'dark' or 'light'
-    -- require('onedarkpro').setup({
-    --   styles = { comments = 'italic', keywords = 'bold,italic', functions = 'italic', conditionals = 'italic' },
-    -- })
 
     -- placed in the end of function
     stepover_theme_helper(0)

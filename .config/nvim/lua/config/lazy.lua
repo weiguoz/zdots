@@ -9,6 +9,7 @@ return require('lazy').setup(
     { import = 'plugins.statusbar' },
     { import = 'plugins.cursor' },
     { import = 'plugins.whichkey' },
+    { import = 'plugins.dropbar' },
 
     { import = 'plugins.cmp' },
     { import = 'plugins.lsp' },
