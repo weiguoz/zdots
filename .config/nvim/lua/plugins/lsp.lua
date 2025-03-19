@@ -13,19 +13,17 @@ return {
             vim.keymap.set('n', 'rn', vim.lsp.buf.rename, opts)
             vim.keymap.set('n', 'gc', vim.lsp.buf.code_action, opts)
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-            -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { noremap = true, silent = true })
-            -- vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, { noremap = true, silent = true })
-            -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+            -- how telescope >
             -- https://github.com/lopi-py/nvim-config/blob/a9c2c73dbea6472adb068eb2cd9a8810322d973a/lua/lsp.lua#L23
-            vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
             vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
-            vim.keymap.set("n", "gy", "<cmd>Telescope lsp_type_definitions<cr>", opts)
+            vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", opts)
+            vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
 
             -- diagnostic
             vim.keymap.set('n', 'e', vim.diagnostic.goto_next, opts)
             vim.keymap.set('n', 'E', vim.diagnostic.goto_prev, opts)
-            vim.keymap.set('n', '<leader>di', vim.diagnostic.open_float, { noremap = true, silent = true, desc = "Diagnostic: information" }) -- need buffer=bufnr?
-            vim.keymap.set('n', '<leader>dl', "<cmd>Telescope diagnostics<cr>", {noremap = true, silent = true, buffer=bufnr, desc = "Diagnostic: list"})
+            vim.keymap.set('n', '<leader>ei', vim.diagnostic.open_float, { noremap = true, silent = true, desc = "Diagnostic: information" }) -- need buffer=bufnr?
+            vim.keymap.set('n', '<leader>el', "<cmd>Telescope diagnostics<cr>", {noremap = true, silent = true, buffer=bufnr, desc = "Diagnostic: list"})
             -- dl implementation 1
             -- vim.keymap.set('n', '<leader>dl', function()
             --   require('telescope.builtin').diagnostics({ severity_sort = true }) -- sort by severity

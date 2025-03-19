@@ -13,7 +13,6 @@ return {
         local cmp = require('cmp')
         local ls = require('luasnip')
 
-
         cmp.setup({
             snippet = {
                 expand = function(args)
@@ -23,14 +22,7 @@ return {
             mapping = {
                 ['<C-n>'] = cmp.mapping.select_next_item(),
                 ['<C-p>'] = cmp.mapping.select_prev_item(),
-                -- ['<Enter>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
-                ['<CR>'] = function(fallback)
-                    if cmp.visible() then
-                        cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert })
-                    else
-                        fallback() -- If you use vim-endwise, this fallback will behave the same as vim-endwise.
-                    end
-                end,
+                ['<Enter>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
 
                 -- ['<C-Space>'] = cmp.mapping.complete(),
                 ['<Tab>'] = cmp.mapping(function(fallback)
