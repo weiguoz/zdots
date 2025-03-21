@@ -48,7 +48,7 @@ return {
                     analyses = { unreachable_code = true, unused_params = true, },
                     staticcheck = true,
                 },
-            },
+            }
         })
         -- c/c++
         lspconfig.clangd.setup({
