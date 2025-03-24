@@ -11,7 +11,7 @@ theme = "monokai pro machine"
 
 # font
 font-family = "JetBrains Mono"
-font-size = 14
+font-size = 15
 
 # cursor
 cursor-color = D20F39

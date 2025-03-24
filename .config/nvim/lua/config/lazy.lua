@@ -18,7 +18,7 @@ return require('lazy').setup(
         { import = 'plugins.filemanager' },
         { import = 'plugins.luasnip' },
 
-        --' such as: AsyncRun tmux send-keys -t2 \'go test\' enter
+        -- such as: AsyncRun tmux send-keys -t2 \'go test\' enter
         { import = 'plugins.asyncrun' },
 
         -- git plugins
@@ -37,11 +37,13 @@ return require('lazy').setup(
         { 'farmergreg/vim-lastplace' }, -- intelligently reopens files at your last edit position
         { import = 'plugins.indentscope' },
         { 'mattn/vim-goimports' },
-        -- {{{ observing
+
+        -- observing
+        -- db = ~/.config/nvim/cd-project.nvim.json
         { 'HiPhish/rainbow-delimiters.nvim' },
         { 'mhinz/vim-startify' },
-        { 'LintaoAmons/cd-project.nvim' }, -- db = ~/.config/nvim/cd-project.nvim.json
-        -- }}}
-    },
-    { checker = { enabled = true, frequency = 10*86400 } } -- x*day
+        { 'LintaoAmons/cd-project.nvim' },
+    }, {
+        checker = { enabled = true, frequency = 10*86400 },
+    }
 )
