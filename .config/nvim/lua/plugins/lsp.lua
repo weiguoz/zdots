@@ -11,7 +11,7 @@ return {
             -- lsp
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
             vim.keymap.set('n', 'rn', vim.lsp.buf.rename, opts)
-            vim.keymap.set('n', 'gc', vim.lsp.buf.code_action, opts)
+            vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
             vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
             -- how telescope >
             -- https://github.com/lopi-py/nvim-config/blob/a9c2c73dbea6472adb068eb2cd9a8810322d973a/lua/lsp.lua#L23
