@@ -20,6 +20,18 @@ vim.opt.autoindent = true
 vim.opt.expandtab = true
 
 vim.opt.number = true
+vim.opt.relativenumber = true
+vim.api.nvim_create_autocmd({ "InsertEnter" }, {
+  callback = function()
+    vim.opt.relativenumber = false
+  end
+})
+vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+  callback = function()
+    vim.opt.relativenumber = true
+  end
+})
+
 vim.opt.mouse = vim.opt.mouse - "r"
 -- vim.opt.mouse = "a"
 
