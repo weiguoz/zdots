@@ -6,7 +6,6 @@ local all_themes = { 'edge:dark', 'edge:light',
     'catppuccin-latte:light', 'catppuccin-frappe:dark', 'catppuccin-macchiato:dark', 'catppuccin-mocha:dark',
     'sonokai:dark', 'embark:dark', 'newpaper',
     'Emerald', 'Mariana', -- starry
-    'Parchment', -- acme
 }
 
 local function read_theme(store)
@@ -72,19 +71,18 @@ local function prev_theme()
     write_theme(theme_store, current_the)
 end
 
+vim.keymap.set('n', '<M-n>', next_theme, { noremap = true, silent = true })
+vim.keymap.set('n', '<M-p>', prev_theme, { noremap = true, silent = true })
+-- local rd = math.floor((os.clock() * 1e7) % #colorschemes) + 1
+-- vim.cmd('colorscheme ' .. colorschemes[rd])
+-- vim.o.background = (os.clock() * 1e7 % 100 < 50) and 'dark' or 'light'
+
 return {
     {
         'sainnhe/edge',
-        priority = 1000,
         config = function()
-            vim.keymap.set('n', '<M-n>', next_theme, { noremap = true, silent = true })
-            vim.keymap.set('n', '<M-p>', prev_theme, { noremap = true, silent = true })
-            -- local rd = math.floor((os.clock() * 1e7) % #colorschemes) + 1
-            -- vim.cmd('colorscheme ' .. colorschemes[rd])
-            -- vim.o.background = (os.clock() * 1e7 % 100 < 50) and 'dark' or 'light'
-
             -- placed in the end of function
-            stepover_theme_helper(0)
+            stepover_theme_helper(0) -- MUST lazy = false
         end,
     }, {
         'yorik1984/newpaper.nvim',
@@ -102,8 +100,7 @@ return {
     { 'projekt0n/caret.nvim',      lazy = true },
     { 'sainnhe/everforest',        lazy = true },
     { 'EdenEast/nightfox.nvim',    lazy = true },
-    { 'catppuccin/nvim',           name = 'catppuccin', lazy = true },
+    { 'catppuccin/nvim',           lazy = true, name = 'catppuccin' },
     { 'sainnhe/sonokai',           lazy = true },
-    { 'embark-theme/vim',          name = 'embark', lazy = true },
-    { 'axgfn/parchment',           lazy = true },
+    { 'embark-theme/vim',          lazy = true, name = 'embark' },
 }
