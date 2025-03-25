@@ -8,7 +8,7 @@ return {
     config = function() -- bookmarks/config.lua::default_config
         require("bookmarks").setup({
             signs = {
-                mark = { icon = "📌" } -- 󰃁
+                mark = { icon = "󰃁" } -- 📌
             },
             backup = { enable = false },
         })

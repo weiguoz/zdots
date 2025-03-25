@@ -4,10 +4,19 @@ vim.opt.guicursor = {
 }
 
 return {
-    "sphamba/smear-cursor.nvim",
-
-    -- never delete opts, event it's empty
-    opts = {
-        cursor_color = "#d3cdc3",
+    {
+        "gen740/SmoothCursor.nvim",
+        event = "VeryLazy",
+        config = function()
+            require("smoothcursor").setup({
+                type = "default",
+                fancy = { enable = true },
+            })
+        end,
     },
+    -- {
+    --     "sphamba/smear-cursor.nvim",
+    --     event = "VeryLazy",
+    --     opts = { cursor_color = "#d3cdc3" },
+    -- },
 }

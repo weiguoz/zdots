@@ -73,33 +73,37 @@ local function prev_theme()
 end
 
 return {
-    'sainnhe/edge',
+    {
+        'sainnhe/edge',
+        priority = 1000,
+        config = function()
+            vim.keymap.set('n', '<M-n>', next_theme, { noremap = true, silent = true })
+            vim.keymap.set('n', '<M-p>', prev_theme, { noremap = true, silent = true })
+            -- local rd = math.floor((os.clock() * 1e7) % #colorschemes) + 1
+            -- vim.cmd('colorscheme ' .. colorschemes[rd])
+            -- vim.o.background = (os.clock() * 1e7 % 100 < 50) and 'dark' or 'light'
 
-    dependencies = { -- fake dependencies
-        'projekt0n/caret.nvim',
-        'sainnhe/everforest',
-        'EdenEast/nightfox.nvim',
-        'catppuccin/nvim',
-        'sainnhe/sonokai',
-        'embark-theme/vim',
+            -- placed in the end of function
+            stepover_theme_helper(0)
+        end,
+    }, {
         'yorik1984/newpaper.nvim',
+        lazy = true,
+        config = function()
+            require('newpaper').setup({ style = 'light', keywords = 'bold,italic' })
+        end,
+    }, {
         'ray-x/starry.nvim',
-        'axgfn/parchment',
+        lazy = true,
+        config = function()
+            require('starry').setup({ italics = { keywords = true } })
+        end,
     },
-
-    priority = 1000,
-    config = function()
-        vim.keymap.set('n', '<M-n>', next_theme, { noremap = true, silent = true })
-        vim.keymap.set('n', '<M-p>', prev_theme, { noremap = true, silent = true })
-
-        require('newpaper').setup({ style = 'light', keywords = 'bold,italic' })
-        require('starry').setup({ italics={keywords=true}, })
-
-        -- local rd = math.floor((os.clock() * 1e7) % #colorschemes) + 1
-        -- vim.cmd('colorscheme ' .. colorschemes[rd])
-        -- vim.o.background = (os.clock() * 1e7 % 100 < 50) and 'dark' or 'light'
-
-        -- placed in the end of function
-        stepover_theme_helper(0)
-    end,
+    { 'projekt0n/caret.nvim',      lazy = true },
+    { 'sainnhe/everforest',        lazy = true },
+    { 'EdenEast/nightfox.nvim',    lazy = true },
+    { 'catppuccin/nvim',           name = 'catppuccin', lazy = true },
+    { 'sainnhe/sonokai',           lazy = true },
+    { 'embark-theme/vim',          name = 'embark', lazy = true },
+    { 'axgfn/parchment',           lazy = true },
 }
