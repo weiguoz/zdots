@@ -2,8 +2,8 @@
 # 2. cc from https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
 
 # theme
-# theme = "dark:dracula,light:fairyfloss"
-theme = "monokai pro machine"
+theme = "dark:MaterialDarker,light:dracula"
+# theme = "monokai pro machine"
 
 # keybind
 # keybind = ctrl+z=close_surface
