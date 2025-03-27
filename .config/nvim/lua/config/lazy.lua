@@ -14,7 +14,7 @@ return require('lazy').setup(
         { import = 'plugins.cmp' },
         { import = 'plugins.lsp' },
         { import = 'plugins.dap' },
-        { import = 'plugins.copilot' }, -- ai
+        -- { import = 'plugins.copilot' }, -- ai
         { import = 'plugins.filemanager' },
         { import = 'plugins.luasnip' },
 
