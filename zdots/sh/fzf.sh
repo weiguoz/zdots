@@ -7,11 +7,14 @@
 export FZF_COMPLETION_TRIGGER='@@'
 ## fzf examples: https://github.com/junegunn/fzf/wiki/examples
 export FZF_DEFAULT_COMMAND='fd -I --type f --type d --follow --hidden --exclude .git --exclude node_modules --max-results=827 --size=-500m'
-export FZF_DEFAULT_OPTS="
-  --color fg:255,bg:236,hl:84,fg+:255,bg+:236,hl+:215
-  --color info:141,prompt:84,spinner:212,pointer:212,marker:212
-  -m --height 80% --layout reverse --inline-info
-  --bind 'ctrl-f:page-down,ctrl-b:page-up,ctrl-j:ignore,ctrl-k:ignore'" # --border maybe config in .zshrd works
+export FZF_DEFAULT_OPTS="-m --height=80% --layout=reverse --inline-info --bind 'ctrl-f:page-down,ctrl-b:page-up,ctrl-j:ignore,ctrl-k:ignore'" # --border maybe config in .zshrd works
+# Dracula style
+#  --color=fg:255,bg:236,hl:215,fg+:255,bg+:237,hl+:228
+#  --color=info:117,prompt:84,spinner:212,pointer:212,marker:228
+# ? style
+#   --color fg:255,bg:236,hl:84,fg+:255,bg+:236,hl+:215
+#   --color info:141,prompt:84,spinner:212,pointer:212,marker:212
+
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--preview "(bat {} --color=always || highlight -O ansi -l {} 2> /dev/null || tree -C {}) 2> /dev/null"'
 

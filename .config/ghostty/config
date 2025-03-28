@@ -6,7 +6,7 @@
 # -- NOTE: the above configuration format makes the tab display appear to behave strangely
 # single configuration is good
 theme = "Dracula"
-# theme = "monokai pro machine" "MaterialDarker" "Banana BlueBerry"
+# theme = "monokai pro machine" "Dracula"
 
 # keybind
 # keybind = ctrl+z=close_surface

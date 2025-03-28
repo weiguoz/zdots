@@ -24,6 +24,11 @@ return {
             vim.keymap.set('n', 'E', vim.diagnostic.goto_prev, opts)
             vim.keymap.set('n', '<leader>ei', vim.diagnostic.open_float, { noremap = true, silent = true, desc = "Diagnostic: information" }) -- need buffer=bufnr?
             vim.keymap.set('n', '<leader>el', "<cmd>Telescope diagnostics<cr>", {noremap = true, silent = true, buffer=bufnr, desc = "Diagnostic: list"})
+            -- vim.api.nvim_create_autocmd("CursorHold", {
+            --     callback = function()
+            --         vim.diagnostic.open_float(nil, { scope = "line", border = "rounded", focusable = false, header = "", source = "always", })
+            --     end,
+            -- })
             -- dl implementation 1
             -- vim.keymap.set('n', '<leader>dl', function()
             --   require('telescope.builtin').diagnostics({ severity_sort = true }) -- sort by severity
