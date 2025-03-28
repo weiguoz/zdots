@@ -5,8 +5,8 @@
 # theme = "dark:rose-pine-dawn,light:rose-pine" 
 # -- NOTE: the above configuration format makes the tab display appear to behave strangely
 # single configuration is good
-theme = "Horizon"
-# theme = "monokai pro machine" "Dracula" "Horizon"
+theme = "rebecca"
+# theme = "rebecca" "Rapture" "Horizon" "Dracula" "Banana BlueBerry" "snazzy soft"
 
 # keybind
 # keybind = ctrl+z=close_surface
