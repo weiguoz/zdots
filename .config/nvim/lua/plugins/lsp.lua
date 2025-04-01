@@ -1,8 +1,17 @@
 return {
     'neovim/nvim-lspconfig',
     config = function()
-        local lspconfig = require('lspconfig')
+        local lsp = require('lspconfig')
         -- local telescope = require('telescope.builtin')
+        -- 高亮当前光标下的符号
+        vim.keymap.set("n", "<leader>hh", function()
+            vim.lsp.buf.document_highlight()
+        end, { desc = "高亮当前符号" })
+
+        -- 清除高亮
+        vim.keymap.set("n", "<leader>hc", function()
+            vim.lsp.buf.clear_references()
+        end, { desc = "清除高亮" })
 
         -- common attach function
         local common_attach = function(_, bufnr)
@@ -44,10 +53,10 @@ return {
         -- lsp: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
         -- golang
-        lspconfig.gopls.setup({
+        lsp.gopls.setup({
             on_attach = common_attach,
             filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
-            root_dir = lspconfig.util.root_pattern("go.mod", ".git", "go.work"),
+            root_dir = lsp.util.root_pattern("go.mod", ".git", "go.work"),
             settings = {
                 gopls = {
                     analyses = { unreachable_code = true, unused_params = true, },
@@ -56,7 +65,7 @@ return {
             }
         })
         -- c/c++
-        lspconfig.clangd.setup({
+        lsp.clangd.setup({
             on_attach = common_attach,
             cmd = { "/opt/homebrew/opt/llvm/bin/clangd", "--background-index" },
             -- I'm going to use clangd on the remote server, but it's not working now.
@@ -70,7 +79,7 @@ return {
             -- 2. edit the files/directory on the remote server. TODO
         })
         -- bash
-        lspconfig.bashls.setup({
+        lsp.bashls.setup({
             on_attach = common_attach,
             cmd = { "bash-language-server", "start" },
             filetypes = { "sh", "bash" },
@@ -82,25 +91,25 @@ return {
         -- thrift
         -- cmd = { "thriftls" }, build thriftls from source
         -- git clone https://github.com/joyme123/thrift-ls && go build -o $GOPATH/bin/thriftls
-        lspconfig.thriftls.setup({ on_attach = common_attach })
+        lsp.thriftls.setup({ on_attach = common_attach })
         -- sql
         -- go install github.com/sqls-server/sqls@latest
-        lspconfig.sqls.setup({ on_attach = common_attach })
+        lsp.sqls.setup({ on_attach = common_attach })
         -- jsonnet
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#jsonnet_ls
-        lspconfig.jsonnet_ls.setup({ on_attach = common_attach })
+        lsp.jsonnet_ls.setup({ on_attach = common_attach })
         -- rust
-        lspconfig.rust_analyzer.setup({ on_attach = common_attach })
+        lsp.rust_analyzer.setup({ on_attach = common_attach })
         -- python
-        lspconfig.pyright.setup({ on_attach = common_attach })
+        lsp.pyright.setup({ on_attach = common_attach })
         -- lua
-        lspconfig.lua_ls.setup({
+        lsp.lua_ls.setup({
             on_attach = common_attach,
             settings = {
                 Lua = { diagnostics = { globals = { 'vim' } }, },
             },
         })
         -- ts
-        lspconfig.ts_ls.setup({ on_attach = common_attach })
+        lsp.ts_ls.setup({ on_attach = common_attach })
     end
 }

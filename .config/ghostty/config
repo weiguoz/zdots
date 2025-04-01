@@ -1,18 +1,16 @@
 # 1. brew install --cask ghostty
 # 2. cc from https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
 
-# theme
+# theme: "rebecca" "Rapture" "Horizon" "Dracula" "Banana BlueBerry" "snazzy soft"
 # theme = "dark:rose-pine-dawn,light:rose-pine" 
-# -- NOTE: the above configuration format makes the tab display appear to behave strangely
-# single configuration is good
-theme = "Dracula"
-# theme = "monokai pro machine" "Dracula"
+# -- NOTE: the above configuration format makes the tab display appear to behave strangely single configuration is good
+theme = "rebecca"
 
 # keybind
 # keybind = ctrl+z=close_surface
 # keybind = ctrl+d=new_split:right
 
-# font
+# font: "Fira Code"
 font-family = "JetBrains Mono"
 font-size = 15
 

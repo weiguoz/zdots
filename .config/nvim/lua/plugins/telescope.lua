@@ -45,25 +45,22 @@ return {
             -- vim.cmd("Telescope live_grep default_text=" .. word .. " grep_open_files=true")
         end, {noremap = true, silent = true, desc = "Telescope: grep"})
 
-        vim.keymap.set("n", "<leader>s*", function()
+        -- search the fixed cursor word, with file name filter
+        vim.keymap.set("n", "<leader>s", function()
+            vim.cmd("Telescope grep_string")
+        end, {noremap = true, silent = true, desc = "Telescope: search(grep)"})
+
+        vim.keymap.set("n", "<leader>*", function()
             local word = vim.fn.expand("<cword>")
             vim.cmd("Telescope current_buffer_fuzzy_find default_text=" .. word)
-        end, {noremap = true, silent = true, desc = "Telescope: fuzzy -> buffers"})
+        end, {noremap = true, silent = true, desc = "Telescope: search(fuzzy) in the buffer"})
         -- grep end 
 
-        -- search the fixed cursor word, with file name filter
-        vim.keymap.set("n", "<leader>sf", function()
-            vim.cmd("Telescope grep_string")
-        end, {noremap = true, silent = true, desc = "Telescope: cursor -> files"})
+        vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>', opt)
 
-        -- vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>', opt)
-        vim.keymap.set("n", "<leader>sb", function()
-            vim.cmd("Telescope buffers")
-        end, {noremap = true, silent = true, desc = "Telescope: buffers"})
-
-        vim.keymap.set("n", "<leader>st", function()
+        vim.keymap.set("n", "<leader>t", function()
             vim.fn.feedkeys(":Telescope lsp_document_symbols symbols=function,method,variable", "nt")
-        end, { desc = "Telescope: symbols -> buffers" })
+        end, { desc = "Telescope: list symbols in the buffers" })
     end,
 }
 -- NOTE，在prompt窗口中，

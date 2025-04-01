@@ -18,10 +18,9 @@ local BREWHOME="/opt/homebrew"
 local iPATH="$BREWHOME/bin:$BREWHOME/sbin"
 
 ## llvm
-### local LLVM_HOME="$BREWHOME/opt/llvm"
-### iPATH=$iPATH:"$LLVM_HOME/bin"
-### export LDFLAGS="-L$LLVM_HOME/lib"
-### export CPPFLAGS="-I$LLVM_HOME/include/c++/v1"
+# iPATH=$iPATH:"$BREWHOME/opt/llvm/bin"
+# export LDFLAGS="-L$BREWHOME/opt/llvm/lib"
+# export CPPFLAGS="-I$BREWHOME/opt/llvm/include/c++/v1"
 
 ## Java
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk/Contents/Home
