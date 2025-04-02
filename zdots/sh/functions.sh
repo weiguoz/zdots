@@ -80,14 +80,14 @@ uniq_csv() {
     # awk '!seen[$0]++' # deduplicate lines and keep the order
 }
 
-## used as alias
-ff () {
-    if [ $# -eq 0 ]; then
-        find . -type f 2> /dev/null
-    else
-        find . -type f \( $(printf '! -name %q -o ' "$@") -false \) 2> /dev/null
-    fi
-}
+# ## used as alias. upgrade to using fd
+# ff () {
+#     if [ $# -eq 0 ]; then
+#         find . -type f 2> /dev/null
+#     else
+#         find . -type f \( $(printf '! -name %q -o ' "$@") -false \) 2> /dev/null
+#     fi
+# }
 
 mysqlc() {
     mysql_config_editor print --all | awk '
