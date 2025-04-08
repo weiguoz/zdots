@@ -2,9 +2,8 @@
 # 2. cc from https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
 
 # theme: "rebecca" "Rapture" "Horizon" "Dracula" "Banana BlueBerry" "snazzy soft"
-# theme = "dark:rose-pine-dawn,light:rose-pine" 
-# -- NOTE: the above configuration format makes the tab display appear to behave strangely single configuration is good
-theme = "rebecca"
+# -- NOTE: the "dark:rose-pine-dawn,light:rose-pine" format makes the tab display appear to behave strangely single configuration is good
+theme = "Horizon"
 
 # keybind
 # keybind = ctrl+z=close_surface
