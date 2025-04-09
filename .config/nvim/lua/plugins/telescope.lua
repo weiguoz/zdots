@@ -56,6 +56,7 @@ return {
         end, {noremap = true, silent = true, desc = "Telescope: search(fuzzy) in the buffer"})
         -- grep end 
 
+        vim.keymap.set('n', '<leader>f', '<cmd>Telescope find_files<cr>', opt)
         vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>', opt)
 
         vim.keymap.set("n", "<leader>t", function()
