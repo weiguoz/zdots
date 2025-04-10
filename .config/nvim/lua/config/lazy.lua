@@ -42,7 +42,6 @@ return require('lazy').setup(
         -- db = ~/.config/nvim/cd-project.nvim.json
         { 'HiPhish/rainbow-delimiters.nvim' },
         { 'mhinz/vim-startify' },
-        { 'LintaoAmons/cd-project.nvim' },
     }, {
         checker = { enabled = true, frequency = 10*86400 },
     }

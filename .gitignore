@@ -47,6 +47,8 @@
 !.config/tmux-powerline/themes/*
 !.config/tmux-powerline/segments/*
 !.config/nvim/
+!.config/nvim/*
+!.config/nvim/lazy-lock.json
 !.config/nvim/init.lua
 !.config/nvim/lua/
 !.config/nvim/lua/*

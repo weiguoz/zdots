@@ -93,10 +93,8 @@ return {
         -- git clone https://github.com/joyme123/thrift-ls && go build -o $GOPATH/bin/thriftls
         lsp.thriftls.setup({ on_attach = common_attach })
         -- sql
-        -- go install github.com/sqls-server/sqls@latest
         lsp.sqls.setup({ on_attach = common_attach })
         -- jsonnet
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#jsonnet_ls
         lsp.jsonnet_ls.setup({ on_attach = common_attach })
         -- rust
         lsp.rust_analyzer.setup({ on_attach = common_attach })
