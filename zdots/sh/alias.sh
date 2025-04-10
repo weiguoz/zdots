@@ -22,6 +22,10 @@ alias f='open -a Finder .'
 alias mvnp='mvn clean package -Dmaven.test.skip'
 # alias antlr4='java -jar /usr/local/lib/antlr-4.5.3-complete.jar'
 
+dexter() {
+  docker exec -it "$1" /bin/sh -l # -l 是登录，会读取 ~/.profile 之类。如果不带 -l 则不重新登录
+}
+
 # alias cd
 ### 我把 zdharma-continuum/fast-syntax-highlighting 移到enhancd之前，问题解决了，但又会有新的补全问题
 ### https://github.com/b4b4r07/enhancd
