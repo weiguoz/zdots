@@ -22,8 +22,8 @@ return {
             mapping = {
                 ['<C-n>'] = cmp.mapping.select_next_item(),
                 ['<C-p>'] = cmp.mapping.select_prev_item(),
-                -- 关于 cmp.mapping.confirm 绑定的按键：c-y 离开食指太远，而 enter 与换行冲突. c-e 更好啊
-                ['<C-e>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
+                -- 关于 cmp.mapping.confirm 绑定的按键：c-y 离开食指太远，而 enter 与换行冲突. c-l 更好啊
+                -- ['<C-l>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
 
                 -- ['<C-Space>'] = cmp.mapping.complete(),
                 ['<Tab>'] = cmp.mapping(function(fallback)
