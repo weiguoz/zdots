@@ -97,10 +97,10 @@ return {
             require('starry').setup({ italics = { keywords = true } })
         end,
     },
-    { 'projekt0n/caret.nvim',      lazy = true },
-    { 'sainnhe/everforest',        lazy = true },
-    { 'EdenEast/nightfox.nvim',    lazy = true },
-    { 'catppuccin/nvim',           lazy = true, name = 'catppuccin' },
-    { 'sainnhe/sonokai',           lazy = true },
-    { 'embark-theme/vim',          lazy = true, name = 'embark' },
+    { 'projekt0n/caret.nvim',   lazy = true },
+    { 'sainnhe/everforest',     lazy = true },
+    { 'EdenEast/nightfox.nvim', lazy = true },
+    { 'catppuccin/nvim',        lazy = true, name = 'catppuccin' },
+    { 'sainnhe/sonokai',        lazy = true },
+    { 'embark-theme/vim',       lazy = true, name = 'embark' },
 }

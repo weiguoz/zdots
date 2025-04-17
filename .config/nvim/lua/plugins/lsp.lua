@@ -84,30 +84,21 @@ return {
             cmd = { "bash-language-server", "start" },
             filetypes = { "sh", "bash" },
             root_dir = require('lspconfig').util.root_pattern(".git", ".bashrc", ".bash_profile"),
-            settings = {
-                bash = { diagnostics = { enable = true }, },
-            },
+            settings = { bash = { diagnostics = { enable = true }}},
         })
         -- thrift
-        -- cmd = { "thriftls" }, build thriftls from source
-        -- git clone https://github.com/joyme123/thrift-ls && go build -o $GOPATH/bin/thriftls
         lsp.thriftls.setup({ on_attach = common_attach })
         -- sql
-        -- go install github.com/sqls-server/sqls@latest
         lsp.sqls.setup({ on_attach = common_attach })
         -- jsonnet
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#jsonnet_ls
         lsp.jsonnet_ls.setup({ on_attach = common_attach })
         -- rust
         lsp.rust_analyzer.setup({ on_attach = common_attach })
         -- python
         lsp.pyright.setup({ on_attach = common_attach })
         -- lua
-        lsp.lua_ls.setup({
-            on_attach = common_attach,
-            settings = {
-                Lua = { diagnostics = { globals = { 'vim' } }, },
-            },
+        lsp.lua_ls.setup({ on_attach = common_attach,
+            settings = { Lua = { diagnostics = { globals = { 'vim' }}}},
         })
         -- ts
         lsp.ts_ls.setup({ on_attach = common_attach })
