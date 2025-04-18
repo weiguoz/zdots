@@ -3,7 +3,7 @@
 
 # theme: "rebecca" "Rapture" "Horizon" "Dracula" "Banana BlueBerry" "snazzy soft"
 # -- NOTE: the "dark:rose-pine-dawn,light:rose-pine" format makes the tab display appear to behave strangely single configuration is good
-theme = "Horizon"
+theme = "Dracula"
 
 # keybind
 # keybind = ctrl+z=close_surface

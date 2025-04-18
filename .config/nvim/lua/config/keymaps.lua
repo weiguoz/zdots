@@ -36,6 +36,7 @@ vim.keymap.set("n", "gv", ":vsplit<CR>", { silent = true })
 -- vim.keymap.set("n", "<S-Tab>", [[ :if &modifiable && !&readonly && &modified <Bar> :write <Bar> endif <Bar> :bnext<CR> ]], { silent = true })
 
 vim.keymap.set("n", "<leader>z", ":lua ZoomWinToggle()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>q", ":cclose<CR>", { silent = true })
 
 -- search cursor word
 -- vim.keymap.set('n', '/', function()
