@@ -17,19 +17,25 @@ function GitBcommitsOnCursor()
     })
 end
 
-vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>lua pcall(GitBcommitsOnCursor)<CR>', { noremap = true, silent = true, desc = "Git commits on cursor" })
+vim.api.nvim_set_keymap('n', '<leader>g', '<cmd>lua pcall(GitBcommitsOnCursor)<CR>', { noremap = true, silent = true, desc = "Git commits on cursor" })
 
 return {
     'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+
+    dependencies = { 'nvim-lua/plenary.nvim', "folke/trouble.nvim" },
     config = function()
-        require('telescope').setup {
+        local tlsc = require("telescope")
+        local open_with_trouble = require("trouble.sources.telescope").open
+        tlsc.setup {
             defaults = {
                 file_ignore_patterns = { "node_modules", ".git" },
                 mappings = {
                     -- close on single escape or double escape
-                    i = { ['<Esc>'] = require('telescope.actions').close },
-                    -- n = { ['<Esc>'] = require('telescope.actions').close },
+                    i = {
+                        ["<Esc>"] = require("telescope.actions").close,
+                        ["<c-t>"] = open_with_trouble,
+                    },
+                    n = { ["<c-t>"] = open_with_trouble },
                 },
             },
         }
