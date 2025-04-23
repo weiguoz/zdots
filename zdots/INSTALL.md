@@ -96,7 +96,7 @@ Then, we could use `fzf` command inside the `ranger` by `:fzf_fd`. In addition, 
 
 ## fonts
 
-[nerdfonts/downloads](https://www.nerdfonts.com/font-downloads)
+[nerdfonts/downloads](https://www.nerdfonts.com/font-downloads) `brew install font-hack-nerd-font`
 
 ## tmux
 

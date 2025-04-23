@@ -22,9 +22,9 @@ alias f='open -a Finder .'
 alias mvnp='mvn clean package -Dmaven.test.skip'
 # alias antlr4='java -jar /usr/local/lib/antlr-4.5.3-complete.jar'
 
-dexter() {
-  docker exec -it "$1" /bin/sh -l # -l 是登录，会读取 ~/.profile 之类。如果不带 -l 则不重新登录
-}
+# dexter() {
+#   docker exec -it "$1" /bin/sh -l # -l 是登录，会读取 ~/.profile 之类。如果不带 -l 则不重新登录
+# }
 
 # alias cd
 ### 我把 zdharma-continuum/fast-syntax-highlighting 移到enhancd之前，问题解决了，但又会有新的补全问题
@@ -40,7 +40,8 @@ dexter() {
 
 # https://github.com/sharkdp/bat
 # alias bat='bat --style=numbers,changes --italic-text=always --theme=Dracula' --  别这么做，可以在 ~/.config/bat/config 中定义
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+# export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 help() {
     "$@" --help 2>&1 | bat --plain --language=help
 }
