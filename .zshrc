@@ -38,6 +38,7 @@ zinit wait lucid for \
     atinit"zicompinit; zicdreplay" \
     atpull'zinit creinstall -q .' zsh-users/zsh-completions
 
+fpath+=/opt/homebrew/share/zsh/site-functions # 补全脚本，否则 bat 等的 tab 不 work
 autoload -Uz compinit
 compinit -C
 
