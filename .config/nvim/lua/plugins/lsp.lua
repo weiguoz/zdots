@@ -1,3 +1,10 @@
+local function merge_table(t1, t2)
+  local result = {}
+  for k, v in pairs(t1) do result[k] = v end
+  for k, v in pairs(t2) do result[k] = v end
+  return result
+end
+
 return {
     'neovim/nvim-lspconfig',
     config = function()
@@ -18,21 +25,22 @@ return {
             local opts = { noremap=true, silent=true, buffer=bufnr }
 
             -- lsp
+            --- how telescope >
+            --- https://github.com/lopi-py/nvim-config/blob/a9c2c73dbea6472adb068eb2cd9a8810322d973a/lua/lsp.lua#L23
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-            vim.keymap.set('n', 'rn', vim.lsp.buf.rename, opts)
-            vim.keymap.set('n', 'ga', vim.lsp.buf.code_action, opts)
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-            -- how telescope >
-            -- https://github.com/lopi-py/nvim-config/blob/a9c2c73dbea6472adb068eb2cd9a8810322d973a/lua/lsp.lua#L23
-            vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
-            vim.keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", opts)
-            vim.keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<cr>", opts)
+            vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, merge_table(opts, { desc = "LSP: definition" }))
+            vim.keymap.set("n", "<leader>gt", "<cmd>Telescope lsp_type_definitions<cr>", merge_table(opts, { desc = "LSP: type definition" }))
+
+            vim.keymap.set('n', '<leader>gn', vim.lsp.buf.rename, merge_table(opts, { desc = "LSP: rename" }))
+            vim.keymap.set('n', '<leader>ga', vim.lsp.buf.code_action, merge_table(opts, { desc = "LSP: code action" }))
+            vim.keymap.set("n", "<leader>gi", "<cmd>Telescope lsp_implementations<cr>", merge_table(opts, { desc = "LSP: implementations" }))
+            vim.keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<cr>", merge_table(opts, { desc = "LSP: references" }))
 
             -- diagnostic
             vim.keymap.set('n', 'e', vim.diagnostic.goto_next, opts)
             vim.keymap.set('n', 'E', vim.diagnostic.goto_prev, opts)
-            vim.keymap.set('n', '<leader>ei', vim.diagnostic.open_float, { noremap = true, silent = true, desc = "Diagnostic: information" }) -- need buffer=bufnr?
-            vim.keymap.set('n', '<leader>el', "<cmd>Telescope diagnostics<cr>", {noremap = true, silent = true, buffer=bufnr, desc = "Diagnostic: list"})
+            vim.keymap.set('n', '<leader>gf', vim.diagnostic.open_float, merge_table(opts, { desc = "Diagnostic: information" })) -- need buffer=bufnr?
+            vim.keymap.set('n', '<leader>ge', "<cmd>Telescope diagnostics<cr>", merge_table(opts, { desc = "Diagnostic: list" }))
             -- vim.api.nvim_create_autocmd("CursorHold", {
             --     callback = function()
             --         vim.diagnostic.open_float(nil, { scope = "line", border = "rounded", focusable = false, header = "", source = "always", })
