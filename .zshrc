@@ -101,6 +101,7 @@ case $THEME in
 esac
 # }}}
 
+source ${HOME}/zdots/sh/exports.sh
 # automatic added by vim plugin fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [[ -o interactive ]] && eval "$(zoxide init zsh)" # brew install zoxide

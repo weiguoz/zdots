@@ -18,9 +18,9 @@ local BREWHOME="/opt/homebrew"
 local iPATH="$BREWHOME/bin:$BREWHOME/sbin"
 
 ## llvm
-# iPATH=$iPATH:"$BREWHOME/opt/llvm/bin"
-# export LDFLAGS="-L$BREWHOME/opt/llvm/lib"
-# export CPPFLAGS="-I$BREWHOME/opt/llvm/include/c++/v1"
+iPATH=$iPATH:"$BREWHOME/opt/llvm/bin"
+export LDFLAGS="-L$BREWHOME/opt/llvm/lib"
+export CPPFLAGS="-I$BREWHOME/opt/llvm/include" # or /c++/v1 ?
 
 ## Java
 # export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk/Contents/Home
@@ -43,7 +43,7 @@ iPATH=$iPATH:"/Applications/Docker.app/Contents/Resources/bin"
 iPATH=$iPATH:"$BREWHOME/opt/python3/bin" # make soft links('ln -s') python3 & pip3 from the specific version
 export PYTHONPATH=`uniq_csv "$BREWHOME/lib/python3.13/site-packages:$PYTHONPATH"`
 
-# {{{ mysql-clien
+# {{{ mysql-client
 iPATH=$iPATH:"$BREWHOME/opt/mysql-client/bin"
 #For compilers to find mysql-client you may need to set:
 #  export LDFLAGS="-L/opt/homebrew/opt/mysql-client/lib"

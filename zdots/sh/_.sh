@@ -12,7 +12,7 @@ import() {
 import "${HOME}/Documents/secrets/sh/_.sh"
 
 DOTS="${HOME}/zdots"
-import "${DOTS}/sh/exports.sh"
+# import "${DOTS}/sh/exports.sh" # placed in ~/.zshrc
 import "${DOTS}/sh/keybinding.sh"
 import "${DOTS}/sh/init.sh"
 import "${DOTS}/sh/search_on_terminal.sh"
