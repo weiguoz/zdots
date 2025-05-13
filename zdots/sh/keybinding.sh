@@ -41,4 +41,11 @@ bindkey "^h" my-backward-word
 
 # bindkey -s '^o' 'vim $(fzf)^M' replace by ranger
 # inspired by https://jdhao.github.io/2019/06/13/zsh_bind_keys/
-bindkey -s '^o' 'my_fzf_rg^M'
+#
+# bindkey -s '^o' 'my_fzf_rg^M'
+function _my_fzf_rg_widget() {
+  zle -I
+  _my_fzf_rg
+}
+zle -N _my_fzf_rg_widget
+bindkey '^o' _my_fzf_rg_widget

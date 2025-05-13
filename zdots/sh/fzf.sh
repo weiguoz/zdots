@@ -64,7 +64,7 @@ pods() {
 
 # also, rg does not supply fuzzy search: https://github.com/BurntSushi/ripgrep/issues/1053
 # refer: https://github.com/junegunn/fzf/blob/master/ADVANCED.md#switching-to-fzf-only-search-mode
-my_fzf_rg() {
+_my_fzf_rg() {
     INITIAL_QUERY="${*:-}"
     RG_PREFIX='rg --column --line-number --hidden --multiline --no-heading --color=always --smart-case --colors "path:fg:190,220,255" --colors "line:fg:128,128,128"'
     local selected=$(
