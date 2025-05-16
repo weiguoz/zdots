@@ -44,17 +44,17 @@ return {
         vim.keymap.set('n', 't', '<cmd>Telescope<cr>', opt)
         vim.keymap.set('n', 'c', '<cmd>Telescope commands<cr>', opt)
 
-        -- search the cursor word, without filter
+        -- search the fixed cursor word, with file name filter
         vim.keymap.set("n", "s", function()
+            vim.cmd("Telescope grep_string")
+        end, {noremap = true, silent = true, desc = "Telescope: search(grep)"})
+
+        -- search the cursor word, without filter
+        vim.keymap.set("n", "<leader>s", function()
             local word = vim.fn.expand("<cword>")
             vim.cmd("Telescope live_grep default_text=" .. word)
             -- vim.cmd("Telescope live_grep default_text=" .. word .. " grep_open_files=true")
         end, {noremap = true, silent = true, desc = "Telescope: grep"})
-
-        -- search the fixed cursor word, with file name filter
-        vim.keymap.set("n", "<leader>s", function()
-            vim.cmd("Telescope grep_string")
-        end, {noremap = true, silent = true, desc = "Telescope: search(grep)"})
 
         vim.keymap.set("n", "<leader>*", function()
             local word = vim.fn.expand("<cword>")

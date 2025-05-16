@@ -59,6 +59,23 @@ return {
         end
 
         -- lsp: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
+ 
+        -- 当在某个 go 项目根目录(含 go.mod)，编辑时可正常判断项目所在目录，即搜索显示的目录都正常，搜索结果不包含 /path/to/project
+        -- 然而，当在子文件夹用 nvim 打开文件时，则无法判断所在的项目目录，即搜索显示 /path/to/project/**
+        -- 我希望通过 lsp 来实现 cd-project 这类插件的效果
+        -- 注意到：
+        --   1. 执行 echo getcwd() 显示不在根目录
+        --   2. 执行 LspInfo 显示Root directory 正确
+        -- 只要将 Lsp 分析的结果设置为当前目录即可
+        vim.api.nvim_create_autocmd("LspAttach", {
+          callback = function(args)
+            local client = vim.lsp.get_client_by_id(args.data.client_id)
+            local root_dir = client and client.config and client.config.root_dir
+            if root_dir and vim.api.nvim_buf_is_loaded(args.buf) then
+              vim.cmd("lcd " .. root_dir)
+            end
+          end,
+        })
 
         -- golang
         lsp.gopls.setup({

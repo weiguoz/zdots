@@ -12,8 +12,10 @@ fi
 
 printf "[2] update zinit plugins\n"
 printf "  Run \"zinit self-update && zinit update && zinit delete --clean\" manually\n"
-printf "[3] others\n"
+printf "[3] tmux\n"
 printf "  tmux update: prefix+U\n"
+printf "[4] yazi.flavors\n"
+printf "  cd ~/.config/yazi/flavors && git pull\n"
 
 # cd /path/to/playground/XX-Net && git pull --rebase --stat origin master
 # echo "\n[3] tnpm update"
@@ -22,6 +24,7 @@ printf "  tmux update: prefix+U\n"
 # tnpm -g outdated
 # npm -g install webpack
 # npm update -g npm
+#
 printf 'Against the unstable network disrupt by GFW:
 while [ $? -ne 0 ]; do
     sleep 30
