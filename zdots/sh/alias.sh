@@ -8,6 +8,7 @@ alias diff='icdiff'
 alias cp='cp -i'
 alias ls='eza'
 alias ll='eza -l'
+alias l='yazi'
 alias lst='eza --long --tree'
 alias lh='eza -ld .?*' # ls hidden files
 alias has='xargs grep -Hli' # xargs grep -i "$1" | awk -F':' '{print $1}' | sort -u
