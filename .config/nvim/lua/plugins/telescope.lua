@@ -22,9 +22,14 @@ vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>lua pcall(GitBcommitsOnCursor)<
 return {
     'nvim-telescope/telescope.nvim',
 
-    dependencies = { 'nvim-lua/plenary.nvim', "folke/trouble.nvim" },
+    dependencies = { 'nvim-lua/plenary.nvim', "folke/trouble.nvim", "LukasPietzschmann/telescope-tabs" },
+    -- 其实是 telescope-tabs 依赖 telescope.nvim
+
     config = function()
         local tlsc = require("telescope")
+
+        tlsc.load_extension 'telescope-tabs'
+
         local open_with_trouble = require("trouble.sources.telescope").open
         tlsc.setup {
             defaults = {
@@ -64,8 +69,9 @@ return {
 
         vim.keymap.set('n', '<leader>f', '<cmd>Telescope find_files<cr>', opt)
         vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>', opt)
+        vim.keymap.set('n', '<leader>t', '<cmd>Telescope telescope-tabs list_tabs<cr>', opt) -- with the help of plugin `telescope-tabs`
 
-        vim.keymap.set("n", "<leader>t", function()
+        vim.keymap.set("n", "<leader>v", function()
             vim.fn.feedkeys(":Telescope lsp_document_symbols symbols=function,method,variable", "nt")
         end, { desc = "Telescope: list symbols in the buffers" })
     end,
