@@ -8,8 +8,8 @@ return {
         })
         -- https://github.com/github/copilot.vim/blob/a9228e015528c9307890c48083c925eb98a64a79/doc/copilot.txt#L119
         vim.keymap.set('i', '<C-g>', '<Plug>(copilot-accept-word)', opts) -- must not c-w which is used as delete a back word
-        vim.keymap.set('i', '<C-j>', '<Plug>(copilot-next)', opts)
-        vim.keymap.set('i', '<C-k>', '<Plug>(copilot-previous)', opts)
+        -- vim.keymap.set('i', '<C-j>', '<Plug>(copilot-next)', opts)
+        -- vim.keymap.set('i', '<C-k>', '<Plug>(copilot-previous)', opts)
         vim.keymap.set('i', '<C-x>', '<Plug>(copilot-dismiss)', opts)
 
         -- tpope [workaround] https://github.com/community/community/discussions/16800#discussioncomment-2848953
