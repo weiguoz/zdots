@@ -21,7 +21,6 @@ return {
             return os.date("%Y-%m-%d %H:%M")
         end
 
-
         -- add custom snippets
         ls.add_snippets("all", {
             s("todo", {

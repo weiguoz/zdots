@@ -22,13 +22,19 @@ vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>lua pcall(GitBcommitsOnCursor)<
 return {
     'nvim-telescope/telescope.nvim',
 
-    dependencies = { 'nvim-lua/plenary.nvim', "folke/trouble.nvim", "LukasPietzschmann/telescope-tabs" },
-    -- 其实是 telescope-tabs 依赖 telescope.nvim
+    dependencies = {
+        'nvim-lua/plenary.nvim',
+        'folke/trouble.nvim',
+        'LukasPietzschmann/telescope-tabs',
+        'benfowler/telescope-luasnip.nvim',
+    },
+    -- 其实是 telescope-tabs/telescope-luasnip 依赖 telescope.nvim
 
     config = function()
         local tlsc = require("telescope")
 
-        tlsc.load_extension 'telescope-tabs'
+        tlsc.load_extension('telescope-tabs')
+        tlsc.load_extension('luasnip')
 
         local open_with_trouble = require("trouble.sources.telescope").open
         tlsc.setup {
@@ -44,6 +50,10 @@ return {
                 },
             },
         }
+
+        vim.keymap.set("n", "<leader>l", function()
+            tlsc.extensions.luasnip.luasnip()
+        end, { desc = "Snippets" })
 
         local opt = { noremap = true, silent = true }
         vim.keymap.set('n', 't', '<cmd>Telescope<cr>', opt)

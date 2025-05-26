@@ -24,7 +24,6 @@ return {
                 ['<C-p>'] = cmp.mapping.select_prev_item(),
                 ['<C-j>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
 
-                -- ['<C-Space>'] = cmp.mapping.complete(),
                 ['<Tab>'] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.select_next_item()
