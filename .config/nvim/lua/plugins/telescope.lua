@@ -48,6 +48,15 @@ return {
                     },
                     n = { ["<c-t>"] = open_with_trouble },
                 },
+                -- layout
+                layout_strategy = 'vertical', -- horizontal,  vertical, center, cursor
+                layout_config = {
+                    horizontal = { prompt_position = "bottom", preview_width = 0.8 }, -- "bottom" or "top"
+                    vertical = { mirror = true, preview_height = 0.7 },
+                    width = 0.8, height = 0.9, prompt_position = "bottom" -- top bottom
+                },
+                sorting_strategy = "ascending",
+                winblend = 7,
             },
         }
 
