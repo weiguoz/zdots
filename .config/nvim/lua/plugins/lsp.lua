@@ -83,16 +83,19 @@ return {
             }
         })
         -- c/c++
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.offsetEncoding = { "utf-16" }
         lsp.clangd.setup({
+            -- force clangd to use utf-16 encoding(default is utf-8)
+            -- check if all client has the same encoding:
+            --   `:lua for _, client in pairs(vim.lsp.get_active_clients()) do print(client.name, client.offset_encoding) end`
+            capabilities = capabilities,
             on_attach = common_attach,
             cmd = { "/opt/homebrew/opt/llvm/bin/clangd", "--background-index" },
             -- I'm going to use clangd on the remote server, but it's not working now.
             -- Remote lsp server and remote files, locally neovim toolkits.
             --
             -- 1. start clangd on the remote server. Done
-            -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
-            -- capabilities.offsetEncoding = { "utf-16" }
-            -- capabilities = capabilities,
             -- cmd = { "ssh", "localdocker.10510", "clangd", "--background-index", "--log=verbose", "--compile-commands-dir=/path/on/localdocker.10510" },
             -- 2. edit the files/directory on the remote server. TODO
         })
