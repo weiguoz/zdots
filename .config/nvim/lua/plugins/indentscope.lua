@@ -1,6 +1,6 @@
 return {
     "echasnovski/mini.indentscope",
-    config = function ()
+    config = function()
         require('mini.indentscope').setup({
             draw = {
                 delay = 1000,

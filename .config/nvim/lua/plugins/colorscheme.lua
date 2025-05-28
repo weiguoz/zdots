@@ -85,18 +85,18 @@ return {
             stepover_theme_helper(0) -- MUST lazy = false
         end,
     }, {
-        'yorik1984/newpaper.nvim',
-        lazy = true,
-        config = function()
-            require('newpaper').setup({ style = 'light', keywords = 'bold,italic' })
-        end,
-    }, {
-        'ray-x/starry.nvim',
-        lazy = true,
-        config = function()
-            require('starry').setup({ italics = { keywords = true } })
-        end,
-    },
+    'yorik1984/newpaper.nvim',
+    lazy = true,
+    config = function()
+        require('newpaper').setup({ style = 'light', keywords = 'bold,italic' })
+    end,
+}, {
+    'ray-x/starry.nvim',
+    lazy = true,
+    config = function()
+        require('starry').setup({ italics = { keywords = true } })
+    end,
+},
     { 'projekt0n/caret.nvim',   lazy = true },
     { 'sainnhe/everforest',     lazy = true },
     { 'EdenEast/nightfox.nvim', lazy = true },

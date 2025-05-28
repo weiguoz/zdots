@@ -7,11 +7,11 @@ return {
     },
 
     config = function()
-        local ls = require("luasnip")
-        local s = ls.snippet
-        local t = ls.text_node
-        local i = ls.insert_node
-        local f = ls.function_node
+        local lsnp = require("luasnip")
+        local s = lsnp.snippet
+        local t = lsnp.text_node
+        local i = lsnp.insert_node
+        local f = lsnp.function_node
 
         local get_username = function()
             return os.getenv("USER") or os.getenv("USERNAME") or "unknown"
@@ -22,7 +22,7 @@ return {
         end
 
         -- add custom snippets
-        ls.add_snippets("all", {
+        lsnp.add_snippets("all", {
             s("todo", {
                 f(function(_, _)
                     local comment = "//"
@@ -38,6 +38,10 @@ return {
                 f(get_datetime),
             }),
         })
+
+        vim.keymap.set({ "i" }, "<C-k>", function() lsnp.expand() end, { silent = true })
+        vim.keymap.set({ "i", "s" }, "<C-l>", function() lsnp.jump(1) end, { silent = true })
+        vim.keymap.set({ "i", "s" }, "<C-h>", function() lsnp.jump(-1) end, { silent = true })
 
         require("luasnip.loaders.from_vscode").lazy_load()
     end

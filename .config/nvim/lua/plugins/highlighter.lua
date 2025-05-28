@@ -23,16 +23,19 @@ return {
             vim.keymap.del('n', 't<CR>')
 
             vim.g.HiSetToggle = 1 -- add is enough, remove is not necessary
-            vim.keymap.set('n', '<leader>ha', '<Cmd>Hi/+<CR>', {noremap = true, silent = true, desc = 'Highlight toggle, Hi/+<CR>'})
-            vim.keymap.set('n', '<leader>hc', '<Cmd>Hi clear<CR>', { noremap = true, silent = true, desc = 'Highlight clear'})
-            vim.keymap.set('n', '<leader>hs', '<Cmd>Hi/+%<CR>', { noremap = true, silent = true, desc = 'Highlight single word'})
+            vim.keymap.set('n', '<leader>ha', '<Cmd>Hi/+<CR>',
+                { noremap = true, silent = true, desc = 'Highlight toggle, Hi/+<CR>' })
+            vim.keymap.set('n', '<leader>hc', '<Cmd>Hi clear<CR>',
+                { noremap = true, silent = true, desc = 'Highlight clear' })
+            vim.keymap.set('n', '<leader>hs', '<Cmd>Hi/+%<CR>',
+                { noremap = true, silent = true, desc = 'Highlight single word' })
             -- vim.keymap.set('n', '<leader>hx', '<Cmd>Hi/-<CR>', {noremap = true, silent = true, desc = 'Highlight remove'})
         end,
     }, {
-        'RRethy/vim-illuminate', -- automatically highlighting the word under the cursor
-        event = 'VeryLazy',
-        config = function()
-            require('illuminate').configure({ delay = 500 })
-        end,
-    }
+    'RRethy/vim-illuminate', -- automatically highlighting the word under the cursor
+    event = 'VeryLazy',
+    config = function()
+        require('illuminate').configure({ delay = 500 })
+    end,
+}
 }

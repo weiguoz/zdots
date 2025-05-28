@@ -5,7 +5,7 @@ return {
         'hrsh7th/cmp-buffer',
         'hrsh7th/cmp-path',
         'hrsh7th/cmp-cmdline',
-        'onsails/lspkind-nvim', -- for icons
+        'onsails/lspkind-nvim',      -- for icons
         'xzbdmw/colorful-menu.nvim', -- for menu
         'L3MON4D3/LuaSnip',
     },

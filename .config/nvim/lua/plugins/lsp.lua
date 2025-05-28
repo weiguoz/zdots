@@ -1,8 +1,8 @@
 local function merge_table(t1, t2)
-  local result = {}
-  for k, v in pairs(t1) do result[k] = v end
-  for k, v in pairs(t2) do result[k] = v end
-  return result
+    local result = {}
+    for k, v in pairs(t1) do result[k] = v end
+    for k, v in pairs(t2) do result[k] = v end
+    return result
 end
 
 return {
@@ -20,46 +20,56 @@ return {
             vim.lsp.buf.clear_references()
         end, { desc = "清除高亮" })
 
-        -- common attach function
-        local common_attach = function(_, bufnr)
-            local opts = { noremap=true, silent=true, buffer=bufnr }
+        local opts = { noremap = true, silent = true }
+        -- lsp
+        --- how telescope >
+        --- https://github.com/lopi-py/nvim-config/blob/a9c2c73dbea6472adb068eb2cd9a8810322d973a/lua/lsp.lua#L23
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, merge_table(opts, { desc = "LSP: definition" }))
+        vim.keymap.set("n", "<leader>gt", "<cmd>Telescope lsp_type_definitions<cr>",
+            merge_table(opts, { desc = "LSP: type definition" }))
 
-            -- lsp
-            --- how telescope >
-            --- https://github.com/lopi-py/nvim-config/blob/a9c2c73dbea6472adb068eb2cd9a8810322d973a/lua/lsp.lua#L23
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-            vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, merge_table(opts, { desc = "LSP: definition" }))
-            vim.keymap.set("n", "<leader>gt", "<cmd>Telescope lsp_type_definitions<cr>", merge_table(opts, { desc = "LSP: type definition" }))
+        vim.keymap.set('n', '<leader>gn', vim.lsp.buf.rename, merge_table(opts, { desc = "LSP: rename" }))
+        vim.keymap.set('n', '<leader>ga', vim.lsp.buf.code_action, merge_table(opts, { desc = "LSP: code action" }))
+        vim.keymap.set("n", "<leader>gi", "<cmd>Telescope lsp_implementations<cr>",
+            merge_table(opts, { desc = "LSP: implementations" }))
+        vim.keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<cr>",
+            merge_table(opts, { desc = "LSP: references" }))
 
-            vim.keymap.set('n', '<leader>gn', vim.lsp.buf.rename, merge_table(opts, { desc = "LSP: rename" }))
-            vim.keymap.set('n', '<leader>ga', vim.lsp.buf.code_action, merge_table(opts, { desc = "LSP: code action" }))
-            vim.keymap.set("n", "<leader>gi", "<cmd>Telescope lsp_implementations<cr>", merge_table(opts, { desc = "LSP: implementations" }))
-            vim.keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<cr>", merge_table(opts, { desc = "LSP: references" }))
-
-            -- diagnostic
-            vim.keymap.set('n', 'e', vim.diagnostic.goto_next, opts)
-            vim.keymap.set('n', 'E', vim.diagnostic.goto_prev, opts)
-            vim.keymap.set('n', '<leader>gf', vim.diagnostic.open_float, merge_table(opts, { desc = "Diagnostic: information" })) -- need buffer=bufnr?
-            vim.keymap.set('n', '<leader>ge', "<cmd>Telescope diagnostics<cr>", merge_table(opts, { desc = "Diagnostic: list" }))
-            -- vim.api.nvim_create_autocmd("CursorHold", {
-            --     callback = function()
-            --         vim.diagnostic.open_float(nil, { scope = "line", border = "rounded", focusable = false, header = "", source = "always", })
-            --     end,
-            -- })
-            -- dl implementation 1
-            -- vim.keymap.set('n', '<leader>dl', function()
-            --   require('telescope.builtin').diagnostics({ severity_sort = true }) -- sort by severity
-            -- end, bufopts)
-            -- dl implementation 2
-            -- add agnostic to loclist then export to telescope is a good idea, but the loclist popup is not good
-            -- vim.keymap.set('n', '<leader>dl', function()
-            --   vim.diagnostic.setloclist() -- add diagnostic to loclist
-            --   telescope.loclist() -- open loclist with telescope
-            -- end, bufopts)
-        end
+        -- diagnostic
+        vim.keymap.set('n', 'e', vim.diagnostic.goto_next, opts)
+        vim.keymap.set('n', 'E', vim.diagnostic.goto_prev, opts)
+        vim.keymap.set('n', '<leader>gf', vim.diagnostic.open_float,
+            merge_table(opts, { desc = "Diagnostic: information" })) -- need buffer=bufnr?
+        vim.keymap.set('n', '<leader>ge', "<cmd>Telescope diagnostics<cr>",
+            merge_table(opts, { desc = "Diagnostic: list" }))
+        -- vim.api.nvim_create_autocmd("CursorHold", {
+        --     callback = function()
+        --         vim.diagnostic.open_float(nil, { scope = "line", border = "rounded", focusable = false, header = "", source = "always", })
+        --     end,
+        -- })
+        -- dl implementation 1
+        -- vim.keymap.set('n', '<leader>dl', function()
+        --   require('telescope.builtin').diagnostics({ severity_sort = true }) -- sort by severity
+        -- end, bufopts)
+        -- dl implementation 2
+        -- add agnostic to loclist then export to telescope is a good idea, but the loclist popup is not good
+        -- vim.keymap.set('n', '<leader>dl', function()
+        --   vim.diagnostic.setloclist() -- add diagnostic to loclist
+        --   telescope.loclist() -- open loclist with telescope
+        -- end, bufopts)
 
         -- lsp: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
- 
+
+        local common_attach = function(_, bufnr)
+            -- 保存时自动格式化
+            vim.api.nvim_create_autocmd("BufWritePre", {
+                buffer = bufnr,
+                callback = function()
+                    vim.lsp.buf.format({ async = false })
+                end,
+            })
+        end
         -- golang
         lsp.gopls.setup({
             on_attach = common_attach,
@@ -83,7 +93,7 @@ return {
             -- local capabilities = require('cmp_nvim_lsp').default_capabilities()
             -- capabilities.offsetEncoding = { "utf-16" }
             -- capabilities = capabilities,
-            -- cmd = { "ssh", "localdocker.10510", "clangd", "--background-index", "--log=verbose", "--compile-commands-dir=/path/on/localdocker.10510" }, 
+            -- cmd = { "ssh", "localdocker.10510", "clangd", "--background-index", "--log=verbose", "--compile-commands-dir=/path/on/localdocker.10510" },
             -- 2. edit the files/directory on the remote server. TODO
         })
         -- bash
@@ -92,7 +102,7 @@ return {
             cmd = { "bash-language-server", "start" },
             filetypes = { "sh", "bash" },
             root_dir = require('lspconfig').util.root_pattern(".git", ".bashrc", ".bash_profile"),
-            settings = { bash = { diagnostics = { enable = true }}},
+            settings = { bash = { diagnostics = { enable = true } } },
         })
         -- thrift
         lsp.thriftls.setup({ on_attach = common_attach })
@@ -105,8 +115,9 @@ return {
         -- python
         lsp.pyright.setup({ on_attach = common_attach })
         -- lua
-        lsp.lua_ls.setup({ on_attach = common_attach,
-            settings = { Lua = { diagnostics = { globals = { 'vim' }}}},
+        lsp.lua_ls.setup({
+            on_attach = common_attach,
+            settings = { Lua = { diagnostics = { globals = { 'vim' } } } },
         })
         -- ts
         lsp.ts_ls.setup({ on_attach = common_attach })

@@ -8,5 +8,5 @@ vim.api.nvim_create_user_command(
         vim.cmd([[%s/\s\+$//e]])
         vim.fn.setreg("/", saved_search)
     end,
-    { range = "%" }  -- 允许命令在整个缓冲区范围内执行
+    { range = "%" } -- 允许命令在整个缓冲区范围内执行
 )

@@ -22,14 +22,14 @@ vim.opt.expandtab = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.api.nvim_create_autocmd({ "InsertEnter" }, {
-  callback = function()
-    vim.opt.relativenumber = false
-  end
+    callback = function()
+        vim.opt.relativenumber = false
+    end
 })
 vim.api.nvim_create_autocmd({ "InsertLeave" }, {
-  callback = function()
-    vim.opt.relativenumber = true
-  end
+    callback = function()
+        vim.opt.relativenumber = true
+    end
 })
 
 vim.opt.mouse = vim.opt.mouse - "r"
@@ -123,11 +123,11 @@ init_undo("~/.local/share/nvim/undo")
 --   2. 执行 LspInfo 显示Root directory 正确
 -- 只要将 Lsp 分析的结果设置为当前目录即可
 vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    local root_dir = client and client.config and client.config.root_dir
-    if root_dir and vim.api.nvim_buf_is_loaded(args.buf) then
-      vim.cmd("lcd " .. root_dir)
-    end
-  end,
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        local root_dir = client and client.config and client.config.root_dir
+        if root_dir and vim.api.nvim_buf_is_loaded(args.buf) then
+            vim.cmd("lcd " .. root_dir)
+        end
+    end,
 })

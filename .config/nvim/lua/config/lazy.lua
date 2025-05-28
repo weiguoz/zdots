@@ -43,6 +43,6 @@ return require('lazy').setup(
         { 'HiPhish/rainbow-delimiters.nvim' },
         { 'mhinz/vim-startify' },
     }, {
-        checker = { enabled = true, frequency = 10*86400 },
+        checker = { enabled = true, frequency = 10 * 86400 },
     }
 )

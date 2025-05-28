@@ -17,7 +17,8 @@ function GitBcommitsOnCursor()
     })
 end
 
-vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>lua pcall(GitBcommitsOnCursor)<CR>', { noremap = true, silent = true, desc = "Git commits on cursor" })
+vim.api.nvim_set_keymap('n', '<leader>gb', '<cmd>lua pcall(GitBcommitsOnCursor)<CR>',
+    { noremap = true, silent = true, desc = "Git commits on cursor" })
 
 return {
     'nvim-telescope/telescope.nvim',
@@ -49,11 +50,11 @@ return {
                     n = { ["<c-t>"] = open_with_trouble },
                 },
                 -- layout
-                layout_strategy = 'vertical', -- horizontal,  vertical, center, cursor
+                layout_strategy = 'vertical',                                         -- horizontal,  vertical, center, cursor
                 layout_config = {
                     horizontal = { prompt_position = "bottom", preview_width = 0.8 }, -- "bottom" or "top"
                     vertical = { mirror = true, preview_height = 0.7 },
-                    width = 0.8, height = 0.9, prompt_position = "bottom" -- top bottom
+                    width = 0.8, height = 0.9, prompt_position = "bottom"             -- top bottom
                 },
                 sorting_strategy = "ascending",
                 winblend = 7,
@@ -73,18 +74,18 @@ return {
             local word = vim.fn.expand("<cword>")
             vim.cmd("Telescope live_grep default_text=" .. word)
             -- vim.cmd("Telescope live_grep default_text=" .. word .. " grep_open_files=true")
-        end, {noremap = true, silent = true, desc = "Telescope: grep"})
+        end, { noremap = true, silent = true, desc = "Telescope: grep" })
 
         -- search the fixed cursor word, with file name filter
         vim.keymap.set("n", "<leader>s", function()
             vim.cmd("Telescope grep_string")
-        end, {noremap = true, silent = true, desc = "Telescope: search(grep)"})
+        end, { noremap = true, silent = true, desc = "Telescope: search(grep)" })
 
         vim.keymap.set("n", "<leader>*", function()
             local word = vim.fn.expand("<cword>")
             vim.cmd("Telescope current_buffer_fuzzy_find default_text=" .. word)
-        end, {noremap = true, silent = true, desc = "Telescope: search(fuzzy) in the buffer"})
-        -- grep end 
+        end, { noremap = true, silent = true, desc = "Telescope: search(fuzzy) in the buffer" })
+        -- grep end
 
         vim.keymap.set('n', '<leader>f', '<cmd>Telescope find_files<cr>', opt)
         vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>', opt)
@@ -98,39 +99,39 @@ return {
 -- NOTE，在prompt窗口中，
 -- c-w 删除前一个单词
 -- c-h 删除前一个字符
--- c-d/u preview 窗口翻半页 
+-- c-d/u preview 窗口翻半页
 
 -- fzf's replacement is telescope
 -- " {{{ fzf buffers <- so I remove the buftabline from my plugins
 -- " fzf quicks
 -- let g:fzf_buffers_jump = 1
 -- let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.8 } }
--- 
+--
 -- function! s:list_buffers()
 --     redir => list
 --     silent ls
 --     redir END
 --     return split(list, "\n")
 -- endfunction
--- 
+--
 -- function! s:delete_buffers(lines)
 --     execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
 -- endfunction
--- 
+--
 -- command! BD call fzf#run(fzf#wrap({
 --             \ 'source': s:list_buffers(),
 --             \ 'sink*': { lines -> s:delete_buffers(lines) },
 --             \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept' }))
--- 
+--
 -- let g:fzf_action = {
 --   \ 'ctrl-t': 'tab split',
 --   \ 'ctrl-v': 'vsplit' }
--- 
+--
 -- function! RGOptFun(arg, fullscreen)
 --     let tokens  = split(a:arg)
 --     let opts = join(filter(copy(tokens), 'v:val =~ "^-"'))
 --     let query = join(filter(copy(tokens), 'v:val !~ "^-"'))
--- 
+--
 --     let command_fmt = 'rg --column --no-heading --color=always --smart-case '.opts.' -- %s || true'
 --     let initial_command = printf(command_fmt, shellescape(query))
 --     let reload_command = printf(command_fmt, '{q}')

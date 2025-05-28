@@ -39,7 +39,7 @@ return {
 --     config = function ()
 --       vim.cmd([[nnoremap \ :Neotree toggle reveal<cr>]])
 --     end,
--- 
+--
 --     window = {
 --       mappings = {
 --         ["P"] = { "toggle_preview" },

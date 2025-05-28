@@ -3,9 +3,9 @@ return {
     dependencies = {
         { "kkharji/sqlite.lua" },
         { "nvim-telescope/telescope.nvim" },
-        { "stevearc/dressing.nvim" },        -- optional
+        { "stevearc/dressing.nvim" }, -- optional
     },
-    config = function() -- bookmarks/config.lua::default_config
+    config = function()               -- bookmarks/config.lua::default_config
         require("bookmarks").setup({
             signs = {
                 mark = { icon = "󰃁" } -- 📌
@@ -14,11 +14,17 @@ return {
         })
 
         -- migrated from keymaps.lua vim.keymap.set({ "n", "v" }, "mm", "<cmd>BookmarksMark<cr>", { desc = "Mark current line into active BookmarkList." })
-        vim.api.nvim_set_keymap('n', '<leader>ma', ':BookmarksMark<CR>', {noremap = true, silent = true, desc = "Bookmarks: add"})
-        vim.api.nvim_set_keymap('n', '<leader>ml', ':BookmarksGoto<CR>', {noremap = true, silent = true, desc = "Bookmarks: list"})
-        vim.api.nvim_set_keymap('n', '<leader>mt', ':BookmarksTree<CR>', {noremap = true, silent = true, desc = "Bookmarks: tree"})
-        vim.api.nvim_set_keymap('n', '<leader>mc', ':BookmarksCommands<CR>', {noremap = true, silent = true, desc = "Bookmarks: command"})
-        vim.api.nvim_set_keymap('n', '<leader>mp', ':BookmarksGotoPrevInList<CR>', {noremap = true, silent = true, desc = "Bookmarks: prev"})
-        vim.api.nvim_set_keymap('n', '<leader>mn', ':BookmarksGotoNextInList<CR>', {noremap = true, silent = true, desc = "Bookmarks: next"})
+        vim.api.nvim_set_keymap('n', '<leader>ma', ':BookmarksMark<CR>',
+            { noremap = true, silent = true, desc = "Bookmarks: add" })
+        vim.api.nvim_set_keymap('n', '<leader>ml', ':BookmarksGoto<CR>',
+            { noremap = true, silent = true, desc = "Bookmarks: list" })
+        vim.api.nvim_set_keymap('n', '<leader>mt', ':BookmarksTree<CR>',
+            { noremap = true, silent = true, desc = "Bookmarks: tree" })
+        vim.api.nvim_set_keymap('n', '<leader>mc', ':BookmarksCommands<CR>',
+            { noremap = true, silent = true, desc = "Bookmarks: command" })
+        vim.api.nvim_set_keymap('n', '<leader>mp', ':BookmarksGotoPrevInList<CR>',
+            { noremap = true, silent = true, desc = "Bookmarks: prev" })
+        vim.api.nvim_set_keymap('n', '<leader>mn', ':BookmarksGotoNextInList<CR>',
+            { noremap = true, silent = true, desc = "Bookmarks: next" })
     end,
 }
