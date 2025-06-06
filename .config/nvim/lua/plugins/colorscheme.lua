@@ -77,30 +77,85 @@ vim.keymap.set('n', '<M-p>', prev_theme, { noremap = true, silent = true })
 -- vim.cmd('colorscheme ' .. colorschemes[rd])
 -- vim.o.background = (os.clock() * 1e7 % 100 < 50) and 'dark' or 'light'
 
+-- bold, italic, underline, strikethrough, standout, reverse, undercurl, none
+local my_styles = {
+    comments = { "italic" },
+    keywords = { "italic" },
+    functions = { "bold" },
+    conditionals = { "italic" },
+    loops = { "underline" },
+    types = { "bold" },
+    variables = {},
+    numbers = {},
+    strings = {},
+    operators = {},
+}
+
 return {
     {
         'sainnhe/edge',
         config = function()
+            vim.g.edge_enable_italic = 1
             -- placed in the end of function
             stepover_theme_helper(0) -- MUST lazy = false
         end,
-    }, {
-    'yorik1984/newpaper.nvim',
-    lazy = true,
-    config = function()
-        require('newpaper').setup({ style = 'light', keywords = 'bold,italic' })
-    end,
-}, {
-    'ray-x/starry.nvim',
-    lazy = true,
-    config = function()
-        require('starry').setup({ italics = { keywords = true } })
-    end,
-},
-    { 'projekt0n/caret.nvim',   lazy = true },
-    { 'sainnhe/everforest',     lazy = true },
-    { 'EdenEast/nightfox.nvim', lazy = true },
-    { 'catppuccin/nvim',        lazy = true, name = 'catppuccin' },
-    { 'sainnhe/sonokai',        lazy = true },
-    { 'embark-theme/vim',       lazy = true, name = 'embark' },
+    },
+    {
+        'ray-x/starry.nvim',
+        lazy = true,
+        config = function()
+            require('starry').setup({ italics = { keywords = true } })
+        end,
+    },
+    {
+        'yorik1984/newpaper.nvim',
+        lazy = true,
+        config = function()
+            require('newpaper').setup({ keywords = 'bold,italic' })
+        end
+    },
+    {
+        'projekt0n/caret.nvim',
+        lazy = true,
+        config = function()
+            require("caret").setup({ styles = my_styles })
+        end,
+    },
+    {
+        'sainnhe/everforest',
+        lazy = true,
+        config = function()
+            vim.g.everforest_enable_italic = 1
+        end,
+    },
+    {
+        'EdenEast/nightfox.nvim',
+        lazy = true,
+        config = function()
+            require("nightfox").setup({ options = { styles = { comments = "italic", keywords = "bold,italic", functions = "italic", types = "" } } })
+        end,
+    },
+    {
+        'catppuccin/nvim',
+        lazy = true,
+        name = 'catppuccin',
+        config = function()
+            require("catppuccin").setup({ styles = my_styles })
+        end,
+    },
+    {
+        'sainnhe/sonokai',
+        lazy = true,
+        config = function()
+            vim.g.sonokai_enable_italic = 1
+        end
+    },
+    {
+        'embark-theme/vim',
+        lazy = true,
+        name = 'embark',
+        config = function()
+            vim.g.embark_terminal_italics = 1
+        end
+    }
 }

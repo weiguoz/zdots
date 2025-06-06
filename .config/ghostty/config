@@ -9,8 +9,8 @@ theme = "Dracula"
 # keybind = ctrl+z=close_surface
 # keybind = ctrl+d=new_split:right
 
-# font: "Fira Code"
-font-family = "JetBrains Mono"
+# fonts
+font-family = "Maple Mono"
 font-size = 15
 
 # cursor

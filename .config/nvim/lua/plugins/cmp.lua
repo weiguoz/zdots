@@ -22,7 +22,7 @@ return {
             mapping = {
                 ['<C-n>'] = cmp.mapping.select_next_item(),
                 ['<C-p>'] = cmp.mapping.select_prev_item(),
-                ['<C-j>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }),
+                ['<C-j>'] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert }), -- accept
 
                 ['<Tab>'] = cmp.mapping(function(fallback)
                     if cmp.visible() then

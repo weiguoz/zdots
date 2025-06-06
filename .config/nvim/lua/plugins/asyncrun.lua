@@ -12,7 +12,7 @@ return {
         vim.cmd([[
       augroup AsyncRunKeymap
       autocmd!
-      autocmd FileType cpp nnoremap <silent> run :AsyncRun clang++ -DDBG -Wall -Wextra -Werror -Wshadow -g -std=c++20 -o %< % && (./%< ; rm -rf %< %<.dSYM)<CR>
+      autocmd FileType cpp nnoremap <silent> run :AsyncRun clang++ -DDBG -Wall -Wextra -Werror -Wshadow -g -std=c++23 -o %< % && (./%< ; rm -rf %< %<.dSYM)<CR>
       autocmd FileType c nnoremap <silent> run :AsyncRun clang -DDBG -Wall -Wextra -Werror -Wshadow -g -o %< % && (./%< ; rm -rf %< %<.dSYM)<CR>
       autocmd FileType go nnoremap <silent> run :AsyncRun go run %<CR>
       augroup END
