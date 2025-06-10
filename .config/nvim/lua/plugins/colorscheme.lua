@@ -1,11 +1,10 @@
 -- https://github.com/rockerBOO/awesome-neovim#tree-sitter-supported-colorscheme
 local all_themes = { 'edge:dark', 'edge:light',
-    'caret:dark', 'caret:light',
     'everforest:dark', 'everforest:light',
     'Dayfox:light', 'Duskfox:dark', 'nightfox:dark', 'Nordfox:dark',
     'catppuccin-latte:light', 'catppuccin-frappe:dark', 'catppuccin-macchiato:dark', 'catppuccin-mocha:dark',
-    'sonokai:dark', 'embark:dark', 'newpaper',
-    'Emerald', 'Mariana', -- starry
+    'sonokai:dark', 'embark:dark',
+    'aurora:dark',
 }
 
 local function read_theme(store)
@@ -93,46 +92,30 @@ local my_styles = {
 
 return {
     {
-        'sainnhe/edge',
+        'sainnhe/sonokai',
         config = function()
-            vim.g.edge_enable_italic = 1
+            vim.g.sonokai_enable_italic = 1
             -- placed in the end of function
             stepover_theme_helper(0) -- MUST lazy = false
-        end,
-    },
-    {
-        'ray-x/starry.nvim',
-        lazy = true,
-        config = function()
-            require('starry').setup({ italics = { keywords = true } })
-        end,
-    },
-    {
-        'yorik1984/newpaper.nvim',
-        lazy = true,
-        config = function()
-            require('newpaper').setup({ keywords = 'bold,italic' })
         end
     },
     {
-        'projekt0n/caret.nvim',
+        'sainnhe/edge',
         lazy = true,
         config = function()
-            require("caret").setup({ styles = my_styles })
+            vim.g.edge_enable_italic = 1
         end,
     },
     {
-        'sainnhe/everforest',
+        'neanias/everforest-nvim',
         lazy = true,
-        config = function()
-            vim.g.everforest_enable_italic = 1
-        end,
+        name = 'everforest',
     },
     {
         'EdenEast/nightfox.nvim',
         lazy = true,
         config = function()
-            require("nightfox").setup({ options = { styles = { comments = "italic", keywords = "bold,italic", functions = "italic", types = "" } } })
+            require('nightfox').setup({ options = { styles = { comments = 'italic', keywords = 'bold,italic', functions = 'italic', types = '' } } })
         end,
     },
     {
@@ -144,18 +127,20 @@ return {
         end,
     },
     {
-        'sainnhe/sonokai',
-        lazy = true,
-        config = function()
-            vim.g.sonokai_enable_italic = 1
-        end
-    },
-    {
         'embark-theme/vim',
         lazy = true,
         name = 'embark',
         config = function()
             vim.g.embark_terminal_italics = 1
         end
-    }
+    },
+    {
+        'ray-x/aurora',
+        lazy = true,
+        init = function()
+            vim.g.aurora_italic = 1
+            vim.g.aurora_transparent = 1
+            vim.g.aurora_bold = 1
+        end,
+    },
 }
