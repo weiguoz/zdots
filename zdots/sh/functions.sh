@@ -88,6 +88,14 @@ uniq_csv() {
 #         find . -type f \( $(printf '! -name %q -o ' "$@") -false \) 2> /dev/null
 #     fi
 # }
+fds() {
+  if [ $# -ne 2 ]; then
+    echo "Usage: findstr_in_dir <directory-name> <search-string>"
+    return 1
+  fi
+  # fd -t d remote -x rg --color=always -n 'WithdrawEntrust' {}
+  fd -t d "$1" -x rg --color=always -n "$2" {}
+}
 
 mysqlc() {
     mysql_config_editor print --all | awk '

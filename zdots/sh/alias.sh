@@ -46,6 +46,7 @@ alias mvnp='mvn clean package -Dmaven.test.skip'
 help() {
     "$@" --help 2>&1 | bat --plain --language=help
 }
+
 gitdiff() {
     git diff --name-only --relative --diff-filter=d | xargs bat --diff
 }
