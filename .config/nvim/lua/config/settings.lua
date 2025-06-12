@@ -43,10 +43,13 @@ vim.opt.fileencodings = { "utf-8", "ucs-bom", "cp936", "gbk", "gb2312", "gb18030
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.wildignore = { "*.o", "*.obj", "*~" }
---vim.opt.incsearch = true
---vim.opt.lazyredraw = false -- 执行宏时不重绘屏幕
---vim.opt.wildmenu = true -- 启用命令补全菜单
---vim.opt.wildmode = { "longest", "full" } -- 补全模式设置
+-- vim.opt.incsearch = true
+-- vim.opt.lazyredraw = false -- 执行宏时不重绘屏幕
+-- vim.opt.wildmenu = true -- 启用命令补全菜单
+-- vim.opt.wildmode = { "longest", "full" } -- 补全模式设置
+
+-- 设置透明，以为了使用终端的背景图。然而各种主题的配色也丢失了
+-- vim.cmd([[ highlight Normal guibg=NONE ]])
 
 -- {} () [] MatchParen
 vim.cmd([[highlight MatchParen guibg=#5D478B]])

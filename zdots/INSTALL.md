@@ -34,6 +34,18 @@ Let's remove lagged ohmyzsh and turn to zinit.
     1. [ranger+fzf](https://github.com/ranger/ranger/wiki/Custom-Commands#fzf-integration) - Add the following code to `commands.py`
 1. [enhancd](https://github.com/b4b4r07/enhancd) - A next-generation cd command with an interactive filter 
 
+## terminal
+
+24bit true color  supported test : `sh ~/zdots/sh/color.sh`
+
+1. wezterm
+
+`brew install --cask wezterm`
+
+2. Ghostty
+
+`brew install --cask ghostty`
+
 ## fzf
 
 ```python
@@ -95,6 +107,8 @@ class fzf_rg(Command):
 Then, we could use `fzf` command inside the `ranger` by `:fzf_fd`. In addition, for convenience, `map <c-t> fzf_fd`, `map s console fzf_rg%space` can be added to `rc.Conf` as a shortcut. Or entry the console with `:` or add a mapping by `map f console fzf_`
 
 ## fonts
+
+I like: font-maple
 
 [nerdfonts/downloads](https://www.nerdfonts.com/font-downloads) `brew install font-hack-nerd-font`
 

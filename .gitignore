@@ -33,6 +33,8 @@
 !.config/bat/config
 !.config/ghostty/
 !.config/ghostty/config
+!.config/wezterm/
+!.config/wezterm/wezterm.lua
 !.config/pip/
 !.config/pip/pip.conf
 !.config/ranger/
