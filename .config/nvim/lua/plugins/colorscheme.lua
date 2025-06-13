@@ -1,9 +1,8 @@
 -- https://github.com/rockerBOO/awesome-neovim#tree-sitter-supported-colorscheme
 local all_themes = { 'edge:dark', 'edge:light',
-    'everforest:dark', 'everforest:light',
     'Dayfox:light', 'Duskfox:dark', 'nightfox:dark', 'Nordfox:dark',
     'catppuccin-latte:light', 'catppuccin-frappe:dark', 'catppuccin-macchiato:dark', 'catppuccin-mocha:dark',
-    'sonokai:dark', 'embark:dark',
+    'embark:dark',
     'aurora:dark',
 }
 
@@ -41,6 +40,7 @@ local function pick_theme(all_the, last_theme, step)
     return all_themes[1]
 end
 
+-- ~/.local/share/nvim/theme_current.txt
 local theme_store = vim.fn.stdpath('data') .. '/theme_current.txt'
 
 local function stepover_theme(all_the, last_the, step)
@@ -92,24 +92,11 @@ local my_styles = {
 
 return {
     {
-        'sainnhe/sonokai',
-        config = function()
-            vim.g.sonokai_enable_italic = 1
-            -- placed in the end of function
-            stepover_theme_helper(0) -- MUST lazy = false
-        end
-    },
-    {
         'sainnhe/edge',
-        lazy = true,
         config = function()
+            stepover_theme_helper(0) -- MUST set `lazy = false` as default
             vim.g.edge_enable_italic = 1
         end,
-    },
-    {
-        'neanias/everforest-nvim',
-        lazy = true,
-        name = 'everforest',
     },
     {
         'EdenEast/nightfox.nvim',
