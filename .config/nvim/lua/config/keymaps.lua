@@ -11,8 +11,7 @@ vim.keymap.set("i", "jj", "<Esc>l")
 vim.keymap.set("i", "jk", "<Esc>l")
 vim.keymap.set("i", "kj", "<Esc>l")
 
--- save, quit
-vim.keymap.set("n", "zz", ":q!<CR>", { silent = true })
+vim.keymap.set("n", "<leader>q", ":q!<CR>", { silent = true })
 vim.keymap.set("n", "<C-s>", ":w<CR>", { silent = true })
 vim.keymap.set("i", "<C-s>", "<Esc>:w<CR>", { silent = true })
 
@@ -36,7 +35,6 @@ vim.keymap.set("n", "gv", ":vsplit<CR>", { silent = true })
 -- vim.keymap.set("n", "<S-Tab>", [[ :if &modifiable && !&readonly && &modified <Bar> :write <Bar> endif <Bar> :bnext<CR> ]], { silent = true })
 
 vim.keymap.set("n", "<leader>z", ":lua ZoomWinToggle()<CR>", { silent = true })
--- vim.keymap.set("n", "<leader>q", ":cclose<CR>", { silent = true })
 vim.keymap.set("n", "<leader>o", ":only<CR>", { silent = true })
 
 -- search cursor word

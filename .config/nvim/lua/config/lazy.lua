@@ -32,6 +32,7 @@ return require('lazy').setup(
         { 'christoomey/vim-tmux-navigator' },
         { 'simnalamburt/vim-mundo' },
 
+        { import = 'plugins.sider' },
         { import = 'plugins.autopairs' },
         { 'farmergreg/vim-lastplace' }, -- intelligently reopens files at your last edit position
         { import = 'plugins.indentscope' },
@@ -41,8 +42,6 @@ return require('lazy').setup(
         -- db = ~/.config/nvim/cd-project.nvim.json
         { 'HiPhish/rainbow-delimiters.nvim' },
         { 'mhinz/vim-startify' },
-        { import = 'plugins.sider-left' },
-        { import = 'plugins.sider-right' },
     }, {
         checker = { enabled = true, frequency = 10 * 86400 },
     }
