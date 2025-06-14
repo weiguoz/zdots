@@ -3,12 +3,40 @@ return {
     event = "VeryLazy",
     keys = {
         {
-            "<leader>w", -- "<leader>/",
+            "?<leader>", -- "<leader>/",
             function()
-                require("which-key").show({ global = false })
+                require("which-key").show("<leader>")
             end,
-            desc = "WhichKey: Global keymaps",
+            desc = "keymaps: leader+ ",
         },
+        {
+            "?g",
+            function()
+                require("which-key").show("g")
+            end,
+            desc = "keymaps: g+ ",
+        },
+        {
+            "?z",
+            function()
+                require("which-key").show("z")
+            end,
+            desc = "keymaps: z+ ",
+        },
+        {
+            "?d",
+            function()
+                require("which-key").show("d")
+            end,
+            desc = "keymaps: d+ ",
+        },
+        {
+            "?v",
+            function()
+                require("which-key").show("v")
+            end,
+            desc = "keymaps: v+ (work just hit v)",
+        }
     },
     config = function()
         local wk = require("which-key")
