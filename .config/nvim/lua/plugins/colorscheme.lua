@@ -90,12 +90,23 @@ local my_styles = {
     operators = {},
 }
 
+local function set_naive_italic()
+    vim.cmd [[
+    highlight Keyword gui=italic
+    highlight Conditional gui=italic
+    highlight Repeat gui=italic
+    highlight Function gui=italic
+    highlight Statement gui=italic
+  ]]
+end
+
 return {
     {
         'sainnhe/edge',
         config = function()
-            stepover_theme_helper(0) -- MUST set `lazy = false` as default
             vim.g.edge_enable_italic = 1
+            vim.defer_fn(set_naive_italic, 50)
+            stepover_theme_helper(0) -- MUST set `lazy = false` as default
         end,
     },
     {
@@ -119,6 +130,7 @@ return {
         name = 'embark',
         config = function()
             vim.g.embark_terminal_italics = 1
+            vim.defer_fn(set_naive_italic, 50)
         end
     },
     {
@@ -129,5 +141,5 @@ return {
             vim.g.aurora_transparent = 1
             vim.g.aurora_bold = 1
         end,
-    },
+    }
 }
