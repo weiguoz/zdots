@@ -36,6 +36,20 @@ return {
                 require("which-key").show("v")
             end,
             desc = "keymaps: v+ (work just hit v)",
+        },
+        {
+            "?]",
+            function()
+                require("which-key").show("]")
+            end,
+            desc = "keymaps: ]+",
+        },
+        {
+            "?[",
+            function()
+                require("which-key").show("[")
+            end,
+            desc = "keymaps: [+",
         }
     },
     config = function()
