@@ -43,6 +43,7 @@ return require('lazy').setup(
         -- { "HiPhish/rainbow-delimiters.nvim" }, -- when i run lazy update, it spends a lot of time on this plugin(submodule like test/*)
         { 'mhinz/vim-startify' },
         { import = 'plugins.mini-nvim' }, -- icons
+        { import = 'plugins.treesitter-textobjects' },
     }, {
         checker = { enabled = true, frequency = 10 * 86400 },
     }
