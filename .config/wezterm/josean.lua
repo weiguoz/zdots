@@ -20,12 +20,12 @@ config.colors = {
 }
 
 config.font = wezterm.font("Maple Mono")
-config.font_size = 16
+config.font_size = 15
 
 config.enable_tab_bar = false
 
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.75
+config.window_background_opacity = 0.85
 config.macos_window_background_blur = 10
 
 -- and finally, return the configuration to wezterm
