@@ -88,9 +88,9 @@ uniq_csv() {
 #         find . -type f \( $(printf '! -name %q -o ' "$@") -false \) 2> /dev/null
 #     fi
 # }
-fds() {
+fid() {
   if [ $# -ne 2 ]; then
-    echo "Usage: findstr_in_dir <directory-name> <search-string>"
+    echo "grep <search-string> [<directory-name>]/* Usage: fid <directory-name> <search-string>"
     return 1
   fi
   # fd -t d remote -x rg --color=always -n 'WithdrawEntrust' {}

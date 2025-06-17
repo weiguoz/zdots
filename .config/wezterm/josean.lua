@@ -1,13 +1,10 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 
--- This will hold the configuration.
-local config = wezterm.config_builder()
-
--- This is where you actually apply your config choices
+local cfg = wezterm.config_builder()
 
 -- my coolnight colorscheme
-config.colors = {
+cfg.colors = {
     foreground = "#CBE0F0",
     background = "#011423",
     cursor_bg = "#47FF9C",
@@ -19,14 +16,18 @@ config.colors = {
     brights = { "#aaa", "#E52E2E", "#44FFB1", "#FFE073", "#A277FF", "#a277ff", "#24EAF7", "#24EAF7" },
 }
 
-config.font = wezterm.font("Maple Mono")
-config.font_size = 16
+cfg.default_cursor_style = "BlinkingBar" -- [Steady, Blinking]*[Block, Underline, Bar]
+cfg.cursor_blink_rate = 900
 
-config.enable_tab_bar = false
+cfg.font = wezterm.font("Maple Mono")
+cfg.font_size = 15
 
-config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.75
-config.macos_window_background_blur = 10
+cfg.window_decorations = "RESIZE"
+cfg.window_background_opacity = 0.85
+cfg.enable_tab_bar = false
 
--- and finally, return the configuration to wezterm
-return config
+cfg.macos_window_background_blur = 10
+cfg.initial_rows = 45
+cfg.initial_cols = 135
+
+return cfg
