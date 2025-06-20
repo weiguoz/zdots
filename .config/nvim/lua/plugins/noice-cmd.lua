@@ -8,13 +8,10 @@ return {
     },
     config = function()
         local noice = require("noice")
-
         noice.setup({
             cmdline = {
                 view = "cmdline_popup",
-                format = {
-                    cmdline = { pattern = "^:", icon = "", title = "Command" },
-                },
+                format = { cmdline = { pattern = "^:", icon = "", title = "Command" } },
             },
             messages = { enabled = true },
             popupmenu = { enabled = true, backend = "nui" },
@@ -30,13 +27,10 @@ return {
             },
             views = {
                 cmdline_popup = {
-                    position = { row = "50%", col = "50%" },
-                    size = { width = "60%", height = "auto" },
+                    position = { row = "61.8%", col = "50%" },
+                    size = { width = 60, height = "auto" },
                     border = { style = "rounded", padding = { 1, 2 } },
-                    win_options = {
-                        winblend = 0,
-                        winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
-                    },
+                    win_options = { winblend = 0, winhighlight = "Normal:Normal,FloatBorder:FloatBorder" },
                 },
             },
         })
@@ -46,5 +40,7 @@ return {
                 noice.cmd("dismiss")
             end
         end, { silent = true, noremap = true, desc = "Dismiss Noice message" })
+
+        require("notify").setup({ background_colour = "#1e1e2e" })
     end,
 }
