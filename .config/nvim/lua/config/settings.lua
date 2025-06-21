@@ -52,15 +52,26 @@ vim.opt.wildignore = { "*.o", "*.obj", "*~" }
 -- vim.cmd([[ highlight Normal guibg=NONE ]])
 
 -- {} () [] MatchParen
-vim.cmd([[highlight MatchParen guibg=#5D478B]])
-vim.api.nvim_create_autocmd("ModeChanged", {
-    pattern = "*",
+-- vim.cmd([[highlight MatchParen guibg=#5D478B]])
+-- vim.api.nvim_create_autocmd("ModeChanged", {
+--     pattern = "*",
+--     callback = function()
+--         if vim.fn.mode() ~= "n" then
+--             vim.cmd([[highlight MatchParen guibg=NONE]])
+--         else
+--             vim.cmd([[highlight MatchParen guibg=#551A8B]])
+--         end
+--     end,
+-- })
+vim.cmd([[highlight MatchParen gui=underline guifg=#000000 guibg=#FF69B4]])
+vim.api.nvim_create_autocmd("InsertEnter", {
     callback = function()
-        if vim.fn.mode() ~= "n" then
-            vim.cmd([[highlight MatchParen guibg=NONE]])
-        else
-            vim.cmd([[highlight MatchParen guibg=#551A8B]])
-        end
+        vim.cmd([[highlight MatchParen guibg=NONE]])
+    end,
+})
+vim.api.nvim_create_autocmd("InsertLeave", {
+    callback = function()
+        vim.cmd([[highlight MatchParen gui=underline guifg=#000000 guibg=#FF69B4]])
     end,
 })
 
