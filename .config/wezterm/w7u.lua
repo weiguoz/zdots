@@ -4,7 +4,7 @@ return {
     color_scheme = "Snazzy (Gogh)", -- Dracula Rapture "Snazzy (Gogh)" synthwave-everything
 
     font = wezterm.font("Maple Mono"),
-    font_size = 15,
+    font_size = 16,
 
     colors = { cursor_fg = "#000000", cursor_bg = "#D20F39" },
     default_cursor_style = "BlinkingBlock", -- [Steady, Blinking]*[Block, Underline, Bar]

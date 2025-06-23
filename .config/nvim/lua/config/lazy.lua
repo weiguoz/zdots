@@ -34,15 +34,14 @@ return require('lazy').setup(
 
         { import = 'plugins.sider' },
         { import = 'plugins.autopairs' },
-        { 'farmergreg/vim-lastplace' }, -- intelligently reopens files at your last edit position
-        { import = 'plugins.indentscope' },
+        { 'farmergreg/vim-lastplace' },   -- intelligently reopens files at your last edit position
+        { import = 'plugins.mini-nvim' }, -- icons & indenetation
         { 'mattn/vim-goimports' },
 
         -- observing
         -- db = ~/.config/nvim/cd-project.nvim.json
         -- { "HiPhish/rainbow-delimiters.nvim" }, -- when i run lazy update, it spends a lot of time on this plugin(submodule like test/*)
         { 'mhinz/vim-startify' },
-        { import = 'plugins.mini-nvim' }, -- icons
         { import = 'plugins.treesitter-textobjects' },
     }, {
         checker = { enabled = true, frequency = 10 * 86400 },

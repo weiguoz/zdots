@@ -8,8 +8,6 @@ vim.keymap.set("i", "<C-e>", "<Esc>A")
 
 -- quit insert
 vim.keymap.set("i", "jj", "<Esc>l")
-vim.keymap.set("i", "jk", "<Esc>l")
-vim.keymap.set("i", "kj", "<Esc>l")
 
 vim.keymap.set("n", "<leader>q", ":q!<CR>", { silent = true })
 vim.keymap.set("n", "<C-s>", ":w<CR>", { silent = true })
