@@ -18,9 +18,12 @@ return {
         config = function()
             require("treesitter-context").setup({ max_lines = 4 })
 
-            vim.keymap.set("n", "[c", function()
+            vim.keymap.set("n", "[k", function()
                 require("treesitter-context").go_to_context(vim.v.count1)
             end, { silent = true, desc = "treesitter-context: up" })
+
+            -- https://www.w3schools.com/colors/colors_picker.asp
+            vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", { bg = "#ff99ff", fg = "#1a1a1a", underline = false })
         end,
     },
 }

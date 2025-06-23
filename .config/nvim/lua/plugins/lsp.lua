@@ -62,7 +62,6 @@ return {
         -- lsp: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
         local common_attach = function(_, bufnr)
-            -- 保存时自动格式化
             vim.api.nvim_create_autocmd("BufWritePre", {
                 buffer = bufnr,
                 callback = function()
@@ -72,7 +71,19 @@ return {
         end
         -- golang
         lsp.gopls.setup({
-            on_attach = common_attach,
+            on_attach = function(_, bufnr)
+                vim.api.nvim_create_autocmd("BufWritePre", {
+                    buffer = bufnr,
+                    callback = function()
+                        vim.lsp.buf.code_action({
+                            context = { only = { "source.organizeImports" } },
+                            apply = true,
+                        })
+                        vim.lsp.buf.format({ async = false })
+                    end,
+                })
+            end,
+
             filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
             root_dir = lsp.util.root_pattern("go.mod", ".git", "go.work"),
             settings = {
