@@ -22,8 +22,10 @@ cfg.cursor_blink_rate = 900
 cfg.font = wezterm.font("Maple Mono")
 cfg.font_size = 16
 
+
+-- cfg.enable_tab_bar = false
+cfg.hide_tab_bar_if_only_one_tab = true
 cfg.window_decorations = "RESIZE"
-cfg.enable_tab_bar = false
 cfg.initial_rows = 45
 cfg.initial_cols = 135
 

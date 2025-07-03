@@ -36,7 +36,6 @@ return require('lazy').setup(
         { import = 'plugins.autopairs' },
         { 'farmergreg/vim-lastplace' },   -- intelligently reopens files at your last edit position
         { import = 'plugins.mini-nvim' }, -- icons & indenetation
-        { 'mattn/vim-goimports' },
 
         -- observing
         -- db = ~/.config/nvim/cd-project.nvim.json

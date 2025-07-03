@@ -35,6 +35,8 @@
 !.config/ghostty/config
 !.config/wezterm/
 !.config/wezterm/*.lua
+!.config/wezterm/themes/
+!.config/wezterm/themes/*.lua
 !.config/pip/
 !.config/pip/pip.conf
 !.config/ranger/

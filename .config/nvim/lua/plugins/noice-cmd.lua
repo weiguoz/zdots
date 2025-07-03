@@ -8,6 +8,7 @@ return {
     },
     config = function()
         local noice = require("noice")
+
         noice.setup({
             cmdline = {
                 view = "cmdline_popup",
@@ -33,6 +34,31 @@ return {
                     win_options = { winblend = 0, winhighlight = "Normal:Normal,FloatBorder:FloatBorder" },
                 },
             },
+            -- :Noice history<enter> to display the history of messages
+            routes = {
+                {
+                    view = "notify", -- nvim-notify 的事件系统
+                    filter = {
+                        event = "notify",
+                        kind = "info",
+                        find = "No code actions available",
+                    },
+                    opts = { skip = true },
+                },
+                {
+                    filter = {
+                        event = "msg_show",          -- vim 消息事件
+                        any = {
+                            { find = "%d+L, %d+B" }, -- written
+                            -- { find = "; after #%d+" },
+                            -- { find = "; before #%d+" },
+                            -- { find = "%d+ more lines" },
+                            -- { find = "%d+ fewer lines" },
+                        },
+                    },
+                    opts = { skip = true },
+                }
+            }
         })
 
         vim.keymap.set({ "n", "s" }, "<Esc>", function()
