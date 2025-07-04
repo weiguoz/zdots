@@ -10,9 +10,9 @@ if [ -n "$TMUX_POWERLINE_BUBBLE_SEPARATORS" ]; then
 	TMUX_POWERLINE_SEPARATOR_THIN="|"
 else
 	if patched_font_in_use; then
-		TMUX_POWERLINE_SEPARATOR_LEFT_BOLD=""
+		TMUX_POWERLINE_SEPARATOR_LEFT_BOLD="" # 
 		TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
-		TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
+		TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD="" # 
 		TMUX_POWERLINE_SEPARATOR_RIGHT_THIN=""
 	else
 		TMUX_POWERLINE_SEPARATOR_LEFT_BOLD="◀"
@@ -117,20 +117,21 @@ fi
 # shellcheck disable=SC1143,SC2128
 if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-		"tmux_session_info blue black"
+		"my_time blue black"
+		# "tmux_session_info blue black"
 		# "hostname magenta black"
-		"mode_indicator yellow black"
 		# "ifstat 30 255"
 		# "ifstat_sys 30 255"
 		# "lan_ip brightblue black ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
 		# "vpn 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
 		# "wan_ip brightblue black"
-		# "vcs_branch brightcyan black"
 		"pwd magenta black"
+		# "vcs_branch brightcyan black"
 		"vcs_compare 60 255"
 		"vcs_staged brightred brightwhite"
 		"vcs_modified red black"
 		"vcs_others 245 0"
+		"mode_indicator black black"
 	)
 fi
 
@@ -143,10 +144,9 @@ if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
 		#"cpu 240 136"
 		#"tmux_mem_cpu_load 234 136"
 		# "load brightblack yellow"
-		"battery blue black"
 		"weather brightblue black"
 		"earthquake 3 0"
-		"my_time cyan black"
+		"battery blue black"
 		#"air ${TMUX_POWERLINE_SEG_AIR_COLOR} 255"
 		# "rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}"
 		# "xkb_layout 125 117"
