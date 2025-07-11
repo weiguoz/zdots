@@ -9,6 +9,7 @@ vim.opt.showmode = true
 -- autochdir = true takes very bad side-effect. "The file has been changed since reading it!!!" always pops up.
 --- vim.opt.autochdir = true
 
+-- vim.opt.guicursor = "" -- 不改变终端的光标样式
 vim.opt.cursorline = true
 vim.opt.linebreak = true
 

@@ -7,8 +7,8 @@ return {
     font_size = 16,
 
     colors = { cursor_fg = "#011423", cursor_bg = "#47FF9C" },
-    default_cursor_style = "SteadyBlock", -- [Steady, Blinking]*[Block, Underline, Bar]
-    cursor_blink_rate = 900,
+    default_cursor_style = "BlinkingBlock", -- [Steady, Blinking]*[Block, Underline, Bar]
+    cursor_blink_rate = 1500,
 
     background = {
         {
