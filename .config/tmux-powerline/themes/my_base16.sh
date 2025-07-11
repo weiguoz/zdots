@@ -10,9 +10,9 @@ if [ -n "$TMUX_POWERLINE_BUBBLE_SEPARATORS" ]; then
 	TMUX_POWERLINE_SEPARATOR_THIN="|"
 else
 	if patched_font_in_use; then
-		TMUX_POWERLINE_SEPARATOR_LEFT_BOLD=""
+		TMUX_POWERLINE_SEPARATOR_LEFT_BOLD="" # 
 		TMUX_POWERLINE_SEPARATOR_LEFT_THIN=""
-		TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD=""
+		TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD="" # 
 		TMUX_POWERLINE_SEPARATOR_RIGHT_THIN=""
 	else
 		TMUX_POWERLINE_SEPARATOR_LEFT_BOLD="◀"
@@ -41,17 +41,17 @@ if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_CURRENT" ]; then
 			"#[$(format regular)]"
 			"$TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR"
 			"#[$(format inverse)]"
-			" #I#F "
+			"#I#F"
 			"$TMUX_POWERLINE_SEPARATOR_THIN"
-			" #W "
+			"#W"
 			"#[$(format regular)]"
 			"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR"
 		)
 	else
 		TMUX_POWERLINE_WINDOW_STATUS_CURRENT=(
 			"#[$(format inverse)]"
-			"  #I·#W "
-			"#[$(format regular)] "
+			" #I·#W "
+			"#[$(format regular)]"
 		)
 	fi
 fi
@@ -67,7 +67,7 @@ fi
 if [ -z "$TMUX_POWERLINE_WINDOW_STATUS_FORMAT" ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_FORMAT=(
 		"#[$(format regular)]"
-		"  #I#{?window_flags,#F,·}#W  "
+		" #I#{?window_flags,#F,·}#W "
 	)
 fi
 
@@ -117,16 +117,15 @@ fi
 # shellcheck disable=SC1143,SC2128
 if [ -z "$TMUX_POWERLINE_LEFT_STATUS_SEGMENTS" ]; then
 	TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-		"tmux_session_info blue black"
-		# "hostname magenta black"
-		"mode_indicator yellow black"
+		"my_time cyan black"
 		# "ifstat 30 255"
 		# "ifstat_sys 30 255"
 		# "lan_ip brightblue black ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
 		# "vpn 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}"
 		# "wan_ip brightblue black"
-		# "vcs_branch brightcyan black"
+		# "hostname magenta black"
 		"pwd magenta black"
+		# "vcs_branch brightcyan black"
 		"vcs_compare 60 255"
 		"vcs_staged brightred brightwhite"
 		"vcs_modified red black"
@@ -137,21 +136,18 @@ fi
 # shellcheck disable=SC1143,SC2128
 if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
 	TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
-		#"macos_notification_count 29 255"
-		#"mailcount 9 255"
-		#"now_playing green black"
-		#"cpu 240 136"
-		#"tmux_mem_cpu_load 234 136"
+		"mode_indicator black black"
+		# "macos_notification_count 29 255"
+		# "mailcount 9 255"
+		# "now_playing green black"
+		# "cpu 240 136"
 		# "load brightblack yellow"
-		"battery blue black"
-		"weather brightblue black"
-		"earthquake 3 0"
-		"my_time cyan black"
-		#"air ${TMUX_POWERLINE_SEG_AIR_COLOR} 255"
-		# "rainbarf 0 ${TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR}"
+		"battery 109 0"
+		# "weather brightcyan black"
+		# "earthquake 3 0" # cause error: ".tmux/plugins/tmux-powerline/powerline.sh right not ready"
 		# "xkb_layout 125 117"
 		# "date cyan black ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
-		# "my_time cyan black ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
 		# "utc_time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}"
+		"tmux_session_info blue black"
 	)
 fi

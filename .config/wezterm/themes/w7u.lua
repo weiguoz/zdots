@@ -6,8 +6,8 @@ return {
     font = wezterm.font("Maple Mono"),
     font_size = 16,
 
-    colors = { cursor_fg = "#000000", cursor_bg = "#D20F39" },
-    default_cursor_style = "BlinkingBlock", -- [Steady, Blinking]*[Block, Underline, Bar]
+    colors = { cursor_fg = "#011423", cursor_bg = "#47FF9C" },
+    default_cursor_style = "SteadyBlock", -- [Steady, Blinking]*[Block, Underline, Bar]
     cursor_blink_rate = 900,
 
     background = {
@@ -25,4 +25,7 @@ return {
     hide_tab_bar_if_only_one_tab = true,
 
     macos_window_background_blur = 10, -- blur background
+
+    -- 设置窗口边距为 0（边框效果最小化）
+    window_padding = { left = 0, right = 0, top = 0, bottom = 0 },
 }

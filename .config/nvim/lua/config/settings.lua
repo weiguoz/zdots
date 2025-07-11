@@ -51,7 +51,7 @@ vim.opt.wildignore = { "*.o", "*.obj", "*~" }
 -- 设置透明，以为了使用终端的背景图。然而各种主题的配色也丢失了
 -- vim.cmd([[ highlight Normal guibg=NONE ]])
 
--- {} () [] MatchParen
+-- {} () [] MatchParen ++
 -- vim.cmd([[highlight MatchParen guibg=#5D478B]])
 -- vim.api.nvim_create_autocmd("ModeChanged", {
 --     pattern = "*",
@@ -64,7 +64,7 @@ vim.opt.wildignore = { "*.o", "*.obj", "*~" }
 --     end,
 -- })
 -- https://www.w3schools.com/colors/colors_picker.asp
-vim.cmd([[highlight MatchParen gui=underline guifg=#FFF8DC guibg=#FF69B4]])
+vim.api.nvim_set_hl(0, "MatchParen", { bold = true, underline = true, fg = "#f2f2f2", bg = "#06B36E" }) -- guifg=#FFF8DC guibg=#FF69B4
 vim.api.nvim_create_autocmd("InsertEnter", {
     callback = function()
         vim.cmd([[highlight MatchParen guibg=#851A8B]])
@@ -72,9 +72,10 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 })
 vim.api.nvim_create_autocmd("InsertLeave", {
     callback = function()
-        vim.cmd([[highlight MatchParen gui=underline guifg=#FFF8DC guibg=#FF69B4]])
+        vim.api.nvim_set_hl(0, "MatchParen", { bold = true, underline = true, fg = "#f2f2f2", bg = "#06B36E" })
     end,
 })
+-- {} () [] MatchParen --
 
 -- 针对特定文件禁用备份
 vim.api.nvim_create_autocmd("BufWrite", {

@@ -34,5 +34,6 @@ cfg.initial_cols = 135
 -- which affects the accuracy of truecolor gradients and smooth color rendering.
 cfg.window_background_opacity = 0.85
 cfg.macos_window_background_blur = 10
+cfg.window_padding = { left = 0, right = 0, top = 0, bottom = 0, }
 
 return cfg

@@ -29,6 +29,10 @@ return {
                 { noremap = true, silent = true, desc = 'Highlight clear' })
             vim.keymap.set('n', '<leader>hs', '<Cmd>Hi/+%<CR>',
                 { noremap = true, silent = true, desc = 'Highlight single word' })
+            vim.keymap.set('n', '<leader>hn', '<Cmd>Hi><CR>',
+                { noremap = true, silent = true, desc = 'Highlight next' })
+            vim.keymap.set('n', '<leader>hp', '<Cmd>Hi<<CR>',
+                { noremap = true, silent = true, desc = 'Highlight preview' })
             -- vim.keymap.set('n', '<leader>hx', '<Cmd>Hi/-<CR>', {noremap = true, silent = true, desc = 'Highlight remove'})
         end,
     }, {
