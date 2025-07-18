@@ -1,5 +1,13 @@
 require("config.func")
 
+-- 翻页
+-- 禁用 C-f 和 C-b。因为后者和 tmux 的 prefix 冲突，在 wezterm 中很难解决
+-- 用 C-d 和 C-u 来模拟翻页
+vim.keymap.set("n", "<C-f>", "<Nop>")
+vim.keymap.set("n", "<C-b>", "<Nop>")
+vim.keymap.set("n", "<C-d>", "<C-f>")
+vim.keymap.set("n", "<C-u>", "<C-b>")
+
 -- head and tail
 vim.keymap.set("n", "<C-a>", "0")
 vim.keymap.set("n", "<C-e>", "$")
