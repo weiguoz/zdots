@@ -35,11 +35,12 @@ return {
                 { noremap = true, silent = true, desc = 'Highlight preview' })
             -- vim.keymap.set('n', '<leader>hx', '<Cmd>Hi/-<CR>', {noremap = true, silent = true, desc = 'Highlight remove'})
         end,
-    }, {
-    'RRethy/vim-illuminate', -- automatically highlighting the word under the cursor
-    event = 'VeryLazy',
-    config = function()
-        require('illuminate').configure({ delay = 500 })
-    end,
-}
+    },
+    {
+        'RRethy/vim-illuminate', -- automatically highlighting the word under the cursor
+        event = 'VeryLazy',
+        config = function()
+            require('illuminate').configure({ delay = 500 })
+        end,
+    }
 }

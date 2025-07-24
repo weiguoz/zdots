@@ -25,7 +25,7 @@ return require('lazy').setup(
         { 'tpope/vim-fugitive' },
         { import = 'plugins.gitsigns' },
 
-        { import = 'plugins.highlighter' },
+        { import = 'plugins.highlightx' },
         { import = 'plugins.bookmarks' },
         { 'tpope/vim-commentary' },
         { 'vim-scripts/FencView.vim' },
