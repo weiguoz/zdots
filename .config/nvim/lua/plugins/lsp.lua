@@ -103,6 +103,7 @@ return {
             capabilities = capabilities,
             on_attach = common_attach,
             cmd = { "/opt/homebrew/opt/llvm/bin/clangd", "--background-index" },
+            root_dir = require('lspconfig').util.root_pattern("compile_commands.json", ".git"),
             -- I'm going to use clangd on the remote server, but it's not working now.
             -- Remote lsp server and remote files, locally neovim toolkits.
             --
