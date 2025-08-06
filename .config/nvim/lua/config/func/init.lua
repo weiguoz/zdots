@@ -63,20 +63,16 @@ function SetTitle()
         vim.api.nvim_buf_set_lines(0, 4, 4, false, { " */" })
         vim.api.nvim_buf_set_lines(0, 5, 5, false, { "" })
 
-        if vim.fn.expand('%:e'):match('h(pp|h|\\+\\+|xx)?$') then
-            -- Do nothing
+        if ft == 'c' then
+            vim.api.nvim_buf_set_lines(0, 6, 6, false, { "#include <stdio.h>" })
         else
-            if ft == 'c' then
-                vim.api.nvim_buf_set_lines(0, 6, 6, false, { "#include <stdio.h>" })
-            else
-                vim.api.nvim_buf_set_lines(0, 6, 6, false, { "#include <cstdio>" })
-            end
-            vim.api.nvim_buf_set_lines(0, 7, 7, false, { "" })
-            vim.api.nvim_buf_set_lines(0, 8, 8, false, { "int main() {" })
-            vim.api.nvim_buf_set_lines(0, 9, 9, false, { "    printf(\"Hello\\n\");" })
-            vim.api.nvim_buf_set_lines(0, 10, 10, false, { "    return 0;" })
-            vim.api.nvim_buf_set_lines(0, 11, 11, false, { "}" })
+            vim.api.nvim_buf_set_lines(0, 6, 6, false, { "#include <cstdio>" })
         end
+        vim.api.nvim_buf_set_lines(0, 7, 7, false, { "" })
+        vim.api.nvim_buf_set_lines(0, 8, 8, false, { "int main() {" })
+        vim.api.nvim_buf_set_lines(0, 9, 9, false, { "    printf(\"Hello\\n\");" })
+        vim.api.nvim_buf_set_lines(0, 10, 10, false, { "    return 0;" })
+        vim.api.nvim_buf_set_lines(0, 11, 11, false, { "}" })
     elseif ft == 'go' then
         vim.api.nvim_buf_set_lines(0, 0, 0, false, { "package main" })
         vim.api.nvim_buf_set_lines(0, 1, 1, false, { "" })

@@ -96,7 +96,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("BufNewFile", {
-    pattern = { "*.go", "*.sh", "*.py", "*.c", "*.cpp", "*.h", "*.hpp", "*.hxx", "*.hh" },
+    pattern = { "*.go", "*.sh", "*.py", "*.c", "*.cpp" },
     callback = function()
         vim.cmd("lua SetTitle()")
     end,
