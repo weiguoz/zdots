@@ -136,5 +136,7 @@ return {
         })
         -- ts
         lsp.ts_ls.setup({ on_attach = common_attach })
+        -- latex
+        lsp.texlab.setup({ on_attach = common_attach })
     end
 }
