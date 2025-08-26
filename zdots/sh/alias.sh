@@ -19,6 +19,7 @@ alias vs='/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code
 # open
 alias f='open -a Finder .'
 ## built-in `fc` fix command
+alias nnvim='nvim -u NONE'
 
 alias mvnp='mvn clean package -Dmaven.test.skip'
 # alias antlr4='java -jar /usr/local/lib/antlr-4.5.3-complete.jar'

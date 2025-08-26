@@ -11,7 +11,7 @@ if [ ${ret} -ne 0 ]; then
 fi
 
 printf "[2] update zinit plugins\n"
-printf "  Run \"zinit self-update && zinit update && zinit delete --clean\" manually\n"
+printf "  Run \"zinit self-update && zinit update --parallel 10 && zinit delete --clean\" manually\n"
 printf "[3] tmux\n"
 printf "  tmux update: prefix+U\n"
 printf "[4] yazi.flavors\n"
