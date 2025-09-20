@@ -32,7 +32,7 @@ cfg.initial_cols = 135
 -- NOTE: Enabling background opacity and macOS blur effects can cause color distortion.
 -- This is due to system-level compositing blending the terminal background with desktop elements,
 -- which affects the accuracy of truecolor gradients and smooth color rendering.
-cfg.window_background_opacity = 0.85
+cfg.window_background_opacity = 0.9
 cfg.macos_window_background_blur = 10
 cfg.window_padding = { left = 0, right = 0, top = 0, bottom = 0, }
 

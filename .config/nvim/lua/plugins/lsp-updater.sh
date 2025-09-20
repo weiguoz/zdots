@@ -6,14 +6,14 @@
 # lua: lua-language-server
 # rust: rust-analyzer
 # ts: typescript-language-server
-echo "brew update && brew install llvm bash-language-server pyright lua-language-server rust-analyzer typescript-language-server texlab"
+echo "brew update && brew install llvm bash-language-server pyright lua-language-server rust-analyzer typescript-language-server"
 
 # golang: gopls
 go install golang.org/x/tools/gopls@latest
-# sql:
-go install github.com/sqls-server/sqls@latest
-# jsonnet
-go install github.com/grafana/jsonnet-language-server@latest
+## sql:
+#go install github.com/sqls-server/sqls@latest
+## jsonnet
+#go install github.com/grafana/jsonnet-language-server@latest
 
 # thriftls
 git clone https://github.com/joyme123/thrift-ls && \

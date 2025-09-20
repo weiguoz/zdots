@@ -20,4 +20,4 @@ adjust-cursor-thickness = 1
 # window
 window-height=45
 window-width=135
-macos-titlebar-style = hidden
+macos-titlebar-style = tabs

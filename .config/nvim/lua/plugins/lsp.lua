@@ -1,34 +1,22 @@
 local function merge_table(t1, t2)
-    local result = {}
-    for k, v in pairs(t1) do result[k] = v end
-    for k, v in pairs(t2) do result[k] = v end
-    return result
+    local res = {}
+    for k, v in pairs(t1) do res[k] = v end
+    for k, v in pairs(t2) do res[k] = v end
+    return res
 end
 
 return {
     'neovim/nvim-lspconfig',
     config = function()
-        local lsp = require('lspconfig')
-        -- local telescope = require('telescope.builtin')
-        -- 高亮当前光标下的符号
-        vim.keymap.set("n", "<leader>hh", function()
-            vim.lsp.buf.document_highlight()
-        end, { desc = "高亮当前符号" })
-
-        -- 清除高亮
-        vim.keymap.set("n", "<leader>hc", function()
-            vim.lsp.buf.clear_references()
-        end, { desc = "清除高亮" })
+        -- ====== 通用按键 ======
+        vim.keymap.set("n", "<leader>hh", function() vim.lsp.buf.document_highlight() end, { desc = "高亮当前符号" })
+        vim.keymap.set("n", "<leader>hc", function() vim.lsp.buf.clear_references() end, { desc = "清除高亮" })
 
         local opts = { noremap = true, silent = true }
-        -- lsp
-        --- how telescope >
-        --- https://github.com/lopi-py/nvim-config/blob/a9c2c73dbea6472adb068eb2cd9a8810322d973a/lua/lsp.lua#L23
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
         vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, merge_table(opts, { desc = "LSP: definition" }))
         vim.keymap.set("n", "<leader>gt", "<cmd>Telescope lsp_type_definitions<cr>",
             merge_table(opts, { desc = "LSP: type definition" }))
-
         vim.keymap.set('n', '<leader>gn', vim.lsp.buf.rename, merge_table(opts, { desc = "LSP: rename" }))
         vim.keymap.set('n', '<leader>ga', vim.lsp.buf.code_action, merge_table(opts, { desc = "LSP: code action" }))
         vim.keymap.set("n", "<leader>gi", "<cmd>Telescope lsp_implementations<cr>",
@@ -36,13 +24,11 @@ return {
         vim.keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<cr>",
             merge_table(opts, { desc = "LSP: references" }))
 
-        -- diagnostic
         vim.keymap.set('n', 'e', vim.diagnostic.goto_next, opts)
         vim.keymap.set('n', 'E', vim.diagnostic.goto_prev, opts)
-        vim.keymap.set('n', '<leader>gf', vim.diagnostic.open_float,
-            merge_table(opts, { desc = "Diagnostic: information" })) -- need buffer=bufnr?
-        vim.keymap.set('n', '<leader>ge', "<cmd>Telescope diagnostics<cr>",
-            merge_table(opts, { desc = "Diagnostic: list" }))
+        vim.keymap.set('n', '<leader>gf', vim.diagnostic.open_float, merge_table(opts, { desc = "Diagnostic: information" }))
+        vim.keymap.set('n', '<leader>ge', "<cmd>Telescope diagnostics<cr>", merge_table(opts, { desc = "Diagnostic: list" }))
+
         -- vim.api.nvim_create_autocmd("CursorHold", {
         --     callback = function()
         --         vim.diagnostic.open_float(nil, { scope = "line", border = "rounded", focusable = false, header = "", source = "always", })
@@ -61,6 +47,7 @@ return {
 
         -- lsp: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md
 
+        -- ====== 公共 on_attach ======
         local common_attach = function(_, bufnr)
             vim.api.nvim_create_autocmd("BufWritePre", {
                 buffer = bufnr,
@@ -69,41 +56,37 @@ return {
                 end,
             })
         end
-        -- golang
-        lsp.gopls.setup({
+
+        -- ====== Go: gopls（你已改好的，保持原逻辑）======
+        vim.lsp.config("gopls", {
             on_attach = function(_, bufnr)
                 vim.api.nvim_create_autocmd("BufWritePre", {
                     buffer = bufnr,
                     callback = function()
-                        vim.lsp.buf.code_action({
-                            context = { only = { "source.organizeImports" } },
-                            apply = true,
-                        })
+                        vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } }, apply = true })
                         vim.lsp.buf.format({ async = false })
                     end,
                 })
             end,
-
-            filetypes = { 'go', 'gomod', 'gowork', 'gotmpl' },
-            root_dir = lsp.util.root_pattern("go.mod", ".git", "go.work"),
             settings = {
                 gopls = {
-                    analyses = { unreachable_code = true, unused_params = true, },
+                    analyses = { unreachable_code = true, unused_params = true },
                     staticcheck = true,
                 },
             }
         })
-        -- c/c++
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities.offsetEncoding = { "utf-16" }
-        lsp.clangd.setup({
+        vim.lsp.enable('gopls')
+
+        -- ====== C/C++: clangd（顺序：先 config 再 enable）======
+        local clang_cap = vim.lsp.protocol.make_client_capabilities()
+        clang_cap.offsetEncoding = { "utf-16" }
+
+        vim.lsp.config("clangd", {
+            capabilities = clang_cap,
+            on_attach = common_attach,
             -- force clangd to use utf-16 encoding(default is utf-8)
             -- check if all client has the same encoding:
-            --   `:lua for _, client in pairs(vim.lsp.get_active_clients()) do print(client.name, client.offset_encoding) end`
-            capabilities = capabilities,
-            on_attach = common_attach,
             cmd = { "/opt/homebrew/opt/llvm/bin/clangd", "--background-index" },
-            root_dir = require('lspconfig').util.root_pattern("compile_commands.json", ".git"),
             -- I'm going to use clangd on the remote server, but it's not working now.
             -- Remote lsp server and remote files, locally neovim toolkits.
             --
@@ -111,32 +94,26 @@ return {
             -- cmd = { "ssh", "localdocker.10510", "clangd", "--background-index", "--log=verbose", "--compile-commands-dir=/path/on/localdocker.10510" },
             -- 2. edit the files/directory on the remote server. TODO
         })
-        -- bash
-        lsp.bashls.setup({
+        vim.lsp.enable('clangd')
+
+        -- ====== Python: pyright ======
+        vim.lsp.config("pyright", {
             on_attach = common_attach,
-            cmd = { "bash-language-server", "start" },
-            filetypes = { "sh", "bash" },
-            root_dir = require('lspconfig').util.root_pattern(".git", ".bashrc", ".bash_profile"),
-            settings = { bash = { diagnostics = { enable = true } } },
+            settings = {
+                python = {
+                    analysis = {
+                        typeCheckingMode = "basic",
+                        autoImportCompletions = true,
+                    },
+                },
+            },
         })
-        -- thrift
-        lsp.thriftls.setup({ on_attach = common_attach })
-        -- sql
-        lsp.sqls.setup({ on_attach = common_attach })
-        -- jsonnet
-        lsp.jsonnet_ls.setup({ on_attach = common_attach })
-        -- rust
-        lsp.rust_analyzer.setup({ on_attach = common_attach })
-        -- python
-        lsp.pyright.setup({ on_attach = common_attach })
-        -- lua
-        lsp.lua_ls.setup({
-            on_attach = common_attach,
-            settings = { Lua = { diagnostics = { globals = { 'vim' } } } },
-        })
-        -- ts
-        lsp.ts_ls.setup({ on_attach = common_attach })
-        -- latex
-        lsp.texlab.setup({ on_attach = common_attach })
+        vim.lsp.enable("pyright")
+
+        vim.lsp.enable("thriftls")
+        vim.lsp.enable("lua_ls")
+        vim.lsp.enable("rust_analyzer")
+        vim.lsp.enable("bashls")
+        vim.lsp.enable("ts_ls")
     end
 }
