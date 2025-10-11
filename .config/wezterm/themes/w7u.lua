@@ -10,14 +10,14 @@ return {
     default_cursor_style = "BlinkingBlock", -- [Steady, Blinking]*[Block, Underline, Bar]
     cursor_blink_rate = 1500,
 
-    background = {
-        {
-            -- https://alphacoders.com/nebula-wallpapers
-            source = { File = wezterm.home_dir .. "/Pictures/terminal_bg.jpg" },
-            opacity = 0.85,
-            attachment = "Fixed",
-        },
-    },
+    -- background = {
+    --     {
+    --         -- https://alphacoders.com/nebula-wallpapers
+    --         source = { File = wezterm.home_dir .. "/Pictures/terminal_bg.jpg" },
+    --         opacity = 0.9,
+    --         attachment = "Fixed",
+    --     },
+    -- },
 
     initial_rows = 45,
     initial_cols = 135,
