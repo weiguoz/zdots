@@ -141,7 +141,7 @@ if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
 		# "mailcount 9 255"
 		# "now_playing green black"
 		# "cpu 240 136"
-		# "load brightblack yellow"
+		"load brightblack 234"
 		"battery 109 0"
 		# "weather brightcyan black"
 		# "earthquake 3 0" # cause error: ".tmux/plugins/tmux-powerline/powerline.sh right not ready"
