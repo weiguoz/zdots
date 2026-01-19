@@ -33,8 +33,9 @@
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     # =========================[ Line #1 ]=========================
     os_icon                 # os identifier
-    dir                   # current directory
+    dir                     # current directory
     vcs                     # git status
+    upstream_remote         # prompt_upstream_remote()
     # =========================[ Line #2 ]=========================
     newline                 # \n
     prompt_char             # prompt symbol
@@ -1605,3 +1606,15 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
+
+# 显示当前分支 upstream 的 remote 名称 (origin). func: upstream_remote
+function prompt_upstream_remote() {
+  local remote=${VCS_STATUS_REMOTE_NAME-}
+  if [[ -z $remote ]]; then # 如果拿不到，就用 git 兜底
+    local u=$(git rev-parse --abbrev-ref --symbolic-full-name @{u} 2>/dev/null) || return
+    remote=${u%%/*}
+  fi
+
+  [[ -n $remote ]] || return
+  p10k segment -b 238 -f 213 -i '⇅' -t "$remote"
+}
