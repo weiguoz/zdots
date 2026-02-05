@@ -42,6 +42,12 @@ fpath+=/opt/homebrew/share/zsh/site-functions # 补全脚本，否则 bat 等的
 autoload -Uz compinit
 compinit -C
 
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(${HOME}/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
+
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
 # set list-colors to enable filename colorizing
