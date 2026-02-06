@@ -102,7 +102,7 @@ case $THEME in
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
         ;;
     starship)
-        eval "$(starship init zsh)"
+        eval "$(/opt/homebrew/bin/starship init zsh)"
         ;;
 esac
 # }}}
