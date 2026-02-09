@@ -15,6 +15,7 @@ return require('lazy').setup(
         { import = 'plugins.lsp' },
         { import = 'plugins.dap' },
         { import = 'plugins.copilot' }, -- ai
+        -- { import = 'plugins.avante' }, -- cursor like ide
         { import = 'plugins.filemanager' },
         { import = 'plugins.luasnip' },
 
@@ -23,7 +24,7 @@ return require('lazy').setup(
 
         -- git plugins
         { 'tpope/vim-fugitive' },
-        { import = 'plugins.gitsigns' },
+        { import = 'plugins.gitool' },
 
         { import = 'plugins.highlighter' },
         { import = 'plugins.bookmarks' },
