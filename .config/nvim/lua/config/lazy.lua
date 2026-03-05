@@ -17,7 +17,7 @@ return require('lazy').setup(
         { import = 'plugins.copilot' }, -- ai
         -- { import = 'plugins.avante' }, -- cursor like ide
         { import = 'plugins.filemanager' },
-        { import = 'plugins.luasnip' },
+        { import = 'plugins.snippets' },
 
         -- such as: AsyncRun tmux send-keys -t2 \'go test\' enter
         { import = 'plugins.asyncrun' },
@@ -33,7 +33,8 @@ return require('lazy').setup(
         { 'christoomey/vim-tmux-navigator' },
         { 'simnalamburt/vim-mundo' },
 
-        { import = 'plugins.sider' },
+        { import = 'plugins.sidebar' },
+        { import = 'plugins.scrollview' },
         { import = 'plugins.autopairs' },
         { 'farmergreg/vim-lastplace' },   -- intelligently reopens files at your last edit position
         { import = 'plugins.mini-nvim' }, -- icons & indenetation
