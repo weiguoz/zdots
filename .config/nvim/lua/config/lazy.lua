@@ -9,7 +9,7 @@ return require('lazy').setup(
         { import = 'plugins.statusbar' },
         { import = 'plugins.cursor' },
         { import = 'plugins.whichkey' },
-        { import = 'plugins.dropbar' },
+        -- { import = 'plugins.dropbar' },
 
         { import = 'plugins.cmp' },
         { import = 'plugins.lsp' },
@@ -33,7 +33,7 @@ return require('lazy').setup(
         { 'christoomey/vim-tmux-navigator' },
         { 'simnalamburt/vim-mundo' },
 
-        { import = 'plugins.sidebar' },
+        { import = 'plugins.neo-tree' },
         { import = 'plugins.scrollview' },
         { import = 'plugins.autopairs' },
         { 'farmergreg/vim-lastplace' },   -- intelligently reopens files at your last edit position

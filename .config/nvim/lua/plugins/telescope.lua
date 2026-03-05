@@ -39,7 +39,7 @@ return {
             },
         }
 
-        vim.keymap.set("n", "<leader>l", function()
+        vim.keymap.set("n", "<leader>k", function()
             tlsc.extensions.luasnip.luasnip()
         end, { desc = "Snippets" })
 
@@ -66,9 +66,8 @@ return {
         -- grep end
 
         vim.keymap.set('n', '<leader>f', '<cmd>Telescope find_files<cr>', opt)
-        vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>', opt)
-        vim.keymap.set('n', '<leader>t', '<cmd>Telescope telescope-tabs list_tabs<cr>', opt) -- with the help of plugin `telescope-tabs`
-
+        -- vim.keymap.set('n', '<leader>b', '<cmd>Telescope buffers<cr>', opt)
+        -- vim.keymap.set('n', '<leader>t', '<cmd>Telescope telescope-tabs list_tabs<cr>', opt) -- with the help of plugin `telescope-tabs`
         vim.keymap.set("n", "<leader>v", function()
             vim.fn.feedkeys(":Telescope lsp_document_symbols symbols=function,method,variable", "nt")
         end, { desc = "Telescope: list symbols in the buffers" })
