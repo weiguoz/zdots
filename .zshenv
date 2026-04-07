@@ -19,4 +19,4 @@ setopt autocd
 
 # specify the ruby version https://github.com/rbenv/rbenv/issues/939#issuecomment-253940228
 # eval "$(rbenv init -)"
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
