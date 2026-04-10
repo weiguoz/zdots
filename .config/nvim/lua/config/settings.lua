@@ -148,3 +148,34 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
     end,
 })
+
+local ts_filetypes = {
+  lua = true,
+  go = true,
+  c = true,
+  cpp = true,
+  java = true,
+  python = true,
+  sh = true,
+  bash = true,
+  sql = true,
+  thrift = true,
+  json = true,
+  jsonnet = true,
+  yaml = true,
+  toml = true,
+  tmux = true,
+  rust = true,
+  javascript = true,
+  typescript = true,
+  html = true,
+}
+
+vim.api.nvim_create_autocmd("FileType", {
+  callback = function(args)
+    local ft = vim.bo[args.buf].filetype
+    if ts_filetypes[ft] then
+      pcall(vim.treesitter.start, args.buf)
+    end
+  end,
+})

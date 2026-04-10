@@ -86,7 +86,7 @@ return {
             on_attach = common_attach,
             -- force clangd to use utf-16 encoding(default is utf-8)
             -- check if all client has the same encoding:
-            cmd = { "/opt/homebrew/opt/llvm/bin/clangd", "--background-index" },
+            cmd = { "clangd", "--background-index" },
             -- I'm going to use clangd on the remote server, but it's not working now.
             -- Remote lsp server and remote files, locally neovim toolkits.
             --

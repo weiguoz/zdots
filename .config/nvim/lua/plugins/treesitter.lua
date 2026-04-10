@@ -1,34 +1,38 @@
 return {
   {
+    -- brew install tree-sitter-cli
     "nvim-treesitter/nvim-treesitter",
-    branch = "master",
-    build = ":TSUpdate",
+    branch = "main",
     lazy = false,
+    build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = {
-          "lua", "go", "c", "cpp", "java", "python", "bash",
-          "sql", "thrift", "json", "jsonnet", "yaml", "toml",
-          "tmux", "rust", "javascript", "typescript", "html",
-        },
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-        },
-        indent = { enable = true },
+      require("nvim-treesitter").install({
+        "lua", "go", "c", "cpp", "java", "python", "bash",
+        "thrift", "json", "jsonnet", "yaml", "toml", "markdown",
+        "tmux", "rust", "javascript", "typescript", "html",
       })
     end,
   },
 
   {
     "nvim-treesitter/nvim-treesitter-context",
-    lazy = false,
-    config = function()
-      require("treesitter-context").setup({ max_lines = 4 })
-
-      vim.keymap.set("n", "[k", function()
-        require("treesitter-context").go_to_context(vim.v.count1)
-      end, { silent = true, desc = "treesitter-context: up" })
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    event = "BufReadPost",
+    opts = {
+      max_lines = 4,
+    },
+    keys = {
+      {
+        "[c",
+        function()
+          require("treesitter-context").go_to_context(vim.v.count1)
+        end,
+        silent = true,
+        desc = "treesitter-context: up",
+      },
+    },
+    config = function(_, opts)
+      require("treesitter-context").setup(opts)
 
       vim.api.nvim_set_hl(0, "TreesitterContextLineNumber", {
         bg = "#ff99ff",
