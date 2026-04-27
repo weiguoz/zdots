@@ -19,7 +19,7 @@ cfg.colors = {
 cfg.default_cursor_style = "BlinkingBlock" -- [Steady, Blinking]*[Block, Underline, Bar]
 cfg.cursor_blink_rate = 1000
 
-cfg.font = wezterm.font("Maple Mono NF")
+cfg.font = wezterm.font("Maple Mono")
 cfg.font_size = 16
 
 
