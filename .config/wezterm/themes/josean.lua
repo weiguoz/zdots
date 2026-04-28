@@ -16,11 +16,18 @@ cfg.colors = {
     brights = { "#999", "#E52E2E", "#44FFB1", "#FFE073", "#A277FF", "#a277ff", "#24EAF7", "#24EAF7" },
 }
 
+-- cursor
 cfg.default_cursor_style = "BlinkingBlock" -- [Steady, Blinking]*[Block, Underline, Bar]
 cfg.cursor_blink_rate = 1000
 
-cfg.font = wezterm.font("Maple Mono")
+-- font
+cfg.font = wezterm.font_with_fallback({
+    "Maple Mono NF CN",
+    "JetBrains Mono",
+})
 cfg.font_size = 16
+cfg.line_height = 1.08
+cfg.harfbuzz_features = { "calt=1", "clig=1", "liga=1", }
 
 
 -- cfg.enable_tab_bar = false

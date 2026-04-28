@@ -110,7 +110,7 @@ Then, we could use `fzf` command inside the `ranger` by `:fzf_fd`. In addition, 
 
 I like: font-maple
 
-[nerdfonts/downloads](https://www.nerdfonts.com/font-downloads) `brew install font-hack-nerd-font`
+[nerdfonts/downloads](https://www.nerdfonts.com/font-downloads) `brew install --cask font-maple-mono-nf-cn` (注意 --cask 和 直接 `brew install` 安装，字体名字略不同)。或想支持更多字体，可 `brew install --cask font-hack-nerd-font`
 
 ## tmux
 

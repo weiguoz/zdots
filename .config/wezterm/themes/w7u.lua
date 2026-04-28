@@ -3,7 +3,7 @@ local wezterm = require 'wezterm'
 return {
     color_scheme = "Snazzy (Gogh)", -- Dracula Rapture "Snazzy (Gogh)" synthwave-everything
 
-    font = wezterm.font("Maple Mono"),
+    font = wezterm.font("Maple Mono NF CN"),
     font_size = 16,
 
     colors = { cursor_fg = "#011423", cursor_bg = "#47FF9C" },

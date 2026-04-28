@@ -1,23 +1,106 @@
-# 1. brew install --cask ghostty
-# 2. cc from https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
+# ============================================================
+# Ghostty config
+# macOS + tmux-first setup
+# Install:
+#   brew install --cask ghostty
+#
+# Config path:
+#   ~/.config/ghostty/config
 
-# theme: "rebecca" "Rapture" "Horizon" "Dracula" "Banana BlueBerry" "snazzy soft"
-# -- NOTE: the "dark:rose-pine-dawn,light:rose-pine" format makes the tab display appear to behave strangely single configuration is good
+
+# ------------------------------------------------------------
+# Theme
+# ------------------------------------------------------------
+# Good built-in / community themes you mentioned:
+#   "rebecca"
+#   "Rapture"
+#   "Horizon"
+#   "Dracula"
+#   "Banana BlueBerry"
+#   "snazzy soft"
+#
+# NOTE:
+# Avoid using:
+#   theme = dark:rose-pine-dawn,light:rose-pine
+# with macOS titlebar/tab styles, because light/dark theme mapping
+# can make tab/titlebar display behave strangely.
+#
+# Single theme is more stable.
 theme = "Dracula"
 
-# keybind
-# keybind = ctrl+z=close_surface
-# keybind = ctrl+d=new_split:right
 
-# fonts
+# ------------------------------------------------------------
+# Font
+# ------------------------------------------------------------
+# If you already installed Maple Mono NF CN, prefer this:
+font-family = "JetBrains Mono"
+# Fallbacks
+font-family = "Maple Mono NF CN"
 font-family = "Maple Mono"
-font-size = 15
 
-# cursor
-cursor-color = D20F39
+# Similar to WezTerm:
+#   harfbuzz_features = { "calt=1", "clig=1", "liga=1" }
+font-feature = calt
+font-feature = clig
+font-feature = liga
+
+font-size = 16
+# Ghostty does not have exact line_height.
+# This is the closest practical equivalent.
+adjust-cell-height = 8%
+
+
+# ------------------------------------------------------------
+# Cursor
+# ------------------------------------------------------------
+cursor-style = block
+cursor-style-blink = true
+
+# From your sample
+cursor-color = #D20F39
+
+# Cursor thickness adjustment
 adjust-cursor-thickness = 1
 
-# window
-window-height=45
-window-width=135
-macos-titlebar-style = tabs
+
+# ------------------------------------------------------------
+# Window
+# ------------------------------------------------------------
+# Equivalent-ish to WezTerm:
+#   cfg.window_decorations = "RESIZE"
+#
+# This hides the macOS titlebar while keeping native window frame,
+# resize behavior, rounded corners, etc.
+macos-titlebar-style = hidden 
+window-height = 45
+window-width = 135
+window-show-tab-bar = never
+window-padding-x = 0
+window-padding-y = 0
+window-padding-balance = false
+
+
+# ------------------------------------------------------------
+# Transparency / Blur
+# ------------------------------------------------------------
+# Similar to WezTerm:
+#   cfg.window_background_opacity = 0.9
+#   cfg.macos_window_background_blur = 10
+#
+# NOTE:
+# Transparency + blur can slightly distort terminal colors because
+# macOS composites the terminal background with the desktop behind it.
+background-opacity = 0.9
+background-blur = 10
+
+
+# ------------------------------------------------------------
+# Keybind examples
+# ------------------------------------------------------------
+# Uncomment if you want them.
+#
+# Close current surface:
+# keybind = ctrl+z=close_surface
+#
+# New split to the right:
+# keybind = ctrl+d=new_split:right
