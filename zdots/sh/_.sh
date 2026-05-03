@@ -19,6 +19,7 @@ import "${DOTS}/sh/search_on_terminal.sh"
 import "${DOTS}/sh/alias.sh"
 import "${DOTS}/sh/fzf.sh"
 import "${DOTS}/sh/proxy.sh"
+import "$HOME/.local/bin/env" # Hermes Agent
 
 
 export HISTFILE=~/.zsh_history
