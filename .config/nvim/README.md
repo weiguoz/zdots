@@ -26,7 +26,7 @@ ln -s ~/zdots/dotvim/coc-settings.json ~/.vim/
 
 #### 补全 coc
 
-YCM在随着Mac系统更新时，出的问题太多了，放弃使用并转向`coc.nvim`。使用`coc`时，需要:
+YCM在随着Mac系统更新时，出的问题太多了，放弃使用并转向`coc.nvim`。使用`coc`时，需要:    
 1. 按[quick-start](https://github.com/neoclide/coc.nvim#quick-start)进行安装
 1. 安装一些补全扩展（对，是coc扩展），如：`:CocInstall coc-json coc-pyright coc-snippets`
     1. Python. 安装了一个`coc-pyright`, 正在试用
