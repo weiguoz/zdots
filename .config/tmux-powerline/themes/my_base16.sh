@@ -143,6 +143,7 @@ if [ -z "$TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS" ]; then
 		# "cpu 240 136"
 		# "load brightblack 234"
 		"battery 109 0"
+		"wan_ip brightblue black"
 		# "weather brightcyan black"
 		# "earthquake 3 0" # cause error: ".tmux/plugins/tmux-powerline/powerline.sh right not ready"
 		# "xkb_layout 125 117"

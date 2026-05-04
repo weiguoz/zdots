@@ -16,7 +16,7 @@ cursor-style-blink = true
 cursor-color = #D20F39
 adjust-cursor-thickness = 1
 
-macos-titlebar-style = transparent
+macos-titlebar-style = tabs
 window-show-tab-bar = never
 
 window-height = 45

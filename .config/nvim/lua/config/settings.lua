@@ -109,13 +109,21 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
-vim.api.nvim_create_autocmd("BufWinEnter", {
-    pattern = "*",
-    callback = function()
-        vim.fn.matchadd("extraWhitespace", [[\s\+$\| \+\ze\t\+\|\t\+\zs \+]])
-    end,
-})
-vim.api.nvim_set_hl(0, "extraWhitespace", { ctermbg = "red" })
+-- Show invisible characters
+vim.opt.list = true
+vim.opt.listchars = {
+  trail = "·",
+  tab = "» ",
+  nbsp = "␣",
+}
+-- vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {
+--   callback = function()
+--     vim.cmd [[
+--       highlight ExtraWhitespace ctermbg=red guibg=#D20F39
+--       match ExtraWhitespace /\s\+$/
+--     ]]
+--   end,
+-- })
 
 -- undo
 local function init_undo(undo_dir)
