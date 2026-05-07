@@ -1,25 +1,7 @@
-# https://www.reddit.com/r/zsh/comments/qinb6j/httpsgithubcomzdharma_has_suddenly_disappeared_i/
-#
-# Added by Zinit's installer
-#
-# How to install: https://github.com/zdharma-continuum/zinit#manual-installation
-#
-## Copied from:
-## https://zhuanlan.zhihu.com/p/98450570
-## refers to
-## https://github.com/Aloxaf/dotfiles/blob/master/zsh/.config/zsh/zshrc.zsh
-# {{{ HISTORY settings. 放在 .zshenv 中不生效，不知在哪里被覆盖了。
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-export HISTFILE=~/.zsh_history
-export SAVEHIST=20000 # save history after logout
-export HISTSIZE=40000 # set history size
-# setopt SHARE_HISTORY
-setopt INC_APPEND_HISTORY
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt EXTENDED_HISTORY #add timestamp for each entry
-# }}}
+# ~/.zshrc
+
+[[ -o interactive ]] || return
+source "$DOTS/sh/_.sh"
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit"
 skip_global_compinit="1"
@@ -38,14 +20,16 @@ zinit wait lucid for \
     atinit"zicompinit; zicdreplay" \
     atpull'zinit creinstall -q .' zsh-users/zsh-completions
 
-fpath+=/opt/homebrew/share/zsh/site-functions # 补全脚本，否则 bat 等的 tab 不 work
+# 补全脚本，否则 bat 等的 tab 不 work
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(
+  "$HOME/.docker/completions"
+  $HOMEBREW_PREFIX/share/zsh/site-functions
+  $fpath
+)
+
 autoload -Uz compinit
 compinit -C
-
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(${HOME}/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
 # End of Docker CLI completions
 
 # disable sort when completing `git checkout`
@@ -102,12 +86,16 @@ case $THEME in
         [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
         ;;
     starship)
-        eval "$(/opt/homebrew/bin/starship init zsh)"
+        if command -v starship >/dev/null 2>&1; then
+          eval "$(starship init zsh)"
+        fi
         ;;
 esac
 # }}}
 
-source ${HOME}/zdots/sh/exports.sh
 # automatic added by vim plugin fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-[[ -o interactive ]] && eval "$(zoxide init zsh)" # brew install zoxide
+
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi

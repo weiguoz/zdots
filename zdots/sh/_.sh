@@ -1,39 +1,39 @@
-#!/bin/bash
+# Main interactive zsh entrypoint.
 
-import() {
-    local file="$1"
-    if [ -n "$file" ] && [ -f "$file" ]; then
-        # shellcheck source="$file"
-        source "$file"
-    fi
+[[ -o interactive ]] || return
+
+: "${DOTS:=$HOME/zdots}" # defined in .zshenv
+
+limit coredumpsize 0 2>/dev/null || true
+setopt auto_list
+setopt auto_menu
+setopt autocd
+
+_import() {
+  local file="$1"
+  [[ -n "$file" && -f "$file" ]] && source "$file"
 }
 
+# 1. Base helpers first.
+_import "$DOTS/sh/functions.sh"
 
-import "${HOME}/Documents/secrets/sh/_.sh"
+# 2. Environment, PATH, and runtimes.
+_import "$DOTS/sh/init_env.sh"
+_import "$DOTS/sh/runtime.sh"
 
-DOTS="${HOME}/zdots"
-# import "${DOTS}/sh/exports.sh" # placed in ~/.zshrc
-import "${DOTS}/sh/keybinding.sh"
-import "${DOTS}/sh/init.sh"
-import "${DOTS}/sh/search_on_terminal.sh"
-import "${DOTS}/sh/alias.sh"
-import "${DOTS}/sh/fzf.sh"
-import "${DOTS}/sh/proxy.sh"
-import "$HOME/.local/bin/env" # Hermes Agent
+# 3. Shell behavior.
+_import "$DOTS/sh/history.sh"
+_import "$DOTS/sh/keybinding.sh"
+_import "$DOTS/sh/search_on_terminal.sh"
 
+# 4. Aliases and command integrations.
+_import "$DOTS/sh/alias.sh"
+_import "$DOTS/sh/fzf.sh"
+_import "$DOTS/sh/enhancd.sh"
+_import "$DOTS/sh/proxy.sh"
 
-export HISTFILE=~/.zsh_history
-export HISTSIZE=100080 # set history size
-export SAVEHIST=100060 # save history after logout
-setopt share_history
-setopt INC_APPEND_HISTORY
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_IGNORE_SPACE
-setopt EXTENDED_HISTORY #add timestamp for each entry
+# 5. Local/private files.
+_import "$HOME/Documents/secrets/sh/_.sh"
+_import "$HOME/.local/bin/env"
 
-# import /Library/Developer/CommandLineTools/usr/share/git-core/git-prompt.sh
-# export PS1='${ret_status}%{$fg_bold[green]%}%p %{$fg[cyan]%}%~ %{$fg_bold[blue]%}$(git_prompt_info)%{$fg_bold[blue]%} % %{$reset_color%}'
-# uptime
-# dig +short myip.opendns.com @resolver1.opendns.com
-# unset DOTS
+unset -f _import

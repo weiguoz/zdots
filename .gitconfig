@@ -46,3 +46,5 @@
 # [rerere]
 #     enabled = 1
 #     autoupdate = true
+[safe]
+    directory = /opt/homebrew
