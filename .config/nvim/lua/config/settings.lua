@@ -113,7 +113,7 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.opt.list = true
 vim.opt.listchars = {
   trail = "·",
-  tab = "» ",
+  tab = "  ", -- "» ",
   nbsp = "␣",
 }
 -- vim.api.nvim_create_autocmd({ "BufEnter", "WinEnter" }, {

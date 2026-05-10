@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 
 return {
-    color_scheme = "Snazzy (Gogh)", -- Dracula Rapture "Snazzy (Gogh)" synthwave-everything
+    color_scheme = "arcoiris",
 
     font = wezterm.font("Maple Mono NF CN"),
     font_size = 16,
@@ -10,14 +10,17 @@ return {
     default_cursor_style = "BlinkingBlock", -- [Steady, Blinking]*[Block, Underline, Bar]
     cursor_blink_rate = 1500,
 
-    -- background = {
-    --     {
-    --         -- https://alphacoders.com/nebula-wallpapers
-    --         source = { File = wezterm.home_dir .. "/Pictures/terminal_bg.jpg" },
-    --         opacity = 0.9,
-    --         attachment = "Fixed",
-    --     },
-    -- },
+    background = {
+        {
+            -- https://alphacoders.com/nebula-wallpapers
+            source = { File = wezterm.home_dir .. "/Pictures/terminal_bg/1.png" },
+            opacity = 0.9,
+            hsb = { brightness = 0.03, hue = 1.0, saturation = 1.0 },
+            attachment = "Fixed",
+            repeat_x = "NoRepeat",
+            repeat_y = "NoRepeat",
+        },
+    },
 
     initial_rows = 45,
     initial_cols = 135,
