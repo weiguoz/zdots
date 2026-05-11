@@ -83,3 +83,40 @@ _my_fzf_rg() {
     IFS=':' read -r fn le _ <<<"$selected"
     [ -f "$fn" ] && vim "$fn" "+$le"
 }
+
+# fzf official zsh integration: Ctrl-R history search
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+
+  export FZF_DEFAULT_OPTS="
+    --height=45%
+    --layout=reverse
+    --border=rounded
+    --margin=1
+    --padding=1
+    --info=inline
+    --prompt='❯ '
+    --pointer='▶'
+    --marker='✓'
+    --separator='─'
+    --scrollbar='│'
+    --bind='ctrl-u:preview-page-up,ctrl-d:preview-page-down'
+    --color=fg:#d0d0d0,bg:#1e1e2e,hl:#f9e2af
+    --color=fg+:#ffffff,bg+:#313244,hl+:#fab387
+    --color=info:#89b4fa,prompt:#f38ba8,pointer:#f5c2e7
+    --color=marker:#a6e3a1,spinner:#f9e2af,header:#94e2d5
+    --color=border:#89b4fa,separator:#45475a,scrollbar:#585b70
+  "
+
+  export FZF_CTRL_R_OPTS="
+    --height=55%
+    --border-label=' History '
+    --prompt='Match ❯ '
+    --preview='echo {}'
+    --preview-window=down:4:wrap
+    --bind='ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+    --header='CTRL-R: search history | ENTER: use | CTRL-Y: copy command'
+  "
+
+  bindkey '^R' fzf-history-widget
+fi
