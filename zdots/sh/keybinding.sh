@@ -49,3 +49,9 @@ function _my_fzf_rg_widget() {
 }
 zle -N _my_fzf_rg_widget
 bindkey '^o' _my_fzf_rg_widget
+
+# fzf official zsh integration: history
+if command -v fzf >/dev/null 2>&1; then
+  source <(fzf --zsh)
+  bindkey '^R' fzf-history-widget
+fi
