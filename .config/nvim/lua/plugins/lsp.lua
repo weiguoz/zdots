@@ -112,6 +112,6 @@ return {
         vim.lsp.enable("lua_ls")
         vim.lsp.enable("rust_analyzer")
         vim.lsp.enable("bashls")
-        vim.lsp.enable("ts_ls")
+        vim.lsp.enable("ts_ls") --  a.k.a typescript-language-server
     end
 }
