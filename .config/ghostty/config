@@ -26,5 +26,11 @@ window-padding-y = 0
 window-padding-balance = false
 
 background = #111111
-background-opacity = 0.9
+background-opacity = 0.96
 background-blur = 10
+
+background-image = "images/bg.png"
+background-image-opacity = 0.25
+background-image-fit = cover
+background-image-position = center-left
+background-image-repeat = false

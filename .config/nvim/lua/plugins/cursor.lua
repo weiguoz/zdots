@@ -22,7 +22,7 @@ return {
             particle_spread = 1,
             particles_per_second = 300,
             particles_per_length = 20,
-            particle_max_lifetime = 500,
+            particle_max_lifetime = 400,
             particle_max_initial_velocity = 15,
             particle_velocity_from_cursor = 0.4,
             particle_gravity = -20,

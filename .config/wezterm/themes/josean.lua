@@ -17,7 +17,7 @@ cfg.colors = {
 }
 
 -- cursor
-cfg.default_cursor_style = "BlinkingBlock" -- [Steady, Blinking]*[Block, Underline, Bar]
+cfg.default_cursor_style = "BlinkingUnderline" -- [Steady, Blinking]*[Block, Underline, Bar]
 cfg.cursor_blink_rate = 1000
 
 -- font

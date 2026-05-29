@@ -32,6 +32,7 @@
 !.config/bat/
 !.config/bat/config
 !.config/ghostty/
+!.config/ghostty/images/
 !.config/ghostty/config
 !.config/wezterm/
 !.config/wezterm/*.lua
