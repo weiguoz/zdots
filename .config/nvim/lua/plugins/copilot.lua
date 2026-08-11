@@ -24,10 +24,7 @@ return {
         branch = "main",
         dependencies = { "nvim-lua/plenary.nvim" },
         build = "make tiktoken",
-        opts = {
-            model = "gpt-4.1",
-            temperature = 0.1,
-        },
+        opts = {},
         keys = {
             { "<leader>c", ":CopilotChat<SPACE>", desc = "CopilotChat Prompt" }
             -- 如果打开对话面边，则可以用 c-s 整段提交等待回答

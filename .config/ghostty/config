@@ -11,7 +11,7 @@ font-feature = liga
 font-size = 16
 adjust-cell-height = 8%
 
-cursor-style = block
+cursor-style = bar
 cursor-style-blink = true
 cursor-color = #D20F39
 adjust-cursor-thickness = 1

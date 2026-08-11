@@ -9,7 +9,7 @@ return {
       require("nvim-treesitter").install({
         "lua", "go", "c", "cpp", "java", "python", "bash",
         "thrift", "json", "jsonnet", "yaml", "toml", "markdown",
-        "tmux", "rust", "javascript", "typescript", "html",
+        "rust", "javascript", "typescript", "html",
       })
     end,
   },

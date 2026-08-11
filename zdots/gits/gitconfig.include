@@ -12,7 +12,7 @@
     del = branch -D
     info = config --list
     lo = fuzzy log
-    ll = log --graph --all --topo-order --decorate --date=short --oneline --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]"
+    ll = log --graph --topo-order --decorate --date=short --oneline --pretty=format:"%C(yellow)%h\\ %C(green)%ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]"
     logf = log --stat --follow -p -M
     push0 = !git push -u origin $(git rev-parse --abbrev-ref HEAD)
     pushf = push --force-with-lease
