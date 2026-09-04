@@ -8,7 +8,7 @@
     clear = clean -dfx
     co = checkout
     # dif0 = "!f(){ git diff --name-only --relative --diff-filter=d | xargs bat --diff; };f"
-    di = fuzzy diff
+    di = !git fuzzy diff @{u} "$@"
     del = branch -D
     info = config --list
     lo = fuzzy log
