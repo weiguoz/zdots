@@ -7,8 +7,8 @@ wezterm.on('gui-startup', function(cmd)
     local screen = wezterm.gui.screens().main
     local dims = gui_window:get_dimensions()
 
-    local x = screen.x + (screen.width - dims.pixel_width)*13/21
-    local y = screen.y + (screen.height - dims.pixel_height)*13/21
+    local x = screen.x + (screen.width - dims.pixel_width)*15/21
+    local y = screen.y + (screen.height - dims.pixel_height)*15/21
 
     gui_window:set_position(x, y)
 end)

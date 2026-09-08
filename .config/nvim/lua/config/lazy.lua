@@ -11,7 +11,8 @@ return require('lazy').setup(
         { import = 'plugins.whichkey' },
         -- { import = 'plugins.dropbar' },
 
-        { import = 'plugins.cmp' },
+        { import = 'plugins.cmp' }, 
+        -- { import = 'plugins.blink' },
         { import = 'plugins.lsp' },
         { import = 'plugins.dap' },
         { import = 'plugins.copilot' }, -- ai
@@ -26,6 +27,7 @@ return require('lazy').setup(
         { 'tpope/vim-fugitive' },
         { import = 'plugins.gitool' },
 
+        -- enhancement
         { import = 'plugins.highlighter' },
         { import = 'plugins.bookmarks' },
         { 'tpope/vim-commentary' },

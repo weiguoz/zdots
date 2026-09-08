@@ -22,8 +22,12 @@ zinit wait lucid for \
 
 # 补全脚本，否则 bat 等的 tab 不 work
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
+#
+# 添加补全：
+#   - 有些软件官方自带补全脚本，把 completion 放在 site-functions (实际上是软链接）
+#   - 然而有些需手动执行，把补全脚本放在 site-functions。如: hermes docker opencode gitee，
+#      执行：`x=opencode && ${x} completion zsh > $HOMEBREW_PREFIX/share/zsh/site-functions/_${x}`
 fpath=(
-  "$HOME/.docker/completions"
   $HOMEBREW_PREFIX/share/zsh/site-functions
   $fpath
 )
