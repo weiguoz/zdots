@@ -11,6 +11,7 @@ return {
                 mark = { icon = "󰃁" } -- 📌
             },
             backup = { enable = false },
+            picker = { picker_backend = "telescope" }, -- 将默认的 "snacks" 改为 "telescope"
         })
 
         -- migrated from keymaps.lua vim.keymap.set({ "n", "v" }, "mm", "<cmd>BookmarksMark<cr>", { desc = "Mark current line into active BookmarkList." })

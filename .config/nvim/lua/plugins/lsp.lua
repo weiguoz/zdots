@@ -21,7 +21,7 @@ return {
         vim.keymap.set('n', '<leader>ga', vim.lsp.buf.code_action, merge_table(opts, { desc = "LSP: code action" }))
         vim.keymap.set("n", "<leader>gi", "<cmd>Telescope lsp_implementations<cr>",
         merge_table(opts, { desc = "LSP: implementations" }))
-        vim.keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<cr>",
+        vim.keymap.set("n", "<leader>gr", "<cmd>Telescope lsp_references<cr>", -- 当项目路径有 git 时会失败，所以我通常把 *git* 改为 *g1t* https://github.com/nvim-telescope/telescope.nvim/issues/3437
         merge_table(opts, { desc = "LSP: references" }))
 
         vim.keymap.set('n', 'e', vim.diagnostic.goto_next, opts)
