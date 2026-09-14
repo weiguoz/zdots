@@ -1,7 +1,7 @@
 local term = require("wezterm")
 dofile(term.config_dir .. "/" .. "./position.lua")
 
-local themes = { "./themes/josean.lua", "./themes/w7u.lua" } -- josean, w7u
+local themes = { "./themes/anwu.lua", "./themes/josean.lua", "./themes/anwu.lua", "./themes/w7u.lua" } -- josean, w7u
 
 local day = tonumber(os.date("%d"))
 local selected_theme = themes[(day % #themes) + 1]
