@@ -173,3 +173,73 @@ BEGIN {
 }
 '
 }
+
+
+# lsofx - 按命令行匹配进程，递归收集所有后代，用 lsof 查看它们的资源
+# 用法: lsofx <进程匹配> [lsof 参数...]
+#   lsofx "go run"                     # 全部资源
+#   lsofx "go run" -i                  # 只看网络
+#   lsofx "go run" -iTCP -sTCP:LISTEN  # 只看监听 TCP
+lsofx() {
+  if [ $# -lt 1 ]; then
+    cat <<'USAGE'
+用法: lsofx <进程匹配> [lsof 参数...]
+
+示例:
+  lsofx "go run"
+  lsofx "go run" -i
+  lsofx "go run" -iTCP -sTCP:LISTEN
+  lsofx nginx -iUDP
+USAGE
+    return 1
+  fi
+
+  local pattern=$1
+  shift
+
+  # 递归收集一个 PID 及其所有后代
+  local gather
+  gather() {
+    echo "$1"
+    local c
+    for c in $(pgrep -P "$1" 2>/dev/null); do
+      gather "$c"
+    done
+  }
+
+  # 找根进程，过滤掉自身 / pgrep / lsofx
+  local self=$$ roots="" p args
+  while read -r p; do
+    [ -z "$p" ] && continue
+    [ "$p" = "$self" ] && continue
+    args=$(ps -p "$p" -o args= 2>/dev/null) || continue
+    case "$args" in
+      *lsofx*|*pgrep*) continue ;;
+    esac
+    roots="$roots $p"
+  done < <(pgrep -f "$pattern" 2>/dev/null)
+
+  roots=$(echo $roots | tr ' ' '\n' | sort -un)
+
+  if [ -z "$roots" ]; then
+    echo "lsofx: 没有匹配 '$pattern' 的进程" >&2
+    return 1
+  fi
+
+  # 收集所有 PID（含后代），拼成逗号列表
+  local pids
+  pids=$(
+    local r
+    for r in $roots; do
+      gather "$r"
+    done | sort -un | paste -sd, -
+  )
+
+  # 进程树打到 stderr，便于对照
+  echo "lsofx: 匹配到的进程树 (PID PPID ARGS):" >&2
+  ps -o pid,ppid,args -p "$pids" 2>/dev/null >&2
+  echo >&2
+
+  # 调用 lsof
+  sudo lsof -nP -a -p "$pids" "$@"
+}

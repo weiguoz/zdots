@@ -141,5 +141,5 @@ return {
             vim.g.aurora_transparent = 1
             vim.g.aurora_bold = 1
         end,
-    }
+    },
 }
