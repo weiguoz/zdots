@@ -33,6 +33,7 @@ Let's remove lagged ohmyzsh and turn to zinit.
     1. Set nvim as the default editor in: .config/ranger/rifle.conf
     1. [ranger+fzf](https://github.com/ranger/ranger/wiki/Custom-Commands#fzf-integration) - Add the following code to `commands.py`
 1. [enhancd](https://github.com/b4b4r07/enhancd) - A next-generation cd command with an interactive filter 
+1. [input-source-pro](https://inputsource.pro/zh-CN) 输入法增强工具 `brew install --cask input-source-pro`
 
 ## terminal
 
