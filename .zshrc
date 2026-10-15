@@ -25,8 +25,9 @@ zinit wait lucid for \
 #
 # 添加补全：
 #   - 有些软件官方自带补全脚本，把 completion 放在 site-functions (实际上是软链接）
-#   - 然而有些需手动执行，把补全脚本放在 site-functions。如: hermes docker opencode gitee，
-#      执行：`x=opencode && ${x} completion zsh > $HOMEBREW_PREFIX/share/zsh/site-functions/_${x}`
+#   - 然而有些需手动执行，把补全脚本放在 site-functions。如:
+#      - hermes docker opencode gitee， 执行：`x=hermes && ${x} completion zsh > $HOMEBREW_PREFIX/share/zsh/site-functions/_${x}`
+#      - opencode2: opencode --completions zsh > $HOMEBREW_PREFIX/share/zsh/site-functions/_opencode`
 fpath=(
   $HOMEBREW_PREFIX/share/zsh/site-functions
   $fpath
