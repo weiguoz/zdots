@@ -33,7 +33,7 @@ _import "$DOTS/sh/enhancd.sh"
 _import "$DOTS/sh/proxy.sh"
 
 # 5. Local/private files.
-_import "$HOME/Documents/secrets/sh/_.sh"
+# _import "$HOME/Documents/secrets/sh/_.sh"
 _import "$HOME/.local/bin/env"
 
 unset -f _import

@@ -1,17 +1,10 @@
-local wezterm = require 'wezterm'
-
-local function scheme_for_appearance(appearance)
-  if appearance:find "Dark" then
-    return "Catppuccin Mocha"
-  else
-    return "Whimsy"
-  end
-end
+local w = require("wezterm")
+local utils = dofile(w.config_dir .. "/utils.lua")
 
 local config = {
-    color_scheme = scheme_for_appearance(wezterm.gui.get_appearance()),
+    color_scheme = utils.scheme_light_or_dark(w, "Whimsy", "Catppuccin Mocha"),
 
-    font = wezterm.font("Maple Mono NF CN"),
+    font = w.font("Maple Mono NF CN"),
     font_size = 16,
 
     default_cursor_style = "BlinkingBar", -- SteadyBlock, BlinkingBlock, SteadyUnderline, BlinkingUnderline, SteadyBar, and BlinkingBar
