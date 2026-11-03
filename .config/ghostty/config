@@ -31,3 +31,5 @@ background-image-opacity = 0.25
 background-image-fit = cover
 background-image-position = center-left
 background-image-repeat = false
+
+shell-integration-features = ssh-terminfo,ssh-env
