@@ -24,7 +24,6 @@ local config = {
     initial_rows = 45,
     initial_cols = 135,
     window_decorations = "RESIZE",
-    hide_tab_bar_if_only_one_tab = true,
 
     macos_window_background_blur = 10,
 }
