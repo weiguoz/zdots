@@ -3,7 +3,10 @@
 cd "$(brew --repo)" || return
 # echo "[0] git brew" #  git prune, called by git gc
 # git pull origin master --depth 1
-printf "[1] brew update && HOMEBREW_NO_ASK=1 brew upgrade && brew cleanup\n"
+export HOMEBREW_BOTTLE_DOMAIN="https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles"
+export HOMEBREW_API_DOMAIN="${HOMEBREW_BOTTLE_DOMAIN}/api"
+
+printf "[1] brew update(mirror) && HOMEBREW_NO_ASK=1 brew upgrade && brew cleanup\n"
 brew update && HOMEBREW_NO_ASK=1 brew upgrade && brew cleanup
 ret=$?
 if [ ${ret} -ne 0 ]; then
